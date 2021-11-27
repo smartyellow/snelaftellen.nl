@@ -6,6 +6,7 @@ const config = {
 	preprocess: preprocess(),
 
 	kit: {
+		appDir: '_',
 		target: '#svelte',
 		adapter: adapter()
 	}
