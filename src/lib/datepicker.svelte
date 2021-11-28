@@ -22,7 +22,9 @@
 
 <input type="number" bind:value={year} />
 
-<a role="button" href="/aftellen/{year}/{month}/{day}">Aftellen</a>
+<a role="button" href="/aftellen/{year}/{month}/{day}" class="btn">
+	Aftellen
+</a>
 
 <style>
 	input, select {
@@ -32,17 +34,7 @@
 		appearance: none;
 		-webkit-appearance: none;
 		-moz-appearance: none;
-		border: 1px solid #726e38;
+		border: 1px solid var(--accent-light);
 		border-radius: 0;
-	}
-	a {
-		background-color: #726e38;
-		color: #fff;
-		padding: 5px;
-		display: block;
-	}
-	a:hover {
-		background-color: #42401d;
-		text-decoration: none;
 	}
 </style>

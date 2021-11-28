@@ -1,6 +1,11 @@
 <script context="module">
 	/** @type {import('@sveltejs/kit').Load} */
 	export async function load({ page, fetch, session, stuff }) {
+		const bg = page.query.get('bg') || '#ffffff';
+		const fg = page.query.get('fg') || '#000000';
+		const yl = page.query.get('yl') || '#f8f5c3';
+		const title = page.query.get('title') || '';
+
 		const today = new Date();
 		let countTo;
 
@@ -32,8 +37,8 @@
 
 		return {
 			props: {
-				difference,
-				countTo
+				difference, countTo,
+				bg, fg, yl, title
 			}
 		};
 	}
@@ -43,11 +48,18 @@
 	import Countdown from "$lib/countdown.svelte";
 	import { localeOptions } from "$lib/constants";
 	import Meta from "$lib/meta.svelte";
+	import Pimp from "$lib/pimp.svelte";
 
 	export let difference = undefined;
 	export let countTo = undefined;
 
+	export let bg;
+	export let fg;
+	export let yl;
+	export let title;
+
 	const localeDate = countTo.toLocaleString('nl-NL', localeOptions);
+	const displayTitle = (title != '') ? title : localeDate;
 </script>
 
 <Meta
@@ -55,11 +67,14 @@
 	description="Hoe lang moet je nog wachten op {localeDate}? Check het op SnelAftellen.nl! Hier vind je hoe lang je nog moet wachten voor {localeDate}."
 />
 
+<h2>Aftellen naar {displayTitle}</h2>
 <Countdown count={difference} date={countTo} />
+<Pimp {bg} {fg} {yl} {title} />
+
 <slot></slot>
 
 <hr />
 <p>
-	Je moet nog {difference} dagen wachten voor {countTo.toLocaleString('nl-NL', localeOptions)}.
+	Je moet nog {difference} dagen wachten tot {displayTitle}.
 	Fijn dat we je hebben kunnen helpen!
 </p>

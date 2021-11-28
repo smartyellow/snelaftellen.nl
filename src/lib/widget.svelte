@@ -4,9 +4,9 @@
 
 <style>
 	div {
-		background-color: #f8f5c3;
+		background-color: var(--yellow);
 		padding: 1rem;
-		border: 2px dashed #42401d;
+		border: 2px dashed var(--accent-dark);
 	}
 	div :global(:first-child) {
 		margin-top: 0;

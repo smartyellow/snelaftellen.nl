@@ -5,9 +5,14 @@
 		const month = parseInt(page.params.month) || 1;
 		const day = parseInt(page.params.day) || 1;
 
+		const bg = page.query.get('bg');
+		const fg = page.query.get('fg');
+		const yl = page.query.get('yl');
+
 		return {
 			props: {
-				year, month, day
+				year, month, day,
+				bg, fg, yl
 			}
 		}
 	}
@@ -23,27 +28,43 @@
 	export let year;
 	export let month;
 	export let day;
+
+	export let bg;
+	export let fg;
+	export let yl;
+
+	const style = `
+		background-color: ${bg || '#ffffff'};
+		color: ${fg || '#000000'};
+		--yellow: ${yl || '#f8f5c3'};
+	`;
 </script>
 
 <Meta />
-<Header />
 
-<div class="wrapper">
-	<main>
-		<slot></slot>
-	</main>
-	<aside>
-		<Widget>
-			<h2>Aftellen!</h2>
-			<p>Tel af naar je speciale datum!</p>
-			<Datepicker {year} {month} {day} />
-			<p>Als je alleen een maand en een jaar invult, wordt dag 1 van de maand automatisch gekozen.</p>
-			<p>Als je alleen een jaar invult, gaan we uit van 1 januari.</p>
-		</Widget>
-	</aside>
+<div class="page" {style}>
+	<Header />
+
+	<div class="wrapper">
+		<main>
+			<slot></slot>
+		</main>
+		<aside>
+			<Widget>
+				<h2>Aftellen!</h2>
+				<p>Tel af naar je speciale datum!</p>
+				<Datepicker {year} {month} {day} />
+				<p>Als je alleen een maand en een jaar invult, wordt dag 1 van de maand automatisch gekozen.</p>
+				<p>Als je alleen een jaar invult, gaan we uit van 1 januari.</p>
+			</Widget>
+		</aside>
+	</div>
 </div>
 
 <style>
+	.page {
+		min-height: 100vh;
+	}
 	.wrapper {
 		display: flex;
 		flex-direction: row;

@@ -1,0 +1,91 @@
+<script>
+	import { page } from "$app/stores";
+	import { dev } from  "$app/env";
+	import { onMount } from "svelte";
+
+	let open = false;
+	let visible = false;
+
+	export let bg = '#ffffff';
+	export let fg = '#000000';
+	export let yl = '#f8f5c3';
+	export let title = '';
+
+	const protocol = dev ? 'http://' : 'https://'
+
+	$: url = `${protocol}${$page.host}${$page.path}?bg=${encodeURIComponent(bg)}&fg=${encodeURIComponent(fg)}&yl=${encodeURIComponent(yl)}&title=${encodeURIComponent(title)}`;
+
+	function onchange() {
+		window.location.assign(url);
+	}
+
+	onMount(() => {
+		// Check if JS is enabled, then show pimp button.
+		visible = true;
+	});
+</script>
+
+<button on:click={() => {open = !open}} class:visible>
+	<span>TIP!</span>
+	<u>Pimp je kalender</u>
+</button>
+
+{#if open}
+	<fieldset>
+		<legend>Pimp je aftelkalender!</legend>
+		<div class="group">
+			<input type="text" id="title" bind:value={title} on:change={onchange} placeholder="bv. Sinterklaas">
+			<label for="title">Waar tel je naar af?</label>
+		</div>
+		<div class="group">
+			<input type="color" id="bg" bind:value={bg} on:change={onchange}>
+			<label for="bg">Achtergrondkleur</label>
+		</div>
+		<div class="group">
+			<input type="color" id="fg" bind:value={fg} on:change={onchange}>
+			<label for="fg">Tekstkleur</label>
+		</div>
+		<div class="group">
+			<input type="color" id="yl" bind:value={yl} on:change={onchange}>
+			<label for="fg">Gele kaders</label>
+		</div>
+		<hr />
+		<ins class="url">
+			<a href="{url}">{url}</a>
+		</ins>
+		<p>
+			Deel of bookmark deze URL om je gepimpte aftelkalender op te slaan.
+			Klik erop om het resultaat te bekijken! Let op: we slaan je gepimpte
+			kalender niet op; zorg dus dat je de URL goed bewaart als je je
+			aftelkalender naar wens hebt gepimpt.
+		</p>
+	</fieldset>
+{/if}
+
+<style>
+	ins.url {
+		-moz-user-select: all;
+		-webkit-user-select: all;
+		-ms-user-select: all;
+		user-select: all;
+		display: block;
+		border: 2px solid #808080;
+		padding: 5px;
+		background-color: #e2e2e2;
+		text-align: center;
+	}
+	button {
+		text-decoration: none;
+		display: none;
+	}
+	button.visible {
+		display: block;
+	}
+	button span {
+		background-color: red;
+		text-decoration: none;
+		margin-right: 5px;
+		border-radius: 5px;
+		padding: 1px;
+	}
+</style>
