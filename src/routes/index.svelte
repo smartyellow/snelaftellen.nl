@@ -1,26 +1,4 @@
-<script context="module">
-	export async function load({ page, fetch, session, stuff }) {
-		const url = '/api/featuredimage/christmas';
-		const res = await fetch(url);
-
-		if (res.ok) {
-			const json = await res.json();
-			return {
-				props: {
-					featuredImage: json.image
-				}
-			};
-		}
-
-		return {
-			status: res.status,
-			error: new Error(`Could not load ${url}`)
-		};
-	};
-</script>
-
 <script>
-	export let featuredImage;
 	export const prerender = true;
 </script>
 
@@ -52,5 +30,3 @@
 	Terugtellen is ook mogelijk! Vul een datum in het verleden in en je ziet
 	hoeveel dagen geleden het is.
 </p>
-
-<img src={featuredImage} alt="" />
