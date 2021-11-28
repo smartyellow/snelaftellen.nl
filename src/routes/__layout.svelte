@@ -46,6 +46,7 @@
 <style>
 	.wrapper {
 		display: flex;
+		flex-direction: row;
 		padding: 1rem;
 		justify-content: space-between;
 	}
@@ -59,5 +60,10 @@
 	aside {
 		flex: 1 0;
 		padding: 1rem;
+	}
+	@media only screen and (max-width: 750px) {
+		.wrapper {
+			flex-direction: column-reverse;
+		}
 	}
 </style>
