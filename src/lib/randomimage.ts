@@ -1,8 +1,10 @@
 import { readdirSync } from 'fs';
 import { join } from 'path';
+import { dev } from '$app/env';
 
 export function randomImage(theme: string, absolutePath = true): string {
-	const images = readdirSync(join('static/s/img/home', theme));
+	const base = dev ? 'static/s/img/home' : 's/img/home';
+	const images = readdirSync(join(base, theme));
 	const image = images[Math.floor(Math.random() * images.length)];
 
 	if (absolutePath) {
