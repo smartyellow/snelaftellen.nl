@@ -15,7 +15,13 @@
 	Vul een datum in in de box hiernaast (of hieronder). Daarna zie je hoeveel dagen je nog moet wachten tot die datum.
 </p>
 
-<h2>Terugtellen</h2>
+<h3>Pimp je kalender</h3>
+<p>
+	Wil je je aftelkalender een persoonlijke touch geven? Pimp de kleurtjes en
+	geef je afteldatum een naam.
+</p>
+
+<h3>Terugtellen</h3>
 <p>
 	Terugtellen is ook mogelijk! Vul een datum in het verleden in en je ziet
 	hoeveel dagen geleden het is.
