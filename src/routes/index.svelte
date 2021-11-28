@@ -21,6 +21,7 @@
 
 <script>
 	export let featuredImage;
+	export const prerender = true;
 </script>
 
 <h2>Welkom!</h2>
