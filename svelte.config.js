@@ -8,7 +8,8 @@ const config = {
 	kit: {
 		appDir: '_',
 		target: '#svelte',
-		adapter: adapter()
+		adapter: adapter(),
+		router: false
 	}
 };
 
