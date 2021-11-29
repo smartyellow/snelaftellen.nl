@@ -12,6 +12,7 @@
 	Dank je wel!
 </p>
 
+
 <form name="contact" method="post" data-netlify="true" data-netlify-recaptcha="true" action="/contact/dankje/">
 	<input type="hidden" name="form-name" value="contact">
 	<div class="group">
