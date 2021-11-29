@@ -1,6 +1,10 @@
 <script context="module">
+	import Meta from "$lib/meta.svelte";
+
 	export const prerender = true;
 </script>
+
+<Meta />
 
 <h2>Welkom!</h2>
 <p>

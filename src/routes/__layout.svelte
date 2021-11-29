@@ -22,7 +22,6 @@
 	import Datepicker from "$lib/datepicker.svelte";
 	import Header from "$lib/header.svelte";
 	import Widget from "$lib/widget.svelte";
-	import Meta from "$lib/meta.svelte"
 	import "../app.css";
 
 	export let year;
@@ -39,8 +38,6 @@
 		--yellow: ${yl || '#f8f5c3'};
 	`;
 </script>
-
-<Meta />
 
 <div class="page" {style}>
 	<Header />
