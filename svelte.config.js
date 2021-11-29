@@ -9,7 +9,13 @@ const config = {
 		appDir: '_',
 		target: '#svelte',
 		adapter: adapter(),
-		router: false
+		router: false,
+		prerender: {
+			crawl: true,
+			enabled: true,
+			entries: ['*'],
+			onError: 'continue',
+		},
 	}
 };
 
