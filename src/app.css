@@ -60,7 +60,10 @@ fieldset :last-child {
 .group {
 	margin-bottom: 10px;
 }
-.group input {
+.group :first-child {
 	margin-right: 10px;
 	width: 33%;
+}
+.group label {
+	vertical-align: top;
 }
