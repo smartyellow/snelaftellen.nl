@@ -12,7 +12,7 @@
 	Dank je wel!
 </p>
 
-<form name="contact" method="post" data-netlify="true" action="/contact/dankje/">
+<form name="contact" method="post" data-netlify="true" data-netlify-recaptcha="true" action="/contact/dankje/">
 	<input type="hidden" name="form-name" value="contact">
 	<div class="group">
 		<input type="text" name="name" placeholder="bv. Jan" required>
@@ -30,5 +30,6 @@
 		<textarea name="body" rows="10" required placeholder="bv. Ik heb een suggestie voor je en die deel ik graag. Ik stel voor ..."></textarea>
 		<label for="body">Je bericht *</label>
 	</div>
+	<div data-netlify-recaptcha="true"></div>
 	<button type="submit">Verzenden</button>
 </form>
