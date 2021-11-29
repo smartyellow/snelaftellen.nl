@@ -12,7 +12,8 @@
 	Dank je wel!
 </p>
 
-<form name="contact" method="post" netlify action="/contact/dankje/">
+<form name="contact" method="post" data-netlify="true" action="/contact/dankje/">
+	<input type="hidden" name="form-name" value="contact">
 	<div class="group">
 		<input type="text" name="name" placeholder="bv. Jan" required>
 		<label for="name">Je naam *</label>
