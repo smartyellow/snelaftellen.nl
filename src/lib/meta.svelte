@@ -3,7 +3,7 @@
 
 	export let title = 'SnelAftellen.nl: tel af tot je favoriete datum!';
 	export let description = 'Hoe lang nog wachten tot Sinterklaas? Wanneer is Nieuwjaar? Over hoeveel nachten gaan we op vakantie? SnelAftellen.nl is je digitale aftelkalender.';
-	export let image = '/img/social/preview.webp';
+	export let image = '/img/social/preview.jpg';
 	export let path = $page.path;
 </script>
 
