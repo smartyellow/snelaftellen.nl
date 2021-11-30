@@ -34,3 +34,11 @@
 	Terugtellen is ook mogelijk! Vul een datum in het verleden in en je ziet
 	hoeveel dagen geleden het is.
 </p>
+
+<style>
+	@media only screen and (max-width: 750px) {
+		:global(.wrapper) {
+			flex-direction: column-reverse !important;
+		}
+	}
+</style>

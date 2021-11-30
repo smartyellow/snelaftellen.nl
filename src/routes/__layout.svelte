@@ -49,7 +49,7 @@
 		<aside>
 			<Widget>
 				<h2>Aftellen!</h2>
-				<p>Tel af naar je speciale datum!</p>
+				<p>Tel af naar je favoriete datum!</p>
 				<Datepicker {year} {month} {day} />
 				<p>Als je alleen een maand en een jaar invult, wordt dag 1 van de maand automatisch gekozen.</p>
 				<p>Als je alleen een jaar invult, gaan we uit van 1 januari.</p>
@@ -81,7 +81,7 @@
 	}
 	@media only screen and (max-width: 750px) {
 		.wrapper {
-			flex-direction: column-reverse;
+			flex-direction: column;
 		}
 	}
 </style>
