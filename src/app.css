@@ -67,3 +67,20 @@ fieldset :last-child {
 .group label {
 	vertical-align: top;
 }
+input,
+select,
+textarea {
+	border: 1px solid var(--accent-dark);
+	border-radius: 5px;
+	padding: 5px;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	background-color: #ffffff;
+}
+input:focus,
+select:focus,
+textarea:focus {
+	outline: none;
+	box-shadow: 0 0 0 4px rgba(36, 136, 44, 0.5);
+}

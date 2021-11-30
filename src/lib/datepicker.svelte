@@ -29,12 +29,6 @@
 <style>
 	input, select {
 		width: 100%;
-		padding: 5px;
 		margin-bottom: 5px;
-		appearance: none;
-		-webkit-appearance: none;
-		-moz-appearance: none;
-		border: 1px solid var(--accent-light);
-		border-radius: 0;
 	}
 </style>

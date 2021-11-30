@@ -73,6 +73,8 @@
 		padding: 5px;
 		background-color: #e2e2e2;
 		text-align: center;
+		overflow-x: auto;
+		font-family: Arial, sans-serif;
 	}
 	button {
 		text-decoration: none;
