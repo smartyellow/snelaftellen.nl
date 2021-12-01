@@ -39,7 +39,7 @@ button, .btn {
 	background-color: var(--accent-light);
 	color: #fff;
 	padding: 5px;
-	display: block;
+	display: inline-block;
 	border: none;
 	cursor: pointer;
 	font: inherit;

@@ -15,10 +15,6 @@
 
 	$: url = `${protocol}${$page.host}${$page.path}?bg=${encodeURIComponent(bg)}&fg=${encodeURIComponent(fg)}&yl=${encodeURIComponent(yl)}&title=${encodeURIComponent(title)}`;
 
-	function onchange() {
-		window.location.assign(url);
-	}
-
 	onMount(() => {
 		// Check if JS is enabled, then show pimp button.
 		visible = true;
@@ -34,21 +30,24 @@
 	<fieldset>
 		<legend>Pimp je aftelkalender!</legend>
 		<div class="group">
-			<input type="text" id="title" bind:value={title} on:change={onchange} placeholder="bv. Sinterklaas">
+			<input type="text" id="title" bind:value={title} placeholder="bv. Sinterklaas">
 			<label for="title">Waar tel je naar af?</label>
 		</div>
 		<div class="group">
-			<input type="color" id="bg" bind:value={bg} on:change={onchange}>
+			<input type="color" id="bg" bind:value={bg}>
 			<label for="bg">Achtergrondkleur</label>
 		</div>
 		<div class="group">
-			<input type="color" id="fg" bind:value={fg} on:change={onchange}>
+			<input type="color" id="fg" bind:value={fg}>
 			<label for="fg">Tekstkleur</label>
 		</div>
 		<div class="group">
-			<input type="color" id="yl" bind:value={yl} on:change={onchange}>
+			<input type="color" id="yl" bind:value={yl}>
 			<label for="fg">Gele kaders</label>
 		</div>
+		<p>
+			<a href="{url}" class="btn">Laat maar zien!</a>
+		</p>
 		<hr />
 		<ins class="url">
 			<a href="{url}">{url}</a>

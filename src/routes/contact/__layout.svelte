@@ -2,6 +2,6 @@
 	import Meta from "$lib/meta.svelte";
 </script>
 
-<Meta title="SnelAftellen.nl contactformulier" />
+<Meta title="SnelAftellen.nl: Contact" />
 
 <slot></slot>
