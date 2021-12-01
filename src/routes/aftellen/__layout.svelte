@@ -60,6 +60,10 @@
 
 	const localeDate = countTo.toLocaleString('nl-NL', localeOptions);
 	const displayTitle = (title != '') ? title : localeDate;
+
+	function capitalize(string) {
+		return string.charAt(0).toUpperCase() + string.slice(1);
+	}
 </script>
 
 <Meta
@@ -67,7 +71,10 @@
 	description="Hoe lang moet je nog wachten op {localeDate}? Check het op SnelAftellen.nl! Hier vind je hoe lang je nog moet wachten voor {localeDate}."
 />
 
-<h2>Aftellen naar {displayTitle}</h2>
+<h2>
+	{(difference > 0) ? 'Aftellen naar' : 'Optellen naar'}
+	{displayTitle}
+</h2>
 <Countdown count={difference} date={countTo} />
 <Pimp {bg} {fg} {yl} {title} />
 
@@ -75,6 +82,10 @@
 
 <hr />
 <p>
-	Je moet nog {difference} dagen wachten tot {displayTitle}.
+	{
+		(difference > 0)
+		? `Nog ${difference} dagen wachten tot ${displayTitle}.`
+		: `${capitalize(displayTitle)} is inmiddels ${difference * -1} dagen geleden.`
+	}
 	Fijn dat we je hebben kunnen helpen!
 </p>

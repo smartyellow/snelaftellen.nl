@@ -4,13 +4,21 @@
 
 	export let count;
 	export let date;
+
+	const localeDate = date.toLocaleString('nl-NL', localeOptions);
 </script>
 
 <Widget>
 	<div>
+	{#if count > 0}
 		<p>nog</p>
 		<p class="count">{count}</p>
-		<p>dagen tot {date.toLocaleString('nl-NL', localeOptions)}</p>
+		<p>dagen tot {localeDate}</p>
+	{:else}
+		<p>{localeDate} is</p>
+		<p class="count">{count * -1}</p>
+		<p>geleden</p>
+	{/if}
 	</div>
 </Widget>
 
