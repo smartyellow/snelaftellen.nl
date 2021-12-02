@@ -2,7 +2,9 @@
 
 Hoe lang nog wachten tot Sinterklaas? Wanneer is Nieuwjaar? Over hoeveel nachten gaan we op vakantie? SnelAftellen.nl is je digitale aftelkalender.
 
-![Digitale aftelkalender](.github/calendar.png)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/60e268fe-544e-4448-85e7-36a48424cd23/deploy-status)](https://app.netlify.com/sites/snelaftellen/deploys)
+
+[![Digitale aftelkalender](.github/calendar.png)](https://www.snelaftellen.nl)
 
 ## Stack
 
