@@ -4,6 +4,7 @@
 		const bg = page.query.get('bg') || '#ffffff';
 		const fg = page.query.get('fg') || '#000000';
 		const yl = page.query.get('yl') || '#f8f5c3';
+		const img = page.query.get('img') || 'no';
 		const title = page.query.get('title') || '';
 
 		const today = new Date();
@@ -38,7 +39,7 @@
 		return {
 			props: {
 				difference, countTo,
-				bg, fg, yl, title
+				bg, fg, yl, img, title
 			}
 		};
 	}
@@ -56,6 +57,7 @@
 	export let bg;
 	export let fg;
 	export let yl;
+	export let img;
 	export let title;
 
 	const localeDate = countTo.toLocaleString('nl-NL', localeOptions);
@@ -76,7 +78,7 @@
 	{displayTitle}
 </h2>
 <Countdown count={difference} date={countTo} />
-<Pimp {bg} {fg} {yl} {title} />
+<Pimp {bg} {fg} {yl} {title} {img} />
 
 <slot></slot>
 

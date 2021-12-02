@@ -6,14 +6,15 @@
 	let open = false;
 	let visible = false;
 
+	export let title = '';
 	export let bg = '#ffffff';
 	export let fg = '#000000';
 	export let yl = '#f8f5c3';
-	export let title = '';
+	export let img = 'no';
 
 	const protocol = dev ? 'http://' : 'https://'
 
-	$: url = `${protocol}${$page.host}${$page.path}?bg=${encodeURIComponent(bg)}&fg=${encodeURIComponent(fg)}&yl=${encodeURIComponent(yl)}&title=${encodeURIComponent(title)}`;
+	$: url = `${protocol}${$page.host}${$page.path}?bg=${encodeURIComponent(bg)}&fg=${encodeURIComponent(fg)}&yl=${encodeURIComponent(yl)}&title=${encodeURIComponent(title)}&img=${encodeURIComponent(img)}`;
 
 	onMount(() => {
 		// Check if JS is enabled, then show pimp button.
@@ -44,6 +45,19 @@
 		<div class="group">
 			<input type="color" id="yl" bind:value={yl}>
 			<label for="fg">Gele kaders</label>
+		</div>
+		<div class="group">
+			<select id="img" bind:value={img}>
+				<option value="no">Geen plaatje</option>
+				<option value="flags">Vlaggenlijn</option>
+				<option value="pumpkin">Halloween</option>
+				<option value="christmas">Kerstmis</option>
+				<option value="vacation">Vakantie / Strand</option>
+				<option value="inmemoriam">Bloem (in memoriam)</option>
+				<option value="vacation">Ballonnen</option>
+				<option value="presents">Cadeaus</option>
+			</select>
+			<label for="img">Plaatje</label>
 		</div>
 		<p>
 			<a href="{url}" class="btn">Laat maar zien!</a>
@@ -83,10 +97,11 @@
 		display: block;
 	}
 	button span {
-		background-color: red;
+		background-color: #9acd32;
+		color: #000000;
 		text-decoration: none;
 		margin-right: 5px;
 		border-radius: 5px;
-		padding: 1px;
+		padding: 3px;
 	}
 </style>

@@ -6,6 +6,7 @@
 
 <Meta />
 
+<img src="/img/top/flags.webp" alt="Vlaggenlijn" />
 <h2>Welkom!</h2>
 <p>
 	Ga je binnenkort op vakantie?<br>
@@ -23,13 +24,13 @@
 	Vul een datum in in de box hiernaast (of hieronder). Daarna zie je hoeveel dagen je nog moet wachten tot die datum.
 </p>
 
-<h3>Pimp je kalender</h3>
+<h2>Pimp je kalender</h2>
 <p>
-	Wil je je aftelkalender een persoonlijke touch geven? Pimp de kleurtjes en
-	geef je afteldatum een naam.
+	Wil je je aftelkalender een persoonlijke touch geven? Pimp de kleurtjes,
+	selecteer een leuk plaatje en geef je afteldatum een naam.
 </p>
 
-<h3>Terugtellen</h3>
+<h2>Terugtellen</h2>
 <p>
 	Terugtellen is ook mogelijk! Vul een datum in het verleden in en je ziet
 	hoeveel dagen geleden het is.
@@ -39,6 +40,12 @@
 	@media only screen and (max-width: 750px) {
 		:global(.wrapper) {
 			flex-direction: column-reverse !important;
+		}
+		:global(main) {
+			padding-top: 0 !important;
+		}
+		:global(aside) {
+			padding-bottom: 0 !important;
 		}
 	}
 </style>

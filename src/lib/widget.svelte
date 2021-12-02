@@ -1,12 +1,11 @@
-<div>
+<div class="widget">
 	<slot></slot>
 </div>
 
 <style>
 	div {
-		background-color: var(--yellow);
 		padding: 1rem;
-		border: 2px dashed var(--accent-dark);
+		border: 2px dashed var(--accent-light);
 	}
 	div :global(:first-child) {
 		margin-top: 0;

@@ -8,11 +8,12 @@
 		const bg = page.query.get('bg');
 		const fg = page.query.get('fg');
 		const yl = page.query.get('yl');
+		const img = page.query.get('img') || 'no';
 
 		return {
 			props: {
 				year, month, day,
-				bg, fg, yl
+				bg, fg, yl, img
 			}
 		}
 	}
@@ -31,8 +32,9 @@
 	export let bg;
 	export let fg;
 	export let yl;
+	export let img;
 
-	const style = `
+	$: style = `
 		background-color: ${bg || '#ffffff'};
 		color: ${fg || '#000000'};
 		--yellow: ${yl || '#f8f5c3'};
@@ -41,6 +43,9 @@
 
 <div class="page" {style}>
 	<Header />
+	{#if img != 'no'}
+		<img src="/img/top/{img}.webp" alt="" class="topimg">
+	{/if}
 
 	<div class="wrapper">
 		<main>
@@ -67,6 +72,9 @@
 		flex-direction: row;
 		padding: 1rem;
 		justify-content: space-between;
+	}
+	.topimg {
+		width: 100%;
 	}
 	main {
 		flex: 3 0;
