@@ -48,6 +48,7 @@
 		margin-left: auto;
 		margin-right: auto;
 		display: inline-block;
+		color: #000000;
 	}
 	p {
 		margin: 0;
