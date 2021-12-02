@@ -1,5 +1,5 @@
 <script>
-	import { localeOptions } from "./constants";
+	import { localeOptions } from './constants';
 
 	export let count;
 	export let date;

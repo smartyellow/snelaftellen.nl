@@ -1,5 +1,5 @@
 <div class="widget">
-	<slot></slot>
+	<slot />
 </div>
 
 <style>

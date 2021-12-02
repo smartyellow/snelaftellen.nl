@@ -12,18 +12,23 @@
 
 		return {
 			props: {
-				year, month, day,
-				bg, fg, yl, img
+				year,
+				month,
+				day,
+				bg,
+				fg,
+				yl,
+				img
 			}
-		}
+		};
 	}
 </script>
 
 <script>
-	import Datepicker from "$lib/datepicker.svelte";
-	import Header from "$lib/header.svelte";
-	import Widget from "$lib/widget.svelte";
-	import "../app.css";
+	import Datepicker from '$lib/datepicker.svelte';
+	import Header from '$lib/header.svelte';
+	import Widget from '$lib/widget.svelte';
+	import '../app.css';
 
 	export let year;
 	export let month;
@@ -44,19 +49,21 @@
 <div class="page" {style}>
 	<Header />
 	{#if img != 'no'}
-		<img src="/img/top/{img}.webp" alt="" class="topimg">
+		<img src="/img/top/{img}.webp" alt="" class="topimg" />
 	{/if}
 
 	<div class="wrapper">
 		<main>
-			<slot></slot>
+			<slot />
 		</main>
 		<aside>
 			<Widget>
 				<h2>Aftellen!</h2>
 				<p>Tel af naar je favoriete datum!</p>
 				<Datepicker {year} {month} {day} />
-				<p>Als je alleen een maand en een jaar invult, wordt dag 1 van de maand automatisch gekozen.</p>
+				<p>
+					Als je alleen een maand en een jaar invult, wordt dag 1 van de maand automatisch gekozen.
+				</p>
 				<p>Als je alleen een jaar invult, gaan we uit van 1 januari.</p>
 			</Widget>
 		</aside>

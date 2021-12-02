@@ -17,11 +17,7 @@
 				parseInt(page.params.day)
 			);
 		} else if (page.params.month) {
-			countTo = new Date(
-				parseInt(page.params.year),
-				parseInt(page.params.month) - 1,
-				1
-			);
+			countTo = new Date(parseInt(page.params.year), parseInt(page.params.month) - 1, 1);
 		} else if (page.params.year) {
 			countTo = new Date(
 				parseInt(page.params.year),
@@ -38,18 +34,23 @@
 
 		return {
 			props: {
-				difference, countTo,
-				bg, fg, yl, img, title
+				difference,
+				countTo,
+				bg,
+				fg,
+				yl,
+				img,
+				title
 			}
 		};
 	}
 </script>
 
 <script>
-	import Countdown from "$lib/countdown.svelte";
-	import { localeOptions } from "$lib/constants";
-	import Meta from "$lib/meta.svelte";
-	import Pimp from "$lib/pimp.svelte";
+	import Countdown from '$lib/countdown.svelte';
+	import { localeOptions } from '$lib/constants';
+	import Meta from '$lib/meta.svelte';
+	import Pimp from '$lib/pimp.svelte';
 
 	export let difference = undefined;
 	export let countTo = undefined;
@@ -61,7 +62,7 @@
 	export let title;
 
 	const localeDate = countTo.toLocaleString('nl-NL', localeOptions);
-	const displayTitle = (title != '') ? title : localeDate;
+	const displayTitle = title != '' ? title : localeDate;
 
 	function capitalize(string) {
 		return string.charAt(0).toUpperCase() + string.slice(1);
@@ -74,20 +75,18 @@
 />
 
 <h2>
-	{(difference > 0) ? 'Aftellen naar' : 'Optellen naar'}
+	{difference > 0 ? 'Aftellen naar' : 'Optellen naar'}
 	{displayTitle}
 </h2>
 <Countdown count={difference} date={countTo} />
 <Pimp {bg} {fg} {yl} {title} {img} />
 
-<slot></slot>
+<slot />
 
 <hr />
 <p>
-	{
-		(difference > 0)
+	{difference > 0
 		? `Nog ${difference} dagen wachten tot ${displayTitle}.`
-		: `${capitalize(displayTitle)} is inmiddels ${difference * -1} dagen geleden.`
-	}
+		: `${capitalize(displayTitle)} is inmiddels ${difference * -1} dagen geleden.`}
 	Fijn dat we je hebben kunnen helpen!
 </p>

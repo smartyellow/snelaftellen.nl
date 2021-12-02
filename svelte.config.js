@@ -14,8 +14,8 @@ const config = {
 			crawl: true,
 			enabled: true,
 			entries: ['*'],
-			onError: 'continue',
-		},
+			onError: 'continue'
+		}
 	}
 };
 

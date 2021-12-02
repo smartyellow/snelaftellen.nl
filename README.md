@@ -1,48 +1,45 @@
-# SvelteKit template
+# [SnelAftellen.nl](https://www.snelaftellen.nl)
 
-Preconfigured SvelteKit template with:
+Hoe lang nog wachten tot Sinterklaas? Wanneer is Nieuwjaar? Over hoeveel nachten gaan we op vakantie? SnelAftellen.nl is je digitale aftelkalender.
 
-- GitHub Actions for linting, building and CodeQL
-- Dependabot
-- VS Code configuration files
-- `.nvmrc`
-- [Netlify configuration](#netlify)
-- TypeScript support
+![Digitale aftelkalender](.github/calendar.png)
 
-## Download
+## Stack
 
-Multiple options:
+Frontend:
 
-- Use the GitHub template by clicking _Use this template_.
-- [Download the tarball](https://github.com/garraflavatra/sveltekit-template/tarball/main).
+- [Svelte]
+- [SvelteKit]
+- [sveltekit-template]
 
-## Developing
+Hosting:
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+- [TransIP]
+- [Netlify]
 
-```bash
-npm run dev
-```
+Backend:
 
-Or start the server and open the app in a new browser tab:
+- [Netlify Functions]
+- [Netlify Forms]
 
-```bash
-npm run dev -- --open
-```
+Marketing (via [Netlify snippet injection]):
 
-## Building
+- [Google Tag Manager]
+- [Google Analytics]
 
-Before creating a production version of your app, install an [adapter](https://kit.svelte.dev/docs#adapters) for your target environment. Then:
+[svelte]: https://svelte.dev
+[sveltekit]: https://kit.svelte.dev
+[sveltekit-template]: https://github.com/garraflavatra/sveltekit-template
+[transip]: https://www.transip.nl
+[netlify]: https://www.netlify.com
+[netlify functions]: https://www.netlify.com/products/functions/
+[netlify forms]: https://www.netlify.com/products/forms/
+[netlify snippet injection]: https://docs.netlify.com/site-deploys/post-processing/snippet-injection/
+[google tag manager]: https://marketingplatform.google.com/intl/nl/about/tag-manager/
+[google analytics]: https://marketingplatform.google.com/intl/nl/about/analytics/
 
-```bash
-npm run build
-```
+---
 
-You can preview the built app with `npm run preview`, regardless of whether you installed an adapter. This should _not_ be used to serve your app in production.
+## License
 
-## Netlify
-
-1. Install the `@sveltejs/adapter-netlify` with your package manager.
-2. Add `import netlify from '@sveltejs/adapter-netlify';` to `svelte.config.js`.
-3. Uncomment the adapter line in the Svelte config file.
-4. Add `/.netlify` to `.gitignore`.
+[GNU General Public License v3.0](LICENSE) or later.

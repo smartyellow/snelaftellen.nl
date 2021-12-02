@@ -1,7 +1,7 @@
 <script>
-	import Meta from "$lib/meta.svelte";
+	import Meta from '$lib/meta.svelte';
 </script>
 
 <Meta title="SnelAftellen.nl: Contact" />
 
-<slot></slot>
+<slot />

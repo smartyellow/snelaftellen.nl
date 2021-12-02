@@ -34,7 +34,8 @@ img {
 	max-width: 100%;
 }
 
-button, .btn {
+button,
+.btn {
 	margin-top: 5px;
 	background-color: var(--accent-light);
 	color: #fff;
@@ -45,14 +46,14 @@ button, .btn {
 	font: inherit;
 	text-decoration: underline;
 }
-button:hover, .btn:hover {
+button:hover,
+.btn:hover {
 	text-decoration: none;
 	background-color: var(--accent-dark);
 }
 
 fieldset {
 	border: 2px solid var(--accent-light);
-
 }
 fieldset :last-child {
 	margin-bottom: 0;
@@ -67,7 +68,7 @@ fieldset :last-child {
 .group label {
 	vertical-align: top;
 }
-input:not([type="checkbox"]),
+input:not([type='checkbox']),
 select,
 textarea {
 	border: 1px solid var(--accent-light);
@@ -79,7 +80,7 @@ textarea {
 	background-color: #ffffff;
 	color: inherit;
 }
-input:not([type="checkbox"]):focus,
+input:not([type='checkbox']):focus,
 select:focus,
 textarea:focus {
 	outline: none;

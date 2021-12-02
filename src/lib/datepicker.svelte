@@ -1,5 +1,5 @@
 <script>
-	import { months } from "$lib/constants";
+	import { months } from '$lib/constants';
 
 	export let year = new Date().getFullYear();
 	export let month = 1;
@@ -7,27 +7,26 @@
 </script>
 
 <select bind:value={day}>
-	<option value=""></option>
-	{#each Array.from({length: 31}, (_, i) => i + 1) as i}
-		<option value="{i}" selected={day == i}>{i}</option>
+	<option value="" />
+	{#each Array.from({ length: 31 }, (_, i) => i + 1) as i}
+		<option value={i} selected={day == i}>{i}</option>
 	{/each}
 </select>
 
 <select bind:value={month}>
-	<option value=""></option>
+	<option value="" />
 	{#each [...Array(12).keys()] as i}
-		<option value="{i + 1}" selected={month == i}>{months[i]}</option>
+		<option value={i + 1} selected={month == i}>{months[i]}</option>
 	{/each}
 </select>
 
 <input type="number" bind:value={year} />
 
-<a role="button" href="/aftellen/{year}/{month}/{day}" class="btn">
-	Aftellen
-</a>
+<a role="button" href="/aftellen/{year}/{month}/{day}" class="btn"> Aftellen </a>
 
 <style>
-	input, select {
+	input,
+	select {
 		width: 100%;
 		margin-bottom: 5px;
 	}

@@ -1,7 +1,7 @@
 <script>
-	import { page } from "$app/stores";
-	import { dev } from  "$app/env";
-	import { onMount } from "svelte";
+	import { page } from '$app/stores';
+	import { dev } from '$app/env';
+	import { onMount } from 'svelte';
 
 	let open = false;
 	let visible = false;
@@ -12,9 +12,13 @@
 	export let yl = '#f8f5c3';
 	export let img = 'no';
 
-	const protocol = dev ? 'http://' : 'https://'
+	const protocol = dev ? 'http://' : 'https://';
 
-	$: url = `${protocol}${$page.host}${$page.path}?bg=${encodeURIComponent(bg)}&fg=${encodeURIComponent(fg)}&yl=${encodeURIComponent(yl)}&title=${encodeURIComponent(title)}&img=${encodeURIComponent(img)}`;
+	$: url = `${protocol}${$page.host}${$page.path}?bg=${encodeURIComponent(
+		bg
+	)}&fg=${encodeURIComponent(fg)}&yl=${encodeURIComponent(yl)}&title=${encodeURIComponent(
+		title
+	)}&img=${encodeURIComponent(img)}`;
 
 	onMount(() => {
 		// Check if JS is enabled, then show pimp button.
@@ -22,7 +26,12 @@
 	});
 </script>
 
-<button on:click={() => {open = !open}} class:visible>
+<button
+	on:click={() => {
+		open = !open;
+	}}
+	class:visible
+>
 	<span>TIP!</span>
 	<u>Pimp je kalender</u>
 </button>
@@ -31,19 +40,19 @@
 	<fieldset>
 		<legend>Pimp je aftelkalender!</legend>
 		<div class="group">
-			<input type="text" id="title" bind:value={title} placeholder="bv. Sinterklaas">
+			<input type="text" id="title" bind:value={title} placeholder="bv. Sinterklaas" />
 			<label for="title">Waar tel je naar af?</label>
 		</div>
 		<div class="group">
-			<input type="color" id="bg" bind:value={bg}>
+			<input type="color" id="bg" bind:value={bg} />
 			<label for="bg">Achtergrondkleur</label>
 		</div>
 		<div class="group">
-			<input type="color" id="fg" bind:value={fg}>
+			<input type="color" id="fg" bind:value={fg} />
 			<label for="fg">Tekstkleur</label>
 		</div>
 		<div class="group">
-			<input type="color" id="yl" bind:value={yl}>
+			<input type="color" id="yl" bind:value={yl} />
 			<label for="fg">Gele kaders</label>
 		</div>
 		<div class="group">
@@ -54,23 +63,22 @@
 				<option value="christmas">Kerstmis</option>
 				<option value="vacation">Vakantie / Strand</option>
 				<option value="inmemoriam">Bloem (in memoriam)</option>
-				<option value="vacation">Ballonnen</option>
+				<option value="balloons">Ballonnen</option>
 				<option value="presents">Cadeaus</option>
 			</select>
 			<label for="img">Plaatje</label>
 		</div>
 		<p>
-			<a href="{url}" class="btn">Laat maar zien!</a>
+			<a href={url} class="btn">Laat maar zien!</a>
 		</p>
 		<hr />
 		<ins class="url">
-			<a href="{url}">{url}</a>
+			<a href={url}>{url}</a>
 		</ins>
 		<p>
-			Deel of bookmark deze URL om je gepimpte aftelkalender op te slaan.
-			Klik erop om het resultaat te bekijken! Let op: we slaan je gepimpte
-			kalender niet op; zorg dus dat je de URL goed bewaart als je je
-			aftelkalender naar wens hebt gepimpt.
+			Deel of bookmark deze URL om je gepimpte aftelkalender op te slaan. Klik erop om het resultaat
+			te bekijken! Let op: we slaan je gepimpte kalender niet op; zorg dus dat je de URL goed
+			bewaart als je je aftelkalender naar wens hebt gepimpt.
 		</p>
 	</fieldset>
 {/if}
