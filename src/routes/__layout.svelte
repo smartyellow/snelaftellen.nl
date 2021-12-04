@@ -28,6 +28,7 @@
 	import CookieMessage from '$lib/cookiemessage.svelte';
 	import Datepicker from '$lib/datepicker.svelte';
 	import Header from '$lib/header.svelte';
+	import Share from '$lib/share.svelte';
 	import Widget from '$lib/widget.svelte';
 	import '../app.css';
 
@@ -59,6 +60,7 @@
 			<slot />
 		</main>
 		<aside>
+			<Share />
 			<Widget>
 				<h2>Aftellen!</h2>
 				<p>Tel af naar je favoriete datum!</p>
