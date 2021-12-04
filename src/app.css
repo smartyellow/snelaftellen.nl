@@ -63,7 +63,7 @@ fieldset :last-child {
 }
 .group :first-child {
 	margin-right: 10px;
-	width: 33%;
+	width: 60%;
 }
 .group label {
 	vertical-align: top;

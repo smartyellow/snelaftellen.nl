@@ -88,5 +88,6 @@
 	{difference > 0
 		? `Nog ${difference} dagen wachten tot ${displayTitle}.`
 		: `${capitalize(displayTitle)} is inmiddels ${difference * -1} dagen geleden.`}
-	Fijn dat we je hebben kunnen helpen!
+	Fijn dat we je hebben kunnen helpen! Heb je naar aanleiding van je bezoek vragen, opmerkingen en/of
+	suggesties voor deze website? <a href="/contact">Neem contact op!</a>
 </p>

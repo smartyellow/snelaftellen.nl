@@ -37,6 +37,11 @@
 	is.
 </p>
 
+<hr />
+
+Heb je vragen, opmerkingen en/of suggesties voor deze website?
+<a href="/contact">Neem contact op!</a>
+
 <style>
 	@media only screen and (max-width: 750px) {
 		:global(.wrapper) {
