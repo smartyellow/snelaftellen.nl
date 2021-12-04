@@ -6,7 +6,8 @@
 
 <p>
 	Heb je suggesties voor SnelAftellen.nl? Werkt iets niet goed? Of heb je andere opmerkingen? Laat
-	het ons weten via dit contactformulier. Dank je wel!
+	het ons weten via dit contactformulier of via
+	<a href="mailto:mail@snelaftellen.nl">mail@snelaftellen.nl</a>. Dank je wel!
 </p>
 
 <form name="contact" method="post" data-netlify="true" action="/contact/dankje/">
