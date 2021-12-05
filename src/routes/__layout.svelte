@@ -27,6 +27,7 @@
 <script>
 	import CookieMessage from '$lib/cookiemessage.svelte';
 	import Datepicker from '$lib/datepicker.svelte';
+	import Doormat from '$lib/doormat.svelte';
 	import Header from '$lib/header.svelte';
 	import Share from '$lib/share.svelte';
 	import Widget from '$lib/widget.svelte';
@@ -51,6 +52,7 @@
 <div class="page" {style}>
 	<Header />
 	<CookieMessage />
+
 	{#if img != 'no'}
 		<img src="/img/top/{img}.webp" alt="" class="topimg" />
 	{/if}
@@ -73,6 +75,8 @@
 		</aside>
 	</div>
 </div>
+
+<Doormat />
 
 <style>
 	.page {
