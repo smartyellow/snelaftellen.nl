@@ -18,6 +18,7 @@ Hosting:
 
 - [TransIP]
 - [Netlify]
+- [Netlify Large Media]
 
 Backend:
 
@@ -34,6 +35,7 @@ Marketing (via [Netlify snippet injection]):
 [sveltekit-template]: https://github.com/garraflavatra/sveltekit-template
 [transip]: https://www.transip.nl
 [netlify]: https://www.netlify.com
+[netlify large media]: https://www.netlify.com/products/large-media/
 [netlify functions]: https://www.netlify.com/products/functions/
 [netlify forms]: https://www.netlify.com/products/forms/
 [netlify snippet injection]: https://docs.netlify.com/site-deploys/post-processing/snippet-injection/
