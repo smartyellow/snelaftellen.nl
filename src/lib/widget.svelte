@@ -13,4 +13,7 @@
 	div :global(:last-child) {
 		margin-bottom: 0;
 	}
+	:global(.widget + .widget) {
+		margin-top: 10px;
+	}
 </style>

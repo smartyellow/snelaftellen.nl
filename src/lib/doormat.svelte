@@ -26,7 +26,7 @@
 		display: inline;
 	}
 	li:not(:last-child)::after {
-		content: " | ";
+		content: ' | ';
 	}
 	a {
 		color: #ffffff;

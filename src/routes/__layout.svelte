@@ -72,6 +72,12 @@
 				</p>
 				<p>Als je alleen een jaar invult, gaan we uit van 1 januari.</p>
 			</Widget>
+			<Widget>
+				<h2>Hier adverteren?</h2>
+				<p>
+					<a href="/contact">Neem contact op!</a>
+				</p>
+			</Widget>
 		</aside>
 	</div>
 </div>
