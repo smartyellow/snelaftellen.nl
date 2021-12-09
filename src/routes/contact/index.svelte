@@ -11,10 +11,13 @@
 </p>
 
 <form name="contact" method="post" data-netlify="true" action="/contact/dankje/">
+	<p>
+		Verplichte velden zijn gemarkeerd met een <b class="required">*</b>
+	</p>
 	<input type="hidden" name="form-name" value="contact" />
 	<div class="group">
 		<input type="text" name="name" placeholder="bv. Jan" required />
-		<label for="name">Je naam *</label>
+		<label for="name">Je naam <b>*</b></label>
 	</div>
 	<div class="group">
 		<input type="email" name="email" placeholder="bv. mijnemail@home.nl" />
@@ -31,7 +34,7 @@
 			required
 			placeholder="bv. Ik heb een suggestie voor je en die deel ik graag. Ik stel voor ..."
 		/>
-		<label for="body">Je bericht *</label>
+		<label for="body">Je bericht <b>*</b></label>
 	</div>
 	<button type="submit">Verzenden</button>
 </form>

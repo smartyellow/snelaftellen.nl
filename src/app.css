@@ -68,6 +68,11 @@ fieldset :last-child {
 .group label {
 	vertical-align: top;
 }
+b.required, label b {
+	color: #ff0000;
+	vertical-align: top;
+	font-weight: bold;
+}
 input:not([type='checkbox']),
 select,
 textarea {
