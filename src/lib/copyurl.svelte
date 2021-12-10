@@ -1,6 +1,13 @@
+<!--
+	NOTE: On Safari the navigator.clipboard.writeText only works with HTTPS
+	enabled. It's treated as unsafe to copy text from a non-HTTPS site. You
+	can start the dev server with a self-signed SSL certificate by running
+	`npm run dev -- -H`.
+-->
+
 <script>
 	export let url;
-	let copied;
+	let copied = false;
 
 	function copy() {
 		navigator.clipboard.writeText(url);

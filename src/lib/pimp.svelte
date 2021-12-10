@@ -25,7 +25,7 @@
 	}
 
 	let shorturl = '';
-	$: url = buildUrl();
+	let url = buildUrl();
 
 	async function shorten() {
 		const apiUrl = `/api/shorturl/${encodeURIComponent(buildUrl())}`;
@@ -55,23 +55,23 @@
 	<fieldset>
 		<legend>Pimp je aftelkalender!</legend>
 		<div class="group">
-			<input type="text" id="title" bind:value={title} placeholder="bv. Sinterklaas" />
+			<input type="text" id="title" bind:value={title} on:change={() => url = buildUrl()} placeholder="bv. Sinterklaas" />
 			<label for="title">Waar tel je naar af?</label>
 		</div>
 		<div class="group">
-			<input type="color" id="bg" bind:value={bg} />
+			<input type="color" id="bg" bind:value={bg} on:change={() => url = buildUrl()} />
 			<label for="bg">Achtergrondkleur</label>
 		</div>
 		<div class="group">
-			<input type="color" id="fg" bind:value={fg} />
+			<input type="color" id="fg" bind:value={fg} on:change={() => url = buildUrl()} />
 			<label for="fg">Tekstkleur</label>
 		</div>
 		<div class="group">
-			<input type="color" id="yl" bind:value={yl} />
+			<input type="color" id="yl" bind:value={yl} on:change={() => url = buildUrl()} />
 			<label for="fg">Gele kaders</label>
 		</div>
 		<div class="group">
-			<select id="img" bind:value={img}>
+			<select id="img" bind:value={img} on:change={() => url = buildUrl()}>
 				<option value="no">Geen plaatje</option>
 				<option value="flags">Vlaggenlijn</option>
 				<option value="pumpkin">Halloween</option>
