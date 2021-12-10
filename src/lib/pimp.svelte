@@ -2,6 +2,7 @@
 	import { page } from '$app/stores';
 	import { dev } from '$app/env';
 	import { onMount } from 'svelte';
+	import CopyUrl from './copyurl.svelte';
 
 	let open = false;
 	let visible = false;
@@ -14,11 +15,24 @@
 
 	const protocol = dev ? 'http://' : 'https://';
 
-	$: url = `${protocol}${$page.host}${$page.path}?bg=${encodeURIComponent(
-		bg
-	)}&fg=${encodeURIComponent(fg)}&yl=${encodeURIComponent(yl)}&title=${encodeURIComponent(
-		title
-	)}&img=${encodeURIComponent(img)}`;
+	function buildUrl() {
+		const built = `${protocol}${$page.host}${$page.path}?bg=${encodeURIComponent(
+			bg
+		)}&fg=${encodeURIComponent(fg)}&yl=${encodeURIComponent(yl)}&title=${encodeURIComponent(
+			title
+		)}&img=${encodeURIComponent(img)}`;
+		return built;
+	}
+
+	let shorturl = '';
+	$: url = buildUrl();
+
+	async function shorten() {
+		const apiUrl = `/api/shorturl/${encodeURIComponent(buildUrl())}`;
+		const res = await fetch(apiUrl);
+		const url = await res.text();
+		shorturl = url;
+	}
 
 	onMount(() => {
 		// Check if JS is enabled, then show pimp button.
@@ -30,6 +44,7 @@
 	on:click={() => {
 		open = !open;
 	}}
+	class="toggle"
 	class:visible
 >
 	<span>TIP!</span>
@@ -70,11 +85,18 @@
 		</div>
 		<p>
 			<a href={url} class="btn">Laat maar zien!</a>
+			<button on:click={shorten}>
+				Ik wil een korte url
+				{#if shorturl}
+					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="icon" viewBox="0 0 16 16">
+						<path d="M3 14.5A1.5 1.5 0 0 1 1.5 13V3A1.5 1.5 0 0 1 3 1.5h8a.5.5 0 0 1 0 1H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V8a.5.5 0 0 1 1 0v5a1.5 1.5 0 0 1-1.5 1.5H3z"/>
+						<path d="m8.354 10.354 7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z"/>
+					</svg>
+				{/if}
+			</button>
 		</p>
 		<hr />
-		<ins class="url">
-			<a href={url}>{url}</a>
-		</ins>
+		<CopyUrl url={shorturl || url} />
 		<p>
 			Deel of bookmark deze URL om je gepimpte aftelkalender op te slaan. Klik erop om het resultaat
 			te bekijken! Let op: we slaan je gepimpte kalender niet op; zorg dus dat je de URL goed
@@ -84,24 +106,11 @@
 {/if}
 
 <style>
-	ins.url {
-		-moz-user-select: all;
-		-webkit-user-select: all;
-		-ms-user-select: all;
-		user-select: all;
-		display: block;
-		border: 2px solid #808080;
-		padding: 5px;
-		background-color: #e2e2e2;
-		text-align: center;
-		overflow-x: auto;
-		font-family: Arial, sans-serif;
-	}
-	button {
+	button.toggle {
 		text-decoration: none;
 		display: none;
 	}
-	button.visible {
+	button.toggle.visible {
 		display: block;
 	}
 	button span {
