@@ -17,30 +17,15 @@ Frontend:
 Hosting:
 
 - [TransIP]
-- [Netlify]
-- [Netlify Large Media]
-
-Backend:
-
-- [Netlify Functions]
-- [Netlify Forms]
-
-Marketing (via [Netlify snippet injection]):
-
-- [Google Tag Manager]
-- [Google Analytics]
+- [Cloudflare pages]
+- [Cloudflare workers]
 
 [svelte]: https://svelte.dev
 [sveltekit]: https://kit.svelte.dev
 [sveltekit-template]: https://github.com/garraflavatra/sveltekit-template
 [transip]: https://www.transip.nl
-[netlify]: https://www.netlify.com
-[netlify large media]: https://www.netlify.com/products/large-media/
-[netlify functions]: https://www.netlify.com/products/functions/
-[netlify forms]: https://www.netlify.com/products/forms/
-[netlify snippet injection]: https://docs.netlify.com/site-deploys/post-processing/snippet-injection/
-[google tag manager]: https://marketingplatform.google.com/intl/nl/about/tag-manager/
-[google analytics]: https://marketingplatform.google.com/intl/nl/about/analytics/
+[cloudflare workers]: https://workers.cloudflare.com
+[cloudflare pages]: https://pages.cloudflare.com
 
 ---
 

@@ -1,5 +1,5 @@
 import preprocess from 'svelte-preprocess';
-import adapter from '@sveltejs/adapter-netlify';
+import adapter from '@sveltejs/adapter-cloudflare';
 import path from 'path';
 import { mdsvex } from 'mdsvex';
 
@@ -19,6 +19,9 @@ const config = {
 		target: '#svelte',
 		adapter: adapter(),
 		router: false,
+		paths: {
+			assets: 'https://cdn-sanl.smartyellow.nl'
+		},
 		prerender: {
 			crawl: true,
 			enabled: true,

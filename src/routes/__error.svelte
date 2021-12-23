@@ -1,7 +1,11 @@
+<script>
+	import flags from "../../static/img/err/404@0.5x.webp";
+</script>
+
 <h2>Oeps... daar ging iets mis!</h2>
 
 <div>
-	<img src="/img/err/404@0.5x.webp" alt="" />
+	<img src={flags} alt="" />
 </div>
 
 <hr />

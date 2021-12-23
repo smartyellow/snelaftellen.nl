@@ -25,6 +25,7 @@
 </script>
 
 <script>
+	import { assets } from '$app/paths';
 	import CookieMessage from '$lib/cookiemessage.svelte';
 	import Datepicker from '$lib/datepicker.svelte';
 	import Doormat from '$lib/doormat.svelte';
@@ -54,7 +55,7 @@
 	<CookieMessage />
 
 	{#if img != 'no'}
-		<img src="/img/top/{img}.webp" alt="" class="topimg" />
+		<img src="{assets}/img/top/{img}.webp" alt="" class="topimg" />
 	{/if}
 
 	<div class="wrapper">
