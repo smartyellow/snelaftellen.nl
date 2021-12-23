@@ -1,3 +1,3 @@
-https://cdn-sanl.smartyellow.nl/gen/* https://cdn-sanl.smartyellow.nl/gen/* 200
-https://cdn-sanl.smartyellow.nl/* https://cdn-sanl.smartyellow.nl/gen/:splat 200
-https://*.pages.dev https://:splat.pages.dev 404
+cdn-sanl.smartyellow.nl/gen/* cdn-sanl.smartyellow.nl/gen/* 200
+cdn-sanl.smartyellow.nl/* cdn-sanl.smartyellow.nl/gen/:splat 200
+*.pages.dev :splat.pages.dev 404
