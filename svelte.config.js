@@ -19,9 +19,9 @@ const config = {
 		target: '#svelte',
 		adapter: adapter(),
 		router: false,
-		paths: {
-			assets: 'https://cdn-sanl.smartyellow.nl'
-		},
+		// paths: {
+		// 	assets: 'https://cdn-sanl.smartyellow.nl'
+		// },
 		prerender: {
 			crawl: true,
 			enabled: true,
