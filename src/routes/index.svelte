@@ -1,12 +1,14 @@
 <script context="module">
 	import Meta from '$lib/meta.svelte';
+	import flags from '$static/img/top/flags.svg?raw'
 
 	export const prerender = true;
 </script>
 
 <Meta />
 
-<img src="/img/top/flags.webp" alt="Vlaggenlijn" />
+{@html flags}
+
 <h2>Welkom!</h2>
 <p>
 	Ga je binnenkort op vakantie?<br />
@@ -43,6 +45,10 @@ Heb je vragen, opmerkingen en/of suggesties voor deze website?
 <a href="/contact">Neem contact op!</a>
 
 <style>
+	:global(svg) {
+		width: 100%;
+		height: auto;
+	}
 	@media only screen and (max-width: 750px) {
 		:global(.wrapper) {
 			flex-direction: column-reverse !important;

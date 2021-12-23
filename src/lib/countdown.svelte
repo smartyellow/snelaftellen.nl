@@ -41,7 +41,7 @@
 		margin: 0;
 		padding-top: 65px;
 		vertical-align: middle;
-		background-image: url('/img/countdown/calendar@0.5x.webp');
+		background-image: url('../../static/img/countdown/calendar@0.5x.webp');
 		background-repeat: no-repeat;
 		background-size: contain;
 		background-position: center center;
