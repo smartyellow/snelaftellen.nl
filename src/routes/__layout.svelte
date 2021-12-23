@@ -67,6 +67,7 @@
 				<h2>Aftellen!</h2>
 				<p>Tel af naar je favoriete datum!</p>
 				<Datepicker {year} {month} {day} />
+				<p><a href="/over/hoe-werkt-het">Hoe werkt het?</a></p>
 				<p>
 					Als je alleen een maand en een jaar invult, wordt dag 1 van de maand automatisch gekozen.
 				</p>

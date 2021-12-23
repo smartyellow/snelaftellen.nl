@@ -1,12 +1,21 @@
 import preprocess from 'svelte-preprocess';
 import adapter from '@sveltejs/adapter-netlify';
+import path from 'path';
+import { mdsvex } from 'mdsvex';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	preprocess: preprocess(),
+	extensions: ['.svelte', '.md'],
+
+	preprocess: [
+		preprocess(),
+		mdsvex({
+			extensions: ['.md']
+		})
+	],
 
 	kit: {
-		appDir: '_',
+		appDir: 'gen',
 		target: '#svelte',
 		adapter: adapter(),
 		router: false,
@@ -15,6 +24,13 @@ const config = {
 			enabled: true,
 			entries: ['*'],
 			onError: 'continue'
+		},
+		vite: {
+			resolve: {
+				alias: {
+					$static: path.resolve('./static')
+				}
+			}
 		}
 	}
 };
