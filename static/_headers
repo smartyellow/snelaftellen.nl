@@ -1,2 +1,2 @@
 https://www.snelaftellen.nl/*
-  Access-Control-Allow-Origin: https://cdn-sanl.smartyellow.nl
+  Content-Security-Policy: default-src 'self' smartyellow.nl *.smartyellow.nl unpkg.com
