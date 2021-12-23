@@ -80,6 +80,16 @@
 					<a href="/contact">Neem contact op!</a>
 				</p>
 			</Widget>
+			<Widget>
+				<h2>Deze site is groen!</h2>
+				<noscript>
+					<a href="https://www.websitecarbon.com/website/snelaftellen-nl/">
+						Deze website is groener dan 98% van de websites.
+					</a>
+				</noscript>
+				<div id="wcb" class="carbonbadge"></div>
+				<script src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js" defer></script>
+			</Widget>
 		</aside>
 	</div>
 </div>
