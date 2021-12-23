@@ -1,13 +1,13 @@
 <script context="module">
 	import Meta from '$lib/meta.svelte';
-	import flags from '$static/img/top/flags.svg?raw'
+	import flags from '$static/img/top/flags.svg'
 
 	export const prerender = true;
 </script>
 
 <Meta />
 
-{@html flags}
+<img src={flags} alt="Vlaggenlijn" />
 
 <h2>Welkom!</h2>
 <p>
