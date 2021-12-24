@@ -1,2 +1,6 @@
-https://www.snelaftellen.nl/*
-  Content-Security-Policy: default-src 'self' smartyellow.nl *.smartyellow.nl unpkg.com
+/gen/*
+  Access-Control-Allow-Origin: *
+  X-Robots-Tag: nosnippet
+
+https://snelaftellen.pages.dev/*
+  X-Robots-Tag: noindex
