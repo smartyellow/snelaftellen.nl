@@ -9,13 +9,9 @@
 		</ul>
 	</nav>
 
-	<noscript>
-		<a href="https://www.websitecarbon.com/website/snelaftellen-nl/">
-			Deze website is groener dan 98% van de websites.
-		</a>
-	</noscript>
-	<div id="wcb" class="carbonbadge"></div>
-	<script src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js" defer></script>
+	<a href="https://www.websitecarbon.com/website/snelaftellen-nl/">
+		Deze website is groener dan 98% van de websites.
+	</a>
 </footer>
 
 <style>
