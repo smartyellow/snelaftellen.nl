@@ -13,7 +13,7 @@
 		if (page.params.day) {
 			countTo = new Date(
 				parseInt(page.params.year),
-				months.indexOf(page.params.month) - 1,
+				months.indexOf(page.params.month),
 				parseInt(page.params.day)
 			);
 		} else if (page.params.month) {
