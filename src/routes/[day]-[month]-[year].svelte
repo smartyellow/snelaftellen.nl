@@ -13,7 +13,7 @@
 		if (page.params.day) {
 			countTo = new Date(
 				parseInt(page.params.year),
-				parseInt(page.params.month) - 1,
+				months.indexOf(page.params.month) - 1,
 				parseInt(page.params.day)
 			);
 		} else if (page.params.month) {
@@ -48,7 +48,7 @@
 
 <script>
 	import Countdown from '$lib/countdown.svelte';
-	import { localeOptions } from '$lib/constants';
+	import { localeOptions, months } from '$lib/constants';
 	import Meta from '$lib/meta.svelte';
 	import Pimp from '$lib/pimp.svelte';
 
@@ -71,7 +71,7 @@
 
 <Meta
 	title="Aftellen tot {localeDate} op SnelAftellen.nl"
-	description="Hoe lang moet je nog wachten op {localeDate}? Check het op SnelAftellen.nl! Hier vind je hoe lang je nog moet wachten voor {localeDate}."
+	description="Hoe lang moet je nog wachten tot {localeDate}? Check het op SnelAftellen.nl! Hier vind je hoe lang je nog moet wachten voor {localeDate}."
 />
 
 <h2>

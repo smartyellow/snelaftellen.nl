@@ -22,7 +22,7 @@
 
 <input type="number" bind:value={year} />
 
-<a role="button" href="/aftellen/{year}/{month}/{day}" class="btn"> Aftellen </a>
+<a role="button" href="/{day}-{months[month - 1]}-{year}" class="btn"> Aftellen </a>
 
 <style>
 	input,
