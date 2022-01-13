@@ -1,6 +1,6 @@
 <script context="module">
 	import Meta from '$lib/meta.svelte';
-	import flags from '$static/img/top/flags.svg'
+	import flags from '$gfx/flags.svg'
 
 	export const prerender = true;
 </script>

@@ -31,7 +31,8 @@ const config = {
 		vite: {
 			resolve: {
 				alias: {
-					$static: path.resolve('./static')
+					$static: path.resolve('./static'),
+					$gfx: path.resolve('./src/gfx')
 				}
 			}
 		}
