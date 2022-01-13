@@ -7,14 +7,12 @@
 </script>
 
 <select bind:value={day}>
-	<option value="" />
 	{#each Array.from({ length: 31 }, (_, i) => i + 1) as i}
 		<option value={i} selected={day == i}>{i}</option>
 	{/each}
 </select>
 
 <select bind:value={month}>
-	<option value="" />
 	{#each [...Array(12).keys()] as i}
 		<option value={i + 1} selected={month == i}>{months[i]}</option>
 	{/each}

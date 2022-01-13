@@ -107,3 +107,13 @@ textarea:focus {
 	outline: none;
 	box-shadow: 0 0 0 4px var(--accent-light);
 }
+
+.cols {
+	display: flex;
+}
+.cols > * {
+	flex: 1;
+}
+.cols > *:not(:last-of-type) {
+	margin-right: 10px;
+}
