@@ -1,7 +1,7 @@
 <script>
 	import Cookies from 'js-cookie';
 	import { onMount } from 'svelte';
-	import { fade } from 'svelte/transition';
+	import { slide } from 'svelte/transition';
 
 	export let show = false;
 
@@ -18,7 +18,7 @@
 </script>
 
 {#if show}
-	<div transition:fade>
+	<div transition:slide>
 		Deze website serveert cookies.
 		<button on:click={accept}>OK</button>
 		<a target="_blank" href="https://www.consumentenbond.nl/internet-privacy/wat-zijn-cookies">
