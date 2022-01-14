@@ -19,7 +19,6 @@ const config = {
 		appDir: 'gen',
 		target: '#svelte',
 		adapter: adapter(),
-		router: false,
 		prerender: {
 			crawl: true,
 			enabled: true,
