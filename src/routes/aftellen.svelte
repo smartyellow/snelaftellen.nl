@@ -7,8 +7,8 @@
 	import DatepickerWeek from "$lib/datepicker-week.svelte";
 	import Meta from "$lib/meta.svelte";
 	import Widget from "$lib/widget.svelte";
-	import calendarDate from "$gfx/calendar-date@0.5x.webp";
-	import calendarWeek from "$gfx/calendar-week@0.5x.webp";
+	import calendarDate from "$gfx/calendar-date@0.5x.webp?w=100&h=100";
+	import calendarWeek from "$gfx/calendar-week@0.5x.webp?w=100&h=100";
 
 	export let option = undefined;
 </script>

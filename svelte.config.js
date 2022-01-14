@@ -2,6 +2,7 @@ import preprocess from 'svelte-preprocess';
 import adapter from '@sveltejs/adapter-cloudflare';
 import path from 'path';
 import { mdsvex } from 'mdsvex';
+import { imagetools } from 'vite-imagetools';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -19,9 +20,6 @@ const config = {
 		target: '#svelte',
 		adapter: adapter(),
 		router: false,
-		paths: {
-			assets: 'https://cdn-sanl.smartyellow.nl'
-		},
 		prerender: {
 			crawl: true,
 			enabled: true,
@@ -29,6 +27,7 @@ const config = {
 			onError: 'continue'
 		},
 		vite: {
+			plugins: [imagetools()],
 			resolve: {
 				alias: {
 					$static: path.resolve('./static'),
