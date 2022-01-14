@@ -1,5 +1,6 @@
 <script>
 	import { localeOptions } from './constants';
+	import CountdownSeasonImage from './countdown-season-image.svelte';
 
 	export let count;
 	export let date;
@@ -7,31 +8,47 @@
 	const localeDate = date.toLocaleString('nl-NL', localeOptions);
 </script>
 
-<div>
-	{#if count > 0}
-		<p>nog</p>
-		<p class="count">{count}</p>
-		<p>dagen tot {localeDate}</p>
-	{:else}
-		<p>{localeDate} is</p>
-		<p class="count">{count * -1}</p>
-		<p>dagen geleden</p>
-	{/if}
+<div class="countdown">
+	<div class="countdown-content">
+		{#if count > 0}
+			<p>nog</p>
+			<p class="count">{count}</p>
+			<p>{count === 1 ? "dag" : "dagen"} tot {localeDate}</p>
+		{:else}
+			<p>{localeDate} is</p>
+			<p class="count">{count * -1}</p>
+			<p>{count === -1 ? "dag" : "dagen"} geleden</p>
+		{/if}
+	</div>
+
+	<div class="countdown-icons">
+		<CountdownSeasonImage d={date} />
+	</div>
 </div>
 
 <style>
-	div {
+	.countdown {
 		text-align: center;
 		font-size: 1.3rem;
 		background-color: var(--yellow);
 		padding: 1rem;
 		border: 2px dashed var(--accent-light);
+		display: flex;
 	}
-	div :global(:first-child) {
+	.countdown > * :global(:first-child) {
 		margin-top: 0;
 	}
-	div :global(:last-child) {
+	.countdown > * :global(:last-child) {
 		margin-bottom: 0;
+	}
+	.countdown-content {
+		flex-grow: 1;
+		flex-shrink: 0;
+	}
+	.countdown-icons {
+		height: 50px;
+		flex-grow: 0;
+		flex-shrink: 1;
 	}
 	.count {
 		font-size: 4rem;
