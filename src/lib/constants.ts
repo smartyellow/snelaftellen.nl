@@ -1,4 +1,4 @@
-export const localeOptions = {
+export const localeOptions: Intl.DateTimeFormatOptions = {
 	weekday: 'long',
 	year: 'numeric',
 	month: 'long',
@@ -19,3 +19,5 @@ export const months = [
 	'november',
 	'december'
 ];
+
+export const countdownOptions = ["datum", "week"];

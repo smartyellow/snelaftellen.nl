@@ -2,7 +2,7 @@
 	<h1><a href="/">SnelAftellen.nl</a></h1>
 	<nav>
 		<ul>
-			<li><a href="/">Aftellen</a></li>
+			<li><a href="/aftellen">Aftellen</a></li>
 			<li><a href="/contact">Contact</a></li>
 		</ul>
 	</nav>

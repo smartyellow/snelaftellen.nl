@@ -50,6 +50,16 @@
 	],
 	"theme_color": "#e2500c",
 	"background_color": "#e2500c",
-	"start_url": "https://www.snelaftellen.nl",
-	"display": "standalone"
+	"start_url": "/",
+	"display": "standalone",
+	"scope": "/",
+	"shortcuts": [
+		{
+		  "name": "SnelAftellen.nl",
+		  "short_name": "SnelAftellen.nl",
+		  "description": "Tel af naar je favoriete datum!",
+		  "url": "/?source=pwa",
+		  "icons": [{ "src": "/android-chrome-192x192.png", "sizes": "192x192" }]
+		}
+	]
 }

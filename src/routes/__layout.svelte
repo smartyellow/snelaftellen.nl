@@ -27,7 +27,7 @@
 <script>
 	import { assets } from '$app/paths';
 	import CookieMessage from '$lib/cookiemessage.svelte';
-	import Datepicker from '$lib/datepicker.svelte';
+	import CountdownOptions from '$lib/countdown-options.svelte';
 	import Doormat from '$lib/doormat.svelte';
 	import Header from '$lib/header.svelte';
 	import Share from '$lib/share.svelte';
@@ -64,16 +64,7 @@
 		</main>
 		<aside>
 			<Share />
-			<Widget>
-				<h2>Aftellen!</h2>
-				<p>Tel af naar je favoriete datum!</p>
-				<Datepicker {year} {month} {day} />
-				<p><a href="/over/hoe-werkt-het">Hoe werkt het?</a></p>
-				<p>
-					Als je alleen een maand en een jaar invult, wordt dag 1 van de maand automatisch gekozen.
-				</p>
-				<p>Als je alleen een jaar invult, gaan we uit van 1 januari.</p>
-			</Widget>
+			<CountdownOptions />
 			<Widget>
 				<h2>Hier adverteren?</h2>
 				<p>
@@ -109,6 +100,9 @@
 	aside {
 		flex: 1 0;
 		padding: 1rem;
+	}
+	aside > :global(* + *) {
+		margin-top: 10px;
 	}
 	@media only screen and (max-width: 750px) {
 		.wrapper {
