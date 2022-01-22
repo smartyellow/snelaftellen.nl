@@ -13,7 +13,7 @@
 		if (page.params.week && page.params.year) {
 			// https://stackoverflow.com/a/8803300
 			const beginningOfYear = new Date("Jan 01, " + page.params.year + " 01:00:00");
-			const week = beginningOfYear.getTime() + 604800000 * (page.params.week - 1);
+			const week = beginningOfYear.getTime() + 604800000 * (page.params.week - 1) + 172800000;
 			countTo = new Date(week);
 		} else {
 			return {
