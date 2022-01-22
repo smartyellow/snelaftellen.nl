@@ -1,4 +1,4 @@
-export const localeOptions = {
+export const localeOptions: Intl.DateTimeFormatOptions = {
 	weekday: 'long',
 	year: 'numeric',
 	month: 'long',

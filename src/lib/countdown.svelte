@@ -1,9 +1,9 @@
-<script>
+<script lang="ts">
 	import { localeOptions } from './constants';
 	import CountdownSeasonImage from './countdown-season-image.svelte';
 
-	export let count;
-	export let date;
+	export let count: number;
+	export let date: Date;
 
 	const localeDate = date.toLocaleString('nl-NL', localeOptions);
 </script>
