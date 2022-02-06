@@ -75,13 +75,14 @@
 <Doormat />
 
 <style lang="scss">
+	@import '../lib/styles/vars';
 	.page {
 		min-height: 100vh;
 	}
 	.wrapper {
 		display: flex;
 		flex-direction: row;
-		padding: 1rem;
+		padding: $padding;
 		justify-content: space-between;
 	}
 	.topimg {
@@ -89,14 +90,14 @@
 	}
 	main {
 		flex: 3 0;
-		padding: 1rem;
+		padding: $padding;
 	}
 	main :global(:first-child) {
 		margin-top: 0;
 	}
 	aside {
 		flex: 1 0;
-		padding: 1rem;
+		padding: $padding;
 	}
 	aside > :global(* + *) {
 		margin-top: 10px;

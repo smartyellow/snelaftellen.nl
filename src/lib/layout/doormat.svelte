@@ -18,7 +18,7 @@
 	@import '../styles/vars';
 	footer {
 		background-color: $accent-dark;
-		padding: 1rem;
+		padding: $padding;
 		text-align: center;
 		color: #ffffff;
 	}

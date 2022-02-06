@@ -9,8 +9,9 @@
 <style lang="scss">
 	@import '../styles/vars';
 	div {
-		padding: 1rem;
+		padding: $padding;
 		border: 2px dashed $accent-light;
+		border-radius: $radius;
 	}
 	div.highlighted {
 		background-color: $yellow;

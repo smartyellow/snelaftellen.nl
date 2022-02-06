@@ -17,7 +17,7 @@
 	div {
 		text-align: center;
 		background-color: $yellow;
-		padding: 1rem;
+		padding: $padding;
 		border: 2px dashed $accent-light;
 	}
 	div img {

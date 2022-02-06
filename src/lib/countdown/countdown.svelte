@@ -32,7 +32,8 @@
 		text-align: center;
 		font-size: 1.3rem;
 		background-color: $yellow;
-		padding: 1rem;
+		background-color: var(--yellow);
+		padding: $padding;
 		border: 2px dashed $accent-light;
 		display: flex;
 	}

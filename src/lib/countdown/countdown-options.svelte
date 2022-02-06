@@ -6,7 +6,7 @@
 	let show = false;
 </script>
 
-<a href="/aftellen" class="btn" on:click|preventDefault={() => show = !show}>
+<a href="/aftellen" class="btn" class:shadow={!show} on:click|preventDefault={() => show = !show}>
 	Aftellen!
 </a>
 
@@ -31,6 +31,11 @@
 	}
 	.btn {
 		padding: 10px;
+		border-radius: 0;
+		&.shadow {
+			box-shadow: $shadow-flat $accent-light;
+			border-radius: $radius;
+		}
 	}
 	.cols {
 		border: 1px solid $accent-light;

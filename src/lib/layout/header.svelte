@@ -10,14 +10,17 @@
 
 <style lang="scss">
 	@import '../styles/vars';
+	header {
+		box-shadow: $shadow-lg;
+	}
 	h1 {
-		padding: 1rem;
+		padding: $padding;
 		margin: 0;
 		background-color: $accent-dark;
-		color: #fff;
+		color: $light;
 	}
 	h1 a {
-		color: #fff;
+		color: $light;
 		text-decoration: none;
 	}
 	h1 a:hover {
@@ -25,9 +28,9 @@
 	}
 	nav {
 		background-color: $accent-light;
-		color: #fff;
-		padding-top: 1rem;
-		padding-bottom: 1rem;
+		color: $light;
+		padding-top: $padding;
+		padding-bottom: $padding;
 	}
 	nav ul {
 		list-style: none;
@@ -38,8 +41,8 @@
 		display: inline;
 	}
 	nav ul li a {
-		color: #fff;
-		padding: 1rem;
+		color: $light;
+		padding: $padding;
 	}
 	nav ul li:hover a {
 		background-color: $accent-dark;
