@@ -3,7 +3,7 @@
 </script>
 
 <script lang="ts">
-	import Meta from "$lib/meta.svelte";
+	import Meta from "$lib/layout/meta.svelte";
 </script>
 
 <Meta title="Hoe werkt SnelAftellen.nl aan de binnenkant?" description="Op SnelAftellen.nl tel je snel af naar een bepaalde datum. Maar hoe wordt het verschil dussen twee data berekend? Lees het hier." />
