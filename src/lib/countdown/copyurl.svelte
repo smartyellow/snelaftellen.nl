@@ -37,7 +37,7 @@
 	</button>
 </ins>
 
-<style>
+<style lang="scss">
 	ins {
 		-moz-user-select: all;
 		-webkit-user-select: all;

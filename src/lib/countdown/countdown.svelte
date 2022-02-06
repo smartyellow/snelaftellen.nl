@@ -26,13 +26,14 @@
 	</div>
 </div>
 
-<style>
+<style lang="scss">
+	@import '../styles/vars';
 	.countdown {
 		text-align: center;
 		font-size: 1.3rem;
-		background-color: var(--yellow);
+		background-color: $yellow;
 		padding: 1rem;
-		border: 2px dashed var(--accent-light);
+		border: 2px dashed $accent-light;
 		display: flex;
 	}
 	.countdown > * :global(:first-child) {

@@ -6,13 +6,14 @@
 	<slot />
 </div>
 
-<style>
+<style lang="scss">
+	@import '../styles/vars';
 	div {
 		padding: 1rem;
-		border: 2px dashed var(--accent-light);
+		border: 2px dashed $accent-light;
 	}
 	div.highlighted {
-		background-color: var(--yellow);
+		background-color: $yellow;
 	}
 	div :global(:first-child) {
 		margin-top: 0;

@@ -44,7 +44,7 @@
 Heb je vragen, opmerkingen en/of suggesties voor deze website?
 <a href="/contact">Neem contact op!</a>
 
-<style>
+<style lang="scss">
 	:global(svg) {
 		width: 100%;
 		height: auto;

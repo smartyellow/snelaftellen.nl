@@ -30,7 +30,7 @@
 	</div>
 {/if}
 
-<style>
+<style lang="scss">
 	div {
 		padding: 5px;
 		text-align: center;

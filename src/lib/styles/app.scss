@@ -1,3 +1,5 @@
+@import 'vars';
+
 html,
 body {
 	--accent-dark: #b42e0c;
@@ -55,7 +57,7 @@ svg.icon {
 button,
 .btn {
 	margin-top: 5px;
-	background-color: var(--accent-light);
+	background-color: $accent-light;
 	color: #fff;
 	padding: 5px;
 	display: inline-block;
@@ -67,11 +69,11 @@ button,
 button:hover,
 .btn:hover {
 	text-decoration: none;
-	background-color: var(--accent-dark);
+	background-color: $accent-dark;
 }
 
 fieldset {
-	border: 2px solid var(--accent-light);
+	border: 2px solid $accent-light;
 }
 fieldset :last-child {
 	margin-bottom: 0;
@@ -95,7 +97,7 @@ label b {
 input:not([type='checkbox']),
 select,
 textarea {
-	border: 1px solid var(--accent-light);
+	border: 1px solid $accent-light;
 	border-radius: 0;
 	padding: 5px;
 	appearance: none;
@@ -109,7 +111,7 @@ input:not([type='checkbox']):focus,
 select:focus,
 textarea:focus {
 	outline: none;
-	box-shadow: 0 0 0 4px var(--accent-light);
+	box-shadow: 0 0 0 4px $accent-light;
 }
 
 .cols {

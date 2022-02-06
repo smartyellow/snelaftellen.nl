@@ -18,7 +18,7 @@
 
 <a role="button" href="/week-{week}-van-{year}" class="btn"> Aftellen </a>
 
-<style>
+<style lang="scss">
 	input,
 	select {
 		width: 100%;

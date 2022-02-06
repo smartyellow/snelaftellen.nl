@@ -105,7 +105,7 @@
 	</fieldset>
 {/if}
 
-<style>
+<style lang="scss">
 	button.toggle {
 		text-decoration: none;
 		display: none;

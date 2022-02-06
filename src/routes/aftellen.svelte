@@ -34,7 +34,7 @@
 	</Widget>
 </div>
 
-<style>
+<style lang="scss">
 	:global(.widget) img {
 		width: 80px;
 		height: 80px;

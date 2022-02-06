@@ -33,7 +33,7 @@
 	import Header from '$lib/layout/header.svelte';
 	import Share from '$lib/layout/share.svelte';
 	import Widget from '$lib/layout/widget.svelte';
-	import '../app.css';
+	import '$lib/styles/app.scss';
 
 	export let bg: string;
 	export let fg: string;
@@ -74,7 +74,7 @@
 
 <Doormat />
 
-<style>
+<style lang="scss">
 	.page {
 		min-height: 100vh;
 	}

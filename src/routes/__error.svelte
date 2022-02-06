@@ -12,12 +12,13 @@
 
 <p>We konden die pagina niet vinden. Wilde je aftellen? Dat kan met de datumprikker hiernaast!</p>
 
-<style>
+<style lang="scss">
+	@import '../lib/styles/vars';
 	div {
 		text-align: center;
-		background-color: var(--yellow);
+		background-color: $yellow;
 		padding: 1rem;
-		border: 2px dashed var(--accent-light);
+		border: 2px dashed $accent-light;
 	}
 	div img {
 		width: 300px;

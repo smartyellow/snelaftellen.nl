@@ -61,7 +61,7 @@
 	</div>
 {/if}
 
-<style>
+<style lang="scss">
 	a {
 		margin-bottom: 10px;
 		font-size: 0;

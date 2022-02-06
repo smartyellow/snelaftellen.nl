@@ -22,7 +22,8 @@
 	</div>
 {/if}
 
-<style>
+<style lang="scss">
+	@import '../styles/vars';
 	a {
 		display: block;
 		text-align: center;
@@ -32,7 +33,7 @@
 		padding: 10px;
 	}
 	.cols {
-		border: 1px solid var(--accent-light);
+		border: 1px solid $accent-light;
 		margin-top: 0;
 		padding: 10px;
 	}

@@ -8,11 +8,12 @@
 	</nav>
 </header>
 
-<style>
+<style lang="scss">
+	@import '../styles/vars';
 	h1 {
 		padding: 1rem;
 		margin: 0;
-		background-color: var(--accent-dark);
+		background-color: $accent-dark;
 		color: #fff;
 	}
 	h1 a {
@@ -23,7 +24,7 @@
 		text-decoration: underline;
 	}
 	nav {
-		background-color: var(--accent-light);
+		background-color: $accent-light;
 		color: #fff;
 		padding-top: 1rem;
 		padding-bottom: 1rem;
@@ -41,7 +42,7 @@
 		padding: 1rem;
 	}
 	nav ul li:hover a {
-		background-color: var(--accent-dark);
+		background-color: $accent-dark;
 		text-decoration: none;
 	}
 </style>

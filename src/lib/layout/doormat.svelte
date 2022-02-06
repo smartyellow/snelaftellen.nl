@@ -14,9 +14,10 @@
 	</a>
 </footer>
 
-<style>
+<style lang="scss">
+	@import '../styles/vars';
 	footer {
-		background-color: var(--accent-dark);
+		background-color: $accent-dark;
 		padding: 1rem;
 		text-align: center;
 		color: #ffffff;
