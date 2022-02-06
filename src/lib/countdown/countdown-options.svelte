@@ -1,7 +1,7 @@
-<script>
+<script lang="ts">
 	import { slide } from 'svelte/transition';
-	import { countdownOptions } from './constants';
-	import Widget from './widget.svelte';
+	import { countdownOptions } from '../constants';
+	import Widget from '../layout/widget.svelte';
 
 	let show = false;
 </script>

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import Cookies from 'js-cookie';
 	import { onMount } from 'svelte';
 	import { slide } from 'svelte/transition';

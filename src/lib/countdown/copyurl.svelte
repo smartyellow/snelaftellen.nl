@@ -5,8 +5,8 @@
 	`npm run dev -- -H`.
 -->
 
-<script>
-	export let url;
+<script lang="ts">
+	export let url: string;
 	let copied = false;
 
 	function copy() {

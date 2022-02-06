@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { localeOptions } from './constants';
+	import { localeOptions } from '../constants';
 	import CountdownSeasonImage from './countdown-season-image.svelte';
 
 	export let count: number;

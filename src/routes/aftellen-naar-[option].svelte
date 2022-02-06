@@ -1,9 +1,9 @@
-<script context="module">
+<script context="module" lang="ts">
 	import { countdownOptions } from "$lib/constants";
+	import type { LoadInput, LoadOutput } from "@sveltejs/kit";
 
-	/** @type {import('@sveltejs/kit').Load} */
-	export function load({ page, fetch, session, stuff }) {
-		const { option } = page.params;
+	export function load({ params }: LoadInput): LoadOutput {
+		const { option } = params;
 
 		if (countdownOptions.includes(option)) {
 			return {
@@ -20,10 +20,10 @@
 	}
 </script>
 
-<script>
+<script lang="ts">
 	import Countdown from "./aftellen.svelte";
 
-	export let option;
+	export let option: string;
 </script>
 
 <Countdown {option} />

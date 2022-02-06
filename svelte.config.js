@@ -17,7 +17,6 @@ const config = {
 
 	kit: {
 		appDir: 'gen',
-		target: '#svelte',
 		adapter: adapter(),
 		prerender: {
 			crawl: true,

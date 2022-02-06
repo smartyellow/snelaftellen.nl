@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { months } from '$lib/constants';
 
 	export let year = new Date().getFullYear();

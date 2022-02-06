@@ -1,14 +1,15 @@
-<script context="module">
-	/** @type {import('@sveltejs/kit').Load} */
-	export function load({ page, fetch, session, stuff }) {
-		const year = parseInt(page.params.year) || new Date().getFullYear();
-		const month = parseInt(page.params.month) || 1;
-		const day = parseInt(page.params.day) || 1;
+<script context="module" lang="ts">
+	import type { LoadInput, LoadOutput } from '@sveltejs/kit';
 
-		const bg = page.query.get('bg');
-		const fg = page.query.get('fg');
-		const yl = page.query.get('yl');
-		const img = page.query.get('img') || 'no';
+	export function load({ url, params }: LoadInput): LoadOutput {
+		const year = parseInt(params.year) || new Date().getFullYear();
+		const month = parseInt(params.month) || 1;
+		const day = parseInt(params.day) || 1;
+
+		const bg = url.searchParams.get('bg');
+		const fg = url.searchParams.get('fg');
+		const yl = url.searchParams.get('yl');
+		const img = url.searchParams.get('img') || 'no';
 
 		return {
 			props: {
@@ -24,24 +25,20 @@
 	}
 </script>
 
-<script>
+<script lang="ts">
 	import { assets } from '$app/paths';
-	import CookieMessage from '$lib/cookiemessage.svelte';
-	import CountdownOptions from '$lib/countdown-options.svelte';
-	import Doormat from '$lib/doormat.svelte';
-	import Header from '$lib/header.svelte';
-	import Share from '$lib/share.svelte';
-	import Widget from '$lib/widget.svelte';
+	import CookieMessage from '$lib/layout/cookiemessage.svelte';
+	import CountdownOptions from '$lib/countdown/countdown-options.svelte';
+	import Doormat from '$lib/layout/doormat.svelte';
+	import Header from '$lib/layout/header.svelte';
+	import Share from '$lib/layout/share.svelte';
+	import Widget from '$lib/layout/widget.svelte';
 	import '../app.css';
 
-	export let year;
-	export let month;
-	export let day;
-
-	export let bg;
-	export let fg;
-	export let yl;
-	export let img;
+	export let bg: string;
+	export let fg: string;
+	export let yl: string;
+	export let img: string;
 
 	$: style = `
 		background-color: ${bg || '#ffffff'};

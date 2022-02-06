@@ -1,26 +1,27 @@
-<script context="module">
-	/** @type {import('@sveltejs/kit').Load} */
-	export async function load({ page, fetch, session, stuff }) {
-		const bg = page.query.get('bg') || '#ffffff';
-		const fg = page.query.get('fg') || '#000000';
-		const yl = page.query.get('yl') || '#f8f5c3';
-		const img = page.query.get('img') || 'no';
-		const title = page.query.get('title') || '';
+<script context="module" lang="ts">
+	import type { LoadInput, LoadOutput } from '@sveltejs/kit';
+
+	export async function load({ url, params }: LoadInput): Promise<LoadOutput<Record<string,any>>> {
+		const bg = url.searchParams.get('bg');
+		const fg = url.searchParams.get('fg');
+		const yl = url.searchParams.get('yl');
+		const img = url.searchParams.get('img') || 'no';
+		const title = url.searchParams.get('title') || '';
 
 		const today = new Date();
 		let countTo;
 
-		if (page.params.day) {
+		if (params.day) {
 			countTo = new Date(
-				parseInt(page.params.year),
-				months.indexOf(page.params.month),
-				parseInt(page.params.day)
+				parseInt(params.year),
+				months.indexOf(params.month),
+				parseInt(params.day)
 			);
-		} else if (page.params.month) {
-			countTo = new Date(parseInt(page.params.year), parseInt(page.params.month) - 1, 1);
-		} else if (page.params.year) {
+		} else if (params.month) {
+			countTo = new Date(parseInt(params.year), parseInt(params.month) - 1, 1);
+		} else if (params.year) {
 			countTo = new Date(
-				parseInt(page.params.year),
+				parseInt(params.year),
 				0, // Month is required, so default to January.
 				1
 			);
@@ -46,25 +47,25 @@
 	}
 </script>
 
-<script>
-	import Countdown from '$lib/countdown.svelte';
+<script lang="ts">
+	import Countdown from '$lib/countdown/countdown.svelte';
 	import { localeOptions, months } from '$lib/constants';
-	import Meta from '$lib/meta.svelte';
-	import Pimp from '$lib/pimp.svelte';
+	import Meta from '$lib/layout/meta.svelte';
+	import Pimp from '$lib/countdown/pimp.svelte';
 
 	export let difference = undefined;
 	export let countTo = undefined;
 
-	export let bg;
-	export let fg;
-	export let yl;
-	export let img;
-	export let title;
+	export let bg: string;
+	export let fg: string;
+	export let yl: string;
+	export let img: string;
+	export let title: string;
 
 	const localeDate = countTo.toLocaleString('nl-NL', localeOptions);
 	const displayTitle = title != '' ? title : localeDate;
 
-	function capitalize(string) {
+	function capitalize(string: string) {
 		return string.charAt(0).toUpperCase() + string.slice(1);
 	}
 </script>

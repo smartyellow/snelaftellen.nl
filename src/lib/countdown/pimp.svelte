@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { page } from '$app/stores';
 	import { dev } from '$app/env';
 	import { onMount } from 'svelte';
@@ -16,7 +16,7 @@
 	const protocol = dev ? 'http://' : 'https://';
 
 	function buildUrl() {
-		const built = `${protocol}${$page.host}${$page.path}?bg=${encodeURIComponent(
+		const built = `${protocol}${$page.url.host}${$page.url.pathname}?bg=${encodeURIComponent(
 			bg
 		)}&fg=${encodeURIComponent(fg)}&yl=${encodeURIComponent(yl)}&title=${encodeURIComponent(
 			title

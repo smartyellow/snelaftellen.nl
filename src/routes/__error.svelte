@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import notFoundImg from "$gfx/404@0.5x.webp";
 </script>
 

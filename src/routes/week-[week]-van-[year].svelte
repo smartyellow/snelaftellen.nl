@@ -1,19 +1,20 @@
-<script context="module">
-	/** @type {import('@sveltejs/kit').Load} */
-	export async function load({ page, fetch, session, stuff }) {
-		const bg = page.query.get('bg') || '#ffffff';
-		const fg = page.query.get('fg') || '#000000';
-		const yl = page.query.get('yl') || '#f8f5c3';
-		const img = page.query.get('img') || 'no';
-		const title = page.query.get('title') || '';
+<script context="module" lang="ts">
+	import type { LoadInput, LoadOutput } from '@sveltejs/kit';
+
+	export async function load({ url, params }: LoadInput): Promise<LoadOutput<Record<string,any>>> {
+		const bg = url.searchParams.get('bg');
+		const fg = url.searchParams.get('fg');
+		const yl = url.searchParams.get('yl');
+		const img = url.searchParams.get('img') || 'no';
+		const title = url.searchParams.get('title') || '';
 
 		const today = new Date();
-		let countTo;
+		let countTo: Date;
 
-		if (page.params.week && page.params.year) {
+		if (params.week && params.year) {
 			// https://stackoverflow.com/a/8803300
-			const beginningOfYear = new Date("Jan 01, " + page.params.year + " 01:00:00");
-			const week = beginningOfYear.getTime() + 604800000 * (page.params.week - 1) + 172800000;
+			const beginningOfYear = new Date("Jan 01, " + params.year + " 01:00:00");
+			const week = beginningOfYear.getTime() + 604800000 * (parseInt(params.week) - 1) + 172800000;
 			countTo = new Date(week);
 		} else {
 			return {
@@ -25,8 +26,8 @@
 
 		return {
 			props: {
-				week: page.params.week,
-				year: page.params.year,
+				week: params.week,
+				year: params.year,
 				difference,
 				countTo,
 				bg,
@@ -39,11 +40,11 @@
 	}
 </script>
 
-<script>
-	import Countdown from '$lib/countdown.svelte';
+<script lang="ts">
+	import Countdown from '$lib/countdown/countdown.svelte';
 	import { localeOptions } from '$lib/constants';
-	import Meta from '$lib/meta.svelte';
-	import Pimp from '$lib/pimp.svelte';
+	import Meta from '$lib/layout/meta.svelte';
+	import Pimp from '$lib/countdown/pimp.svelte';
 
 	export let difference = undefined;
 	export let countTo = undefined;

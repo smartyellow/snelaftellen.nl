@@ -1,14 +1,14 @@
-<script context="module">
+<script context="module" lang="ts">
 	export const prerender = true;
 </script>
 
-<script>
-	import DatepickerDate from "$lib/datepicker-date.svelte";
-	import DatepickerWeek from "$lib/datepicker-week.svelte";
-	import Meta from "$lib/meta.svelte";
-	import Widget from "$lib/widget.svelte";
-	import calendarDate from "$gfx/calendar-date@0.5x.webp?w=100&h=100";
-	import calendarWeek from "$gfx/calendar-week@0.5x.webp?w=100&h=100";
+<script lang="ts">
+	import DatepickerDate from "$lib/countdown/datepicker-date.svelte";
+	import DatepickerWeek from "$lib/countdown/datepicker-week.svelte";
+	import Meta from "$lib/layout/meta.svelte";
+	import Widget from "$lib/layout/widget.svelte";
+	import calendarWeek from "$gfx/calendar-week@0.5x.webp?w=200&h=200&img";
+	import calendarDate from "$gfx/calendar-date@0.5x.webp?w=200&h=200&img";
 
 	export let option = undefined;
 </script>
