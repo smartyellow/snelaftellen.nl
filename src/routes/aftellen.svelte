@@ -1,7 +1,3 @@
-<script context="module" lang="ts">
-	export const prerender = true;
-</script>
-
 <script lang="ts">
 	import DatepickerDate from '$lib/countdown/datepicker-date.svelte';
 	import DatepickerWeek from '$lib/countdown/datepicker-week.svelte';

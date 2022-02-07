@@ -1,8 +1,6 @@
-<script context="module" lang="ts">
+<script lang="ts">
 	import Meta from '$lib/layout/meta.svelte';
 	import flags from '$gfx/flags.svg';
-
-	export const prerender = true;
 </script>
 
 <Meta />
