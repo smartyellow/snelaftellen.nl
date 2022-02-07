@@ -30,8 +30,8 @@ const config = {
 					$static: path.resolve('./static'),
 					$gfx: path.resolve('./src/gfx')
 				}
-			},
-		},
+			}
+		}
 	}
 };
 
