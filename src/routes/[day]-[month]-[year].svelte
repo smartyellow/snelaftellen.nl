@@ -1,15 +1,11 @@
 <script context="module" lang="ts">
 	import type { LoadInput, LoadOutput } from '@sveltejs/kit';
+	import { getPimpOptions } from '$lib/countdown/helpers';
 
 	export async function load({ url, params }: LoadInput): Promise<LoadOutput<Record<string,any>>> {
-		const bg = url.searchParams.get('bg');
-		const fg = url.searchParams.get('fg');
-		const yl = url.searchParams.get('yl');
-		const img = url.searchParams.get('img') || 'no';
-		const title = url.searchParams.get('title') || '';
-
+		const pimpOptions = getPimpOptions(url.searchParams);
 		const today = new Date();
-		let countTo;
+		let countTo: Date;
 
 		if (params.day) {
 			countTo = new Date(
@@ -37,11 +33,7 @@
 			props: {
 				difference,
 				countTo,
-				bg,
-				fg,
-				yl,
-				img,
-				title
+				pimpOptions
 			}
 		};
 	}
@@ -52,22 +44,15 @@
 	import { localeOptions, months } from '$lib/constants';
 	import Meta from '$lib/layout/meta.svelte';
 	import Pimp from '$lib/countdown/pimp.svelte';
+	import { capitalize } from '$lib/helpers';
+	import type { PimpOptions } from '$lib/countdown/helpers';
 
 	export let difference = undefined;
 	export let countTo = undefined;
-
-	export let bg: string;
-	export let fg: string;
-	export let yl: string;
-	export let img: string;
-	export let title: string;
+	export let pimpOptions: PimpOptions;
 
 	const localeDate = countTo.toLocaleString('nl-NL', localeOptions);
-	const displayTitle = title != '' ? title : localeDate;
-
-	function capitalize(string: string) {
-		return string.charAt(0).toUpperCase() + string.slice(1);
-	}
+	const displayTitle = pimpOptions.title != '' ? pimpOptions.title : localeDate;
 </script>
 
 <Meta
@@ -80,7 +65,7 @@
 	{displayTitle}
 </h2>
 <Countdown count={difference} date={countTo} />
-<Pimp {bg} {fg} {yl} {title} {img} />
+<Pimp {...pimpOptions} />
 
 <slot />
 

@@ -1,13 +1,9 @@
 <script context="module" lang="ts">
 	import type { LoadInput, LoadOutput } from '@sveltejs/kit';
+	import { getPimpOptions } from '$lib/countdown/helpers';
 
 	export async function load({ url, params }: LoadInput): Promise<LoadOutput<Record<string,any>>> {
-		const bg = url.searchParams.get('bg');
-		const fg = url.searchParams.get('fg');
-		const yl = url.searchParams.get('yl');
-		const img = url.searchParams.get('img') || 'no';
-		const title = url.searchParams.get('title') || '';
-
+		const pimpOptions = getPimpOptions(url.searchParams);
 		const today = new Date();
 		let countTo: Date;
 
@@ -30,11 +26,7 @@
 				year: params.year,
 				difference,
 				countTo,
-				bg,
-				fg,
-				yl,
-				img,
-				title
+				pimpOptions
 			}
 		};
 	}
@@ -45,17 +37,13 @@
 	import { localeOptions } from '$lib/constants';
 	import Meta from '$lib/layout/meta.svelte';
 	import Pimp from '$lib/countdown/pimp.svelte';
+	import type { PimpOptions } from '$lib/countdown/helpers';
 
 	export let difference = undefined;
 	export let countTo = undefined;
 	export let year = 2021;
 	export let week = 1;
-
-	export let bg;
-	export let fg;
-	export let yl;
-	export let img;
-	export let title;
+	export let pimpOptions: PimpOptions;
 
 	const localeDate = countTo.toLocaleString('nl-NL', localeOptions);
 	const displayTitle = `week ${week} in ${year}`;
@@ -72,10 +60,10 @@
 
 <h2>
 	{difference > 0 ? 'Aftellen naar' : 'Optellen naar'}
-	{title || displayTitle}
+	{pimpOptions.title || displayTitle}
 </h2>
 <Countdown count={difference} date={countTo} />
-<Pimp {bg} {fg} {yl} {title} {img} />
+<Pimp {...pimpOptions} />
 
 <slot />
 
@@ -83,7 +71,7 @@
 <p>
 	{difference > 0
 		? `Nog ${difference} dagen wachten tot ${displayTitle}.`
-		: `${title || capitalize(displayTitle)} is inmiddels ${difference * -1} dagen geleden.`}
+		: `${pimpOptions.title || capitalize(displayTitle)} is inmiddels ${difference * -1} dagen geleden.`}
 	Fijn dat we je hebben kunnen helpen! Heb je naar aanleiding van je bezoek vragen, opmerkingen en/of
 	suggesties voor deze website? <a href="/contact">Neem contact op!</a>
 </p>
