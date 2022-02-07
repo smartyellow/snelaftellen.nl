@@ -107,7 +107,8 @@ fieldset {
 		vertical-align: top;
 		flex-shrink: 1;
 		order: -10;
-		width: 30%;
+		min-width: 30%;
+		max-width: 30%;
 	}
 
 	input:not([type='checkbox']),
@@ -125,7 +126,7 @@ label b {
 	font-weight: bold;
 }
 
-input:not([type='checkbox']),
+input:not([type='checkbox']):not([type='radio']),
 select,
 textarea {
 	border: 1px solid $accent-light;

@@ -26,7 +26,6 @@
 </script>
 
 <script lang="ts">
-	import { assets } from '$app/paths';
 	import CookieMessage from '$lib/layout/cookiemessage.svelte';
 	import CountdownOptions from '$lib/countdown/countdown-options.svelte';
 	import Doormat from '$lib/layout/doormat.svelte';
@@ -34,6 +33,7 @@
 	import Share from '$lib/layout/share.svelte';
 	import Widget from '$lib/layout/widget.svelte';
 	import '$lib/styles/app.scss';
+	import PimpTopImage from '$lib/countdown/pimp-top-image.svelte';
 
 	export let bg: string;
 	export let fg: string;
@@ -49,11 +49,8 @@
 
 <div class="page" {style}>
 	<Header />
+	<PimpTopImage {img} />
 	<CookieMessage />
-
-	{#if img != 'no'}
-		<img src="{assets}/img/top/{img}.webp" alt="" class="topimg" />
-	{/if}
 
 	<div class="wrapper">
 		<main>
@@ -84,9 +81,6 @@
 		flex-direction: row;
 		padding: $padding;
 		justify-content: space-between;
-	}
-	.topimg {
-		width: 100%;
 	}
 	main {
 		flex: 3 0;

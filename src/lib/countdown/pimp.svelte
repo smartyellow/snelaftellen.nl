@@ -1,9 +1,11 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { dev } from '$app/env';
+	import { assets } from '$app/paths';
 	import { onMount } from 'svelte';
 	import { slide } from 'svelte/transition';
 	import CopyUrl from './copy-url.svelte';
+	import { headerImages } from './helpers';
 
 	export let title = '';
 	export let bg = '#ffffff';
@@ -78,7 +80,7 @@
 			<label for="fg">Gele kaders</label>
 		</div>
 		<div class="group">
-			<select id="img" bind:value={img} on:change={() => (url = buildUrl())}>
+			<!--<select id="img" bind:value={img} on:change={() => (url = buildUrl())}>
 				<option value="no">Geen plaatje</option>
 				<option value="flags">Vlaggenlijn</option>
 				<option value="pumpkin">Halloween</option>
@@ -87,7 +89,20 @@
 				<option value="inmemoriam">Bloem (in memoriam)</option>
 				<option value="balloons">Ballonnen</option>
 				<option value="presents">Cadeaus</option>
-			</select>
+			</select>-->
+
+			<div class="imgselect">
+				{#each headerImages as image}
+					<div class="opt">
+						<div class="label">
+							<input type="radio" id={image.id} value={image.id} bind:group={img} on:change={() => (url = buildUrl())} />
+							<label for={image.id}>{image.title}</label>
+						</div>
+						<div class="img" style="background-image: url('{assets}/img/top/{image.id}.webp');"></div>
+					</div>
+				{/each}
+			</div>
+
 			<label for="img">Plaatje</label>
 		</div>
 		<p>
@@ -105,6 +120,7 @@
 {/if}
 
 <style lang="scss">
+	@import '../styles/vars';
 	button.has-badge {
 		text-decoration: none;
 		span {
@@ -114,6 +130,31 @@
 			margin-right: 5px;
 			border-radius: 5px;
 			padding: 3px;
+		}
+	}
+	.imgselect {
+		display: flex;
+		gap: $padding-sm;
+		flex-wrap: wrap;
+		.opt {
+			border: 1px solid $accent-light;
+			padding: 0;
+			flex: 1 0 calc(50% - $padding-sm * 0.5);
+			max-width: calc(50% - $padding-sm * 0.5);
+			border-radius: $radius;
+			.label {
+				padding: $padding-sm;
+				background-color: lighten($grey, 15);
+				border-radius: $radius $radius 0 0;
+			}
+			.img {
+				width: 100%;
+				height: 4rem;
+				background-position: center center;
+				background-repeat: no-repeat;
+				background-size: cover;
+				border-radius: 0 0 $radius $radius;
+			}
 		}
 	}
 </style>
