@@ -3,16 +3,12 @@
 	import { getPimpOptions } from '$lib/countdown/helpers';
 	import { months } from '$lib/constants';
 
-	export async function load({ url, params }: LoadInput): Promise<LoadOutput<Record<string,any>>> {
+	export async function load({ url, params }: LoadInput): Promise<LoadOutput<Record<string, any>>> {
 		const pimpOptions = getPimpOptions(url.searchParams);
 		let countTo: Date;
 
 		if (params.day) {
-			countTo = new Date(
-				parseInt(params.year),
-				months.indexOf(params.month),
-				parseInt(params.day)
-			);
+			countTo = new Date(parseInt(params.year), months.indexOf(params.month), parseInt(params.day));
 		} else if (params.month) {
 			countTo = new Date(parseInt(params.year), parseInt(params.month) - 1, 1);
 		} else if (params.year) {

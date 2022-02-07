@@ -7,7 +7,7 @@
  * @see https://github.com/JonasKruckenberg/imagetools/blob/main/packages/core/src/output-formats.ts
  * @see https://github.com/JonasKruckenberg/imagetools/blob/main/docs/guide/getting-started.md#metadata
  */
- declare module '*&img' {
+declare module '*&img' {
 	const out;
 	export default out;
 }

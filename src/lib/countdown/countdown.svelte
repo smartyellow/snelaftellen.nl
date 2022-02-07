@@ -13,11 +13,11 @@
 		{#if count > 0}
 			<p>nog</p>
 			<p class="count">{count}</p>
-			<p>{count === 1 ? "dag" : "dagen"} tot {localeDate}</p>
+			<p>{count === 1 ? 'dag' : 'dagen'} tot {localeDate}</p>
 		{:else}
 			<p>{localeDate} is</p>
 			<p class="count">{count * -1}</p>
-			<p>{count === -1 ? "dag" : "dagen"} geleden</p>
+			<p>{count === -1 ? 'dag' : 'dagen'} geleden</p>
 		{/if}
 	</div>
 

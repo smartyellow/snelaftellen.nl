@@ -1,8 +1,8 @@
 <script lang="ts">
-	import autumnIcon from "$gfx/season-autumn@0.5x.webp?h=90&w=90&img";
-	import springIcon from "$gfx/season-spring@0.5x.webp?h=90&w=90&img";
-	import summerIcon from "$gfx/season-summer@0.5x.webp?h=90&w=90&img";
-	import winterIcon from "$gfx/season-winter@0.5x.webp?h=90&w=90&img";
+	import autumnIcon from '$gfx/season-autumn@0.5x.webp?h=90&w=90&img';
+	import springIcon from '$gfx/season-spring@0.5x.webp?h=90&w=90&img';
+	import summerIcon from '$gfx/season-summer@0.5x.webp?h=90&w=90&img';
+	import winterIcon from '$gfx/season-winter@0.5x.webp?h=90&w=90&img';
 
 	export let d: Date;
 
@@ -20,7 +20,8 @@
 	} else if (9 <= month && month <= 11) {
 		name = 'herfst';
 		src = autumnIcon;
-	} else { // Months 12, 01, 02
+	} else {
+		// Months 12, 01, 02
 		name = 'winter';
 		src = winterIcon;
 	}

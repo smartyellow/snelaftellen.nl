@@ -6,7 +6,7 @@
 	let show = false;
 </script>
 
-<a href="/aftellen" class="btn" class:shadow={!show} on:click|preventDefault={() => show = !show}>
+<a href="/aftellen" class="btn" class:shadow={!show} on:click|preventDefault={() => (show = !show)}>
 	Aftellen!
 </a>
 
@@ -14,7 +14,7 @@
 	<div class="cols" transition:slide>
 		{#each countdownOptions as option}
 			<Widget>
-				<a href="/aftellen-naar-{option}" on:click={() => show = false}>
+				<a href="/aftellen-naar-{option}" on:click={() => (show = false)}>
 					Naar een {option}
 				</a>
 			</Widget>

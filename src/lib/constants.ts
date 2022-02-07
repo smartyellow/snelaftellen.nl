@@ -20,4 +20,4 @@ export const months = [
 	'december'
 ];
 
-export const countdownOptions = ["datum", "week"];
+export const countdownOptions = ['datum', 'week'];

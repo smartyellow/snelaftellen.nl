@@ -56,23 +56,29 @@
 	<fieldset transition:slide>
 		<legend>Pimp je aftelkalender!</legend>
 		<div class="group">
-			<input type="text" id="title" bind:value={title} on:change={() => url = buildUrl()} placeholder="bv. Sinterklaas" />
+			<input
+				type="text"
+				id="title"
+				bind:value={title}
+				on:change={() => (url = buildUrl())}
+				placeholder="bv. Sinterklaas"
+			/>
 			<label for="title">Waar tel je naar af?</label>
 		</div>
 		<div class="group">
-			<input type="color" id="bg" bind:value={bg} on:change={() => url = buildUrl()} />
+			<input type="color" id="bg" bind:value={bg} on:change={() => (url = buildUrl())} />
 			<label for="bg">Achtergrondkleur</label>
 		</div>
 		<div class="group">
-			<input type="color" id="fg" bind:value={fg} on:change={() => url = buildUrl()} />
+			<input type="color" id="fg" bind:value={fg} on:change={() => (url = buildUrl())} />
 			<label for="fg">Tekstkleur</label>
 		</div>
 		<div class="group">
-			<input type="color" id="yl" bind:value={yl} on:change={() => url = buildUrl()} />
+			<input type="color" id="yl" bind:value={yl} on:change={() => (url = buildUrl())} />
 			<label for="fg">Gele kaders</label>
 		</div>
 		<div class="group">
-			<select id="img" bind:value={img} on:change={() => url = buildUrl()}>
+			<select id="img" bind:value={img} on:change={() => (url = buildUrl())}>
 				<option value="no">Geen plaatje</option>
 				<option value="flags">Vlaggenlijn</option>
 				<option value="pumpkin">Halloween</option>
@@ -86,9 +92,7 @@
 		</div>
 		<p>
 			<a href={url} class="btn">Laat maar zien!</a>
-			<button on:click={shorten} disabled={!!shorturl}>
-				Ik wil een korte url
-			</button>
+			<button on:click={shorten} disabled={!!shorturl}> Ik wil een korte url </button>
 		</p>
 		<hr />
 		<CopyUrl url={shorturl || url} />

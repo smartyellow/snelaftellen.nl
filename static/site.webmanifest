@@ -55,11 +55,11 @@
 	"scope": "/",
 	"shortcuts": [
 		{
-		  "name": "SnelAftellen.nl",
-		  "short_name": "SnelAftellen.nl",
-		  "description": "Tel af naar je favoriete datum!",
-		  "url": "/?source=pwa",
-		  "icons": [{ "src": "/android-chrome-192x192.png", "sizes": "192x192" }]
+			"name": "SnelAftellen.nl",
+			"short_name": "SnelAftellen.nl",
+			"description": "Tel af naar je favoriete datum!",
+			"url": "/?source=pwa",
+			"icons": [{ "src": "/android-chrome-192x192.png", "sizes": "192x192" }]
 		}
 	]
 }

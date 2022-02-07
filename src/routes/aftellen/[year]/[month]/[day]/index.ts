@@ -1,5 +1,5 @@
-import { months } from "$lib/constants";
-import type { EndpointOutput, RequestEvent } from "@sveltejs/kit";
+import { months } from '$lib/constants';
+import type { EndpointOutput, RequestEvent } from '@sveltejs/kit';
 
 export function get(req: RequestEvent): EndpointOutput {
 	const { year, month, day } = req.params;
@@ -8,7 +8,7 @@ export function get(req: RequestEvent): EndpointOutput {
 	return {
 		status: 301, // Moved Permanently
 		headers: {
-			'Location': redirectTo
+			Location: redirectTo
 		}
-	}
+	};
 }
