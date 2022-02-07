@@ -3,13 +3,18 @@ import adapter from '@sveltejs/adapter-cloudflare';
 import path from 'path';
 import { mdsvex } from 'mdsvex';
 import { imagetools } from 'vite-imagetools';
+import autoprefixer from 'autoprefixer';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
 	extensions: ['.svelte', '.md'],
 
 	preprocess: [
-		preprocess(),
+		preprocess({
+			postcss: {
+				plugins: [autoprefixer()]
+			}
+		}),
 		mdsvex({
 			extensions: ['.md']
 		})
@@ -18,12 +23,6 @@ const config = {
 	kit: {
 		appDir: 'gen',
 		adapter: adapter(),
-		prerender: {
-			crawl: true,
-			enabled: true,
-			entries: ['*'],
-			onError: 'continue'
-		},
 		vite: {
 			plugins: [imagetools()],
 			resolve: {
@@ -31,8 +30,8 @@ const config = {
 					$static: path.resolve('./static'),
 					$gfx: path.resolve('./src/gfx')
 				}
-			}
-		}
+			},
+		},
 	}
 };
 
