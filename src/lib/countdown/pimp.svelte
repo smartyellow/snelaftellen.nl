@@ -2,16 +2,17 @@
 	import { page } from '$app/stores';
 	import { dev } from '$app/env';
 	import { onMount } from 'svelte';
-	import CopyUrl from './copyurl.svelte';
-
-	let open = false;
-	let visible = false;
+	import { slide } from 'svelte/transition';
+	import CopyUrl from './copy-url.svelte';
 
 	export let title = '';
 	export let bg = '#ffffff';
 	export let fg = '#000000';
 	export let yl = '#f8f5c3';
 	export let img = 'no';
+
+	let open = false;
+	let visible = false;
 
 	const protocol = dev ? 'http://' : 'https://';
 
@@ -38,21 +39,21 @@
 		// Check if JS is enabled, then show pimp button.
 		visible = true;
 	});
+
+	function toggleOpen() {
+		open = !open;
+	}
 </script>
 
-<button
-	on:click={() => {
-		open = !open;
-	}}
-	class="toggle"
-	class:visible
->
-	<span>TIP!</span>
-	<u>Pimp je kalender</u>
-</button>
+{#if visible}
+	<button on:click={toggleOpen} class="has-badge">
+		<span>TIP!</span>
+		<u>Pimp je kalender</u>
+	</button>
+{/if}
 
 {#if open}
-	<fieldset>
+	<fieldset transition:slide>
 		<legend>Pimp je aftelkalender!</legend>
 		<div class="group">
 			<input type="text" id="title" bind:value={title} on:change={() => url = buildUrl()} placeholder="bv. Sinterklaas" />
@@ -85,14 +86,8 @@
 		</div>
 		<p>
 			<a href={url} class="btn">Laat maar zien!</a>
-			<button on:click={shorten}>
+			<button on:click={shorten} disabled={!!shorturl}>
 				Ik wil een korte url
-				{#if shorturl}
-					<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="icon" viewBox="0 0 16 16">
-						<path d="M3 14.5A1.5 1.5 0 0 1 1.5 13V3A1.5 1.5 0 0 1 3 1.5h8a.5.5 0 0 1 0 1H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V8a.5.5 0 0 1 1 0v5a1.5 1.5 0 0 1-1.5 1.5H3z"/>
-						<path d="m8.354 10.354 7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z"/>
-					</svg>
-				{/if}
 			</button>
 		</p>
 		<hr />
@@ -106,19 +101,15 @@
 {/if}
 
 <style lang="scss">
-	button.toggle {
+	button.has-badge {
 		text-decoration: none;
-		display: none;
-	}
-	button.toggle.visible {
-		display: block;
-	}
-	button span {
-		background-color: #9acd32;
-		color: #000000;
-		text-decoration: none;
-		margin-right: 5px;
-		border-radius: 5px;
-		padding: 3px;
+		span {
+			background-color: #9acd32;
+			color: #000000;
+			text-decoration: none;
+			margin-right: 5px;
+			border-radius: 5px;
+			padding: 3px;
+		}
 	}
 </style>
