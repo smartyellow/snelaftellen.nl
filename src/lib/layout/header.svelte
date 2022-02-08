@@ -2,8 +2,8 @@
 	<h1><a href="/">SnelAftellen.nl</a></h1>
 	<nav>
 		<ul>
-			<li><a href="/aftellen">Aftellen</a></li>
-			<li><a href="/contact">Contact</a></li>
+			<li><a sveltekit:prefetch href="/aftellen">Aftellen</a></li>
+			<li><a sveltekit:prefetch href="/contact">Contact</a></li>
 		</ul>
 	</nav>
 </header>

@@ -42,5 +42,5 @@
 				difference * -1
 		  } dagen geleden.`}
 	Fijn dat we je hebben kunnen helpen! Heb je naar aanleiding van je bezoek vragen, opmerkingen en/of
-	suggesties voor deze website? <a href="/contact">Neem contact op!</a>
+	suggesties voor deze website? <a sveltekit:prefetch href="/contact">Neem contact op!</a>
 </p>

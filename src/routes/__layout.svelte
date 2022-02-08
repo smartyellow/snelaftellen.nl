@@ -45,7 +45,7 @@
 			<Widget>
 				<h2>Hier adverteren?</h2>
 				<p>
-					<a href="/contact">Neem contact op!</a>
+					<a sveltekit:prefetch href="/contact">Neem contact op!</a>
 				</p>
 			</Widget>
 		</aside>

@@ -24,6 +24,19 @@ h6 {
 	}
 }
 
+a {
+	color: $accent-light;
+	text-decoration: underline;
+
+	&:hover {
+		text-decoration: none;
+	}
+
+	&:active {
+		color: $accent-dark;
+	}
+}
+
 hr {
 	border: none;
 	border-top: 1px solid #afafaf;

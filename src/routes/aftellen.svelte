@@ -25,8 +25,10 @@
 <div class="cols">
 	{#if selected('datum')}
 		<Widget>
-			<img src={calendarDate} alt="" />
-			<h2>Tel af naar een datum</h2>
+			<a sveltekit:prefetch href="/datum">
+				<img src={calendarDate} alt="" />
+				<h2>Tel af naar een datum</h2>
+			</a>
 			<p>Tel af naar je favoriete datum!</p>
 			<DatepickerDate />
 			<p>Als je alleen een maand en een jaar invult, wordt dag 1 van de maand automatisch gekozen.</p>
@@ -36,8 +38,10 @@
 
 	{#if selected('week')}
 		<Widget>
-			<img src={calendarWeek} alt="" />
-			<h2>Tel af naar een week</h2>
+			<a sveltekit:prefetch href="/week">
+				<img src={calendarWeek} alt="" />
+				<h2>Tel af naar een week</h2>
+			</a>
 			<p>Tel af naar een bepaald weeknummer van een jaar.</p>
 			<DatepickerWeek />
 			<p>Stel dat je week 2 in 2022 invult, dan zal er worden afgeteld naar maandag 10 januari 2022.</p>

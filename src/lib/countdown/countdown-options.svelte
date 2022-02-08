@@ -1,12 +1,16 @@
 <script lang="ts">
-	import { slide } from 'svelte/transition';
-	import { countdownOptions } from '../constants';
-	import Widget from '../layout/widget.svelte';
+	//import { slide } from 'svelte/transition';
+	//import { countdownOptions } from '../constants';
+	//import Widget from '../layout/widget.svelte';
 
 	let show = false;
 </script>
 
-<a href="/aftellen" class="btn" class:shadow={!show} on:click|preventDefault={() => (show = !show)}>
+<a sveltekit:prefetch href="/aftellen" class="btn shadow">
+	Aftellen!
+</a>
+
+<!--<a href="/aftellen" class="btn" class:shadow={!show} on:click|preventDefault={() => (show = !show)}>
 	Aftellen!
 </a>
 
@@ -14,13 +18,13 @@
 	<div class="cols" transition:slide>
 		{#each countdownOptions as option}
 			<Widget>
-				<a href="/aftellen-naar-{option}" on:click={() => (show = false)}>
+				<a sveltekit:prefetch href="/{option}" on:click={() => (show = false)}>
 					Naar een {option}
 				</a>
 			</Widget>
 		{/each}
 	</div>
-{/if}
+{/if}-->
 
 <style lang="scss">
 	@import '../styles/vars';
@@ -35,11 +39,14 @@
 		&.shadow {
 			box-shadow: $shadow-flat $accent-light;
 			border-radius: $radius;
+			&:active {
+				box-shadow: none;
+			}
 		}
 	}
-	.cols {
-		border: 1px solid $accent-light;
-		margin-top: 0;
-		padding: 10px;
-	}
+	//.cols {
+	//	border: 1px solid $accent-light;
+	//	margin-top: 0;
+	//	padding: 10px;
+	//}
 </style>
