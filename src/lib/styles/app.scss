@@ -90,6 +90,7 @@ button,
 	&:focus,
 	&:active {
 		box-shadow: none;
+		color: $light;
 	}
 
 	&:disabled,
