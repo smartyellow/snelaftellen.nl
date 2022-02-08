@@ -5,5 +5,6 @@ export function capitalize(string: string): string {
 export function isInt(input: string | number): boolean {
 	let value: string;
 	if (typeof input === 'number') value = ` ${input} `;
+	else value = input;
 	return Number.isInteger(parseInt(value));
 }
