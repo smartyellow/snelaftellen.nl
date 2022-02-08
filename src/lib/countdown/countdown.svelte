@@ -36,12 +36,13 @@
 		padding: $padding;
 		border: 2px dashed $accent-light;
 		display: flex;
-	}
-	.countdown > * :global(:first-child) {
-		margin-top: 0;
-	}
-	.countdown > * :global(:last-child) {
-		margin-bottom: 0;
+		gap: $padding-sm;
+		> * :global(:first-child) {
+			margin-top: 0;
+		}
+		> * :global(:last-child) {
+			margin-bottom: 0;
+		}
 	}
 	.countdown-content {
 		flex-grow: 1;
@@ -51,6 +52,9 @@
 		height: 50px;
 		flex-grow: 0;
 		flex-shrink: 1;
+		@media screen and (max-width: 500px) {
+			display: none;
+		}
 	}
 	.count {
 		font-size: 4rem;
@@ -60,7 +64,7 @@
 		margin: 0;
 		padding-top: 65px;
 		vertical-align: middle;
-		background-image: url('../../static/img/countdown/calendar@0.5x.webp');
+		background-image: url('/img/countdown/calendar@0.5x.webp');
 		background-repeat: no-repeat;
 		background-size: contain;
 		background-position: center center;

@@ -1,3 +1,5 @@
+import { assets } from '$app/paths';
+
 export interface HeaderImage {
 	id: string;
 	title: string;
@@ -23,9 +25,17 @@ export interface PimpOptions {
 	title?: string;
 }
 
+export const defaultPimpOptions: PimpOptions = {
+	bg: '#ffffff',
+	fg: '#000000',
+	yl: '#f8f5c3',
+	img: 'no',
+	title: ''
+};
+
 export function getPimpOptions(usp: URLSearchParams): PimpOptions {
 	const get = (option: keyof PimpOptions) => {
-		return usp.get(option) || '';
+		return usp.get(option) || defaultPimpOptions[option];
 	};
 
 	return {
@@ -35,4 +45,23 @@ export function getPimpOptions(usp: URLSearchParams): PimpOptions {
 		img: get('img'),
 		title: get('title')
 	};
+}
+
+export function getPimpBodyStyle(options: PimpOptions): string {
+	const d = defaultPimpOptions;
+	const o = options;
+
+	return `
+		<style>
+			body {
+				background-color: ${o.bg || d.bg};
+				color: ${o.fg || d.fg};
+				--yellow: ${o.yl || o.fg};
+			}
+		</style>
+	`;
+}
+
+export function getPimpImagePath(img: string): string {
+	return `${assets}/img/top/${img}.webp`;
 }

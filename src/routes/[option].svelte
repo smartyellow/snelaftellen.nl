@@ -5,25 +5,22 @@
 	export function load({ params }: LoadInput): LoadOutput {
 		const { option } = params;
 
-		if (countdownOptions.includes(option)) {
-			return {
-				props: {
-					option
-				}
-			};
-		} else {
-			return {
-				status: 400,
-				error: new Error(`No such countdown option (${option})`)
-			};
-		}
+		if (!countdownOptions.includes(option)) return {
+				status: 404
+		};
+
+		return {
+			props: {
+				option
+			}
+		};
 	}
 </script>
 
 <script lang="ts">
 	import Countdown from './aftellen.svelte';
 
-	export let option: string;
+	export let option: typeof countdownOptions[number];
 </script>
 
 <Countdown {option} />

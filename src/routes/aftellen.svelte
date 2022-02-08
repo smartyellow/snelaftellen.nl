@@ -5,27 +5,45 @@
 	import Widget from '$lib/layout/widget.svelte';
 	import calendarWeek from '$gfx/calendar-week@0.5x.webp?w=200&h=200&img';
 	import calendarDate from '$gfx/calendar-date@0.5x.webp?w=200&h=200&img';
+	import type { countdownOptions } from '$lib/constants';
 
-	export let option = undefined;
+	export let option: typeof countdownOptions[number] = undefined;
+
+	const title = option
+		? `Aftellen naar een ${option}`
+		: 'Tel af naar datums en weken';
+
+	function selected(o: typeof countdownOptions[number]): boolean {
+		return !!(option === o || !option);
+	}
 </script>
 
-<Meta title="Tel af naar datums en weken op SnelAftellen.nl" />
+<Meta title="{title} op SnelAftellen.nl" />
+
+<h1>{title}</h1>
 
 <div class="cols">
-	<Widget highlighted={option === 'datum'}>
-		<img src={calendarDate} alt="" />
-		<h2>Tel af naar een datum</h2>
-		<p>Tel af naar je favoriete datum!</p>
-		<DatepickerDate />
-		<p>Als je alleen een maand en een jaar invult, wordt dag 1 van de maand automatisch gekozen.</p>
-		<p>Als je alleen een jaar invult, gaan we uit van 1 januari.</p>
-	</Widget>
-	<Widget highlighted={option === 'week'}>
-		<img src={calendarWeek} alt="" />
-		<h2>Tel af naar een weeknummer</h2>
-		<p>Tel af naar een bepaald weeknummer van een jaar.</p>
-		<DatepickerWeek />
-	</Widget>
+	{#if selected('datum')}
+		<Widget>
+			<img src={calendarDate} alt="" />
+			<h2>Tel af naar een datum</h2>
+			<p>Tel af naar je favoriete datum!</p>
+			<DatepickerDate />
+			<p>Als je alleen een maand en een jaar invult, wordt dag 1 van de maand automatisch gekozen.</p>
+			<p>Als je alleen een jaar invult, gaan we uit van 1 januari.</p>
+		</Widget>
+	{/if}
+
+	{#if selected('week')}
+		<Widget>
+			<img src={calendarWeek} alt="" />
+			<h2>Tel af naar een week</h2>
+			<p>Tel af naar een bepaald weeknummer van een jaar.</p>
+			<DatepickerWeek />
+			<p>Stel dat je week 2 in 2022 invult, dan zal er worden afgeteld naar maandag 10 januari 2022.</p>
+			<p>We gaan dus uit van het begin van de week.</p>
+		</Widget>
+	{/if}
 </div>
 
 <style lang="scss">
@@ -33,5 +51,10 @@
 		width: 80px;
 		height: 80px;
 		float: right;
+	}
+	@media screen and (max-width: 500px) {
+		.cols {
+			flex-direction: column;
+		}
 	}
 </style>

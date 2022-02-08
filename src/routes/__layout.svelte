@@ -1,25 +1,13 @@
 <script context="module" lang="ts">
 	import type { LoadInput, LoadOutput } from '@sveltejs/kit';
+	import { getPimpOptions } from '$lib/countdown/helpers';
 
 	export function load({ url, params }: LoadInput): LoadOutput {
-		const year = parseInt(params.year) || new Date().getFullYear();
-		const month = parseInt(params.month) || 1;
-		const day = parseInt(params.day) || 1;
-
-		const bg = url.searchParams.get('bg');
-		const fg = url.searchParams.get('fg');
-		const yl = url.searchParams.get('yl');
-		const img = url.searchParams.get('img') || 'no';
+		const pimpOptions = getPimpOptions(url.searchParams);
 
 		return {
 			props: {
-				year,
-				month,
-				day,
-				bg,
-				fg,
-				yl,
-				img
+				pimpOptions
 			}
 		};
 	}
@@ -34,22 +22,17 @@
 	import Widget from '$lib/layout/widget.svelte';
 	import '$lib/styles/app.scss';
 	import PimpTopImage from '$lib/countdown/pimp-top-image.svelte';
+	import { getContext } from 'svelte';
+	import type { PimpOptions } from '$lib/countdown/helpers';
 
-	export let bg: string;
-	export let fg: string;
-	export let yl: string;
-	export let img: string;
+	export let pimpOptions: PimpOptions;
 
-	$: style = `
-		background-color: ${bg || '#ffffff'};
-		color: ${fg || '#000000'};
-		--yellow: ${yl || '#f8f5c3'};
-	`;
+	const topImage: string = getContext('headerImage');
 </script>
 
-<div class="page" {style}>
+<div class="page">
 	<Header />
-	<PimpTopImage {img} />
+	<PimpTopImage img={topImage || pimpOptions.img} />
 	<CookieMessage />
 
 	<div class="wrapper">
@@ -85,9 +68,9 @@
 	main {
 		flex: 3 0;
 		padding: $padding;
-	}
-	main :global(:first-child) {
-		margin-top: 0;
+		:global(:first-child) {
+			margin-top: 0;
+		}
 	}
 	aside {
 		flex: 1 0;
@@ -96,9 +79,15 @@
 	aside > :global(* + *) {
 		margin-top: 10px;
 	}
-	@media only screen and (max-width: 750px) {
+	@media only screen and (max-width: 800px) {
 		.wrapper {
 			flex-direction: column;
+		}
+		:global(main) {
+			padding-top: 0 !important;
+		}
+		:global(aside) {
+			padding-bottom: 0 !important;
 		}
 	}
 </style>

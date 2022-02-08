@@ -1,7 +1,25 @@
 <script lang="ts">
 	import Meta from '$lib/layout/meta.svelte';
 	import flags from '$gfx/flags.svg';
+
+	const rawStyles = `
+		<style>
+			@media only screen and (max-width: 800px) {
+				.wrapper {
+					flex-direction: column-reverse !important;
+				}
+				:global(main) {
+					padding-top: 0 !important;
+				}
+				:global(aside) {
+					padding-bottom: 0 !important;
+				}
+			}
+		</style>
+	`;
 </script>
+
+{@html rawStyles}
 
 <Meta />
 
@@ -41,21 +59,3 @@
 
 Heb je vragen, opmerkingen en/of suggesties voor deze website?
 <a href="/contact">Neem contact op!</a>
-
-<style lang="scss">
-	:global(svg) {
-		width: 100%;
-		height: auto;
-	}
-	@media only screen and (max-width: 750px) {
-		:global(.wrapper) {
-			flex-direction: column-reverse !important;
-		}
-		:global(main) {
-			padding-top: 0 !important;
-		}
-		:global(aside) {
-			padding-bottom: 0 !important;
-		}
-	}
-</style>

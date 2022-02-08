@@ -48,6 +48,7 @@
 </ins>
 
 <style lang="scss">
+	@import '../styles/vars';
 	ins {
 		-moz-user-select: all;
 		-webkit-user-select: all;
@@ -61,20 +62,29 @@
 		overflow-x: auto;
 		font-family: Arial, sans-serif;
 		align-items: center;
+		gap: $padding-sm;
+		@media screen and (max-width: 600px) {
+			flex-direction: column;
+		}
 	}
 	a {
 		display: block;
 		flex-grow: 1;
+		word-break: normal;
+		overflow-wrap: anywhere;
+		white-space: pre-wrap !important;
 	}
 	button {
 		height: 100%;
 		margin: 0;
 		margin-right: auto;
-
 		svg {
 			width: 30px;
 			height: 30px;
 			fill: currentColor;
+		}
+		@media screen and (max-width: 600px) {
+			margin-left: auto;
 		}
 	}
 </style>
