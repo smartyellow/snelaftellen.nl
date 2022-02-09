@@ -15,7 +15,7 @@
 
 <script lang="ts">
 	import CookieMessage from '$lib/layout/cookiemessage.svelte';
-	import CountdownOptions from '$lib/countdown/countdown-options.svelte';
+	import CountdownOptions from '$lib/countdown/countdown-button.svelte';
 	import Doormat from '$lib/layout/doormat.svelte';
 	import Header from '$lib/layout/header.svelte';
 	import Share from '$lib/layout/share.svelte';
