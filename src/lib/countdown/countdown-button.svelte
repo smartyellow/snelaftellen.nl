@@ -2,6 +2,7 @@
 	import Modal from "$lib/ui/modal.svelte";
 	import CountdownRoute from "../../routes/aftellen.svelte";
 	import { beforeNavigate } from '$app/navigation';
+import IconCalendar from "$lib/svg/icon-calendar.svelte";
 
 	let isOpen = false;
 
@@ -29,6 +30,7 @@
 	class="btn shadow"
 	on:click|preventDefault={open}
 >
+	<IconCalendar />
 	Aftellen!
 </a>
 
@@ -38,10 +40,11 @@
 
 <style lang="scss">
 	@import '../styles/vars';
+	$_size: 1.8rem;
 	a {
 		display: block;
 		text-align: center;
-		font-size: 1.8rem;
+		font-size: $_size;
 	}
 	.btn {
 		padding: 10px;
@@ -52,6 +55,10 @@
 			&:active {
 				box-shadow: none;
 			}
+		}
+		:global(svg) {
+			height: $_size;
+			width: $_size;
 		}
 	}
 </style>

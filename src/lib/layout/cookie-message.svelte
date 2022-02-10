@@ -1,4 +1,5 @@
 <script lang="ts">
+	import IconCheck from '$lib/svg/icon-check.svelte';
 	import Cookies from 'js-cookie';
 	import { onMount } from 'svelte';
 	import { slide } from 'svelte/transition';
@@ -20,7 +21,10 @@
 {#if show}
 	<div transition:slide>
 		Deze website serveert cookies.
-		<button on:click={accept}>OK</button>
+		<button on:click={accept}>
+			<IconCheck />
+			OK
+		</button>
 		<a target="_blank" href="https://www.consumentenbond.nl/internet-privacy/wat-zijn-cookies">
 			Wat zijn cookies?
 		</a>

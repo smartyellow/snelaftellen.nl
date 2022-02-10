@@ -1,4 +1,6 @@
 <script lang="ts">
+	import IconArchery from "$lib/svg/icon-archery.svelte";
+
 	const currentdate = new Date();
 	const oneJan = new Date(currentdate.getFullYear(), 0, 1);
 	const numberOfDays = Math.floor(
@@ -18,7 +20,10 @@
 
 <input type="number" bind:value={year} />
 
-<a role="button" href="/week-{week}-van-{year}" class="btn"> Aftellen </a>
+<a role="button" href="/week-{week}-van-{year}" class="btn">
+	<IconArchery />
+	Aftellen
+</a>
 
 <style lang="scss">
 	input,
