@@ -20,4 +20,14 @@ export const months = [
 	'december'
 ];
 
+export const daysOfWeek = [
+	'maandag',
+	'dinsdag',
+	'woensdag',
+	'donderdag',
+	'vrijdag',
+	'zaterdag',
+	'zondag;'
+];
+
 export const countdownOptions = ['datum', 'week'];
