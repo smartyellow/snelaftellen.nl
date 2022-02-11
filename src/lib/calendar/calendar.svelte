@@ -1,11 +1,14 @@
 <script lang="ts">
 	import { months } from "$lib/constants";
 	import CalendarMonth from "./calendar-month.svelte";
+	import CalendarYearPicker from "./calendar-year-picker.svelte";
 
 	export let year = new Date().getFullYear();
 </script>
 
-<div class="cal">
+<CalendarYearPicker {year} />
+
+<div class="cal-year">
 	{#each months as _, i}
 		<CalendarMonth {year} month={i} />
 	{/each}
@@ -13,7 +16,7 @@
 
 <style lang="scss">
 	@import '../styles/vars';
-	.cal {
+	.cal-year {
 		display: flex;
 		flex-wrap: wrap;
 		gap: $padding;

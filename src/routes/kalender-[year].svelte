@@ -5,7 +5,7 @@
 	export function load({ params }: LoadInput): LoadOutput {
 		const { year } = params;
 
-		if(!isInt(year)) return {
+		if (!isInt(year)) return {
 			status: 404
 		};
 

@@ -27,7 +27,7 @@ export const daysOfWeek = [
 	'donderdag',
 	'vrijdag',
 	'zaterdag',
-	'zondag;'
+	'zondag'
 ];
 
 export const countdownOptions = ['datum', 'week'];

@@ -60,3 +60,15 @@ export function getDateFromDayWeekAndYear(day: number, week: number, year: numbe
 	const date = new Date(weekStart.getDate() + day);
 	return date;
 }
+
+export function numberOfDaysInMonth(month: number, year: number): number {
+	return new Date(year, month, 0).getDate();
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export function areArraysEqual(a: Array<any>, b: Array<any>): boolean {
+    return Array.isArray(a) &&
+        Array.isArray(b) &&
+        a.length === b.length &&
+        a.every((val, index) => val === b[index]);
+}
