@@ -2,22 +2,16 @@
 	import Modal from "$lib/ui/modal.svelte";
 	import CountdownRoute from "../../routes/aftellen.svelte";
 	import { beforeNavigate } from '$app/navigation';
-import IconCalendar from "$lib/gfx/svg/icon-calendar.svelte";
+	import IconCalendar from "$lib/gfx/svg/icon-calendar.svelte";
 
 	let isOpen = false;
 
 	function open() {
 		isOpen = true;
-		history.pushState(
-			null,
-			'Tel af naar datums en weken op SnelAftellen.nl',
-			'/aftellen'
-		);
 	}
 
 	function close() {
 		isOpen = false;
-		history.back();
 	}
 
 	beforeNavigate(() => {
