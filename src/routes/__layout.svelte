@@ -14,7 +14,7 @@
 </script>
 
 <script lang="ts">
-	import CookieMessage from '$lib/layout/cookiemessage.svelte';
+	import CookieMessage from '$lib/layout/cookie-message.svelte';
 	import CountdownOptions from '$lib/countdown/countdown-button.svelte';
 	import Doormat from '$lib/layout/doormat.svelte';
 	import Header from '$lib/layout/header.svelte';

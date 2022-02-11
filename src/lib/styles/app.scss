@@ -52,10 +52,6 @@ img.icon {
 	height: 50px;
 }
 
-svg.icon {
-	vertical-align: top;
-}
-
 .sr {
 	border: 0;
 	clip: rect(1px, 1px, 1px, 1px);
@@ -80,7 +76,7 @@ button,
 	border: none;
 	cursor: pointer;
 	font: inherit;
-	text-decoration: underline;
+	text-decoration: none;
 	border-radius: $radius;
 
 	&:hover {
@@ -100,6 +96,15 @@ button,
 		background-color: $grey;
 		text-decoration: none;
 		box-shadow: none;
+	}
+
+	svg {
+		vertical-align: top;
+		width: 1rem;
+		height: 1rem;
+		text-decoration: none;
+		stroke: $light;
+		stroke-width: 2px;
 	}
 }
 

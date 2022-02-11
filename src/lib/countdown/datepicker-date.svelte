@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { months } from '$lib/constants';
+	import IconArchery from '$lib/svg/icon-archery.svelte';
 
 	export let year = new Date().getFullYear();
 	export let month = 1;
@@ -20,7 +21,10 @@
 
 <input type="number" bind:value={year} />
 
-<a role="button" href="/{day}-{months[month - 1]}-{year}" class="btn"> Aftellen </a>
+<a role="button" href="/{day}-{months[month - 1]}-{year}" class="btn">
+	<IconArchery />
+	Aftellen
+</a>
 
 <style lang="scss">
 	input,
