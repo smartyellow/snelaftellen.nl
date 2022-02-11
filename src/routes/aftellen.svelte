@@ -6,6 +6,7 @@
 	import calendarWeek from '$gfx/calendar-week@0.5x.webp?w=200&h=200&img';
 	import calendarDate from '$gfx/calendar-date@0.5x.webp?w=200&h=200&img';
 	import type { countdownOptions } from '$lib/constants';
+import IconCalendar from '$lib/svg/icon-calendar.svelte';
 
 	export let option: typeof countdownOptions[number] = undefined;
 
@@ -21,6 +22,14 @@
 <Meta title="{title} op SnelAftellen.nl" />
 
 <h1>{title}</h1>
+
+<p>
+	Gebruik deze
+	<a href="/kalender" class="btn" sveltekit:prefetch>
+		<IconCalendar />
+		Jaarkalender
+	</a>, of:
+</p>
 
 <div class="cols">
 	{#if selected('datum')}

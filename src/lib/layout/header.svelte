@@ -3,6 +3,7 @@
 	<nav>
 		<ul>
 			<li><a sveltekit:prefetch href="/aftellen">Aftellen</a></li>
+			<li><a sveltekit:prefetch href="/kalender">Jaarkalender</a></li>
 			<li><a sveltekit:prefetch href="/contact">Contact</a></li>
 		</ul>
 	</nav>
