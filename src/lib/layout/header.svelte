@@ -4,7 +4,7 @@
 		<ul>
 			<li><a sveltekit:prefetch href="/aftellen">Aftellen</a></li>
 			<li><a sveltekit:prefetch href="/kalender">Jaarkalender</a></li>
-			<li><a sveltekit:prefetch href="/contact">Contact</a></li>
+			<li><a sveltekit:prefetch href="/over">Over</a></li>
 		</ul>
 	</nav>
 </header>
