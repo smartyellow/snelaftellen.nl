@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Meta from '$lib/layout/meta.svelte';
-	import flags from '$gfx/flags.svg';
+	import flags from '$lib/gfx/flags.svg';
 
 	const rawStyles = `
 		<style>

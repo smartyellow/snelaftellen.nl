@@ -25,12 +25,6 @@ const config = {
 		adapter: adapter(),
 		vite: {
 			plugins: [imagetools()],
-			resolve: {
-				alias: {
-					$static: path.resolve('./static'),
-					$gfx: path.resolve('./src/gfx')
-				}
-			}
 		}
 	}
 };

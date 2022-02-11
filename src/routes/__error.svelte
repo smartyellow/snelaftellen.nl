@@ -1,5 +1,5 @@
 <script lang="ts">
-	import notFoundImg from '$gfx/404@0.5x.webp';
+	import notFoundImg from '$lib/gfx/404@0.5x.webp';
 </script>
 
 <h2>Oeps... daar ging iets mis!</h2>

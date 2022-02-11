@@ -1,9 +1,9 @@
 <script lang="ts">
-	import IconEmail from '$lib/svg/icon-email.svelte';
-	import IconFacebook from '$lib/svg/icon-facebook.svelte';
-	import IconMessage from '$lib/svg/icon-message.svelte';
-	import IconShare from '$lib/svg/icon-share.svelte';
-	import IconTwitter from '$lib/svg/icon-twitter.svelte';
+	import IconEmail from '$lib/gfx/svg/icon-email.svelte';
+	import IconFacebook from '$lib/gfx/svg/icon-facebook.svelte';
+	import IconMessage from '$lib/gfx/svg/icon-message.svelte';
+	import IconShare from '$lib/gfx/svg/icon-share.svelte';
+	import IconTwitter from '$lib/gfx/svg/icon-twitter.svelte';
 	import { onMount } from 'svelte';
 	import { slide } from 'svelte/transition';
 

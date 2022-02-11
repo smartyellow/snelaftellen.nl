@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { months } from '$lib/constants';
-	import IconArchery from '$lib/svg/icon-archery.svelte';
+	import IconArchery from '$lib/gfx/svg/icon-archery.svelte';
 
 	export let year = new Date().getFullYear();
 	export let month = 1;

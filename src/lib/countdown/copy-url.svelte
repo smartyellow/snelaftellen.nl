@@ -5,7 +5,7 @@
 	`npm run dev -- -H`.
 -->
 <script lang="ts">
-	import IconCopy from "$lib/svg/icon-copy.svelte";
+	import IconCopy from "$lib/gfx/svg/icon-copy.svelte";
 
 	export let url: string;
 

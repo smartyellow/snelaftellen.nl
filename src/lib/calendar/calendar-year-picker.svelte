@@ -1,6 +1,6 @@
 <script lang="ts">
-	import IconArrowFastLeft from "$lib/svg/icon-arrow-fast-left.svelte";
-	import IconArrowFastRight from "$lib/svg/icon-arrow-fast-right.svelte";
+	import IconArrowFastLeft from "$lib/gfx/svg/icon-arrow-fast-left.svelte";
+	import IconArrowFastRight from "$lib/gfx/svg/icon-arrow-fast-right.svelte";
 
 	export let year = new Date().getFullYear();
 

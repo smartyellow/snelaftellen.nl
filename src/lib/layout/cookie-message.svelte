@@ -1,5 +1,5 @@
 <script lang="ts">
-	import IconCheck from '$lib/svg/icon-check.svelte';
+	import IconCheck from '$lib/gfx/svg/icon-check.svelte';
 	import Cookies from 'js-cookie';
 	import { onMount } from 'svelte';
 	import { slide } from 'svelte/transition';
