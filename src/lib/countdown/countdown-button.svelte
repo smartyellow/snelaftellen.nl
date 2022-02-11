@@ -16,7 +16,8 @@ import IconCalendar from "$lib/gfx/svg/icon-calendar.svelte";
 	}
 
 	function close() {
-		isOpen = false
+		isOpen = false;
+		history.back();
 	}
 
 	beforeNavigate(() => {
@@ -34,7 +35,7 @@ import IconCalendar from "$lib/gfx/svg/icon-calendar.svelte";
 	Aftellen!
 </a>
 
-<Modal bind:show={isOpen} title="Aftellen!">
+<Modal bind:show={isOpen} {close} title="Aftellen!">
 	<CountdownRoute />
 </Modal>
 

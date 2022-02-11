@@ -3,10 +3,9 @@
 
 	export let show = false;
 	export let title: string = undefined;
-
-	function close() {
+	export let close: (event?: MouseEvent) => void = () => {
 		show = false;
-	}
+	};
 </script>
 
 {#if show}
