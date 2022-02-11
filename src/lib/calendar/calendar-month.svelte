@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { daysOfWeek, months } from "$lib/constants";
 	import { areArraysEqual, getDayNumber, getWeekNumber, numberOfDaysInMonth } from "$lib/helpers";
-import CalendarDay from "./calendar-day.svelte";
+	import CalendarDay from "./calendar-day.svelte";
 
 	export let year = new Date().getFullYear();
 	export let month = new Date().getMonth();
@@ -47,7 +47,7 @@ import CalendarDay from "./calendar-day.svelte";
 
 		<thead>
 			<tr>
-				<th class="week"></th>
+				<th class="week">wk</th>
 				{#each daysOfWeek as day}
 					<th class="dayname" title={day}>{day.slice(0, 2)}</th>
 				{/each}
@@ -109,13 +109,15 @@ import CalendarDay from "./calendar-day.svelte";
 					&.dayname {
 						border-bottom: 1px solid $grey;
 					}
+					&.week {
+						color: darken($grey, 20);
+					}
 				}
 			}
 			th.week {
 				background-color: $grey-light;
 				border-right: 1px solid $grey;
 			}
-
 			tbody tr:last-of-type th {
 				border-bottom-left-radius: $radius;
 			}
