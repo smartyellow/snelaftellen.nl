@@ -1,10 +1,7 @@
 <script lang="ts">
 	import Meta from "$lib/layout/meta.svelte";
-
-	import s1 from '$lib/gfx/calculation/1.png?img';
-	import s2 from '$lib/gfx/calculation/2.png?img';
-	import s3 from '$lib/gfx/calculation/3.png?img';
-	import s4 from '$lib/gfx/calculation/4.png?img';
+	import calculationImgSrcset from '$lib/gfx/calculation.webp?width=500;1000;1500&formats=avif;webp;png&srcset=true&img';
+	import calculationImgFallback from '$lib/gfx/calculation.webp?width=1000&format=png&img';
 </script>
 
 <Meta title="Alles over SnelAftellen.nl" description="Op SnelAftellen.nl tel je snel af naar een bepaalde datum. Maar hoe wordt het verschil dussen twee data berekend? Lees het hier." />
@@ -26,7 +23,8 @@
 	gaan we aftellen naar <a href="/3-januari-2022">3 januari 2022</a> vanaf 1 januari 2022.
 </p>
 
-<p><img src={s1} alt="Welke dag is het vandaag? Laten we ervan uitgaan dat het 1 januari 2022 is." /></p>
-<p><img src={s2} alt="We gaan aftellen naar 3 januari, dus 3 jan min 1 jan" /></p>
-<p><img src={s3} alt="Van 1 naar 2 is eenn dag en van 2 naar 3 is een dag." /></p>
-<p><img src={s4} alt="Daarom is het nog twee dagen tot 3 januari." /></p>
+<p><img
+	srcset={calculationImgSrcset}
+	src={calculationImgFallback}
+	alt="Het verschil tussen 3 januari en 1 januari is 3 min 1 is 2 dagen."
+/></p>
