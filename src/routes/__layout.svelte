@@ -19,7 +19,6 @@
 	import Doormat from '$lib/layout/doormat.svelte';
 	import Header from '$lib/layout/header.svelte';
 	import Share from '$lib/layout/share.svelte';
-	import Widget from '$lib/ui/widget.svelte';
 	import '$lib/styles/app.scss';
 	import PimpTopImage from '$lib/countdown/pimp-top-image.svelte';
 	import { getContext } from 'svelte';
@@ -42,12 +41,6 @@
 		<aside>
 			<Share />
 			<CountdownOptions />
-			<Widget>
-				<h2>Hier adverteren?</h2>
-				<p>
-					<a sveltekit:prefetch href="/contact">Neem contact op!</a>
-				</p>
-			</Widget>
 		</aside>
 	</div>
 </div>
@@ -62,32 +55,25 @@
 	.wrapper {
 		display: flex;
 		flex-direction: row;
-		padding: $padding;
+		padding: $padding * 2;
 		justify-content: space-between;
+		gap: $padding * 2;
 	}
 	main {
 		flex: 3 0;
-		padding: $padding;
 		:global(:first-child) {
 			margin-top: 0;
 		}
 	}
 	aside {
 		flex: 1 0;
-		padding: $padding;
 	}
 	aside > :global(* + *) {
-		margin-top: 10px;
+		margin-top: $padding-sm;
 	}
 	@media only screen and (max-width: 800px) {
 		.wrapper {
 			flex-direction: column;
-		}
-		:global(main) {
-			padding-top: 0 !important;
-		}
-		:global(aside) {
-			padding-bottom: 0 !important;
 		}
 	}
 </style>

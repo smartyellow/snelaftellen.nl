@@ -1,25 +1,28 @@
 <script lang="ts">
 	export let highlighted = false;
+	export let padding = true;
 </script>
 
-<div class="widget" class:highlighted>
+<div class="widget" class:highlighted class:padding>
 	<slot />
 </div>
 
 <style lang="scss">
 	@import '../styles/vars';
 	div {
-		padding: $padding;
 		border: 2px dashed $accent-light;
 		border-radius: $radius;
-	}
-	div.highlighted {
-		background-color: $yellow;
-	}
-	div :global(:first-child) {
-		margin-top: 0;
-	}
-	div :global(:last-child) {
-		margin-bottom: 0;
+		&.highlighted {
+			background-color: $yellow;
+		}
+		&.padding {
+			padding: $padding;
+		}
+		:global(:first-child) {
+			margin-top: 0;
+		}
+		:global(:last-child) {
+			margin-bottom: 0;
+		}
 	}
 </style>

@@ -1,18 +1,19 @@
 <script lang="ts">
+	import IconCalendar from '$lib/gfx/svg/icon-calendar.svelte';
+	import IconDesign from '$lib/gfx/svg/icon-design.svelte';
+	import IconList from '$lib/gfx/svg/icon-list.svelte';
+	import IconSettings from '$lib/gfx/svg/icon-settings.svelte';
 	import Meta from '$lib/layout/meta.svelte';
-	import flags from '$lib/gfx/flags.svg';
+	import WidgetIcon from '$lib/ui/widget-icon.svelte';
 
 	const rawStyles = `
 		<style>
 			@media only screen and (max-width: 800px) {
-				.wrapper {
-					flex-direction: column-reverse !important;
+				.wrapper aside {
+					order: 1 !important;
 				}
-				:global(main) {
-					padding-top: 0 !important;
-				}
-				:global(aside) {
-					padding-bottom: 0 !important;
+				.wrapper main {
+					order: 2 !important;
 				}
 			}
 		</style>
@@ -23,37 +24,50 @@
 
 <Meta />
 
-<img src={flags} alt="Vlaggenlijn" />
+<h1>Welkom op SnelAftellen.nl!</h1>
 
-<h2>Welkom!</h2>
-<p>
-	Ga je binnenkort op vakantie?<br />
-	Ben je bijna jarig?<br />
-	Hoeveel dagen nog tot Nieuwjaar?<br />
-	...of kijk je uit naar iets anders?
-</p>
-<p>
-	Gebruik SnelAftellen.nl als digitale aftelkalender om af te tellen naar al je toekomstige
-	activiteiten!
-</p>
+<div class="cols">
+	<WidgetIcon>
+		<IconCalendar slot="icon" />
+		<span slot="label">
+			<a href="/aftellen" sveltekit:prefetch>Tel af</a>
+			naar welke datum dan ook
+		</span>
+	</WidgetIcon>
 
-<h2>Hoe werkt het?</h2>
-<p>
-	Vul een datum in in de box hiernaast (of hieronder). Daarna zie je hoeveel dagen je nog moet
-	wachten tot die datum.
-</p>
+	<WidgetIcon>
+		<IconDesign slot="icon" />
+		<span slot="label">
+			<a href="/aftellen" sveltekit:prefetch>
+				Pimp je aftelkalender
+			</a>
+			met kleuren en plaatjes
+		</span>
+	</WidgetIcon>
+</div>
 
-<h2>Pimp je kalender</h2>
-<p>
-	Wil je je aftelkalender een persoonlijke touch geven? Pimp de kleurtjes, selecteer een leuk
-	plaatje en geef je afteldatum een naam.
-</p>
+<div class="cols">
+	<WidgetIcon>
+		<IconList slot="icon" />
+		<span slot="label">
+			<a href="/kalender" sveltekit:prefetch>
+				Bekijk de jaarkalender
+			</a>
+			van elk jaar dat je wil
+		</span>
+	</WidgetIcon>
 
-<h2>Terugtellen</h2>
-<p>
-	Terugtellen is ook mogelijk! Vul een datum in het verleden in en je ziet hoeveel dagen geleden het
-	is.
-</p>
+	<WidgetIcon>
+		<IconSettings slot="icon" />
+		<span slot="label">
+			Lees hoe het
+			<a href="/over" sveltekit:prefetch>
+				aan de binnenkant
+			</a>
+			werkt
+		</span>
+	</WidgetIcon>
+</div>
 
 <hr />
 
