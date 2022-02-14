@@ -14,20 +14,21 @@
 	let wa: string = undefined;
 	let native: ShareData = undefined;
 
-	let ready = false;
+	let mounted = false;
 
 	onMount(() => {
 		url = window.location.toString();
 		const title = document.title;
-		const text = encodeURIComponent(`${title} ${url}`);
+		const textRaw = `${title} ${url}`;
+		const text = encodeURIComponent(textRaw);
 
-		if (typeof navigator.share !== 'undefined') native = { url, text };
+		if (typeof navigator.share === 'function') native = { url, text: textRaw };
 		em = `mailto:?body=${text}`;
 		fb = `https://www.facebook.com/sharer.php?u=${encodeURIComponent(url)}`;
 		tw = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`; // prettier-ignore
 		wa = `https://wa.me/?text=${text}`;
 
-		ready = true;
+		mounted = true;
 	});
 
 	function nativeShare() {
@@ -35,7 +36,7 @@
 	}
 </script>
 
-{#if ready}
+{#if mounted}
 	<div transition:slide class="share">
 		{#if native}
 			<button on:click={nativeShare} class="btn native" title="Deel">
