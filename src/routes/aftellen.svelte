@@ -2,7 +2,7 @@
 	import DatepickerDate from '$lib/countdown/datepicker-date.svelte';
 	import DatepickerWeek from '$lib/countdown/datepicker-week.svelte';
 	import Meta from '$lib/layout/meta.svelte';
-	import Widget from '$lib/layout/widget.svelte';
+	import Widget from '$lib/ui/widget.svelte';
 	import calendarWeek from '$lib/gfx/calendar-week@0.5x.webp?w=200&h=200&img';
 	import calendarDate from '$lib/gfx/calendar-date@0.5x.webp?w=200&h=200&img';
 	import type { countdownOptions } from '$lib/constants';

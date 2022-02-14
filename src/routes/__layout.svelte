@@ -19,7 +19,7 @@
 	import Doormat from '$lib/layout/doormat.svelte';
 	import Header from '$lib/layout/header.svelte';
 	import Share from '$lib/layout/share.svelte';
-	import Widget from '$lib/layout/widget.svelte';
+	import Widget from '$lib/ui/widget.svelte';
 	import '$lib/styles/app.scss';
 	import PimpTopImage from '$lib/countdown/pimp-top-image.svelte';
 	import { getContext } from 'svelte';
