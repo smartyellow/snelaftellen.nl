@@ -23,19 +23,22 @@
 	import PimpTopImage from '$lib/countdown/pimp-top-image.svelte';
 	import { getContext } from 'svelte';
 	import type { PimpOptions } from '$lib/countdown/helpers';
+	import SkipLink from '$lib/layout/skip-link.svelte';
 
 	export let pimpOptions: PimpOptions;
 
 	const topImage: string = getContext('headerImage');
 </script>
 
+<SkipLink />
+<Header />
+
 <div class="page">
-	<Header />
 	<PimpTopImage img={topImage || pimpOptions.img} />
 	<CookieMessage />
 
 	<div class="wrapper">
-		<main>
+		<main id="content">
 			<slot />
 		</main>
 		<aside>
