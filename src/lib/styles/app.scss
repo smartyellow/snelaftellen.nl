@@ -123,7 +123,7 @@ fieldset {
 	gap: $padding-sm;
 	display: flex;
 
-	@media screen and (max-width: 600px) {
+	@media (max-width: 600px) {
 		flex-direction: column;
 	}
 

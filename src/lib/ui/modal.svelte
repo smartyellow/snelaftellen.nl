@@ -95,13 +95,15 @@
 			max-height: 100%;
 		}
 	}
-	@media screen and (max-width: 600px) {
+	@media (max-width: 600px) {
 		.outer {
 			padding: 0;
 		}
 		.inner {
 			max-width: 100%;
 			max-height: 100%;
+			width: 100%;
+			height: 100%;
 		}
 	}
 </style>

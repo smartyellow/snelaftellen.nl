@@ -20,5 +20,8 @@
 		display: flex;
 		flex-wrap: wrap;
 		gap: $padding;
+		> :global(*) {
+			flex: 1 0 20%;
+		}
 	}
 </style>

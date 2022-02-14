@@ -38,7 +38,7 @@
 		font-family: Arial, sans-serif;
 		align-items: center;
 		gap: $padding-sm;
-		@media screen and (max-width: 600px) {
+		@media (max-width: 600px) {
 			flex-direction: column;
 		}
 	}
@@ -58,7 +58,7 @@
 			height: 30px;
 			stroke: currentColor;
 		}
-		@media screen and (max-width: 600px) {
+		@media (max-width: 600px) {
 			margin-left: auto;
 		}
 	}

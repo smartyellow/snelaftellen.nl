@@ -91,6 +91,7 @@
 			padding: 0;
 			border-collapse: collapse;
 			border-spacing: 0;
+			width: 100%;
 			caption {
 				font-weight: 700;
 				background-color: $accent-light;

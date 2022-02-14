@@ -28,3 +28,10 @@
 	src={calculationImgFallback}
 	alt="Het verschil tussen 3 januari en 1 januari is 3 min 1 is 2 dagen."
 /></p>
+
+<style lang="scss">
+	img {
+		max-width: 100%;
+		width: 700px;
+	}
+</style>

@@ -52,7 +52,7 @@
 		height: 50px;
 		flex-grow: 0;
 		flex-shrink: 1;
-		@media screen and (max-width: 500px) {
+		@media (max-width: 500px) {
 			display: none;
 		}
 	}

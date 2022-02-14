@@ -13,18 +13,18 @@
 <div class="cal-year-picker">
 	<a class="year-prev" href="/kalender-{prevYear}" rel="external">
 		<IconArrowFastLeft />
-		Kalender {prevYear}
+		Kalender <span>{prevYear}</span>
 	</a>
 	<span class="year-selected">
 		Huidig jaar: <span>{year}</span>
 	</span>
-	{#if currentYear !== year}
+	{#if currentYear != year}
 		<a class="year-current" href="/kalender">
 			Ga naar <span>{currentYear}</span>
 		</a>
 	{/if}
 	<a class="year-next" href="/kalender-{nextYear}" rel="external">
-		Kalender {nextYear}
+		Kalender <span>{nextYear}</span>
 		<IconArrowFastRight />
 	</a>
 </div>
@@ -34,6 +34,8 @@
 	.cal-year-picker {
 		display: flex;
 		padding-bottom: $padding;
+		gap: $padding-sm;
+		justify-content: space-between;
 		a {
 			text-decoration: none;
 		}
@@ -41,20 +43,36 @@
 			vertical-align: middle;
 		}
 		.year-prev {
-			margin-right: auto;
+			order: 1;
 		}
 		.year-next {
-			margin-left: auto;
+			order: 4;
 		}
 		.year-selected {
-			span {
-				font-weight: 600;
-			}
+			order: 2;
 		}
 		.year-current {
-			margin-left: 5%;
-			span {
-				font-weight: 600;
+			order: 3;
+		}
+		> * > span {
+			font-weight: 600;
+		}
+		@media (max-width: 600px) {
+			flex-wrap: wrap;
+			> * {
+				flex: 1 0 40%;
+			}
+			.year-prev {
+				order: 1;
+			}
+			.year-next {
+				order: 2;
+			}
+			.year-selected {
+				order: 3;
+			}
+			.year-current {
+				order: 4;
 			}
 		}
 	}

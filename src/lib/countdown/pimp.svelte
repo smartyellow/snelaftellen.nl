@@ -139,7 +139,7 @@
 		display: flex;
 		gap: $padding-sm;
 		flex-wrap: wrap;
-		@media screen and (max-width: 600px) {
+		@media (max-width: 600px) {
 			flex-direction: column;
 		}
 		.opt {
@@ -148,7 +148,7 @@
 			flex: 1 0 calc(50% - $padding-sm * 0.5);
 			max-width: calc(50% - $padding-sm * 0.5);
 			border-radius: $radius;
-			@media screen and (max-width: 600px) {
+			@media (max-width: 600px) {
 				max-width: 100%;
 				width: 100%;
 			}
