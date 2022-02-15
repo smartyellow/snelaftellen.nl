@@ -22,7 +22,7 @@
 		const textRaw = `${title} ${url}`;
 		const text = encodeURIComponent(textRaw);
 
-		if (typeof navigator.share === 'function') native = { url, text: textRaw };
+		if (typeof navigator.share === 'function') native = { url, text: title };
 		em = `mailto:?body=${text}`;
 		fb = `https://www.facebook.com/sharer.php?u=${encodeURIComponent(url)}`;
 		tw = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`; // prettier-ignore
