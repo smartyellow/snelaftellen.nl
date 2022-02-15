@@ -23,7 +23,7 @@
 </ins>
 
 <style lang="scss">
-	@import '../styles/vars';
+	@import '../../styles/vars';
 	ins {
 		-moz-user-select: all;
 		-webkit-user-select: all;

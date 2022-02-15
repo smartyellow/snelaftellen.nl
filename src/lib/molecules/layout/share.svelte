@@ -59,7 +59,7 @@
 {/if}
 
 <style lang="scss">
-	@import '../styles/vars';
+	@import '../../styles/vars';
 	.share {
 		display: flex;
 		gap: $padding-sm;

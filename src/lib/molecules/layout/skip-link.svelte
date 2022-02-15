@@ -7,7 +7,7 @@
 </a>
 
 <style lang="scss">
-	@import '../styles/vars';
+	@import '../../styles/vars';
 	.skip-link {
 		background: $accent-light;
 		color: $light;

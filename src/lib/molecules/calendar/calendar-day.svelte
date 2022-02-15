@@ -6,7 +6,7 @@
 <a class="cal-day" {href}>{label}</a>
 
 <style lang="scss">
-	@import '../styles/vars';
+	@import '../../styles/vars';
 	.cal-day {
 		margin: 2px;
 		padding: 2px;

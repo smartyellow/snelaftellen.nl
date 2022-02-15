@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { localeOptions } from '../constants';
+	import { localeOptions } from '$lib/constants';
 	import CountdownSeasonImage from './countdown-season-image.svelte';
 
 	export let count: number;
@@ -27,7 +27,7 @@
 </div>
 
 <style lang="scss">
-	@import '../styles/vars';
+	@import '../../styles/vars';
 	.countdown {
 		text-align: center;
 		font-size: 1.3rem;

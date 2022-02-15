@@ -81,7 +81,7 @@
 </div>
 
 <style lang="scss">
-	@import '../styles/vars';
+	@import '../../styles/vars';
 	.cal-month {
 		border: 1px solid $grey;
 		border-radius: $radius;

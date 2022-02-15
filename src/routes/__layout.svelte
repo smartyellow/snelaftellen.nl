@@ -1,6 +1,6 @@
 <script context="module" lang="ts">
 	import type { LoadInput, LoadOutput } from '@sveltejs/kit';
-	import { getPimpOptions } from '$lib/countdown/helpers';
+	import { getPimpOptions } from '$lib/molecules/countdown/helpers';
 
 	export function load({ url, params }: LoadInput): LoadOutput {
 		const pimpOptions = getPimpOptions(url.searchParams);
@@ -14,16 +14,16 @@
 </script>
 
 <script lang="ts">
-	import CookieMessage from '$lib/layout/cookie-message.svelte';
-	import CountdownOptions from '$lib/countdown/countdown-button.svelte';
-	import Doormat from '$lib/layout/doormat.svelte';
-	import Header from '$lib/layout/header.svelte';
-	import Share from '$lib/layout/share.svelte';
+	import CookieMessage from '$lib/molecules/layout/cookie-message.svelte';
+	import CountdownOptions from '$lib/molecules/countdown/countdown-button.svelte';
+	import Doormat from '$lib/molecules/layout/doormat.svelte';
+	import Header from '$lib/molecules/layout/header.svelte';
+	import Share from '$lib/molecules/layout/share.svelte';
 	import '$lib/styles/app.scss';
-	import PimpTopImage from '$lib/countdown/pimp-top-image.svelte';
+	import PimpTopImage from '$lib/molecules/countdown/pimp-top-image.svelte';
 	import { getContext } from 'svelte';
-	import type { PimpOptions } from '$lib/countdown/helpers';
-	import SkipLink from '$lib/layout/skip-link.svelte';
+	import type { PimpOptions } from '$lib/molecules/countdown/helpers';
+	import SkipLink from '$lib/molecules/layout/skip-link.svelte';
 
 	export let pimpOptions: PimpOptions;
 

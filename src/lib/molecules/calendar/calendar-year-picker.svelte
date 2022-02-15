@@ -30,7 +30,7 @@
 </div>
 
 <style lang="scss">
-	@import '../styles/vars';
+	@import '../../styles/vars';
 	.cal-year-picker {
 		display: flex;
 		padding-bottom: $padding;

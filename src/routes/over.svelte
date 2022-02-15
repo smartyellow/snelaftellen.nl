@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Meta from "$lib/layout/meta.svelte";
+	import Meta from "$lib/molecules/layout/meta.svelte";
 	import calculationImgSrcset from '$lib/gfx/calculation.webp?width=500;1000;1500&formats=avif;webp;png&srcset=true&img';
 	import calculationImgFallback from '$lib/gfx/calculation.webp?width=1000&format=png&img';
 </script>

@@ -1,6 +1,6 @@
 <script context="module" lang="ts">
 	import type { LoadInput, LoadOutput } from '@sveltejs/kit';
-	import { getPimpOptions } from '$lib/countdown/helpers';
+	import { getPimpOptions } from '$lib/molecules/countdown/helpers';
 	import { isInt } from '$lib/helpers';
 
 	export async function load({ url, params }: LoadInput): Promise<LoadOutput<Record<string, any>>> {
@@ -31,8 +31,8 @@
 </script>
 
 <script lang="ts">
-	import type { PimpOptions } from '$lib/countdown/helpers';
-	import CountdownPage from '$lib/countdown/countdown-page.svelte';
+	import type { PimpOptions } from '$lib/molecules/countdown/helpers';
+	import CountdownPage from '$lib/molecules/countdown/countdown-page.svelte';
 
 	export let countTo: Date;
 	export let pimpOptions: PimpOptions;

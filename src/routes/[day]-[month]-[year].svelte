@@ -1,6 +1,6 @@
 <script context="module" lang="ts">
 	import type { LoadInput, LoadOutput } from '@sveltejs/kit';
-	import { getPimpOptions } from '$lib/countdown/helpers';
+	import { getPimpOptions } from '$lib/molecules/countdown/helpers';
 	import { months } from '$lib/constants';
 	import { isInt } from '$lib/helpers';
 
@@ -43,8 +43,8 @@
 </script>
 
 <script lang="ts">
-	import type { PimpOptions } from '$lib/countdown/helpers';
-	import CountdownPage from '$lib/countdown/countdown-page.svelte';
+	import type { PimpOptions } from '$lib/molecules/countdown/helpers';
+	import CountdownPage from '$lib/molecules/countdown/countdown-page.svelte';
 import Error from './__error.svelte';
 
 	export let countTo: Date;

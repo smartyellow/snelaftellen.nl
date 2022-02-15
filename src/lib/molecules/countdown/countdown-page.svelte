@@ -3,8 +3,8 @@
 	import Countdown from './countdown.svelte';
 	import type { PimpOptions } from './helpers';
 	import Pimp from './pimp.svelte';
-	import { capitalize } from '../helpers';
-	import { localeOptions } from '../constants';
+	import { capitalize } from '$lib/helpers';
+	import { localeOptions } from '$lib/constants';
 
 	export let pimpOptions: PimpOptions;
 	export let countTo: Date;

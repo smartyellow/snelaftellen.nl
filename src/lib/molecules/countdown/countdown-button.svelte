@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Modal from "$lib/ui/modal.svelte";
-	import CountdownRoute from "../../routes/aftellen.svelte";
+	import CountdownRoute from "../../../routes/aftellen.svelte";
 	import { beforeNavigate } from '$app/navigation';
 	import IconCalendar from "$lib/gfx/svg/icon-calendar.svelte";
 
@@ -34,7 +34,7 @@
 </Modal>
 
 <style lang="scss">
-	@import '../styles/vars';
+	@import '../../styles/vars';
 	$_size: 1.8rem;
 	a {
 		display: block;
