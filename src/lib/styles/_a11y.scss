@@ -1,0 +1,30 @@
+@import 'vars';
+
+.sr {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	width: 1px;
+	word-wrap: normal !important;
+}
+
+a,
+button,
+input,
+select
+textarea {
+	&:focus {
+		outline: none;
+		box-shadow: 0 0 0 3px #55c713;
+
+		// Windows high-contrast, see https://stackoverflow.com/a/52616313
+		outline-color: transparent;
+		outline-width: 2px;
+		outline-style: dotted;
+	}
+}

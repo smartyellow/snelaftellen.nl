@@ -1,0 +1,18 @@
+@import 'vars';
+
+.cols {
+	display: flex;
+	gap: $padding-sm;
+
+	@media (max-width: 700px) {
+		flex-direction: column;
+	}
+
+	> * {
+		flex: 1;
+	}
+
+	& + & {
+		margin-top: $padding-sm;
+	}
+}

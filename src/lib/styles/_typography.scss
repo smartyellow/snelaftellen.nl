@@ -1,0 +1,40 @@
+@import 'vars';
+
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin-bottom: $padding-sm;
+
+	& + p {
+		margin-top: 0;
+	}
+}
+
+a {
+	color: $accent-light;
+	text-decoration: underline;
+
+	&:hover {
+		text-decoration: none;
+	}
+
+	&:active {
+		color: $accent-dark;
+	}
+}
+
+hr {
+	border: none;
+	border-top: 1px solid #afafaf;
+}
+
+img {
+	max-width: 100%;
+}
+
+img.icon {
+	width: 50px;
+	height: 50px;
+}

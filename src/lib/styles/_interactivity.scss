@@ -1,0 +1,119 @@
+@import 'vars';
+
+button,
+.btn {
+	margin-top: 5px;
+	background-color: $accent-light;
+	color: $light;
+	padding: $padding-sm;
+	box-shadow: $shadow-px rgba($dark, 0.3);
+	display: inline-block;
+	border: none;
+	cursor: pointer;
+	font: inherit;
+	text-decoration: none;
+	border-radius: $radius;
+
+	&:hover {
+		text-decoration: none;
+		background-color: $accent-dark;
+	}
+
+	&:focus,
+	&:active {
+		box-shadow: none;
+		color: $light;
+	}
+
+	&:disabled,
+	&.disabled {
+		cursor: not-allowed;
+		background-color: $grey;
+		text-decoration: none;
+		box-shadow: none;
+	}
+
+	svg {
+		vertical-align: top;
+		width: 1rem;
+		height: 1rem;
+		text-decoration: none;
+		stroke: $light;
+		stroke-width: 2px;
+	}
+}
+
+fieldset {
+	border: 2px solid $accent-light;
+
+	:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.group {
+	margin-bottom: 10px;
+	vertical-align: top;
+	display: flex;
+	gap: $padding-sm;
+	display: flex;
+
+	@media (max-width: 600px) {
+		flex-direction: column;
+	}
+
+	label {
+		vertical-align: top;
+		flex-shrink: 1;
+		order: -10;
+		min-width: 30%;
+		max-width: 30%;
+	}
+
+	input:not([type='checkbox']),
+	select,
+	textarea {
+		flex-grow: 1;
+		margin: 0;
+	}
+}
+
+b.required,
+label b {
+	color: #ff0000;
+	vertical-align: top;
+	font-weight: bold;
+}
+
+input:not([type='checkbox']):not([type='radio']),
+select,
+textarea {
+	border: 1px solid $accent-light;
+	padding: $padding-sm;
+	appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	background-color: #ffffff;
+	color: inherit;
+	color: #000000;
+	box-shadow: $shadow-px rgba($dark, 0.2);
+	border-radius: $radius;
+	min-height: 35px;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif,
+		'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+	transition: box-shadow 0.2s ease-in-out;
+
+	&:focus {
+		outline: none;
+		box-shadow: $shadow-flat $accent-light;
+	}
+}
+
+input[type='color'] {
+	padding: 0;
+
+	&::-webkit-color-swatch-wrapper {
+		padding: $padding-sm;
+		border-radius: $radius;
+	}
+}
