@@ -4,11 +4,14 @@
 	import IconList from '$lib/gfx/svg/icon-list.svelte';
 	import IconSettings from '$lib/gfx/svg/icon-settings.svelte';
 	import Meta from '$lib/molecules/layout/meta.svelte';
+	import WidgetDate from '$lib/ui/widget-date.svelte';
 	import WidgetIcon from '$lib/ui/widget-icon.svelte';
+	import carnavalImg from './_media/carnaval.jpg?w=1000&jpg&img';
+	import pasenImg from './_media/pasen.jpg?w=1000&jpg&img';
 
 	const rawStyles = `
 		<style>
-			@media only screen and (max-width: 800px) {
+			@media (max-width: 800px) {
 				.wrapper aside {
 					order: 1 !important;
 				}
@@ -21,10 +24,28 @@
 </script>
 
 {@html rawStyles}
-
 <Meta />
 
-<h1>Welkom op SnelAftellen.nl!</h1>
+<h2>Het is bijna...</h2>
+
+<div class="cols">
+	<WidgetDate
+		title="Carnaval"
+		date={new Date(2022, 1, 24)}
+		image={carnavalImg}
+		description="Heb je al een wagen gebouwd of je gekste kleren klaargelegd?"
+		info={`Afbeeldig door Etienne Le Cocq - Eigen werk, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=5649235`}
+	/>
+	<WidgetDate
+		title="Pasen"
+		date={new Date(2022, 3, 17)}
+		image={pasenImg}
+		description="Christenen vieren op Pasen dat Jezus uit de dood is opgestaan. Maar, zorg ook dat je eieren in de tuin verstopt!"
+		info={`Afbeelding van <a href="https://unsplash.com/@ericheininger?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Eric Heininger</a> op <a href="https://unsplash.com/collections/9872699/easter?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>.`}
+	/>
+</div>
+
+<h2>Probeer ook eens...</h2>
 
 <div class="cols">
 	<WidgetIcon>

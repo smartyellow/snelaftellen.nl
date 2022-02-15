@@ -1,4 +1,6 @@
 import { assets } from '$app/paths';
+import { months } from '$lib/constants';
+import { areObjectsEqual } from '$lib/helpers';
 
 export interface HeaderImage {
 	id: string;
@@ -64,4 +66,19 @@ export function getPimpBodyStyle(options: PimpOptions): string {
 
 export function getPimpImagePath(img: string): string {
 	return `${assets}/img/top/${img}.webp`;
+}
+
+export function getCountdownUrl(date: Date, pimpOptions = defaultPimpOptions): string {
+	let output = `/${date.getDate()}-${months[date.getMonth()]}-${date.getFullYear()}`;
+
+	if (!areObjectsEqual(pimpOptions, defaultPimpOptions)) {
+		const p = {...defaultPimpOptions, ...pimpOptions};
+		output += `?bg=${encodeURIComponent(
+			p.bg
+		)}&fg=${encodeURIComponent(p.fg)}&yl=${encodeURIComponent(p.yl)}&title=${encodeURIComponent(
+			p.title
+		)}&img=${encodeURIComponent(p.img)}`;
+	}
+
+	return output;
 }

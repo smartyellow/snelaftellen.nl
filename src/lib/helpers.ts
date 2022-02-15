@@ -72,3 +72,31 @@ export function areArraysEqual(a: Array<any>, b: Array<any>): boolean {
         a.length === b.length &&
         a.every((val, index) => val === b[index]);
 }
+
+// eslint-disable-next-line @typescript-eslint/ban-types
+export function areObjectsEqual(a: Object, b: Object): boolean {
+	// http://adripofjavascript.com/blog/drips/object-equality-in-javascript.html
+
+    const aProps = Object.getOwnPropertyNames(a);
+    const bProps = Object.getOwnPropertyNames(b);
+
+    if (aProps.length != bProps.length) {
+        return false;
+    }
+
+    for (let i = 0; i < aProps.length; i++) {
+        const propName = aProps[i];
+
+        if (a[propName] !== b[propName]) {
+            return false;
+        }
+    }
+
+	return true;
+}
+
+export function hasDatePassed(date: Date): boolean {
+	const now = new Date();
+	now.setHours(0, 0, 0, 0);
+	return date.getTime() < now.getTime();
+}

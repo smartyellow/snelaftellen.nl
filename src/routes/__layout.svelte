@@ -74,7 +74,7 @@
 	aside > :global(* + *) {
 		margin-top: $padding-sm;
 	}
-	@media only screen and (max-width: 800px) {
+	@media (max-width: 800px) {
 		.wrapper {
 			flex-direction: column;
 		}

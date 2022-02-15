@@ -1,22 +1,24 @@
 <script lang="ts">
 	import { localeOptions } from '$lib/constants';
 	import CountdownSeasonImage from './countdown-season-image.svelte';
+	import calendarImage from '$lib/gfx/calendar.webp?format=png&width=250&img';
 
 	export let count: number;
 	export let date: Date;
 
 	const localeDate = date.toLocaleString('nl-NL', localeOptions);
+	const countStyle = `background-image: url('${calendarImage}');`;
 </script>
 
 <div class="countdown">
 	<div class="countdown-content">
 		{#if count > 0}
 			<p>nog</p>
-			<p class="count">{count}</p>
+			<p class="count" style={countStyle}>{count}</p>
 			<p>{count === 1 ? 'dag' : 'dagen'} tot {localeDate}</p>
 		{:else}
 			<p>{localeDate} is</p>
-			<p class="count">{count * -1}</p>
+			<p class="count" style={countStyle}>{count * -1}</p>
 			<p>{count === -1 ? 'dag' : 'dagen'} geleden</p>
 		{/if}
 	</div>
@@ -64,7 +66,6 @@
 		margin: 0;
 		padding-top: 65px;
 		vertical-align: middle;
-		background-image: url('/img/countdown/calendar@0.5x.webp');
 		background-repeat: no-repeat;
 		background-size: contain;
 		background-position: center center;

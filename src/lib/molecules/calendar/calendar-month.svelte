@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { daysOfWeek, months } from "$lib/constants";
 	import { areArraysEqual, getDayNumber, getWeekNumber, numberOfDaysInMonth } from "$lib/helpers";
+	import { getCountdownUrl } from "../countdown/helpers";
 	import CalendarDay from "./calendar-day.svelte";
 
 	export let year = new Date().getFullYear();
@@ -70,7 +71,7 @@
 					{#each weekDates as day}
 						<td>
 							{#if day !== 'noop'}
-								<CalendarDay label={day} href="/{day}-{months[month]}-{year}" />
+								<CalendarDay label={day} href={getCountdownUrl(new Date(year, month, day))} />
 							{/if}
 						</td>
 					{/each}
