@@ -32,6 +32,7 @@
 	@import '../styles/vars';
 	.outer {
 		position: fixed;
+		display: flex;
 		z-index: 100;
 		top: 0;
 		left: 0;
@@ -49,6 +50,8 @@
 		box-shadow: $shadow-lg;
 		margin-left: auto;
 		margin-right: auto;
+		margin-bottom: auto;
+		width: 100%;
 		border: 1px solid $grey;
 		border-radius: $radius;
 		display: flex;
@@ -103,7 +106,7 @@
 			max-width: 100%;
 			max-height: 100%;
 			width: 100%;
-			height: 100%;
+			margin-top: auto;
 		}
 	}
 </style>
