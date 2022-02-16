@@ -107,6 +107,7 @@
 			max-height: 100%;
 			width: 100%;
 			margin-top: auto;
+			margin-bottom: 0;
 		}
 	}
 </style>
