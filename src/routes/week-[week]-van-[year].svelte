@@ -31,7 +31,7 @@
 </script>
 
 <script lang="ts">
-	import type { PimpOptions } from '$lib/molecules/countdown/helpers';
+	import type { PimpOptions } from '$lib/molecules/countdown/types';
 	import CountdownPage from '$lib/molecules/countdown/countdown-page.svelte';
 
 	export let countTo: Date;

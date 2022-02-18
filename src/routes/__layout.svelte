@@ -22,7 +22,7 @@
 	import '$lib/styles/app.scss';
 	import PimpTopImage from '$lib/molecules/countdown/pimp-top-image.svelte';
 	import { getContext } from 'svelte';
-	import type { PimpOptions } from '$lib/molecules/countdown/helpers';
+	import type { PimpOptions } from '$lib/molecules/countdown/types';
 	import SkipLink from '$lib/molecules/layout/skip-link.svelte';
 
 	export let pimpOptions: PimpOptions;

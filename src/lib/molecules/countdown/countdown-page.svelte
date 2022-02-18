@@ -1,10 +1,11 @@
 <script lang="ts">
 	import Meta from '../layout/meta.svelte';
 	import Countdown from './countdown.svelte';
-	import type { PimpOptions } from './helpers';
+	import type { PimpOptions } from './types';
 	import Pimp from './pimp.svelte';
 	import { capitalize } from '$lib/helpers';
 	import { localeOptions } from '$lib/constants';
+	import CountdownSave from './countdown-save.svelte';
 
 	export let pimpOptions: PimpOptions;
 	export let countTo: Date;
@@ -27,6 +28,8 @@
 	{difference > 0 ? 'Aftellen naar' : 'Optellen naar'}
 	{pimpOptions.title || displayTitle}
 </h2>
+
+<CountdownSave calendar={{ pimpOptions, date: countTo }} />
 <Countdown count={difference} date={countTo} />
 <Pimp {...pimpOptions} />
 

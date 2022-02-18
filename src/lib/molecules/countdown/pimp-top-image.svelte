@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { assets } from "$app/paths";
-	import type { HeaderImageId } from "./helpers";
+	import type { HeaderImageId } from "./types";
 
 	export let img: HeaderImageId = 'no';
 </script>
