@@ -35,7 +35,6 @@
 
 <div class="page">
 	<PimpTopImage img={topImage || pimpOptions.img} />
-	<CookieMessage />
 
 	<div class="wrapper">
 		<main id="content">
