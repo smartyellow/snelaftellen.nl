@@ -1,6 +1,6 @@
 <script lang="ts">
-	import logoSrcset from '$lib/gfx/logo-text-white.webp?height=200;500;1000&formats=avif;webp;png&srcset=true&img';
-	import logoFallback from '$lib/gfx/logo-text-white.webp?height=500&format=png&img';
+	import logoSrcset from '$lib/gfx/logo-text-white.webp?height=50;100&formats=avif;webp;png&srcset=true&img';
+	import logoFallback from '$lib/gfx/logo-text-white.webp?height=50&format=png&img';
 </script>
 
 <header>
