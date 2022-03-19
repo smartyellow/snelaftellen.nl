@@ -15,10 +15,10 @@
 	import calendarImgFallback from '$lib/gfx/about/calendar.png?width=1000&format=png&img';
 
 	import IconCalendar from "$lib/gfx/svg/icon-calendar.svelte";
-import IconSettings from "$lib/gfx/svg/icon-settings.svelte";
-import IconMessage from "$lib/gfx/svg/icon-message.svelte";
-import IconUserScan from "$lib/gfx/svg/icon-user-scan.svelte";
-import IconIndustry from "$lib/gfx/svg/icon-industry.svelte";
+	import IconSettings from "$lib/gfx/svg/icon-settings.svelte";
+	import IconMessage from "$lib/gfx/svg/icon-message.svelte";
+	import IconUserScan from "$lib/gfx/svg/icon-user-scan.svelte";
+	import IconIndustry from "$lib/gfx/svg/icon-industry.svelte";
 </script>
 
 <Meta title="Alles over SnelAftellen.nl" description="Op SnelAftellen.nl tel je snel af naar een bepaalde datum. Maar hoe wordt het verschil dussen twee data berekend? Lees het hier." />
