@@ -6,6 +6,7 @@
 	import CopyUrl from './copy-url.svelte';
 	import { getPimpBodyStyle, getPimpImagePath, headerImages } from './helpers';
 	import { setContext } from 'svelte';
+import Modal from '$lib/ui/modal.svelte';
 
 	export let title = '';
 	export let bg = '#ffffff';
@@ -15,7 +16,7 @@
 
 	const protocol = dev ? 'http://' : 'https://';
 	let open = false;
-	let visible = false;
+	let hasJs = false;
 	let rawStyles = buildRawStyles();
 	let shorturl = '';
 	let url = buildUrl();
@@ -37,6 +38,10 @@
 		open = !open;
 	}
 
+	function close() {
+		open = false;
+	}
+
 	function change() {
 		url = buildUrl();
 		rawStyles = buildRawStyles();
@@ -52,75 +57,69 @@
 
 	onMount(() => {
 		// Check if JS is enabled, then show pimp button.
-		visible = true;
+		hasJs = true;
 	});
 </script>
 
-<!-- Styles are wrapped in a div so they won't get processed by SvelteKit -->
-<div style="display: none;">
-	{@html rawStyles}
-</div>
+{@html rawStyles}
 
-{#if visible}
+{#if hasJs}
 	<button on:click={toggleOpen} class="has-badge">
 		<span>TIP!</span>
 		<u>Pimp je kalender</u>
 	</button>
 {/if}
 
-{#if open}
-	<fieldset transition:slide>
-		<legend>Pimp je aftelkalender!</legend>
-		<form on:change={change} on:submit|preventDefault={change}>
-			<div class="group">
-				<input
-					type="text"
-					id="title"
-					bind:value={title}
-					placeholder="bv. Sinterklaas"
-				/>
-				<label for="title">Waar tel je naar af?</label>
-			</div>
-			<div class="group">
-				<input type="color" id="bg" bind:value={bg} />
-				<label for="bg">Achtergrondkleur</label>
-			</div>
-			<div class="group">
-				<input type="color" id="fg" bind:value={fg} />
-				<label for="fg">Tekstkleur</label>
-			</div>
-			<div class="group">
-				<input type="color" id="yl" bind:value={yl} />
-				<label for="fg">Gele kaders</label>
-			</div>
-			<div class="group">
-				<div class="imgselect">
-					{#each headerImages as image}
-						<div class="opt">
-							<div class="label">
-								<input type="radio" id={image.id} value={image.id} bind:group={img} />
-								<label for={image.id}>{image.title}</label>
-							</div>
-							<div class="img" style="background-image: url('{getPimpImagePath(image.id)}');"></div>
+<Modal show={open} title="Pimp je aftelkalender!">
+	<form on:change={change} on:submit|preventDefault={change}>
+		<div class="group">
+			<input
+				type="text"
+				id="title"
+				bind:value={title}
+				placeholder="bv. Sinterklaas"
+			/>
+			<label for="title">Waar tel je naar af?</label>
+		</div>
+		<div class="group">
+			<input type="color" id="bg" bind:value={bg} />
+			<label for="bg">Achtergrondkleur</label>
+		</div>
+		<div class="group">
+			<input type="color" id="fg" bind:value={fg} />
+			<label for="fg">Tekstkleur</label>
+		</div>
+		<div class="group">
+			<input type="color" id="yl" bind:value={yl} />
+			<label for="fg">Gele kaders</label>
+		</div>
+		<div class="group">
+			<div class="imgselect">
+				{#each headerImages as image}
+					<div class="opt">
+						<div class="label">
+							<input type="radio" id={image.id} value={image.id} bind:group={img} />
+							<label for={image.id}>{image.title}</label>
 						</div>
-					{/each}
-				</div>
-				<label for="img">Plaatje</label>
+						<div class="img" style="background-image: url('{getPimpImagePath(image.id)}');"></div>
+					</div>
+				{/each}
 			</div>
-			<p>
-				<a href={url} class="btn">Laat maar zien!</a>
-				<button on:click={shorten} disabled={!!shorturl}>Ik wil een korte url</button>
-			</p>
-			<hr />
-			<CopyUrl url={shorturl || url} />
-			<p>
-				Deel of bookmark deze URL om je gepimpte aftelkalender op te slaan. Klik erop om het resultaat
-				te bekijken! Let op: we slaan je gepimpte kalender niet op; zorg dus dat je de URL goed
-				bewaart als je je aftelkalender naar wens hebt gepimpt.
-			</p>
-		</form>
-	</fieldset>
-{/if}
+			<label for="img">Plaatje</label>
+		</div>
+		<p>
+			<a href={url} class="btn" on:click={close}>Laat maar zien!</a>
+			<button on:click={shorten} disabled={!!shorturl}>Ik wil een korte url</button>
+		</p>
+		<hr />
+		<CopyUrl url={shorturl || url} />
+		<p>
+			Deel of bookmark deze URL om je gepimpte aftelkalender op te slaan. Klik erop om het resultaat
+			te bekijken! Let op: we slaan je gepimpte kalender niet op; zorg dus dat je de URL goed
+			bewaart als je je aftelkalender naar wens hebt gepimpt.
+		</p>
+	</form>
+</Modal>
 
 <style lang="scss">
 	@import '../../styles/vars';
