@@ -23,10 +23,10 @@
 	)}."
 />
 
-<h2>
+<h1>
 	{difference > 0 ? 'Aftellen naar' : 'Optellen naar'}
 	{pimpOptions.title || displayTitle}
-</h2>
+</h1>
 
 <Countdown count={difference} date={countTo} />
 <Pimp {...pimpOptions} />

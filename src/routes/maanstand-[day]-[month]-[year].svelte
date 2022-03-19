@@ -54,11 +54,11 @@
 	description="Bekijk hier de maanstand op {locale}, en die van de hele week."
 />
 
-<h2>
+<h1>
 	Maanstand op
 	<a href={getCountdownUrl(countTo)} title="Aftellen naar {locale}">
 		{locale}
 	</a>
-</h2>
+</h1>
 
 <MoonPage d={countTo} />

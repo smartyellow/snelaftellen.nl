@@ -2,7 +2,7 @@
 	import notFoundImg from '$lib/gfx/404@0.5x.webp';
 </script>
 
-<h2>Oeps... daar ging iets mis!</h2>
+<h1>Oeps... daar ging iets mis!</h1>
 
 <div>
 	<img src={notFoundImg} alt="" />
