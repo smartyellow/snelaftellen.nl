@@ -111,9 +111,10 @@ textarea {
 
 input[type='color'] {
 	padding: 0;
+	width: 100%;
 
 	&::-webkit-color-swatch-wrapper {
-		padding: $padding-sm;
+		padding: 0;
 		border-radius: $radius;
 	}
 }
