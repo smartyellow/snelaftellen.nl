@@ -100,3 +100,12 @@ export function hasDatePassed(date: Date): boolean {
 	now.setHours(0, 0, 0, 0);
 	return date.getTime() < now.getTime();
 }
+
+export function getMonday(d: Date): Date {
+	// https://stackoverflow.com/a/4156516
+
+	d = new Date(d);
+	const day = d.getDay();
+	const diff = d.getDate() - day + (day == 0 ? -6 : 1);
+	return new Date(d.setDate(diff));
+}

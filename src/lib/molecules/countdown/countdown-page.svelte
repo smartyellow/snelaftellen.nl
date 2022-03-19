@@ -4,7 +4,7 @@
 	import type { PimpOptions } from './helpers';
 	import Pimp from './pimp.svelte';
 	import { capitalize } from '$lib/helpers';
-	import { localeOptions } from '$lib/constants';
+	import { localeOptions, months } from '$lib/constants';
 
 	export let pimpOptions: PimpOptions;
 	export let countTo: Date;
@@ -27,8 +27,15 @@
 	{difference > 0 ? 'Aftellen naar' : 'Optellen naar'}
 	{pimpOptions.title || displayTitle}
 </h2>
+
 <Countdown count={difference} date={countTo} />
 <Pimp {...pimpOptions} />
+
+<p>
+	<a href="/maanstand-{countTo.getDate()}-{months[countTo.getMonth()]}-{countTo.getFullYear()}">
+		Maanstand bekijken voor deze week
+	</a>
+</p>
 
 <slot />
 

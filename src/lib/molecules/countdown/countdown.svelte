@@ -1,7 +1,8 @@
 <script lang="ts">
 	import { localeOptions } from '$lib/constants';
-	import CountdownSeasonImage from './countdown-season-image.svelte';
+	import CountdownIconSeason from './countdown-icon-season.svelte';
 	import calendarImage from '$lib/gfx/calendar.webp?format=png&width=250&img';
+	import CountdowmIconMoon from '../moon/countdown-icon-moon.svelte';
 
 	export let count: number;
 	export let date: Date;
@@ -24,15 +25,14 @@
 	</div>
 
 	<div class="countdown-icons">
-		<CountdownSeasonImage d={date} />
+		<CountdownIconSeason d={date} />
+		<CountdowmIconMoon d={date} />
 	</div>
 </div>
 
 <style lang="scss">
 	@import '../../styles/vars';
 	.countdown {
-		text-align: center;
-		font-size: 1.3rem;
 		background-color: $yellow;
 		background-color: var(--yellow);
 		padding: $padding;
@@ -49,6 +49,8 @@
 	.countdown-content {
 		flex-grow: 1;
 		flex-shrink: 0;
+		text-align: center;
+		font-size: 1.3rem;
 	}
 	.countdown-icons {
 		height: 50px;

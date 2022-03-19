@@ -1,11 +1,9 @@
 <script context="module" lang="ts">
 	import type { LoadInput, LoadOutput } from '@sveltejs/kit';
-	import { getPimpOptions } from '$lib/molecules/countdown/helpers';
-	import { months } from '$lib/constants';
+	import { localeOptions, months } from '$lib/constants';
 	import { isInt } from '$lib/helpers';
 
 	export async function load({ url, params }: LoadInput): Promise<LoadOutput<Record<string, any>>> {
-		const pimpOptions = getPimpOptions(url.searchParams);
 		let countTo: Date;
 
 		if (!(
@@ -35,19 +33,32 @@
 
 		return {
 			props: {
-				countTo,
-				pimpOptions
+				countTo
 			}
 		};
 	}
 </script>
 
 <script lang="ts">
-	import type { PimpOptions } from '$lib/molecules/countdown/helpers';
-	import CountdownPage from '$lib/molecules/countdown/countdown-page.svelte';
+	import MoonPage from "$lib/molecules/moon/moon-page.svelte";
+	import { getCountdownUrl } from '$lib/molecules/countdown/helpers';
+	import Meta from "$lib/molecules/layout/meta.svelte";
 
 	export let countTo: Date;
-	export let pimpOptions: PimpOptions;
+
+	const locale = countTo.toLocaleString('nl-NL', localeOptions);
 </script>
 
-<CountdownPage {pimpOptions} {countTo} />
+<Meta
+	title="De maanstand op {locale}"
+	description="Bekijk hier de maanstand op {locale}, en die van de hele week."
+/>
+
+<h2>
+	Maanstand op
+	<a href={getCountdownUrl(countTo)} title="Aftellen naar {locale}">
+		{locale}
+	</a>
+</h2>
+
+<MoonPage d={countTo} />
