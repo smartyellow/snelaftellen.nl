@@ -2,11 +2,15 @@
 	import { page } from '$app/stores';
 	import { dev } from '$app/env';
 	import { onMount } from 'svelte';
-	import { slide } from 'svelte/transition';
 	import CopyUrl from './copy-url.svelte';
 	import { getPimpBodyStyle, getPimpImagePath, headerImages } from './helpers';
 	import { setContext } from 'svelte';
-import Modal from '$lib/ui/modal.svelte';
+	import Modal from '$lib/ui/modal.svelte';
+	import VerticalNav from '$lib/ui/vertical-nav.svelte';
+
+	import IconSettings from '$lib/gfx/svg/icon-settings.svelte';
+	import IconColourPicker from '$lib/gfx/svg/icon-colour-picker.svelte';
+	import IconImage from '$lib/gfx/svg/icon-image.svelte';
 
 	export let title = '';
 	export let bg = '#ffffff';
@@ -20,6 +24,7 @@ import Modal from '$lib/ui/modal.svelte';
 	let rawStyles = buildRawStyles();
 	let shorturl = '';
 	let url = buildUrl();
+	let pane = 'main';
 
 	function buildRawStyles() {
 		return getPimpBodyStyle({ title, bg, fg, yl, img });
@@ -72,57 +77,106 @@ import Modal from '$lib/ui/modal.svelte';
 
 <Modal show={open} title="Pimp je aftelkalender!">
 	<form on:change={change} on:submit|preventDefault={change}>
-		<div class="group">
-			<input
-				type="text"
-				id="title"
-				bind:value={title}
-				placeholder="bv. Sinterklaas"
-			/>
-			<label for="title">Waar tel je naar af?</label>
-		</div>
-		<div class="group">
-			<input type="color" id="bg" bind:value={bg} />
-			<label for="bg">Achtergrondkleur</label>
-		</div>
-		<div class="group">
-			<input type="color" id="fg" bind:value={fg} />
-			<label for="fg">Tekstkleur</label>
-		</div>
-		<div class="group">
-			<input type="color" id="yl" bind:value={yl} />
-			<label for="fg">Gele kaders</label>
-		</div>
-		<div class="group">
-			<div class="imgselect">
-				{#each headerImages as image}
-					<div class="opt">
-						<div class="label">
-							<input type="radio" id={image.id} value={image.id} bind:group={img} />
-							<label for={image.id}>{image.title}</label>
-						</div>
-						<div class="img" style="background-image: url('{getPimpImagePath(image.id)}');"></div>
+		<div class="panes">
+			<VerticalNav>
+				<button class:active={pane === 'main'} on:click={() => { pane = 'main'; }}>
+					<IconSettings /> Algemeen
+				</button>
+				<button class:active={pane === 'colours'} on:click={() => { pane = 'colours'; }}>
+					<IconColourPicker /> Kleuren
+				</button>
+				<button class:active={pane === 'img'} on:click={() => { pane = 'img'; }}>
+					<IconImage /> Afbeelding
+				</button>
+			</VerticalNav>
+
+			{#if pane === 'main'}
+				<div>
+					<div class="group">
+						<input
+							type="text"
+							id="title"
+							bind:value={title}
+							placeholder="bv. Sinterklaas"
+						/>
+						<label for="title">Waar tel je naar af?</label>
 					</div>
-				{/each}
-			</div>
-			<label for="img">Plaatje</label>
+				</div>
+			{/if}
+
+			{#if pane === 'colours'}
+				<div>
+					<div class="group">
+						<input type="color" id="bg" bind:value={bg} />
+						<label for="bg">Achtergrondkleur</label>
+					</div>
+					<div class="group">
+						<input type="color" id="fg" bind:value={fg} />
+						<label for="fg">Tekstkleur</label>
+					</div>
+					<div class="group">
+						<input type="color" id="yl" bind:value={yl} />
+						<label for="fg">Gele kaders</label>
+					</div>
+				</div>
+			{/if}
+
+			{#if pane === 'img'}
+				<div>
+					<div class="group">
+						<div class="imgselect">
+							{#each headerImages as image}
+								<div class="opt">
+									<div class="label">
+										<input type="radio" id={image.id} value={image.id} bind:group={img} />
+										<label for={image.id}>{image.title}</label>
+									</div>
+									<div class="img" style="background-image: url('{getPimpImagePath(image.id)}');"></div>
+								</div>
+							{/each}
+						</div>
+						<label for="img">Plaatje</label>
+					</div>
+				</div>
+			{/if}
 		</div>
-		<p>
-			<a href={url} class="btn" on:click={close}>Laat maar zien!</a>
-			<button on:click={shorten} disabled={!!shorturl}>Ik wil een korte url</button>
-		</p>
-		<hr />
-		<CopyUrl url={shorturl || url} />
-		<p>
-			Deel of bookmark deze URL om je gepimpte aftelkalender op te slaan. Klik erop om het resultaat
-			te bekijken! Let op: we slaan je gepimpte kalender niet op; zorg dus dat je de URL goed
-			bewaart als je je aftelkalender naar wens hebt gepimpt.
-		</p>
+
+		<div class="links">
+			<p>
+				<a href={url} class="btn" on:click={close}>Laat maar zien!</a>
+				<button on:click={shorten} disabled={!!shorturl}>Ik wil een korte url</button>
+			</p>
+			<hr />
+			<CopyUrl url={shorturl || url} />
+			<p>
+				Deel of bookmark deze URL om je gepimpte aftelkalender op te slaan. Klik erop om het resultaat
+				te bekijken! Let op: we slaan je gepimpte kalender niet op; zorg dus dat je de URL goed
+				bewaart als je je aftelkalender naar wens hebt gepimpt.
+			</p>
+		</div>
 	</form>
 </Modal>
 
 <style lang="scss">
 	@import '../../styles/vars';
+	:global(.modal .slot) {
+		padding: 0 !important;
+	}
+	.panes {
+		display: flex;
+		border-bottom: $border solid $grey-light;
+		:global(nav) {
+			border-right: $border solid $grey-light;
+			min-width: 25%;
+		}
+		> div {
+			padding: $padding;
+			flex-grow: 1;
+		}
+	}
+	.links {
+		padding: $padding;
+	}
 	button.has-badge {
 		text-decoration: none;
 		span {
