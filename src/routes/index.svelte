@@ -30,13 +30,6 @@
 
 <div class="cols">
 	<WidgetDate
-		title="Carnaval"
-		date={new Date(2022, 1, 24)}
-		image={carnavalImg}
-		description="Heb je al een wagen gebouwd of je gekste kleren klaargelegd?"
-		info={`Afbeeldig door Etienne Le Cocq - Eigen werk, CC BY-SA 3.0, https://commons.wikimedia.org/w/index.php?curid=5649235`}
-	/>
-	<WidgetDate
 		title="Pasen"
 		date={new Date(2022, 3, 17)}
 		image={pasenImg}
