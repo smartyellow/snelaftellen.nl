@@ -1,5 +1,20 @@
+<script lang="ts">
+	import logoSrcset from '$lib/gfx/logo-text-white.webp?height=200;500;1000&formats=avif;webp;png&srcset=true&img';
+	import logoFallback from '$lib/gfx/logo-text-white.webp?height=500&format=png&img';
+</script>
+
 <header>
-	<h1><a href="/">SnelAftellen.nl</a></h1>
+	<h1>
+		<a href="/">
+			<img
+				srcset={logoSrcset}
+				src={logoFallback}
+				alt="SnelAftellen.nl"
+			/>
+			<span class="sr">SnelAftellen.nl</span>
+		</a>
+	</h1>
+
 	<nav>
 		<ul>
 			<li><a sveltekit:prefetch href="/aftellen">Aftellen</a></li>
@@ -19,6 +34,10 @@
 		margin: 0;
 		background-color: $accent-dark;
 		color: $light;
+		border: none;
+		img {
+			height: 1.4rem;
+		}
 	}
 	h1 a {
 		color: $light;
