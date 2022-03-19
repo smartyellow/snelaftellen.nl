@@ -2,15 +2,13 @@
 	<nav>
 		<ul>
 			<li>&copy; {new Date().getFullYear()} SnelAftellen.nl</li>
-			<li><a href="/contact">Contact</a></li>
-			<li><a href="/doc/privacy.pdf">Privacy</a></li>
-			<li><a href="/doc/cookies.pdf">Cookies</a></li>
-			<li><a href="/doc/disclaimer.pdf">Disclaimer</a></li>
+			<li><a href="/over">Over deze website</a></li>
+			<li><a href="/over">Contact</a></li>
 		</ul>
 	</nav>
 
 	<a href="https://www.websitecarbon.com/website/snelaftellen-nl/">
-		Deze website is groener dan 98% van de websites.
+		Deze website is groener dan 98% van alle andere.
 	</a>
 </footer>
 
