@@ -1,5 +1,5 @@
 <script>
-	import Meta from "$lib/molecules/layout/meta.svelte";
+	import Meta from "$lib/layout/meta.svelte";
 </script>
 
 <Meta

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Meta from '../layout/meta.svelte';
+	import Meta from '../../layout/meta.svelte';
 	import Countdown from './countdown.svelte';
 	import type { PimpOptions } from './helpers';
 	import Pimp from './pimp.svelte';

@@ -25,7 +25,7 @@
 </header>
 
 <style lang="scss">
-	@import '../../styles/vars';
+	@import '../styles/vars';
 	header {
 		box-shadow: $shadow-lg;
 	}

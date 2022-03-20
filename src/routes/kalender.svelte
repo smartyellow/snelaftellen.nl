@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Calendar from "$lib/molecules/calendar/calendar.svelte";
-	import Meta from "$lib/molecules/layout/meta.svelte";
+	import Meta from "$lib/layout/meta.svelte";
 
 	export let year = new Date().getFullYear();
 </script>

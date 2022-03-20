@@ -1,6 +1,6 @@
 <script lang="ts">
 	import type { countdownOptions } from '$lib/constants';
-	import Meta from '$lib/molecules/layout/meta.svelte';
+	import Meta from '$lib/layout/meta.svelte';
 	import Widget from '$lib/ui/widget.svelte';
 	import IconCalendar from '$lib/gfx/svg/icon-calendar.svelte';
 

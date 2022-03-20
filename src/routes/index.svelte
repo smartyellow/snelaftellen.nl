@@ -3,7 +3,7 @@
 	import IconDesign from '$lib/gfx/svg/icon-design.svelte';
 	import IconList from '$lib/gfx/svg/icon-list.svelte';
 	import IconSettings from '$lib/gfx/svg/icon-settings.svelte';
-	import Meta from '$lib/molecules/layout/meta.svelte';
+	import Meta from '$lib/layout/meta.svelte';
 	import WidgetDate from '$lib/ui/widget-date.svelte';
 	import WidgetIcon from '$lib/ui/widget-icon.svelte';
 
