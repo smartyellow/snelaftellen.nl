@@ -3,8 +3,7 @@
 	import { capitalize } from "$lib/helpers";
 	import { getCountdownUrl } from "../countdown/helpers";
 	import { seasons } from "./helpers";
-
-	export let d = new Date();
+	import IconInfo from "$lib/gfx/svg/icon-info.svelte";
 
 	function date(d: Date) {
 		return d
@@ -17,16 +16,19 @@
 	{#each Object.keys(seasons) as season}
 		{@const s = seasons[season]}
 		<div class="season">
-			<a href={s[2]} target="_blank">
+			<a href="/{s[0]}" target="_blank">
 				<img src={s[1]} alt="" />
 			</a>
 			<p class="name">
-				<a href={s[2]} target="_blank">{capitalize(s[0])}</a>
+				{capitalize(s[0])}
+				<a href={s[2]} target="_blank">
+					<IconInfo />
+				</a>
 			</p>
 			<div class="dates">
 				<p class="begin">
 					Begint op
-					<a href={getCountdownUrl(s[3], { title: `Begin van de ${s[0]}` })}>{date(s[3])}</a>.
+					<a href="/{s[0]}">{date(s[3])}</a>.
 				</p>
 				<p class="end">
 					Eindigt na
@@ -55,7 +57,10 @@
 			.name {
 				font-family: 'Sora', $font-base;
 				font-weight: 700;
-				width: 5rem;
+				width: 6rem;
+				:global(svg) {
+					vertical-align: middle;
+				}
 			}
 		}
 	}

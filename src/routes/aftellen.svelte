@@ -2,6 +2,7 @@
 	import type { countdownOptions } from '$lib/constants';
 	import Meta from '$lib/layout/meta.svelte';
 	import Widget from '$lib/ui/widget.svelte';
+	import RelatedLinks from '$lib/ui/related-links.svelte';
 	import IconCalendar from '$lib/gfx/svg/icon-calendar.svelte';
 
 	import DatepickerSeason from '$lib/molecules/seasons/datepicker-season.svelte';
@@ -92,6 +93,11 @@
 		</Widget>
 	</div>
 {/if}
+
+<RelatedLinks>
+	<a href="/seizoenen">Seizoenen {new Date().getFullYear()}</a>
+</RelatedLinks>
+
 
 <style lang="scss">
 	:global(.widget) img {

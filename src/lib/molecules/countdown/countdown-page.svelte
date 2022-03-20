@@ -5,6 +5,7 @@
 	import Pimp from './pimp.svelte';
 	import { capitalize } from '$lib/helpers';
 	import { localeOptions, months } from '$lib/constants';
+	import RelatedLinks from '$lib/ui/related-links.svelte';
 
 	export let pimpOptions: PimpOptions;
 	export let countTo: Date;
@@ -31,11 +32,13 @@
 <Countdown count={difference} date={countTo} />
 <Pimp {...pimpOptions} />
 
-<p>
+<RelatedLinks>
 	<a href="/maanstand-{countTo.getDate()}-{months[countTo.getMonth()]}-{countTo.getFullYear()}">
-		Maanstand bekijken voor deze week
+		Maanstand {countTo.toLocaleDateString('nl-NL', localeOptions)}
 	</a>
-</p>
+	<a href="/seizoenen">Seizoenen {countTo.getFullYear()}</a>
+	<a href="/kalender-{countTo.getFullYear()}">Jaarkalender {countTo.getFullYear()}</a>
+</RelatedLinks>
 
 <slot />
 

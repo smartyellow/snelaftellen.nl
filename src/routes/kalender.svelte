@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Calendar from "$lib/molecules/calendar/calendar.svelte";
 	import Meta from "$lib/layout/meta.svelte";
+	import RelatedLinks from "$lib/ui/related-links.svelte";
 
 	export let year = new Date().getFullYear();
 </script>
@@ -13,3 +14,7 @@
 <h1>Kies een datum van de kalender</h1>
 
 <Calendar {year} />
+
+<RelatedLinks>
+	<a href="/seizoenen">Seizoenen {year}</a>
+</RelatedLinks>

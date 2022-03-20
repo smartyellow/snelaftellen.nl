@@ -16,10 +16,10 @@ const y = new Date().getFullYear();
 export const seasons: {
 	[key: string]: Season
 } = {
-	spring: ['lente', springIcon, '', new Date(y, 2), new Date(y, 4, 31)],
-	summer: ['zomer', summerIcon, '', new Date(y, 5), new Date(y, 7, 31)],
-	autumn: ['herfst', autumnIcon, '', new Date(y, 8), new Date(y, 10, 30)],
-	winter: ['winter', winterIcon, '', new Date(y, 11), new Date(y, 1, 28)]
+	spring: ['lente', springIcon, 'https://nl.wikipedia.org/wiki/Lente', new Date(y, 2), new Date(y, 4, 31)],
+	summer: ['zomer', summerIcon, 'https://nl.wikipedia.org/wiki/Zomer', new Date(y, 5), new Date(y, 7, 31)],
+	autumn: ['herfst', autumnIcon, 'https://nl.wikipedia.org/wiki/Herfst', new Date(y, 8), new Date(y, 10, 30)],
+	winter: ['winter', winterIcon, 'https://nl.wikipedia.org/wiki/Winter', new Date(y, 11), new Date(y, 1, 28)]
 };
 
 export const seasonNames = Object.keys(seasons).map(s => seasons[s][0]);
