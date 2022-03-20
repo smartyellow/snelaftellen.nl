@@ -1,12 +1,13 @@
 <script lang="ts">
+	import type { countdownOptions } from '$lib/constants';
 	import DatepickerDate from '$lib/molecules/countdown/datepicker-date.svelte';
 	import DatepickerWeek from '$lib/molecules/countdown/datepicker-week.svelte';
 	import Meta from '$lib/molecules/layout/meta.svelte';
 	import Widget from '$lib/ui/widget.svelte';
+	import IconCalendar from '$lib/gfx/svg/icon-calendar.svelte';
+
 	import calendarWeek from '$lib/gfx/calendar-week@0.5x.webp?w=200&h=200&img';
 	import calendarDate from '$lib/gfx/calendar-date@0.5x.webp?w=200&h=200&img';
-	import type { countdownOptions } from '$lib/constants';
-	import IconCalendar from '$lib/gfx/svg/icon-calendar.svelte';
 
 	export let option: typeof countdownOptions[number] = undefined;
 

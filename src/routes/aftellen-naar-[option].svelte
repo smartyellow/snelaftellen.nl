@@ -1,8 +1,8 @@
-<script context="module" lang="ts">
+<script context="module">
 	import { countdownOptions } from '$lib/constants';
-	import type { LoadInput, LoadOutput } from '@sveltejs/kit';
 
-	export function load(req: LoadInput): LoadOutput {
+	/** @type {import('./aftellen-naar-[option]').Load} */
+	export function load(req) {
 		const { option } = req.params;
 		const redirectTo = `/${option}`;
 

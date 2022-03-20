@@ -1,6 +1,5 @@
-import type { EndpointOutput, RequestEvent } from '@sveltejs/kit';
-
-export async function get({ params }: RequestEvent): Promise<EndpointOutput> {
+/** @type {import('./[url]').RequestHandler} */
+export async function get({ params }) {
 	const { url } = params;
 	const apiUrl = `https://is.gd/create.php?format=simple&url=${encodeURIComponent(url).replace(
 		/%23/g,

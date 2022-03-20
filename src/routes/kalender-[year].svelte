@@ -1,8 +1,8 @@
-<script context="module" lang="ts">
-	import type { LoadInput, LoadOutput } from '@sveltejs/kit';
+<script context="module">
 	import { isInt } from '$lib/helpers';
 
-	export function load({ params }: LoadInput): LoadOutput {
+	/** @type {import('./kalender-[year]').Load} */
+	export function load({ params }) {
 		const { year } = params;
 
 		if (!isInt(year)) return {

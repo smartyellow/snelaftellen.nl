@@ -6,7 +6,7 @@
 	import Meta from '$lib/molecules/layout/meta.svelte';
 	import WidgetDate from '$lib/ui/widget-date.svelte';
 	import WidgetIcon from '$lib/ui/widget-icon.svelte';
-	import carnavalImg from './_media/carnaval.jpg?w=1000&jpg&img';
+
 	import pasenImg from './_media/pasen.jpg?w=1000&jpg&img';
 
 	const rawStyles = `

@@ -1,9 +1,9 @@
-<script context="module" lang="ts">
-	import type { LoadInput, LoadOutput } from '@sveltejs/kit';
+<script context="module">
 	import { getPimpOptions } from '$lib/molecules/countdown/helpers';
 	import { isInt } from '$lib/helpers';
 
-	export async function load({ url, params }: LoadInput): Promise<LoadOutput<Record<string, any>>> {
+	/** @type {import('./week-[week]-van-[year]').Load} */
+	export async function load({ url, params }) {
 		const { week, year } = params;
 
 		if (!(

@@ -1,8 +1,8 @@
-<script context="module" lang="ts">
+<script context="module">
 	import { countdownOptions } from '$lib/constants';
-	import type { LoadInput, LoadOutput } from '@sveltejs/kit';
 
-	export function load({ params }: LoadInput): LoadOutput {
+	/** @type {import('./[option]').Load} */
+	export function load({ params }) {
 		const { option } = params;
 
 		if (!countdownOptions.includes(option)) return {

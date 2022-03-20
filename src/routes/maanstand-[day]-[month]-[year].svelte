@@ -1,10 +1,10 @@
-<script context="module" lang="ts">
-	import type { LoadInput, LoadOutput } from '@sveltejs/kit';
+<script context="module">
 	import { localeOptions, months } from '$lib/constants';
 	import { isInt } from '$lib/helpers';
 
-	export async function load({ url, params }: LoadInput): Promise<LoadOutput<Record<string, any>>> {
-		let countTo: Date;
+	/** @type {import('./maanstand-[day]-[month]-[year]').Load} */
+	export async function load({ params }) {
+		/** @type {Date} */ let countTo;
 
 		if (!(
 			isInt(params.year) ||

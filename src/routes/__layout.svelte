@@ -1,8 +1,8 @@
-<script context="module" lang="ts">
-	import type { LoadInput, LoadOutput } from '@sveltejs/kit';
+<script context="module">
 	import { getPimpOptions } from '$lib/molecules/countdown/helpers';
 
-	export function load({ url, params }: LoadInput): LoadOutput {
+	/** @type {import('./__layout').Load} */
+	export function load({ url, params }) {
 		const pimpOptions = getPimpOptions(url.searchParams);
 
 		return {
@@ -14,7 +14,6 @@
 </script>
 
 <script lang="ts">
-	import CookieMessage from '$lib/molecules/layout/cookie-message.svelte';
 	import CountdownOptions from '$lib/molecules/countdown/countdown-button.svelte';
 	import Doormat from '$lib/molecules/layout/doormat.svelte';
 	import Header from '$lib/molecules/layout/header.svelte';
