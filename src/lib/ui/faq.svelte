@@ -47,9 +47,6 @@
 		.header {
 			display: flex;
 			padding: $padding;
-			> * {
-				//flex: 1 0;
-			}
 			.title {
 				font-weight: 700;
 				font-size: 1.1rem;
