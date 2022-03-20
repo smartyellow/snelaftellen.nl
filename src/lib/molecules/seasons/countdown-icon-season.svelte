@@ -8,6 +8,6 @@
 	const src = season[1];
 </script>
 
-<a href="/seizoenen-{d.getFullYear()}">
+<a href="/seizoenen">
 	<img {src} {alt} title={alt} class="icon" />
 </a>
