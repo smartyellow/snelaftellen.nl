@@ -2,11 +2,12 @@
 	import { daysOfWeek, months } from "$lib/constants";
 	import { getCountdownUrl } from "$lib/molecules/countdown/helpers";
 	import WidgetImage from "./widget-image.svelte";
-	import calendarImage from '$lib/gfx/calendar.webp?format=png&width=80&img';
 	import IconInfo from "$lib/gfx/svg/icon-info.svelte";
 	import Modal from "./modal.svelte";
 	import type { PimpOptions } from "$lib/molecules/countdown/helpers";
 	import { hasDatePassed } from "$lib/helpers";
+	import tooltip from '$lib/ui/tooltip';
+	import calendarImage from '$lib/gfx/calendar.webp?format=png&width=80&img';
 
 	export let title: string;
 	export let date: Date;
@@ -30,7 +31,7 @@
 	<WidgetImage overlay {image}>
 		<div class="top" slot="top">
 			{#if info}
-				<span class="info" role="button" on:click={openInfo}>
+				<span class="info" role="button" on:click={openInfo} title="Info" use:tooltip>
 					<IconInfo />
 				</span>
 			{/if}

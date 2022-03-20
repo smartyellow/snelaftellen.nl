@@ -3,6 +3,7 @@
 	import { capitalize } from "$lib/helpers";
 	import { getCountdownUrl } from "../countdown/helpers";
 	import { seasons } from "./helpers";
+	import tooltip from '$lib/ui/tooltip';
 	import IconInfo from "$lib/gfx/svg/icon-info.svelte";
 
 	function date(d: Date) {
@@ -21,7 +22,7 @@
 			</a>
 			<p class="name">
 				{capitalize(s[0])}
-				<a href={s[2]} target="_blank">
+				<a href={s[2]} target="_blank" title="Info" use:tooltip>
 					<IconInfo />
 				</a>
 			</p>

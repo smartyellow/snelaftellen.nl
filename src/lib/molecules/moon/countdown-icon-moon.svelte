@@ -1,9 +1,10 @@
 <script lang="ts">
-	import { months } from "$lib/constants";
+	import { localeOptions, months } from "$lib/constants";
 	import Modal from "$lib/ui/modal.svelte";
 	import { Moon } from "lunarphase-js";
 	import { moonPhases } from "./helpers";
 	import MoonPage from "./moon-page.svelte";
+	import tooltip from '$lib/ui/tooltip';
 
 	export let d: Date;
 
@@ -19,7 +20,12 @@
 	}
 </script>
 
-<a href="/maanstand-{d.getDate()}-{months[d.getMonth()]}-{d.getFullYear()}" on:click|preventDefault={openModal}>
+<a
+	href="/maanstand-{d.getDate()}-{months[d.getMonth()]}-{d.getFullYear()}"
+	on:click|preventDefault={openModal}
+	title="Maanstand bekijken voor {d.toLocaleString('nl-NL', localeOptions)}"
+	use:tooltip
+>
 	<img
 		{src}
 		{alt}

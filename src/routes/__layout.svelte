@@ -14,11 +14,13 @@
 </script>
 
 <script lang="ts">
+	import '$lib/styles/app.scss';
+	import 'tippy.js/dist/tippy.css'
+
 	import CountdownOptions from '$lib/molecules/countdown/countdown-button.svelte';
 	import Doormat from '$lib/layout/doormat.svelte';
 	import Header from '$lib/layout/header.svelte';
 	import Share from '$lib/layout/share.svelte';
-	import '$lib/styles/app.scss';
 	import PimpTopImage from '$lib/molecules/countdown/pimp-top-image.svelte';
 	import { getContext } from 'svelte';
 	import type { PimpOptions } from '$lib/molecules/countdown/helpers';

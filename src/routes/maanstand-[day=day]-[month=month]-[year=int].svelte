@@ -1,6 +1,7 @@
 <script context="module">
 	import { localeOptions, months } from '$lib/constants';
 	import { isInt } from '$lib/helpers';
+	import tooltip from '$lib/ui/tooltip';
 
 	/** @type {import('./maanstand-[day]-[month]-[year]').Load} */
 	export async function load({ params }) {
@@ -56,7 +57,7 @@
 
 <h1>
 	Maanstand op
-	<a href={getCountdownUrl(countTo)} title="Aftellen naar {locale}">
+	<a href={getCountdownUrl(countTo)} title="Aftellen naar {locale}" use:tooltip>
 		{locale}
 	</a>
 </h1>

@@ -6,6 +6,7 @@
 	import IconTwitter from '$lib/gfx/svg/icon-twitter.svelte';
 	import { onMount } from 'svelte';
 	import { slide } from 'svelte/transition';
+	import tooltip from '$lib/ui/tooltip';
 
 	let url: string = undefined;
 	let em: string = undefined;
@@ -39,20 +40,20 @@
 {#if mounted}
 	<div transition:slide class="share">
 		{#if native}
-			<button on:click={nativeShare} class="btn native" title="Deel">
+			<button on:click={nativeShare} class="btn native" title="Deel" use:tooltip>
 				<IconShare />
 			</button>
 		{/if}
-		<a href={em} class="btn em" title="Verzenden via e-mail">
+		<a href={em} class="btn em" title="Verzenden via e-mail" use:tooltip>
 			<IconEmail />
 		</a>
-		<a href={fb} class="btn fb" title="Delen op Facebook">
+		<a href={fb} class="btn fb" title="Delen op Facebook" use:tooltip>
 			<IconFacebook />
 		</a>
-		<a href={tw} class="btn tw" title="Delen op Twitter">
+		<a href={tw} class="btn tw" title="Delen op Twitter" use:tooltip>
 			<IconTwitter />
 		</a>
-		<a href={wa} class="btn wa" title="Delen via WhatsApp">
+		<a href={wa} class="btn wa" title="Delen via WhatsApp" use:tooltip>
 			<IconMessage />
 		</a>
 	</div>

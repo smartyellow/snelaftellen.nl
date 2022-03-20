@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { getSeason } from "./helpers";
+	import tooltip from '$lib/ui/tooltip';
 
 	export let d: Date;
 
@@ -9,5 +10,5 @@
 </script>
 
 <a href="/seizoenen">
-	<img {src} {alt} title={alt} class="icon" />
+	<img {src} {alt} title={alt} class="icon" use:tooltip />
 </a>

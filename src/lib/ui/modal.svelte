@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { fade, fly } from 'svelte/transition';
+	import tooltip from '$lib/ui/tooltip';
 
 	export let show = false;
 	export let title: string = undefined;
@@ -17,7 +18,7 @@
 						{title}
 					</div>
 				{/if}
-				<button class="close" on:click={close} aria-label="Sluiten">
+				<button class="close" on:click={close} title="Sluiten" use:tooltip>
 					&times;
 				</button>
 			</div>
