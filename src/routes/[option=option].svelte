@@ -6,7 +6,7 @@
 		const { option } = params;
 
 		if (!countdownOptions.includes(option)) return {
-			status: 404
+			fallthrough: true
 		};
 
 		return {

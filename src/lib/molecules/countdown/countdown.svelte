@@ -1,8 +1,7 @@
 <script lang="ts">
 	import { localeOptions } from '$lib/constants';
-	import CountdownIconSeason from './countdown-icon-season.svelte';
 	import calendarImage from '$lib/gfx/calendar.webp?format=png&width=250&img';
-	import CountdowmIconMoon from '../moon/countdown-icon-moon.svelte';
+	import CountdownIcons from './countdown-icons.svelte';
 
 	export let count: number;
 	export let date: Date;
@@ -24,10 +23,7 @@
 		{/if}
 	</div>
 
-	<div class="countdown-icons">
-		<CountdownIconSeason d={date} />
-		<CountdowmIconMoon d={date} />
-	</div>
+	<CountdownIcons d={date} />
 </div>
 
 <style lang="scss">
@@ -51,14 +47,6 @@
 		flex-shrink: 0;
 		text-align: center;
 		font-size: 1.3rem;
-	}
-	.countdown-icons {
-		height: 50px;
-		flex-grow: 0;
-		flex-shrink: 1;
-		@media (max-width: 500px) {
-			display: none;
-		}
 	}
 	.count {
 		font-size: 4rem;

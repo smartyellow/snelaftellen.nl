@@ -1,16 +1,20 @@
 <script lang="ts">
-	import notFoundImg from '$lib/gfx/404@0.5x.webp';
+	import notFoundImgSrcset from '$lib/gfx/404.webp?width=300;500&formats=avif;webp;png&srcset=true&img';
+	import notFoundImgFallback from '$lib/gfx/404.webp?width=500&format=png&img';
 </script>
 
 <h1>Oeps... daar ging iets mis!</h1>
 
 <div>
-	<img src={notFoundImg} alt="" />
+	<img srcset={notFoundImgSrcset} src={notFoundImgFallback} alt="" />
 </div>
 
 <hr />
 
-<p>We konden die pagina niet vinden. Wilde je aftellen? Dat kan met de datumprikker hiernaast!</p>
+<p>
+	We konden die pagina niet vinden. Wilde je toevallig aftellen? Dat kan met de
+	<em>"Aftellen!"</em>-knop hiernaast!
+</p>
 
 <style lang="scss">
 	@import '../lib/styles/vars';

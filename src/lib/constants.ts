@@ -30,4 +30,4 @@ export const daysOfWeek = [
 	'zondag'
 ];
 
-export const countdownOptions = ['datum', 'week'];
+export const countdownOptions = ['datum', 'week', 'seizoen'];
