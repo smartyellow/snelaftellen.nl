@@ -1,13 +1,16 @@
 <script lang="ts">
-	import IconCalendar from '$lib/gfx/svg/icon-calendar.svelte';
-	import IconDesign from '$lib/gfx/svg/icon-design.svelte';
-	import IconList from '$lib/gfx/svg/icon-list.svelte';
-	import IconSettings from '$lib/gfx/svg/icon-settings.svelte';
 	import Meta from '$lib/layout/meta.svelte';
 	import WidgetDate from '$lib/ui/widget-date.svelte';
 	import WidgetIcon from '$lib/ui/widget-icon.svelte';
 
+	import IconCalendar from '$lib/gfx/svg/icon-calendar.svelte';
+	import IconDesign from '$lib/gfx/svg/icon-design.svelte';
+	import IconList from '$lib/gfx/svg/icon-list.svelte';
+	import IconMoon from '$lib/gfx/svg/icon-moon.svelte';
+	import IconSettings from '$lib/gfx/svg/icon-settings.svelte';
+
 	import pasenImg from './_media/pasen.jpg?w=1000&jpg&img';
+import IconShare from '$lib/gfx/svg/icon-share.svelte';
 
 	const rawStyles = `
 		<style>
@@ -68,6 +71,28 @@
 				Bekijk de jaarkalender
 			</a>
 			van elk jaar dat je wil
+		</span>
+	</WidgetIcon>
+
+	<WidgetIcon>
+		<IconMoon slot="icon" />
+		<span slot="label">
+			<a href="/aftellen" sveltekit:prefetch>
+				Bekijk de maanstand
+			</a>
+			op welke dag dan ook
+		</span>
+	</WidgetIcon>
+</div>
+
+<div class="cols">
+	<WidgetIcon>
+		<IconShare slot="icon" />
+		<span slot="label">
+			<a href="/aftellen" sveltekit:prefetch>
+				Deel je kalenders
+			</a>
+			met iedereen
 		</span>
 	</WidgetIcon>
 
