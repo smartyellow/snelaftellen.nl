@@ -47,15 +47,18 @@
 		.header {
 			display: flex;
 			padding: $padding;
+			> * {
+				//flex: 1 0;
+			}
 			.title {
 				font-weight: 700;
 				font-size: 1.1rem;
-				flex-grow: 1;
 				margin: 0;
 			}
 			.icon {
 				margin-right: $padding;
 				vertical-align: middle;
+				min-width: 1.5rem;
 			}
 		}
 		.detail {
@@ -72,6 +75,8 @@
 				will-change: transform;
 				transition: transform 0.8s;
 				transform-style: preserve-3d;
+				margin-left: auto;
+				min-width: 1.5rem;
 			}
 		}
 		&.open {
