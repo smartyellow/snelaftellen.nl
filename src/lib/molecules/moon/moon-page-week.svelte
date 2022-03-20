@@ -33,10 +33,14 @@
 	.week {
 		display: flex;
 		justify-content: space-between;
-		text-align: center;
 		gap: $padding;
+		flex-wrap: wrap;
 		.day {
 			flex: 1;
+			text-align: center;
+			&:last-child {
+				margin-right: auto;
+			}
 			a {
 				color: $dark;
 				text-decoration: none;
