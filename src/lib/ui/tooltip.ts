@@ -1,12 +1,12 @@
 import tippy from 'tippy.js';
 
-type TooltipOptions = {
+export type TooltipOptions = {
 	content?: string;
 };
 
 export default function tooltip(node: HTMLElement, params?: TooltipOptions): {
-	update?: (parameters: any) => void,
-	destroy?: () => void
+	/** Ran on component update */ update: (newParams: any) => void,
+	/** Ran when component is destroyed */destroy: () => void
 } {
 	// https://dev.to/danawoodman/svelte-quick-tip-using-actions-to-integrate-with-javascript-libraries-tippy-tooltips-2m94
 
@@ -17,7 +17,7 @@ export default function tooltip(node: HTMLElement, params?: TooltipOptions): {
   	const tip = tippy(node, { content, ...params });
 
 	return {
-		update: (newParams) => tip.setProps({ content, ...newParams }),
+		update: newParams => tip.setProps({ content, ...newParams }),
 		destroy: () => tip.destroy(),
 	};
 };

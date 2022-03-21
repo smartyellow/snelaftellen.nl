@@ -21,5 +21,17 @@
 			"$lib/*": ["src/lib/*"],
 		}
 	},
-	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte"]
+	"include": ["src/**/*.d.ts", "src/**/*.js", "src/**/*.ts", "src/**/*.svelte"],
+	"typedocOptions": {
+        "entryPoints": [
+			"src/lib",
+			"src/params",
+			"src/global.d.ts"
+		],
+        "out": ".docs",
+		"entryPointStrategy": "expand",
+		"name": "SnelAftellen.nl TypeScript Docs",
+		"readme": "none",
+		"sort": "source-order"
+    }
 }

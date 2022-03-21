@@ -4,8 +4,18 @@ import iconGib from '$lib/gfx/moon/gib.webp?h=90&w=90&img';
 import iconNew from '$lib/gfx/moon/new.webp?h=90&w=90&img';
 import iconQua from '$lib/gfx/moon/qua.webp?h=90&w=90&img';
 
+export type MoonPhase =
+	'New'
+	| 'Waxing Crescent'
+	| 'First Quarter'
+	| 'Waxing Gibbous'
+	| 'Full'
+	| 'Waning Gibbous'
+	| 'Last Quarter'
+	| 'Waning Crescent';
+
 export const moonPhases: {
-	[key: string]: [
+	[key in MoonPhase]: [
 		/* 0 */ name: string,
 		/* 1 */ img: string,
 		/* 2 */ viceversa: boolean,
