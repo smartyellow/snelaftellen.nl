@@ -14,7 +14,7 @@
 
 <select bind:value={week}>
 	{#each Array.from({ length: 52 }, (_, i) => i + 1) as i}
-		<option value={i} selected={week == i}>{i}</option>
+		<option value={i} selected={week == i}>Week {i}</option>
 	{/each}
 </select>
 

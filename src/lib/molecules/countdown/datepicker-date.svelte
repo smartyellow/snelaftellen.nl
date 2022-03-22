@@ -2,9 +2,11 @@
 	import { months } from '$lib/constants';
 	import IconArchery from '$lib/gfx/svg/icon-archery.svelte';
 
-	export let year = new Date().getFullYear();
-	export let month = 1;
-	export let day = 1;
+	const now = new Date();
+
+	export let year = now.getFullYear();
+	export let month = now.getMonth() + 1;
+	export let day = now.getDate();
 </script>
 
 <select bind:value={day}>
@@ -15,7 +17,7 @@
 
 <select bind:value={month}>
 	{#each [...Array(12).keys()] as i}
-		<option value={i + 1} selected={month == i}>{months[i]}</option>
+		<option value={i + 1} selected={month === 1 + 1}>{months[i]}</option>
 	{/each}
 </select>
 
