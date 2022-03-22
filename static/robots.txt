@@ -1,0 +1,4 @@
+User-agent: googlebot
+Disallow: /gen/
+Disallow: /fonts/
+Disallow: /img/

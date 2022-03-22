@@ -1,9 +1,10 @@
 <script>
+	import { titleDivider } from "$lib/constants";
 	import Meta from "$lib/layout/meta.svelte";
 </script>
 
 <Meta
-	title="Contact - SnelAftellen.nl"
+	title="Contact {titleDivider} SnelAftellen.nl"
 	description="Heb je een suggestie of vraag voor SnelAftellen.nl? Stuur hier een berichtje!"
 />
 

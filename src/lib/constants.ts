@@ -31,3 +31,5 @@ export const daysOfWeek = [
 ];
 
 export const countdownOptions = ['datum', 'week', 'seizoen'];
+
+export const titleDivider = '|';

@@ -10,7 +10,7 @@
 	import IconSettings from '$lib/gfx/svg/icon-settings.svelte';
 
 	import pasenImg from './_media/pasen.jpg?w=1000&jpg&img';
-import IconShare from '$lib/gfx/svg/icon-share.svelte';
+	import IconShare from '$lib/gfx/svg/icon-share.svelte';
 
 	const rawStyles = `
 		<style>
@@ -110,5 +110,7 @@ import IconShare from '$lib/gfx/svg/icon-share.svelte';
 
 <hr />
 
-Heb je vragen, opmerkingen en/of suggesties voor deze website?
-<a sveltekit:prefetch href="/contact">Neem contact op!</a>
+<p>
+	Heb je vragen, opmerkingen en/of suggesties voor deze website?
+	<a sveltekit:prefetch href="/contact">Neem contact op!</a>
+</p>

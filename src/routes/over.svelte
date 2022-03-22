@@ -1,6 +1,7 @@
 <script lang="ts">
 	import Meta from "$lib/layout/meta.svelte";
 	import Faq from "$lib/ui/faq.svelte";
+	import { titleDivider } from "$lib/constants";
 
 	import calculationImgSrcset from '$lib/gfx/about/calculation.webp?width=500;1000;1500&formats=avif;webp;png&srcset=true&img';
 	import calculationImgFallback from '$lib/gfx/about/calculation.webp?width=1000&format=png&img';
@@ -21,7 +22,10 @@
 	import IconIndustry from "$lib/gfx/svg/icon-industry.svelte";
 </script>
 
-<Meta title="Alles over SnelAftellen.nl" description="Op SnelAftellen.nl tel je snel af naar een bepaalde datum. Maar hoe wordt het verschil dussen twee data berekend? Lees het hier." />
+<Meta
+	title="Veelgestelde vragen {titleDivider} SnelAftellen.nl"
+	description="Op SnelAftellen.nl tel je snel af naar een bepaalde datum. Maar hoe wordt het verschil dussen twee data berekend? Lees het hier."
+/>
 
 <h1>Veelgestelde vragen over SnelAftellen.nl</h1>
 

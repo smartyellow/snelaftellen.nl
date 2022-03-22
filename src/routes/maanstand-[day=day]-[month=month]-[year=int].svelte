@@ -44,6 +44,7 @@
 	import MoonPage from "$lib/molecules/moon/moon-page.svelte";
 	import { getCountdownUrl } from '$lib/molecules/countdown/helpers';
 	import Meta from "$lib/layout/meta.svelte";
+	import { titleDivider } from '$lib/constants';
 
 	export let countTo: Date;
 
@@ -51,7 +52,7 @@
 </script>
 
 <Meta
-	title="De maanstand op {locale}"
+	title="De maanstand op {locale} {titleDivider} SnelAftellen.nl"
 	description="Bekijk hier de maanstand op {locale}, en die van de hele week."
 />
 

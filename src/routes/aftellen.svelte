@@ -19,6 +19,25 @@
 		? `Aftellen naar een ${option}`
 		: 'Tel af naar datums en weken';
 
+	let description: string;
+	switch (option) {
+		case 'datum':
+			description = 'Tel af naar je favoriete datum! Hoe lang moet je nog wachten tot je verjaardag, vakantie of vrije dag? Tel ernaar af op SnelAftellen.nl!'
+			break;
+
+		case 'week':
+			description = 'Aftellen naar welke week dan ook, het kan op SnelAftellen.nl. Weet je het weeknummer van je vakantie? Voer \'m in en tel ernaar af!'
+			break;
+
+		case 'season':
+			description = 'Naar welk seizoen kijk jij uit? Houd je van de winter, of heb je liever een zonnige zomer? Tel af naar je favoriete seizoen op SnelAftellen.nl!'
+			break;
+
+		default:
+			description = 'Hoe lang nog wachten tot Sinterklaas? Wanneer is Nieuwjaar? Over hoeveel nachten gaan we op vakantie? SnelAftellen.nl is je digitale aftelkalender.';
+			break;
+	}
+
 	function visible(o: typeof countdownOptions[number]): boolean {
 		return !!(option === o || !option);
 	}
@@ -28,7 +47,7 @@
 	}
 </script>
 
-<Meta title="{title} op SnelAftellen.nl" />
+<Meta title="{title} op SnelAftellen.nl" {description} />
 
 <h1>{title}</h1>
 
