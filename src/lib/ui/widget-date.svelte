@@ -5,7 +5,7 @@
 	import IconInfo from "$lib/gfx/svg/icon-info.svelte";
 	import Modal from "./modal.svelte";
 	import type { PimpOptions } from "$lib/molecules/countdown/helpers";
-	import { hasDatePassed } from "$lib/helpers";
+	import { hasDatePassed } from "$lib/dates";
 	import tooltip from '$lib/ui/tooltip';
 	import calendarImage from '$lib/gfx/calendar.webp?format=png&width=80&img';
 

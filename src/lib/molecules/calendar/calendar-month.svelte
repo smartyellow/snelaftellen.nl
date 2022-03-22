@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { daysOfWeek, months } from "$lib/constants";
-	import { areArraysEqual, getDayNumber, getWeekNumber, numberOfDaysInMonth } from "$lib/helpers";
+	import { getDayNumber, getWeekNumber, numberOfDaysInMonth } from "$lib/dates";
+	import { areArraysEqual } from '$lib/helpers';
 	import { getCountdownUrl } from "../countdown/helpers";
 	import CalendarDay from "./calendar-day.svelte";
 
