@@ -72,6 +72,7 @@
 							&nbsp;
 						{/if}
 					</th>
+
 					{#each weekDates as day}
 						<td>
 							{#if day !== 'noop'}
