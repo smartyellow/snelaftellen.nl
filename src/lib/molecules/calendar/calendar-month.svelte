@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { daysOfWeek, months } from "$lib/constants";
-	import { getDayNumber, getWeekNumber, numberOfDaysInMonth } from "$lib/dates";
+	import { areDatesEqual, getDayNumber, getWeekNumber, numberOfDaysInMonth } from "$lib/dates";
 	import { areArraysEqual } from '$lib/helpers';
 	import { getCountdownUrl } from "../countdown/helpers";
 	import CalendarDay from "./calendar-day.svelte";
@@ -13,6 +13,8 @@
 	const startOffset = getDayNumber(startDate);
 	const weekNumOffset = getWeekNumber(startDate); // === 52 ? 0 : getWeekNumber(startDate)
 	const matrix = getMonthMatrix();
+	const today = new Date();
+	today.setHours(0, 0, 0, 0);
 
 	function getMonthMatrix() {
 		let out: Array<Array<number | 'noop'>> = [];
@@ -73,7 +75,11 @@
 					{#each weekDates as day}
 						<td>
 							{#if day !== 'noop'}
-								<CalendarDay label={day} href={getCountdownUrl(new Date(year, month, day))} />
+								<CalendarDay
+									label={day}
+									href={areDatesEqual(today, new Date(year, month, day)) ? '/vandaag' : getCountdownUrl(new Date(year, month, day))}
+									today={areDatesEqual(today, new Date(year, month, day))}
+								/>
 							{/if}
 						</td>
 					{/each}

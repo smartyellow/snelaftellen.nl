@@ -68,3 +68,7 @@ export function getMonday(d: Date): Date {
 export function isDateValid(input: Date): boolean {
 	return input.getTime() === input.getTime();
 }
+
+export function areDatesEqual(a: Date, b: Date): boolean {
+	return a.getTime() - b.getTime() === 0;
+}
