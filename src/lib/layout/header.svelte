@@ -65,9 +65,7 @@
 			}
 		}
 	}
-	nav ul
-	nav ul li
-	nav ul li:hover a {
+	nav ul nav ul li nav ul li:hover a {
 		background-color: $accent-dark;
 		text-decoration: none;
 	}

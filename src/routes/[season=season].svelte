@@ -8,14 +8,15 @@
 
 		/** @type {import('$lib/molecules/seasons/helpers').Season} */
 		let season;
-		Object.entries(seasons).forEach(s => {
+		Object.entries(seasons).forEach((s) => {
 			if (s[1][0] === option) season = s[1];
 		});
 
-		if (!season) return {
-			// This is very unlikely, because of the above validator.
-			status: 404
-		};
+		if (!season)
+			return {
+				// This is very unlikely, because of the above validator.
+				status: 404
+			};
 
 		const countTo = season[3];
 		const pimpOptions = getPimpOptions(url.searchParams);
@@ -40,8 +41,4 @@
 	export let season: Season;
 </script>
 
-<CountdownPage
-	{pimpOptions}
-	{countTo}
-	displayTitle="het begin van de {season[0]}"
-/>
+<CountdownPage {pimpOptions} {countTo} displayTitle="het begin van de {season[0]}" />

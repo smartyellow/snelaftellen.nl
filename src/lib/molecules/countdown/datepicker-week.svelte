@@ -1,5 +1,5 @@
 <script lang="ts">
-	import IconArchery from "$lib/gfx/svg/icon-archery.svelte";
+	import IconArchery from '$lib/gfx/svg/icon-archery.svelte';
 
 	const currentdate = new Date();
 	const oneJan = new Date(currentdate.getFullYear(), 0, 1);

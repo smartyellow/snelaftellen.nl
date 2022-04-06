@@ -1,5 +1,5 @@
-import type { ParamMatcher } from "@sveltejs/kit";
+import type { ParamMatcher } from '@sveltejs/kit';
 
-export const match: ParamMatcher = p => {
+export const match: ParamMatcher = (p) => {
 	return /^\d+$/.test(p);
-}
+};

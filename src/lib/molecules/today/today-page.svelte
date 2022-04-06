@@ -1,10 +1,10 @@
 <script>
-	import { daysOfWeek, months } from "$lib/constants";
-	import Widget from "$lib/ui/widget.svelte";
+	import { daysOfWeek, months } from '$lib/constants';
+	import Widget from '$lib/ui/widget.svelte';
 	import calendarImage from '$lib/gfx/calendar.webp?format=png&width=200&img';
-	import Meta from "$lib/layout/meta.svelte";
-	import CalendarMonth from "../calendar/calendar-month.svelte";
-	import MoonToday from "../moon/moon-today.svelte";
+	import Meta from '$lib/layout/meta.svelte';
+	import CalendarMonth from '../calendar/calendar-month.svelte';
+	import MoonToday from '../moon/moon-today.svelte';
 
 	const date = new Date();
 	const countStyle = `background-image: url('${calendarImage}');`;
@@ -31,17 +31,12 @@
 <div class="cols">
 	<Widget>
 		<h2>
-			<a href="/kalender-{date.getFullYear()}" sveltekit:prefetch>
-				Kalender
-			</a>
-			{months[date.getMonth()]} {date.getFullYear()}
+			<a href="/kalender-{date.getFullYear()}" sveltekit:prefetch> Kalender </a>
+			{months[date.getMonth()]}
+			{date.getFullYear()}
 		</h2>
 
-		<CalendarMonth
-			month={date.getMonth()}
-			year={date.getFullYear()}
-			showYear
-		/>
+		<CalendarMonth month={date.getMonth()} year={date.getFullYear()} showYear />
 
 		<p>
 			<a href="/kalender-{date.getFullYear()}" sveltekit:prefetch>
@@ -52,16 +47,23 @@
 
 	<Widget>
 		<h2>
-			<a href="/maanstand-{date.getDate()}-{months[date.getMonth()]}-{date.getFullYear()}" sveltekit:prefetch>
+			<a
+				href="/maanstand-{date.getDate()}-{months[date.getMonth()]}-{date.getFullYear()}"
+				sveltekit:prefetch
+			>
 				Maanstand
 			</a>
-			{date.getDate()} {months[date.getMonth()]}
+			{date.getDate()}
+			{months[date.getMonth()]}
 		</h2>
 
 		<MoonToday d={date} showDate={false} />
 
 		<p>
-			<a href="/maanstand-{date.getDate()}-{months[date.getMonth()]}-{date.getFullYear()}" sveltekit:prefetch>
+			<a
+				href="/maanstand-{date.getDate()}-{months[date.getMonth()]}-{date.getFullYear()}"
+				sveltekit:prefetch
+			>
 				Bekijk de maanstanden van de komende 7 dagen
 			</a>
 		</p>

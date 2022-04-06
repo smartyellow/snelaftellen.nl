@@ -1,10 +1,6 @@
-<a href="#content" class="skip-link">
-	Overslaan naar de inhoud
-</a>
+<a href="#content" class="skip-link"> Overslaan naar de inhoud </a>
 
-<a href="/aftellen" class="skip-link" sveltekit:prefetch>
-	Aftellen
-</a>
+<a href="/aftellen" class="skip-link" sveltekit:prefetch> Aftellen </a>
 
 <style lang="scss">
 	@import '../styles/vars';
@@ -17,7 +13,7 @@
 		position: absolute;
 		transform: translateY(-100%);
 		font-size: 1.5rem;
-		transition: transform .3s ease-in-out;
+		transition: transform 0.3s ease-in-out;
 		&:focus {
 			transform: translateY(0%);
 		}

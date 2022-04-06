@@ -1,10 +1,10 @@
 <script lang="ts">
-	import { localeOptions } from "$lib/constants";
-	import { capitalize } from "$lib/helpers";
-	import { getCountdownUrl } from "../countdown/helpers";
-	import { seasons } from "./helpers";
+	import { localeOptions } from '$lib/constants';
+	import { capitalize } from '$lib/helpers';
+	import { getCountdownUrl } from '../countdown/helpers';
+	import { seasons } from './helpers';
 	import tooltip from '$lib/ui/tooltip';
-	import IconInfo from "$lib/gfx/svg/icon-info.svelte";
+	import IconInfo from '$lib/gfx/svg/icon-info.svelte';
 
 	function date(d: Date) {
 		return d

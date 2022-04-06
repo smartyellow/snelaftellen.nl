@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Calendar from "$lib/molecules/calendar/calendar.svelte";
-	import Meta from "$lib/layout/meta.svelte";
-	import RelatedLinks from "$lib/ui/related-links.svelte";
+	import Calendar from '$lib/molecules/calendar/calendar.svelte';
+	import Meta from '$lib/layout/meta.svelte';
+	import RelatedLinks from '$lib/ui/related-links.svelte';
 
 	export let year = new Date().getFullYear();
 </script>

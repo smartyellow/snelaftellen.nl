@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { daysOfWeek, localeOptions, months } from "$lib/constants";
-	import { Moon } from "lunarphase-js";
-	import { getCountdownUrl } from "../countdown/helpers";
-	import { moonPhases } from "./helpers";
+	import { daysOfWeek, localeOptions, months } from '$lib/constants';
+	import { Moon } from 'lunarphase-js';
+	import { getCountdownUrl } from '../countdown/helpers';
+	import { moonPhases } from './helpers';
 	import tooltip from '$lib/ui/tooltip';
 
 	export let d: Date;
@@ -19,10 +19,17 @@
 	{#each dates as date}
 		{@const phase = Moon.lunarPhase(date)}
 		<div class="day">
-			<a href={getCountdownUrl(date)} rel="external" title="Aftellen naar {d.toLocaleString('nl-NL', localeOptions)}" use:tooltip>
+			<a
+				href={getCountdownUrl(date)}
+				rel="external"
+				title="Aftellen naar {d.toLocaleString('nl-NL', localeOptions)}"
+				use:tooltip
+			>
 				<img src={moonPhases[phase][1]} class:viceversa={moonPhases[phase][2]} alt="" />
 				<p class="day">{daysOfWeek[date.getDay() - 1] || 'zondag'}</p>
-				<p class="date" title="{date.getDate()} {months[date.getMonth()]} {date.getFullYear()}">{date.getDate()}-{date.getMonth() + 1}</p>
+				<p class="date" title="{date.getDate()} {months[date.getMonth()]} {date.getFullYear()}">
+					{date.getDate()}-{date.getMonth() + 1}
+				</p>
 				<p class="phase">{moonPhases[phase][0]}</p>
 			</a>
 		</div>
@@ -51,7 +58,8 @@
 					}
 				}
 			}
-			p, img {
+			p,
+			img {
 				margin: 0;
 				margin-bottom: $padding-sm;
 			}

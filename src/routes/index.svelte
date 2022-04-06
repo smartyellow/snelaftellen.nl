@@ -55,9 +55,7 @@
 	<WidgetIcon>
 		<IconDesign slot="icon" />
 		<span slot="label">
-			<a href="/aftellen" sveltekit:prefetch>
-				Pimp je aftelkalender
-			</a>
+			<a href="/aftellen" sveltekit:prefetch> Pimp je aftelkalender </a>
 			met kleuren en plaatjes
 		</span>
 	</WidgetIcon>
@@ -67,9 +65,7 @@
 	<WidgetIcon>
 		<IconList slot="icon" />
 		<span slot="label">
-			<a href="/kalender" sveltekit:prefetch>
-				Bekijk de jaarkalender
-			</a>
+			<a href="/kalender" sveltekit:prefetch> Bekijk de jaarkalender </a>
 			van elk jaar dat je wil
 		</span>
 	</WidgetIcon>
@@ -77,9 +73,7 @@
 	<WidgetIcon>
 		<IconMoon slot="icon" />
 		<span slot="label">
-			<a href="/aftellen" sveltekit:prefetch>
-				Bekijk de maanstand
-			</a>
+			<a href="/aftellen" sveltekit:prefetch> Bekijk de maanstand </a>
 			op welke dag dan ook
 		</span>
 	</WidgetIcon>
@@ -89,9 +83,7 @@
 	<WidgetIcon>
 		<IconShare slot="icon" />
 		<span slot="label">
-			<a href="/aftellen" sveltekit:prefetch>
-				Deel je kalenders
-			</a>
+			<a href="/aftellen" sveltekit:prefetch> Deel je kalenders </a>
 			met iedereen
 		</span>
 	</WidgetIcon>
@@ -100,9 +92,7 @@
 		<IconSettings slot="icon" />
 		<span slot="label">
 			Lees hoe het
-			<a href="/over" sveltekit:prefetch>
-				aan de binnenkant
-			</a>
+			<a href="/over" sveltekit:prefetch> aan de binnenkant </a>
 			werkt
 		</span>
 	</WidgetIcon>

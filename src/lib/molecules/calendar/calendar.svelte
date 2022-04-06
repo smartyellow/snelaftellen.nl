@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { months } from "$lib/constants";
-	import CalendarMonth from "./calendar-month.svelte";
-	import CalendarYearPicker from "./calendar-year-picker.svelte";
+	import { months } from '$lib/constants';
+	import CalendarMonth from './calendar-month.svelte';
+	import CalendarYearPicker from './calendar-year-picker.svelte';
 
 	export let year = new Date().getFullYear();
 </script>

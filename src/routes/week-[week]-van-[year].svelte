@@ -6,12 +6,10 @@
 	export async function load({ url, params }) {
 		const { week, year } = params;
 
-		if (!(
-			isInt(week) ||
-			isInt(year)
-		)) return {
-			status: 404
-		};
+		if (!(isInt(week) || isInt(year)))
+			return {
+				status: 404
+			};
 
 		// Thanks to https://stackoverflow.com/a/8803300
 		const pimpOptions = getPimpOptions(url.searchParams);

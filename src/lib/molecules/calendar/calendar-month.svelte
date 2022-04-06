@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { daysOfWeek, months } from "$lib/constants";
-	import { areDatesEqual, getDayNumber, getWeekNumber, numberOfDaysInMonth } from "$lib/dates";
+	import { daysOfWeek, months } from '$lib/constants';
+	import { areDatesEqual, getDayNumber, getWeekNumber, numberOfDaysInMonth } from '$lib/dates';
 	import { areArraysEqual } from '$lib/helpers';
-	import { getCountdownUrl } from "../countdown/helpers";
-	import CalendarDay from "./calendar-day.svelte";
+	import { getCountdownUrl } from '../countdown/helpers';
+	import CalendarDay from './calendar-day.svelte';
 
 	export let year = new Date().getFullYear();
 	export let month = new Date().getMonth();
@@ -27,13 +27,10 @@
 
 			// each day of this week
 			[...Array(7)].map((_, iDay) => {
-				if (
-					iWeek === 0 && iDay < startOffset ||
-					currentDate > numberOfDays
-				) {
+				if ((iWeek === 0 && iDay < startOffset) || currentDate > numberOfDays) {
 					outWeek.push('noop');
 				} else {
-					outWeek.push(currentDate)
+					outWeek.push(currentDate);
 					currentDate++;
 				}
 			});
@@ -78,7 +75,9 @@
 							{#if day !== 'noop'}
 								<CalendarDay
 									label={day}
-									href={areDatesEqual(today, new Date(year, month, day)) ? '/vandaag' : getCountdownUrl(new Date(year, month, day))}
+									href={areDatesEqual(today, new Date(year, month, day))
+										? '/vandaag'
+										: getCountdownUrl(new Date(year, month, day))}
 									today={areDatesEqual(today, new Date(year, month, day))}
 								/>
 							{/if}
@@ -110,7 +109,8 @@
 				border-top-left-radius: $radius;
 				border-top-right-radius: $radius;
 			}
-			td, th {
+			td,
+			th {
 				min-width: 30px;
 			}
 			thead {

@@ -17,9 +17,14 @@ export function getWeekNumber(date: Date): number {
 	// https://weeknumber.com/how-to/javascript
 
 	date.setHours(0, 0, 0, 0);
-	date.setDate(date.getDate() + 3 - (date.getDay() + 6) % 7);
+	date.setDate(date.getDate() + 3 - ((date.getDay() + 6) % 7));
 	const weekOne = new Date(date.getFullYear(), 0, 4);
-	return 1 + Math.round(((date.getTime() - weekOne.getTime()) / 86400000 - 3 + (weekOne.getDay() + 6) % 7) / 7);
+	return (
+		1 +
+		Math.round(
+			((date.getTime() - weekOne.getTime()) / 86400000 - 3 + ((weekOne.getDay() + 6) % 7)) / 7
+		)
+	);
 }
 
 export function getDateFromWeekNumber(week: number, year: number): Date {
@@ -28,16 +33,15 @@ export function getDateFromWeekNumber(week: number, year: number): Date {
 
 	const firstDayofYear = new Date(year, 0, 1);
 
-    if (firstDayofYear.getDay() > 4)  {
-        const weekStart = new Date(year, 0, 1 + (week - 1) * 7 - firstDayofYear.getDay() + 9);
-        //const weekEnd = new Date(year, 0, 1 + (week - 1) * 7 - firstDayofYear.getDay() + 8 + 5);
-        return weekStart
-    }
-    else {
-        const weekStart = new Date(year, 0, 1 + (week - 1) * 7 - firstDayofYear.getDay() + 2);
-        //const weekEnd = new Date(year, 0, 1 + (week - 1) * 7 - firstDayofYear.getDay() + 1 + 5);
-        return weekStart
-    }
+	if (firstDayofYear.getDay() > 4) {
+		const weekStart = new Date(year, 0, 1 + (week - 1) * 7 - firstDayofYear.getDay() + 9);
+		//const weekEnd = new Date(year, 0, 1 + (week - 1) * 7 - firstDayofYear.getDay() + 8 + 5);
+		return weekStart;
+	} else {
+		const weekStart = new Date(year, 0, 1 + (week - 1) * 7 - firstDayofYear.getDay() + 2);
+		//const weekEnd = new Date(year, 0, 1 + (week - 1) * 7 - firstDayofYear.getDay() + 1 + 5);
+		return weekStart;
+	}
 }
 
 export function getDateFromDayWeekAndYear(day: number, week: number, year: number): Date {

@@ -8,13 +8,13 @@ export interface HeaderImage {
 }
 
 export const headerImages: HeaderImage[] = [
-	{id: 'balloons', title: 'Ballonnen'},
-	{id: 'christmas', title: 'Kerstmis'},
-	{id: 'flags', title: 'Vlaggenlijn'},
-	{id: 'inmemoriam', title: 'In memoriam'},
-	{id: 'presents', title: 'Cadeautjes'},
-	{id: 'pumpkin', title: 'Pompoen'},
-	{id: 'vacation', title: 'Vakantie'}
+	{ id: 'balloons', title: 'Ballonnen' },
+	{ id: 'christmas', title: 'Kerstmis' },
+	{ id: 'flags', title: 'Vlaggenlijn' },
+	{ id: 'inmemoriam', title: 'In memoriam' },
+	{ id: 'presents', title: 'Cadeautjes' },
+	{ id: 'pumpkin', title: 'Pompoen' },
+	{ id: 'vacation', title: 'Vakantie' }
 ];
 
 export type HeaderImageId = typeof headerImages[number]['id'] | 'no';
@@ -72,12 +72,12 @@ export function getCountdownUrl(date: Date, pimpOptions = defaultPimpOptions): s
 	let output = `/${date.getDate()}-${months[date.getMonth()]}-${date.getFullYear()}`;
 
 	if (!areObjectsEqual(pimpOptions, defaultPimpOptions)) {
-		const p = {...defaultPimpOptions, ...pimpOptions};
-		output += `?bg=${encodeURIComponent(
-			p.bg
-		)}&fg=${encodeURIComponent(p.fg)}&yl=${encodeURIComponent(p.yl)}&title=${encodeURIComponent(
-			p.title
-		)}&img=${encodeURIComponent(p.img)}`;
+		const p = { ...defaultPimpOptions, ...pimpOptions };
+		output += `?bg=${encodeURIComponent(p.bg)}&fg=${encodeURIComponent(
+			p.fg
+		)}&yl=${encodeURIComponent(p.yl)}&title=${encodeURIComponent(p.title)}&img=${encodeURIComponent(
+			p.img
+		)}`;
 	}
 
 	return output;

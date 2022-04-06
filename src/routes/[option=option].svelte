@@ -5,9 +5,10 @@
 	export function load({ params }) {
 		const { option } = params;
 
-		if (!countdownOptions.includes(option)) return {
-			fallthrough: true
-		};
+		if (!countdownOptions.includes(option))
+			return {
+				fallthrough: true
+			};
 
 		return {
 			props: {

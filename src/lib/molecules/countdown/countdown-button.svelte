@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Modal from "$lib/ui/modal.svelte";
-	import CountdownRoute from "../../../routes/aftellen.svelte";
+	import Modal from '$lib/ui/modal.svelte';
+	import CountdownRoute from '../../../routes/aftellen.svelte';
 	import { beforeNavigate } from '$app/navigation';
-	import IconCalendar from "$lib/gfx/svg/icon-calendar.svelte";
+	import IconCalendar from '$lib/gfx/svg/icon-calendar.svelte';
 
 	let isOpen = false;
 
@@ -19,12 +19,7 @@
 	});
 </script>
 
-<a
-	sveltekit:prefetch
-	href="/aftellen"
-	class="btn shadow"
-	on:click|preventDefault={open}
->
+<a sveltekit:prefetch href="/aftellen" class="btn shadow" on:click|preventDefault={open}>
 	<IconCalendar />
 	Aftellen!
 </a>

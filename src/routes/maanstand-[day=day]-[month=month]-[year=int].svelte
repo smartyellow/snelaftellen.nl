@@ -7,13 +7,10 @@
 	export async function load({ params }) {
 		/** @type {Date} */ let countTo;
 
-		if (!(
-			isInt(params.year) ||
-			isInt(params.month) ||
-			isInt(params.day)
-		)) return {
-			status: 404
-		};
+		if (!(isInt(params.year) || isInt(params.month) || isInt(params.day)))
+			return {
+				status: 404
+			};
 
 		if (params.day) {
 			countTo = new Date(parseInt(params.year), months.indexOf(params.month), parseInt(params.day));
@@ -41,9 +38,9 @@
 </script>
 
 <script lang="ts">
-	import MoonPage from "$lib/molecules/moon/moon-page.svelte";
+	import MoonPage from '$lib/molecules/moon/moon-page.svelte';
 	import { getCountdownUrl } from '$lib/molecules/countdown/helpers';
-	import Meta from "$lib/layout/meta.svelte";
+	import Meta from '$lib/layout/meta.svelte';
 	import { titleDivider } from '$lib/constants';
 
 	export let countTo: Date;

@@ -8,13 +8,10 @@
 		const pimpOptions = getPimpOptions(url.searchParams);
 		/** @type {Date} */ let countTo;
 
-		if (!(
-			isInt(params.year) ||
-			isInt(params.month) ||
-			isInt(params.day)
-		)) return {
-			status: 404
-		};
+		if (!(isInt(params.year) || isInt(params.month) || isInt(params.day)))
+			return {
+				status: 404
+			};
 
 		if (params.day) {
 			countTo = new Date(parseInt(params.year), months.indexOf(params.month), parseInt(params.day));

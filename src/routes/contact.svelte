@@ -1,6 +1,6 @@
 <script>
-	import { titleDivider } from "$lib/constants";
-	import Meta from "$lib/layout/meta.svelte";
+	import { titleDivider } from '$lib/constants';
+	import Meta from '$lib/layout/meta.svelte';
 </script>
 
 <Meta
@@ -12,8 +12,8 @@
 
 <p>
 	Heb je een suggestie of vraag voor SnelAftellen.nl? Stuur een mailtje naar
-	<a href="mailto:mail@snelaftellen.nl">mail@snelaftellen.nl</a>, dan proberen
-	we zo snel mogelijk te antwoorden. Dank je wel!
+	<a href="mailto:mail@snelaftellen.nl">mail@snelaftellen.nl</a>, dan proberen we zo snel mogelijk
+	te antwoorden. Dank je wel!
 </p>
 
 <p>

@@ -4,9 +4,8 @@
 	can start the dev server with a self-signed SSL certificate by running
 	`npm run dev -- -H`.
 -->
-
 <script lang="ts">
-	import IconCopy from "$lib/gfx/svg/icon-copy.svelte";
+	import IconCopy from '$lib/gfx/svg/icon-copy.svelte';
 	import tooltip from '$lib/ui/tooltip';
 
 	export let url: string;

@@ -15,7 +15,7 @@
 
 <script lang="ts">
 	import '$lib/styles/app.scss';
-	import 'tippy.js/dist/tippy.css'
+	import 'tippy.js/dist/tippy.css';
 
 	import CountdownOptions from '$lib/molecules/countdown/countdown-button.svelte';
 	import Doormat from '$lib/layout/doormat.svelte';

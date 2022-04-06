@@ -1,11 +1,11 @@
 <script lang="ts">
-	import { daysOfWeek, months } from "$lib/constants";
-	import { getCountdownUrl } from "$lib/molecules/countdown/helpers";
-	import WidgetImage from "./widget-image.svelte";
-	import IconInfo from "$lib/gfx/svg/icon-info.svelte";
-	import Modal from "./modal.svelte";
-	import type { PimpOptions } from "$lib/molecules/countdown/helpers";
-	import { hasDatePassed } from "$lib/dates";
+	import { daysOfWeek, months } from '$lib/constants';
+	import { getCountdownUrl } from '$lib/molecules/countdown/helpers';
+	import WidgetImage from './widget-image.svelte';
+	import IconInfo from '$lib/gfx/svg/icon-info.svelte';
+	import Modal from './modal.svelte';
+	import type { PimpOptions } from '$lib/molecules/countdown/helpers';
+	import { hasDatePassed } from '$lib/dates';
 	import tooltip from '$lib/ui/tooltip';
 	import calendarImage from '$lib/gfx/calendar.webp?format=png&width=80&img';
 
@@ -20,7 +20,7 @@
 	const countStyle = `background-image: url('${calendarImage}');`;
 	let infoOpened = false;
 
-	calendarPimpOptions = {title: `${title} ${date.getFullYear()}`, ...calendarPimpOptions};
+	calendarPimpOptions = { title: `${title} ${date.getFullYear()}`, ...calendarPimpOptions };
 
 	function openInfo() {
 		infoOpened = true;

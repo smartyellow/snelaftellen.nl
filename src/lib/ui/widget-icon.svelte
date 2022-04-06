@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Widget from "./widget.svelte";
+	import Widget from './widget.svelte';
 
 	export let label: string = undefined;
 </script>

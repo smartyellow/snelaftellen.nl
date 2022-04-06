@@ -1,7 +1,7 @@
 <script>
-	import { titleDivider } from "$lib/constants";
-	import Meta from "$lib/layout/meta.svelte";
-	import SeasonPage from "$lib/molecules/seasons/season-page.svelte";
+	import { titleDivider } from '$lib/constants';
+	import Meta from '$lib/layout/meta.svelte';
+	import SeasonPage from '$lib/molecules/seasons/season-page.svelte';
 
 	const y = new Date().getFullYear();
 </script>

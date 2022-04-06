@@ -18,9 +18,7 @@
 						{title}
 					</div>
 				{/if}
-				<button class="close" on:click={close} title="Sluiten" use:tooltip>
-					&times;
-				</button>
+				<button class="close" on:click={close} title="Sluiten" use:tooltip> &times; </button>
 			</div>
 			<div class="slot">
 				<slot />

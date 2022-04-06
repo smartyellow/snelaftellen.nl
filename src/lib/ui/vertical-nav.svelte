@@ -7,7 +7,8 @@
 	nav {
 		padding: $padding-sm;
 		:global {
-			a, button {
+			a,
+			button {
 				display: block;
 				width: 100%;
 				text-align: left;

@@ -80,13 +80,28 @@
 		<form on:change={change} on:submit|preventDefault={change}>
 			<div class="panes">
 				<VerticalNav>
-					<button class:active={pane === 'main'} on:click={() => { pane = 'main'; }}>
+					<button
+						class:active={pane === 'main'}
+						on:click={() => {
+							pane = 'main';
+						}}
+					>
 						<IconSettings /> Algemeen
 					</button>
-					<button class:active={pane === 'colours'} on:click={() => { pane = 'colours'; }}>
+					<button
+						class:active={pane === 'colours'}
+						on:click={() => {
+							pane = 'colours';
+						}}
+					>
 						<IconColourPicker /> Kleuren
 					</button>
-					<button class:active={pane === 'img'} on:click={() => { pane = 'img'; }}>
+					<button
+						class:active={pane === 'img'}
+						on:click={() => {
+							pane = 'img';
+						}}
+					>
 						<IconImage /> Afbeelding
 					</button>
 				</VerticalNav>
@@ -94,12 +109,7 @@
 				{#if pane === 'main'}
 					<div>
 						<div class="group">
-							<input
-								type="text"
-								id="title"
-								bind:value={title}
-								placeholder="bv. Sinterklaas"
-							/>
+							<input type="text" id="title" bind:value={title} placeholder="bv. Sinterklaas" />
 							<label for="title">Waar tel je naar af?</label>
 						</div>
 					</div>
@@ -132,7 +142,10 @@
 											<input type="radio" id={image.id} value={image.id} bind:group={img} />
 											<label for={image.id}>{image.title}</label>
 										</div>
-										<div class="img" style="background-image: url('{getPimpImagePath(image.id)}');"></div>
+										<div
+											class="img"
+											style="background-image: url('{getPimpImagePath(image.id)}');"
+										/>
 									</div>
 								{/each}
 							</div>
@@ -150,9 +163,9 @@
 				<hr />
 				<CopyUrl url={shorturl || url} />
 				<p>
-					Deel of bookmark deze URL om je gepimpte aftelkalender op te slaan. Klik erop om het resultaat
-					te bekijken! Let op: we slaan je gepimpte kalender niet op; zorg dus dat je de URL goed
-					bewaart als je je aftelkalender naar wens hebt gepimpt.
+					Deel of bookmark deze URL om je gepimpte aftelkalender op te slaan. Klik erop om het
+					resultaat te bekijken! Let op: we slaan je gepimpte kalender niet op; zorg dus dat je de
+					URL goed bewaart als je je aftelkalender naar wens hebt gepimpt.
 				</p>
 			</div>
 		</form>

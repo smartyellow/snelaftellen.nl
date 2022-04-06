@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { daysOfWeek } from "$lib/constants";
-	import IconInfo from "$lib/gfx/svg/icon-info.svelte";
-	import { Moon } from "lunarphase-js";
-	import { moonPhases } from "./helpers";
+	import { daysOfWeek } from '$lib/constants';
+	import IconInfo from '$lib/gfx/svg/icon-info.svelte';
+	import { Moon } from 'lunarphase-js';
+	import { moonPhases } from './helpers';
 	import tooltip from '$lib/ui/tooltip';
 
 	export let d: Date;
@@ -25,7 +25,12 @@
 
 		<p class="title">
 			{alt}
-			<a href={moonPhases[phase][3]} title="Info over {alt.toLowerCase()}" target="_blank" use:tooltip>
+			<a
+				href={moonPhases[phase][3]}
+				title="Info over {alt.toLowerCase()}"
+				target="_blank"
+				use:tooltip
+			>
 				<IconInfo />
 				<span class="sr">Info</span>
 			</a>

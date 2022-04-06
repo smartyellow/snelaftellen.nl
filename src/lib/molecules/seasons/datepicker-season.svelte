@@ -1,7 +1,7 @@
 <script lang="ts">
-	import IconArchery from "$lib/gfx/svg/icon-archery.svelte";
-	import { capitalize } from "$lib/helpers";
-	import { seasonNames } from "./helpers";
+	import IconArchery from '$lib/gfx/svg/icon-archery.svelte';
+	import { capitalize } from '$lib/helpers';
+	import { seasonNames } from './helpers';
 
 	export let season = 'zomer';
 </script>

@@ -5,9 +5,10 @@
 	export function load({ params }) {
 		const { year } = params;
 
-		if (!isInt(year)) return {
-			status: 404
-		};
+		if (!isInt(year))
+			return {
+				status: 404
+			};
 
 		return {
 			props: {

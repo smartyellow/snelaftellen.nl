@@ -1,9 +1,9 @@
 <script lang="ts">
-	import { localeOptions, months } from "$lib/constants";
-	import Modal from "$lib/ui/modal.svelte";
-	import { Moon } from "lunarphase-js";
-	import { moonPhases } from "./helpers";
-	import MoonPage from "./moon-page.svelte";
+	import { localeOptions, months } from '$lib/constants';
+	import Modal from '$lib/ui/modal.svelte';
+	import { Moon } from 'lunarphase-js';
+	import { moonPhases } from './helpers';
+	import MoonPage from './moon-page.svelte';
 	import tooltip from '$lib/ui/tooltip';
 
 	export let d: Date;
@@ -26,13 +26,7 @@
 	title="Maanstand bekijken voor {d.toLocaleString('nl-NL', localeOptions)}"
 	use:tooltip
 >
-	<img
-		{src}
-		{alt}
-		title={alt}
-		class="icon"
-		class:viceversa
-	/>
+	<img {src} {alt} title={alt} class="icon" class:viceversa />
 </a>
 
 <Modal bind:show={modalOpen} title="Maanstand">

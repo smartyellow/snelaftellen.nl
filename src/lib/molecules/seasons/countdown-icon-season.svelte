@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { getSeason } from "./helpers";
+	import { getSeason } from './helpers';
 	import tooltip from '$lib/ui/tooltip';
 
 	export let d: Date;

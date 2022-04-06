@@ -1,6 +1,6 @@
 <script lang="ts">
-	import IconArrowFlatBottom from "$lib/gfx/svg/icon-arrow-flat-bottom.svelte";
-	import { onMount } from "svelte";
+	import IconArrowFlatBottom from '$lib/gfx/svg/icon-arrow-flat-bottom.svelte';
+	import { onMount } from 'svelte';
 
 	export let question: string;
 	export let icon: any = undefined;
@@ -25,15 +25,15 @@
 			</div>
 		{/if}
 
-		<h3 class="title"> {question} </h3>
+		<h3 class="title">{question}</h3>
 
 		{#if hasJs}
-			<div class="arrow"> <IconArrowFlatBottom /> </div>
+			<div class="arrow"><IconArrowFlatBottom /></div>
 		{/if}
 	</div>
 
 	{#if open || !hasJs}
-		<div class="slot detail"> <slot /> </div>
+		<div class="slot detail"><slot /></div>
 	{/if}
 </div>
 

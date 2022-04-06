@@ -1,5 +1,5 @@
-import type { PimpOptions } from "$lib/molecules/countdown/helpers";
-import type { MoonPhase } from "$lib/molecules/moon/helpers";
+import type { PimpOptions } from '$lib/molecules/countdown/helpers';
+import type { MoonPhase } from '$lib/molecules/moon/helpers';
 
 /**
  * JSON object that will be sent to the analytics server on a page view.
@@ -37,7 +37,7 @@ export interface AnalyticsObject {
 		 * Can be either in IPv4 or IPv6 format, depending on the visitor's network.
 		 */
 		ipAddress: string;
-	}
+	};
 
 	/** Information about the request. */
 	request: {
@@ -81,4 +81,4 @@ export interface AnalyticsObject {
 		/** Phase of the moon (applicable if molecule is `moon`). */
 		moonPhase?: MoonPhase;
 	} & Record<string, unknown>;
-};
+}

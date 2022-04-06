@@ -1,4 +1,4 @@
-import type { AnalyticsObject } from "./types";
+import type { AnalyticsObject } from './types';
 
 /**
  * Class for managing analytics from the frontend.
