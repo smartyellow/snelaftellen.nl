@@ -1,17 +1,16 @@
 <script lang="ts">
-import { localeOptions } from "$lib/constants";
-
+	import { localeOptions } from "$lib/constants";
 	import RelatedLinks from "$lib/ui/related-links.svelte";
 	import { getCountdownUrl } from "../countdown/helpers";
-	import MoonPageToday from "./moon-page-today.svelte";
-	import MoonPageWeek from "./moon-page-week.svelte";
+	import MoonToday from "./moon-today.svelte";
+	import MoonWeek from "./moon-week.svelte";
 
 	export let d: Date;
 </script>
 
 <div class="moonpage">
-	<MoonPageToday {d} />
-	<MoonPageWeek {d} />
+	<MoonToday {d} />
+	<MoonWeek {d} />
 
 	<RelatedLinks>
 		<a href={getCountdownUrl(d)}>Aftellen naar {d.toLocaleDateString('nl-NL', localeOptions)}</a>

@@ -3,8 +3,8 @@
 	import Widget from "$lib/ui/widget.svelte";
 	import calendarImage from '$lib/gfx/calendar.webp?format=png&width=200&img';
 	import Meta from "$lib/layout/meta.svelte";
-import CalendarMonth from "../calendar/calendar-month.svelte";
-import MoonPageToday from "../moon/moon-page-today.svelte";
+	import CalendarMonth from "../calendar/calendar-month.svelte";
+	import MoonToday from "../moon/moon-today.svelte";
 
 	const date = new Date();
 	const countStyle = `background-image: url('${calendarImage}');`;
@@ -58,7 +58,7 @@ import MoonPageToday from "../moon/moon-page-today.svelte";
 			{date.getDate()} {months[date.getMonth()]}
 		</h2>
 
-		<MoonPageToday d={date} showDate={false} />
+		<MoonToday d={date} showDate={false} />
 
 		<p>
 			<a href="/maanstand-{date.getDate()}-{months[date.getMonth()]}-{date.getFullYear()}" sveltekit:prefetch>
