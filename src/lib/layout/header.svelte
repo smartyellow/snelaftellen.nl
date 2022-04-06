@@ -6,11 +6,7 @@
 <header>
 	<div>
 		<a href="/">
-			<img
-				srcset={logoSrcset}
-				src={logoFallback}
-				alt="SnelAftellen.nl"
-			/>
+			<img srcset={logoSrcset} src={logoFallback} alt="SnelAftellen.nl" />
 			<span class="sr">SnelAftellen.nl</span>
 		</a>
 	</div>
@@ -19,6 +15,7 @@
 		<ul>
 			<li><a sveltekit:prefetch href="/aftellen">Aftellen</a></li>
 			<li><a sveltekit:prefetch href="/kalender">Jaarkalender</a></li>
+			<li><a sveltekit:prefetch href="/vandaag">Vandaag</a></li>
 			<li><a sveltekit:prefetch href="/over">Over</a></li>
 		</ul>
 	</nav>

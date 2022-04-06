@@ -6,6 +6,7 @@
 	import tooltip from '$lib/ui/tooltip';
 
 	export let d: Date;
+	export let showDate = true;
 
 	const phase = Moon.lunarPhase(d);
 	const alt = moonPhases[phase][0];
@@ -16,7 +17,12 @@
 <div class="today">
 	<img {src} {alt} title={alt} class:viceversa />
 	<div class="info">
-		<p class="day">Vandaag ({daysOfWeek[d.getDay() - 1] || 'zondag'})</p>
+		{#if showDate}
+			<p class="day">
+				Vandaag ({daysOfWeek[d.getDay() - 1] || 'zondag'})
+			</p>
+		{/if}
+
 		<p class="title">
 			{alt}
 			<a href={moonPhases[phase][3]} title="Info over {alt.toLowerCase()}" target="_blank" use:tooltip>

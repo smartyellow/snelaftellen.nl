@@ -18,11 +18,16 @@
 		&.padding {
 			padding: $padding;
 		}
-		:global(:first-child) {
-			margin-top: 0;
-		}
-		:global(:last-child) {
-			margin-bottom: 0;
+		:global {
+			h2 {
+				font-weight: 400;
+			}
+			:first-child {
+				margin-top: 0;
+			}
+			:last-child {
+				margin-bottom: 0;
+			}
 		}
 	}
 </style>

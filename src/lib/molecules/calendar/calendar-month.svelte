@@ -7,6 +7,7 @@
 
 	export let year = new Date().getFullYear();
 	export let month = new Date().getMonth();
+	export let showYear = false;
 
 	const startDate = new Date(year, month, 1);
 	const startOffset = getDayNumber(startDate);
@@ -45,7 +46,7 @@
 
 <div class="cal-month">
 	<table>
-		<caption>{months[month]}</caption>
+		<caption>{months[month]} {showYear ? year : ''}</caption>
 
 		<thead>
 			<tr>
