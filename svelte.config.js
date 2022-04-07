@@ -24,7 +24,12 @@ const config = {
 		appDir: 'gen',
 		adapter: adapter(),
 		vite: {
-			plugins: [imagetools()]
+			plugins: [imagetools()],
+			server: {
+				fs: {
+					allow: [process.cwd()]
+				}
+			}
 		}
 	}
 };

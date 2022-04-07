@@ -1,3 +1,7 @@
+<script lang="ts">
+	import { version } from '../../../package.json';
+</script>
+
 <footer>
 	<nav>
 		<ul>
@@ -10,6 +14,8 @@
 	<a href="https://www.websitecarbon.com/website/snelaftellen-nl/">
 		Deze website is groener dan 98% van alle andere.
 	</a>
+
+	<ins>v{version}</ins>
 </footer>
 
 <style lang="scss">
@@ -19,25 +25,34 @@
 		padding: $padding;
 		text-align: center;
 		color: #ffffff;
-	}
-	footer > * {
-		margin-bottom: 10px;
-	}
-	ul {
-		list-style-type: none;
-		margin: 0;
-		padding: 0;
-	}
-	li {
-		display: inline;
-	}
-	li:not(:last-child)::after {
-		content: ' | ';
-	}
-	a {
-		color: #ffffff;
-	}
-	a:hover {
-		text-decoration: none;
+		> * {
+			margin-bottom: 10px;
+			display: block;
+		}
+		> :last-child {
+			margin-bottom: 0;
+		}
+		ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			li {
+				display: inline;
+				&:not(:last-child)::after {
+					content: ' | ';
+				}
+			}
+		}
+		a {
+			color: #ffffff;
+			&:hover {
+				text-decoration: none;
+			}
+		}
+		ins {
+			text-decoration: none;
+			font-size: 0.8rem;
+			opacity: 0.6;
+		}
 	}
 </style>
