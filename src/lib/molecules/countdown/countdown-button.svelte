@@ -49,6 +49,7 @@
 		:global(svg) {
 			height: $_size;
 			width: $_size;
+			vertical-align: -0.25rem;
 		}
 	}
 </style>

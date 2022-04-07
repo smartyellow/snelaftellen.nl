@@ -56,6 +56,9 @@
 				margin-right: $padding;
 				vertical-align: middle;
 				min-width: 1.5rem;
+				:global(svg) {
+					margin-top: -0.2rem;
+				}
 			}
 		}
 		.detail {
