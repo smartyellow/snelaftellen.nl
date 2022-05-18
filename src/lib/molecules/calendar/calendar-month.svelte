@@ -2,7 +2,7 @@
 	import { daysOfWeek, months } from '$lib/constants';
 	import { areDatesEqual, getDayNumber, getWeekNumber, numberOfDaysInMonth } from '$lib/dates';
 	import { areArraysEqual } from '$lib/helpers';
-	import { getCountdownUrl } from '../countdown/helpers';
+	import { getCountdownUrl } from '../pimp/helpers';
 	import CalendarDay from './calendar-day.svelte';
 
 	export let year = new Date().getFullYear();

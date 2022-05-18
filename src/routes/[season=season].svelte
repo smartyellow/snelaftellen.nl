@@ -1,7 +1,4 @@
 <script context="module">
-	import { getPimpOptions } from '$lib/molecules/countdown/helpers';
-	import { seasons } from '$lib/molecules/seasons/helpers';
-
 	/** @type {import('./[season]').Load} */
 	export async function load({ url, params }) {
 		const option = params.season;
@@ -32,9 +29,9 @@
 </script>
 
 <script lang="ts">
-	import type { PimpOptions } from '$lib/molecules/countdown/helpers';
-	import CountdownPage from '$lib/molecules/countdown/countdown-page.svelte';
-	import type { Season } from '$lib/molecules/seasons/helpers';
+	import CountdownPage from "$lib/molecules/countdown/countdown-page.svelte";
+	import { getPimpOptions, type PimpOptions } from "$lib/molecules/pimp/helpers";
+	import { seasons, type Season } from "$lib/molecules/seasons/helpers";
 
 	export let countTo: Date;
 	export let pimpOptions: PimpOptions;

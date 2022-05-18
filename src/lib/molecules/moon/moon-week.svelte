@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { daysOfWeek, localeOptions, months } from '$lib/constants';
 	import { Moon } from 'lunarphase-js';
-	import { getCountdownUrl } from '../countdown/helpers';
-	import { moonPhases } from './helpers';
+	import { getCountdownUrl } from '../pimp/helpers';
 	import tooltip from '$lib/ui/tooltip';
+	import { moonPhases } from './helpers';
 
 	export let d: Date;
 

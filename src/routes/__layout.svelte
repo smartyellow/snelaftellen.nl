@@ -1,14 +1,10 @@
 <script context="module">
-	import { getPimpOptions } from '$lib/molecules/countdown/helpers';
+	import { defaultPimpOptions, getPimpOptions, pimpStore } from '$lib/molecules/pimp/helpers';
 
 	/** @type {import('./__layout').Load} */
-	export function load({ url, params }) {
-		const pimpOptions = getPimpOptions(url.searchParams);
-
+	export function load({ url }) {
 		return {
-			props: {
-				pimpOptions
-			}
+			props: { pimpOptions: getPimpOptions(url.searchParams) },
 		};
 	}
 </script>
@@ -21,21 +17,22 @@
 	import Doormat from '$lib/layout/doormat.svelte';
 	import Header from '$lib/layout/header.svelte';
 	import Share from '$lib/layout/share.svelte';
-	import PimpTopImage from '$lib/molecules/countdown/pimp-top-image.svelte';
-	import { getContext } from 'svelte';
-	import type { PimpOptions } from '$lib/molecules/countdown/helpers';
+	import PimpTopImage from '$lib/molecules/pimp/pimp-top-image.svelte';
 	import SkipLink from '$lib/layout/skip-link.svelte';
+	import PimpStyles from '$lib/molecules/pimp/pimp-styles.svelte';
 
-	export let pimpOptions: PimpOptions;
+	export let pimpOptions = defaultPimpOptions;
 
-	const topImage: string = getContext('headerImage');
+	$: img = $pimpStore.img || pimpOptions.img;
+	$: theme = $pimpStore.theme || pimpOptions.theme;
 </script>
 
 <SkipLink />
 <Header />
+<PimpStyles options={pimpOptions} />
 
-<div class="page">
-	<PimpTopImage img={topImage || pimpOptions.img} />
+<div class="page {theme ? `theme-${theme}` : ''}">
+	<PimpTopImage img={img || pimpOptions.img} />
 
 	<div class="wrapper">
 		<main id="content">
@@ -55,6 +52,7 @@
 	.page {
 		min-height: 100vh;
 	}
+
 	.wrapper {
 		display: flex;
 		flex-direction: row;
@@ -62,18 +60,23 @@
 		justify-content: space-between;
 		gap: $padding * 2;
 	}
+
 	main {
 		flex: 3 0;
+
 		:global(:first-child) {
 			margin-top: 0;
 		}
 	}
+
 	aside {
 		flex: 1 0;
 	}
+
 	aside > :global(* + *) {
 		margin-top: $padding-sm;
 	}
+
 	@media (max-width: 800px) {
 		.wrapper {
 			flex-direction: column;

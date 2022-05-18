@@ -1,6 +1,5 @@
 <script context="module">
-	import { getPimpOptions } from '$lib/molecules/countdown/helpers';
-	import { isInt } from '$lib/helpers';
+	import { isInt } from "$lib/helpers";
 
 	/** @type {import('./week-[week]-van-[year]').Load} */
 	export async function load({ url, params }) {
@@ -29,8 +28,8 @@
 </script>
 
 <script lang="ts">
-	import type { PimpOptions } from '$lib/molecules/countdown/helpers';
-	import CountdownPage from '$lib/molecules/countdown/countdown-page.svelte';
+	import CountdownPage from "$lib/molecules/countdown/countdown-page.svelte";
+	import { getPimpOptions, type PimpOptions } from "$lib/molecules/pimp/helpers";
 
 	export let countTo: Date;
 	export let pimpOptions: PimpOptions;

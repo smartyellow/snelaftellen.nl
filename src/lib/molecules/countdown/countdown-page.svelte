@@ -1,16 +1,15 @@
 <script lang="ts">
 	import Meta from '../../layout/meta.svelte';
 	import Countdown from './countdown.svelte';
-	import type { PimpOptions } from './helpers';
-	import Pimp from './pimp.svelte';
+	import type { PimpOptions } from '../pimp/helpers';
+	import Pimp from '../pimp/pimp.svelte';
 	import { capitalize } from '$lib/helpers';
 	import { localeOptions, months } from '$lib/constants';
 	import RelatedLinks from '$lib/ui/related-links.svelte';
 
 	export let pimpOptions: PimpOptions;
 	export let countTo: Date;
-	export let displayTitle =
-		pimpOptions.title != '' ? pimpOptions.title : countTo.toLocaleString('nl-NL', localeOptions);
+	export let displayTitle = pimpOptions.title || countTo.toLocaleString('nl-NL', localeOptions);
 
 	const today = new Date();
 	const difference = Math.ceil((countTo.getTime() - today.getTime()) / (1000 * 3600 * 24));

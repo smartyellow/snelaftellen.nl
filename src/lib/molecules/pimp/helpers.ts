@@ -1,4 +1,4 @@
-import { assets } from '$app/paths';
+import { writable } from 'svelte/store';
 import { months } from '$lib/constants';
 import { areObjectsEqual } from '$lib/helpers';
 
@@ -19,12 +19,25 @@ export const headerImages: HeaderImage[] = [
 
 export type HeaderImageId = typeof headerImages[number]['id'] | 'no';
 
+export interface Theme {
+	id: string;
+	title: string;
+}
+
+export const themes: Theme[] = [
+	{ id: 'no', title: 'Geen thema' },
+	{ id: '98', title: 'Windows 98' }
+];
+
+export type ThemeId = typeof themes[number]['id'];
+
 export interface PimpOptions {
 	bg?: string;
 	fg?: string;
 	yl?: string;
 	img?: HeaderImageId;
 	title?: string;
+	theme?: ThemeId;
 }
 
 export const defaultPimpOptions: PimpOptions = {
@@ -32,41 +45,26 @@ export const defaultPimpOptions: PimpOptions = {
 	fg: '#000000',
 	yl: '#f8f5c3',
 	img: 'no',
-	title: ''
+	title: '',
+	theme: 'no'
 };
 
 export function getPimpOptions(usp: URLSearchParams): PimpOptions {
-	const get = (option: keyof PimpOptions) => {
-		return usp.get(option) || defaultPimpOptions[option];
-	};
+	const result: PimpOptions = {};
+	Object.keys(defaultPimpOptions).forEach(key => {
+		if (usp.get(key) != '') result[key] = usp.get(key);
+	});
+	return result;
+}
 
+export const pimpStore = (() => {
+	const { subscribe, set, update } = writable<PimpOptions>({});
 	return {
-		bg: get('bg'),
-		fg: get('fg'),
-		yl: get('yl'),
-		img: get('img'),
-		title: get('title')
+		subscribe,
+		set,
+		update: (x: PimpOptions) => update(y => ({ ...y, ...x })),
 	};
-}
-
-export function getPimpBodyStyle(options: PimpOptions): string {
-	const d = defaultPimpOptions;
-	const o = options;
-
-	return `
-		<style>
-			body {
-				background-color: ${o.bg || d.bg};
-				color: ${o.fg || d.fg};
-				--yellow: ${o.yl || o.fg};
-			}
-		</style>
-	`;
-}
-
-export function getPimpImagePath(img: string): string {
-	return `${assets}/img/top/${img}.webp`;
-}
+})();
 
 export function getCountdownUrl(date: Date, pimpOptions = defaultPimpOptions): string {
 	let output = `/${date.getDate()}-${months[date.getMonth()]}-${date.getFullYear()}`;
@@ -77,7 +75,7 @@ export function getCountdownUrl(date: Date, pimpOptions = defaultPimpOptions): s
 			p.fg
 		)}&yl=${encodeURIComponent(p.yl)}&title=${encodeURIComponent(p.title)}&img=${encodeURIComponent(
 			p.img
-		)}`;
+		)}&theme=${encodeURIComponent(p.theme)}`;
 	}
 
 	return output;

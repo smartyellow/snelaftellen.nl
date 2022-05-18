@@ -1,4 +1,4 @@
-import type { PimpOptions } from '$lib/molecules/countdown/helpers';
+import type { PimpOptions } from '$lib/molecules/pimp/helpers';
 import type { MoonPhase } from '$lib/molecules/moon/helpers';
 
 /**

@@ -1,24 +1,14 @@
 <script context="module">
-	import { countdownOptions } from '$lib/constants';
-
 	/** @type {import('./[option]').Load} */
 	export function load({ params }) {
-		const { option } = params;
-
-		if (!countdownOptions.includes(option))
-			return {
-				fallthrough: true
-			};
-
 		return {
-			props: {
-				option
-			}
+			props: { option: params.option },
 		};
 	}
 </script>
 
 <script lang="ts">
+	import type { countdownOptions } from '$lib/constants';
 	import Countdown from './aftellen.svelte';
 
 	export let option: typeof countdownOptions[number];

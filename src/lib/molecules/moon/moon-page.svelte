@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { localeOptions } from '$lib/constants';
 	import RelatedLinks from '$lib/ui/related-links.svelte';
-	import { getCountdownUrl } from '../countdown/helpers';
+	import { getCountdownUrl } from '../pimp/helpers';
 	import MoonToday from './moon-today.svelte';
 	import MoonWeek from './moon-week.svelte';
 

@@ -1,56 +1,43 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { dev } from '$app/env';
-	import { onMount } from 'svelte';
-	import CopyUrl from './copy-url.svelte';
-	import { getPimpBodyStyle, getPimpImagePath, headerImages } from './helpers';
-	import { setContext } from 'svelte';
+	import { browser, dev } from '$app/env';
+	import CopyUrl from '../../ui/copy-url.svelte';
+	import { headerImages, pimpStore, themes} from './helpers';
 	import Modal from '$lib/ui/modal.svelte';
 	import VerticalNav from '$lib/ui/vertical-nav.svelte';
+	import SelectImg from '$lib/ui/select-img.svelte';
 
 	import IconSettings from '$lib/gfx/svg/icon-settings.svelte';
 	import IconColourPicker from '$lib/gfx/svg/icon-colour-picker.svelte';
 	import IconImage from '$lib/gfx/svg/icon-image.svelte';
+	import IconDesign from '$lib/gfx/svg/icon-design.svelte';
 
 	export let title = '';
 	export let bg = '#ffffff';
 	export let fg = '#000000';
 	export let yl = '#f8f5c3';
 	export let img = 'no';
+	export let theme = 'xp';
 
+	$: pimpObject = { title, bg, fg, yl, img };
 	const protocol = dev ? 'http://' : 'https://';
 	let open = false;
-	let hasJs = false;
-	let rawStyles = buildRawStyles();
 	let shorturl = '';
 	let url = buildUrl();
 	let pane = 'main';
-
-	function buildRawStyles() {
-		return getPimpBodyStyle({ title, bg, fg, yl, img });
-	}
 
 	function buildUrl(): string {
 		const built = `${protocol}${$page.url.host}${$page.url.pathname}?bg=${encodeURIComponent(
 			bg
 		)}&fg=${encodeURIComponent(fg)}&yl=${encodeURIComponent(yl)}&title=${encodeURIComponent(
 			title
-		)}&img=${encodeURIComponent(img)}`;
+		)}&img=${encodeURIComponent(img)}&theme=${encodeURIComponent(theme)}`;
 		return built;
-	}
-
-	function toggleOpen() {
-		open = !open;
-	}
-
-	function close() {
-		open = false;
 	}
 
 	function change() {
 		url = buildUrl();
-		rawStyles = buildRawStyles();
-		setContext('headerImage', getPimpImagePath(img));
+		pimpStore.update(pimpObject);
 	}
 
 	async function shorten() {
@@ -59,17 +46,10 @@
 		const url = await res.text();
 		shorturl = url;
 	}
-
-	onMount(() => {
-		// Check if JS is enabled, then show pimp button.
-		hasJs = true;
-	});
 </script>
 
-{@html rawStyles}
-
-{#if hasJs}
-	<button on:click={toggleOpen} class="has-badge">
+{#if browser}
+	<button on:click={() => open = !open} class="has-badge">
 		<span>TIP!</span>
 		<u>Pimp je kalender</u>
 	</button>
@@ -82,27 +62,30 @@
 				<VerticalNav>
 					<button
 						class:active={pane === 'main'}
-						on:click={() => {
-							pane = 'main';
-						}}
+						on:click={() => pane = 'main'}
 					>
 						<IconSettings /> Algemeen
 					</button>
+
 					<button
 						class:active={pane === 'colours'}
-						on:click={() => {
-							pane = 'colours';
-						}}
+						on:click={() => pane = 'colours'}
 					>
 						<IconColourPicker /> Kleuren
 					</button>
+
 					<button
 						class:active={pane === 'img'}
-						on:click={() => {
-							pane = 'img';
-						}}
+						on:click={() => pane = 'img'}
 					>
 						<IconImage /> Afbeelding
+					</button>
+
+					<button
+						class:active={pane === 'theme'}
+						on:click={() => pane = 'theme'}
+					>
+						<IconDesign /> Thema
 					</button>
 				</VerticalNav>
 
@@ -135,21 +118,27 @@
 				{#if pane === 'img'}
 					<div>
 						<div class="group">
-							<div class="imgselect">
-								{#each headerImages as image}
-									<div class="opt">
-										<div class="label">
-											<input type="radio" id={image.id} value={image.id} bind:group={img} />
-											<label for={image.id}>{image.title}</label>
-										</div>
-										<div
-											class="img"
-											style="background-image: url('{getPimpImagePath(image.id)}');"
-										/>
-									</div>
-								{/each}
-							</div>
 							<label for="img">Plaatje</label>
+							<SelectImg
+								bind:value={img}
+								options={headerImages}
+								name="img"
+								getImage={id => `/img/top/${id}.webp`}
+							/>
+						</div>
+					</div>
+				{/if}
+
+				{#if pane === 'theme'}
+					<div>
+						<div class="group">
+							<label for="theme">Thema</label>
+							<SelectImg
+								bind:value={theme}
+								options={themes}
+								name="theme"
+								getImage={id => `/img/themes/${id}.webp`}
+							/>
 						</div>
 					</div>
 				{/if}
@@ -157,7 +146,7 @@
 
 			<div class="links">
 				<p>
-					<a href={url} class="btn" on:click={close}>Laat maar zien!</a>
+					<a href={url} class="btn" on:click={() => open = false}>Laat maar zien!</a>
 					<button on:click={shorten} disabled={!!shorturl}>Ik wil een korte url</button>
 				</p>
 				<hr />
@@ -174,29 +163,36 @@
 
 <style lang="scss">
 	@import '../../styles/vars';
+
 	.pimp-modal {
 		:global(.modal .slot) {
 			padding: 0 !important;
 			height: 100vh;
 		}
 	}
+
 	.panes {
 		display: flex;
 		border-bottom: $border solid $grey-light;
+
 		:global(nav) {
 			border-right: $border solid $grey-light;
 			min-width: 25%;
 		}
+
 		> div {
 			padding: $padding;
 			flex-grow: 1;
 		}
 	}
+
 	.links {
 		padding: $padding;
 	}
+
 	button.has-badge {
 		text-decoration: none;
+
 		span {
 			background-color: #9acd32;
 			color: #000000;
@@ -204,38 +200,6 @@
 			margin-right: 5px;
 			border-radius: 5px;
 			padding: 3px;
-		}
-	}
-	.imgselect {
-		display: flex;
-		gap: $padding-sm;
-		flex-wrap: wrap;
-		@media (max-width: 600px) {
-			flex-direction: column;
-		}
-		.opt {
-			border: 1px solid $accent-light;
-			padding: 0;
-			flex: 1 0 calc(50% - $padding-sm * 0.5);
-			max-width: calc(50% - $padding-sm * 0.5);
-			border-radius: $radius;
-			@media (max-width: 600px) {
-				max-width: 100%;
-				width: 100%;
-			}
-			.label {
-				padding: $padding-sm;
-				background-color: lighten($grey, 15);
-				border-radius: $radius $radius 0 0;
-			}
-			.img {
-				width: 100%;
-				height: 4rem;
-				background-position: center center;
-				background-repeat: no-repeat;
-				background-size: cover;
-				border-radius: 0 0 $radius $radius;
-			}
 		}
 	}
 </style>

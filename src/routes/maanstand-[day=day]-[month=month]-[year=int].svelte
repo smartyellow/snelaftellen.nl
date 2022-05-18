@@ -39,9 +39,9 @@
 
 <script lang="ts">
 	import MoonPage from '$lib/molecules/moon/moon-page.svelte';
-	import { getCountdownUrl } from '$lib/molecules/countdown/helpers';
 	import Meta from '$lib/layout/meta.svelte';
 	import { titleDivider } from '$lib/constants';
+	import { getCountdownUrl } from '$lib/molecules/pimp/helpers';
 
 	export let countTo: Date;
 

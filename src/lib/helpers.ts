@@ -18,7 +18,7 @@ export function areArraysEqual(a: Array<unknown>, b: Array<unknown>): boolean {
 	);
 }
 
-export function areObjectsEqual(a: Record<any, unknown>, b: Record<any, unknown>): boolean {
+export function areObjectsEqual(a: unknown, b: unknown): boolean {
 	// http://adripofjavascript.com/blog/drips/object-equality-in-javascript.html
 
 	const aProps = Object.getOwnPropertyNames(a);

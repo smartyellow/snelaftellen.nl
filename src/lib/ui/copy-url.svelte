@@ -4,6 +4,7 @@
 	can start the dev server with a self-signed SSL certificate by running
 	`npm run dev -- -H`.
 -->
+
 <script lang="ts">
 	import IconCopy from '$lib/gfx/svg/icon-copy.svelte';
 	import tooltip from '$lib/ui/tooltip';
@@ -24,7 +25,7 @@
 </ins>
 
 <style lang="scss">
-	@import '../../styles/vars';
+	@import '../styles/vars';
 	ins {
 		-moz-user-select: all;
 		-webkit-user-select: all;
