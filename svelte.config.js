@@ -18,6 +18,7 @@ const config = {
 	],
 
 	compilerOptions: {
+		// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 		cssHash: ({ css, hash }) => '_' + hash(css),
 	},
 
