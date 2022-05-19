@@ -14,13 +14,10 @@ const config = {
 				plugins: [autoprefixer()]
 			}
 		}),
-		mdsvex({
-			extensions: ['.md']
-		})
+		mdsvex({ extensions: ['.md'] }),
 	],
 
 	compilerOptions: {
-		// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 		cssHash: ({ css, hash }) => '_' + hash(css),
 	},
 
