@@ -2,45 +2,66 @@
 
 button,
 .btn {
-	margin-top: 5px;
-	background-color: $accent-light;
-	color: $light;
-	padding: $padding-sm;
-	box-shadow: $shadow-px rgba($dark, 0.3);
-	display: inline-block;
-	border: none;
-	cursor: pointer;
-	font: inherit;
-	text-decoration: none;
-	border-radius: $radius;
+	margin: 0;
+	padding: $padding $padding-lg;
 
-	&:hover {
-		text-decoration: none;
-		background-color: $accent-dark;
+	display: inline-flex;
+	align-items: center;
+
+	border: 1px solid #000;
+	border-bottom-width: 2px;
+
+	font: inherit;
+	font-family: 'Sora', $font-base;
+	text-decoration: none;
+	text-align: left;
+	color: #000;
+
+	background-color: #fff;
+
+	cursor: pointer;
+	transition: color $transition, background-color $transition;
+
+	&:hover,
+	&.active,
+	&.raised {
+		background-color: $accent-light;
+		border-color: $accent-dark;
+		color: $light;
 	}
 
 	&:focus,
 	&:active {
-		box-shadow: none;
-		color: $light;
+		border-bottom-color: $accent-light;
 	}
 
 	&:disabled,
 	&.disabled {
 		cursor: not-allowed;
 		background-color: $grey;
-		text-decoration: none;
-		box-shadow: none;
+	}
+
+	&.raised {
+		&:hover {
+			background-color: $accent-dark;
+		}
 	}
 
 	svg {
-		vertical-align: -0.16rem;
-		width: 1rem;
-		height: 1rem;
+		min-width: 2rem;
+		min-height: 2rem;
 		text-decoration: none;
 		stroke: $light;
-		stroke-width: 2px;
+		stroke-width: 1px;
+		transform: translateX(-1rem);
 	}
+}
+
+.btn-desc {
+	color: $grey-dark;
+	text-transform: uppercase;
+	display: block;
+	margin-bottom: $padding-px;
 }
 
 fieldset {

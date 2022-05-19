@@ -20,17 +20,19 @@
 	let infoOpened = false;
 
 	calendarPimpOptions = { title: `${title} ${date.getFullYear()}`, ...calendarPimpOptions };
-
-	function openInfo() {
-		infoOpened = true;
-	}
 </script>
 
 {#if !hasDatePassed(date) || showAfterDate}
 	<WidgetImage overlay {image}>
 		<div class="top" slot="top">
 			{#if info}
-				<span class="info" role="button" on:click={openInfo} title="Info" use:tooltip>
+				<span
+					class="info"
+					role="button"
+					on:click={() => infoOpened = true}
+					title="Info"
+					use:tooltip
+				>
 					<IconInfo />
 				</span>
 			{/if}
@@ -54,7 +56,9 @@
 		</div>
 
 		<div class="bottom" slot="bottom">
-			<a href={getCountdownUrl(date, calendarPimpOptions)} class="btn">Nu aftellen</a>
+			<a href={getCountdownUrl(date, calendarPimpOptions)} class="btn raised">
+				Nu aftellen
+			</a>
 		</div>
 	</WidgetImage>
 
@@ -67,16 +71,19 @@
 
 <style lang="scss">
 	@import '../styles/vars';
+
 	.top {
 		.info {
 			float: right;
 			cursor: pointer;
 		}
+
 		.event-title {
 			font-size: 1.5rem;
 			font-weight: 700;
 			margin: 0;
 		}
+
 		.event-date {
 			.date {
 				font-weight: 700;
@@ -89,7 +96,7 @@
 				background-size: contain;
 				background-position: center center;
 				display: inline-block;
-				color: #000000;
+				color: #000;
 			}
 		}
 	}

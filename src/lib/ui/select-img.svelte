@@ -20,7 +20,7 @@
 
 <div class="imgselect">
 	{#each options as opt}
-		<div class="opt">
+		<div class="opt" on:click={() => value = opt.id}>
 			<div class="label">
 				<input
 					type="radio"
@@ -56,14 +56,13 @@
 		}
 
 		.opt {
-			border: 1px solid $accent-light;
+			border: 1px solid #000;
+			border-bottom-width: 2px;
 			padding: 0;
-			border-radius: $radius;
 
 			.label {
 				padding: $padding-sm;
-				background-color: lighten($grey, 15);
-				border-radius: $radius $radius 0 0;
+				background-color: $light;
 			}
 
 			.img {
@@ -72,7 +71,6 @@
 				background-position: center center;
 				background-repeat: no-repeat;
 				background-size: cover;
-				border-radius: 0 0 $radius $radius;
 
 				&.noimg {
 					height: 0;

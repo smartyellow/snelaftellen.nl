@@ -40,20 +40,26 @@
 
 <style lang="scss">
 	@import '../../styles/vars';
+
 	.today {
 		display: flex;
 		align-items: center;
+
 		p {
 			margin: 0;
 		}
+
 		img {
 			margin-right: $padding;
 		}
+
 		.info {
 			.title {
 				font-family: 'Sora', $font-base;
 				font-size: 2rem;
+				line-height: 1;
 			}
+
 			.day {
 				text-transform: uppercase;
 				color: $grey;

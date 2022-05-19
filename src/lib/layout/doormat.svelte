@@ -7,7 +7,7 @@
 		<ul>
 			<li>&copy; {new Date().getFullYear()} SnelAftellen.nl</li>
 			<li><a href="/over">Over deze website</a></li>
-			<li><a href="/over">Contact</a></li>
+			<li><a href="/contact">Contact</a></li>
 		</ul>
 	</nav>
 

@@ -10,21 +10,29 @@
 <style lang="scss">
 	@import '../styles/vars';
 	div {
-		border: 2px dashed $accent-light;
-		border-radius: $radius;
+		border: 1px solid #000;
+		border-bottom-width: 2px;
+
 		&.highlighted {
 			background-color: $yellow;
 		}
+
 		&.padding {
 			padding: $padding;
 		}
+
 		:global {
 			h2 {
 				font-weight: 400;
+				padding-bottom: $padding-sm;
+				margin-bottom: $padding;
+				border-bottom: $border solid $grey;
 			}
+
 			:first-child {
 				margin-top: 0;
 			}
+
 			:last-child {
 				margin-bottom: 0;
 			}

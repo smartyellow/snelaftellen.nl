@@ -28,7 +28,7 @@
 	</p>
 </Widget>
 
-<div class="cols">
+<div class="grid-50">
 	<Widget>
 		<h2>
 			<a href="/kalender-{date.getFullYear()}" sveltekit:prefetch> Kalender </a>
@@ -72,9 +72,11 @@
 
 <style lang="scss">
 	@import '../../styles/vars';
+
 	.event-date {
 		text-align: center;
 		font-size: 2.5rem;
+
 		.date {
 			font-weight: 700;
 			width: 7rem;
@@ -90,16 +92,8 @@
 			color: #000000;
 		}
 	}
-	.cols {
+
+	.grid-50 {
 		margin-top: $padding-sm;
-		:global {
-			.widget {
-				h2 {
-					padding-bottom: $padding-sm;
-					margin-bottom: $padding;
-					border-bottom: $border solid $grey;
-				}
-			}
-		}
 	}
 </style>

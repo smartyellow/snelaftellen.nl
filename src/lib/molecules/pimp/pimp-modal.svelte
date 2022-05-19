@@ -12,6 +12,8 @@
 	import IconImage from '$lib/gfx/svg/icon-image.svelte';
 	import IconDesign from '$lib/gfx/svg/icon-design.svelte';
 
+	export let open = false;
+
 	export let title = '';
 	export let bg = '#ffffff';
 	export let fg = '#000000';
@@ -21,7 +23,6 @@
 
 	$: pimpObject = { title, bg, fg, yl, img };
 	const protocol = dev ? 'http://' : 'https://';
-	let open = false;
 	let shorturl = '';
 	let url = buildUrl();
 	let pane = 'main';
@@ -47,13 +48,6 @@
 		shorturl = url;
 	}
 </script>
-
-{#if browser}
-	<button on:click={() => open = !open} class="has-badge">
-		<span>TIP!</span>
-		<u>Pimp je kalender</u>
-	</button>
-{/if}
 
 <div class="pimp-modal">
 	<Modal show={open} title="Pimp je aftelkalender!">
@@ -188,18 +182,5 @@
 
 	.links {
 		padding: $padding;
-	}
-
-	button.has-badge {
-		text-decoration: none;
-
-		span {
-			background-color: #9acd32;
-			color: #000000;
-			text-decoration: none;
-			margin-right: 5px;
-			border-radius: 5px;
-			padding: 3px;
-		}
 	}
 </style>

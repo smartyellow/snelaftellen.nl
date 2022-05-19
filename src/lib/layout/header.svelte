@@ -3,15 +3,15 @@
 	import logoFallback from '$lib/gfx/logo-text-white.webp?height=50&format=png&img';
 </script>
 
-<header>
-	<div>
+<header class="header">
+	<div class="brand">
 		<a href="/">
 			<img srcset={logoSrcset} src={logoFallback} alt="SnelAftellen.nl" />
 			<span class="sr">SnelAftellen.nl</span>
 		</a>
 	</div>
 
-	<nav>
+	<nav class="topnav">
 		<ul>
 			<li><a sveltekit:prefetch href="/aftellen">Aftellen</a></li>
 			<li><a sveltekit:prefetch href="/kalender">Jaarkalender</a></li>
@@ -23,50 +23,57 @@
 
 <style lang="scss">
 	@import '../styles/vars';
-	header {
-		box-shadow: $shadow-lg;
-	}
-	div {
+
+	.brand {
 		padding: 1.4rem $padding;
 		margin: 0;
 		background-color: $accent-dark;
 		color: $light;
 		border: none;
+
 		img {
 			height: 1.4rem;
 		}
+
 		a {
 			color: $light;
 			text-decoration: none;
+
 			&:hover {
 				text-decoration: underline;
 			}
 		}
 	}
-	nav {
+
+	.topnav {
 		background-color: $accent-light;
 		color: $light;
-		padding-top: $padding;
-		padding-bottom: $padding;
+		line-height: 1;
+
 		ul {
 			list-style: none;
 			padding: 0;
 			margin: 0;
+
 			li {
-				display: inline;
+				display: inline-block;
+				color: $light;
+
 				a {
-					color: $light;
 					padding: $padding;
+					color: inherit;
+					display: block;
+					font-size: 1.2rem;
 				}
-				&:hover a {
-					background-color: $accent-dark;
-					text-decoration: none;
+
+				&:hover {
+					a {
+						background-color: #fff;
+						text-decoration: none;
+						color: $accent-light;
+					}
 				}
 			}
 		}
-	}
-	nav ul nav ul li nav ul li:hover a {
-		background-color: $accent-dark;
-		text-decoration: none;
 	}
 </style>

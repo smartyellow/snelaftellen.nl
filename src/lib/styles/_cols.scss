@@ -1,3 +1,4 @@
+@use "sass:math";
 @import 'vars';
 
 .cols {
@@ -16,3 +17,18 @@
 		margin-top: $padding-sm;
 	}
 }
+
+@mixin grid($name) {
+	.grid-#{$name} {
+		display: grid;
+		grid-template-columns: repeat(math.div(100, $name), 1fr);
+		gap: $padding-sm;
+
+		@media (max-width: 700px) {
+			grid-template-columns: 1fr;
+		}
+	}
+}
+
+@include grid(50);
+@include grid(25);

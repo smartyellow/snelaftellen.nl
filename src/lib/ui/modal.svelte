@@ -29,6 +29,7 @@
 
 <style lang="scss">
 	@import '../styles/vars';
+
 	.outer {
 		position: fixed;
 		display: flex;
@@ -42,6 +43,7 @@
 		padding-top: $padding;
 		cursor: pointer;
 	}
+
 	.inner {
 		max-width: 80vw;
 		max-height: 80vh;
@@ -56,41 +58,42 @@
 		display: flex;
 		flex-direction: column;
 		cursor: auto;
+
 		:global(*:first-child) {
 			margin-top: 0;
 		}
+
 		:global(*:last-child) {
 			margin-bottom: 0;
 		}
+
 		.header {
 			border-bottom: 1px solid $grey-light;
 			display: flex;
 			background-color: rgba($grey-light, 0.5);
+
 			* {
 				align-self: center;
 			}
+
 			.title {
 				padding-left: $padding;
 				font-weight: 600;
 			}
+
 			.close {
 				margin-left: auto;
-				margin-top: 0;
 				background-color: inherit;
 				border: none;
-				border-left: 1px solid $grey-light;
-				width: 3.5rem;
 				height: 100%;
-				border-radius: 0;
-				color: $dark;
-				text-decoration: none;
-				box-shadow: none;
 				font-size: 2rem;
+
 				&:hover {
 					background-color: $grey-light;
 				}
 			}
 		}
+
 		.slot {
 			padding: $padding;
 			overflow-y: auto;

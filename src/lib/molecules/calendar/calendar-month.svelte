@@ -91,46 +91,48 @@
 
 <style lang="scss">
 	@import '../../styles/vars';
+
 	.cal-month {
-		border: 1px solid $grey;
-		border-radius: $radius;
-		box-shadow: $shadow;
+		border: 1px solid #000;
+		border-bottom-width: 2px;
+
 		table {
 			text-align: center;
 			padding: 0;
 			border-collapse: collapse;
 			border-spacing: 0;
 			width: 100%;
+
 			caption {
 				font-weight: 700;
 				background-color: $accent-light;
 				color: $light;
 				padding: $padding-sm;
-				border-top-left-radius: $radius;
-				border-top-right-radius: $radius;
 			}
+
 			td,
 			th {
 				min-width: 30px;
 			}
+
 			thead {
 				th {
 					font-weight: 600;
 					padding: 5px;
+
 					&.dayname {
 						border-bottom: 1px solid $grey;
 					}
+
 					&.week {
 						color: darken($grey, 20);
 					}
 				}
 			}
+
 			th.week {
-				background-color: $grey-light;
+				background-color: $light;
 				border-right: 1px solid $grey;
-			}
-			tbody tr:last-of-type th {
-				border-bottom-left-radius: $radius;
 			}
 		}
 	}

@@ -1,31 +1,25 @@
 <script lang="ts">
-	import IconArrowFlatBottom from '$lib/gfx/svg/icon-arrow-flat-bottom.svelte';
 	import { onMount } from 'svelte';
+	import { slide } from 'svelte/transition';
+	import IconArrowFlatBottom from '$lib/gfx/svg/icon-arrow-flat-bottom.svelte';
 
-	export let question: string;
+	export let title: string;
 	export let icon: any = undefined;
 	export let open = false;
 
 	let hasJs = false;
-
-	function toggle() {
-		open = !open;
-	}
-
-	onMount(() => {
-		hasJs = true;
-	});
+	onMount(() => hasJs = true);
 </script>
 
-<div class="faq" class:js={hasJs} class:open>
-	<div class="header" role="button" on:click={toggle}>
+<div class="accordion" class:js={hasJs} class:open>
+	<div class="header" role="button" on:click={() => open = !open}>
 		{#if icon}
 			<div class="icon">
 				<svelte:component this={icon} />
 			</div>
 		{/if}
 
-		<h3 class="title">{question}</h3>
+		<p class="title">{title}</p>
 
 		{#if hasJs}
 			<div class="arrow"><IconArrowFlatBottom /></div>
@@ -33,44 +27,48 @@
 	</div>
 
 	{#if open || !hasJs}
-		<div class="slot detail"><slot /></div>
+		<div class="slot detail" transition:slide><slot /></div>
 	{/if}
 </div>
 
 <style lang="scss">
 	@import '../styles/vars';
-	.faq {
+
+	.accordion {
 		margin-bottom: $padding;
-		border-bottom: $border solid $grey;
-		will-change: border-left;
-		transition: border-left 0.3s;
+		border: 1px solid #000;
+		border-bottom-width: 2px;
+
 		.header {
 			display: flex;
 			padding: $padding;
+			transition: background-color $transition, color $transition;
+
 			.title {
-				font-weight: 700;
 				font-size: 1.1rem;
 				margin: 0;
 			}
+
 			.icon {
 				margin-right: $padding;
 				vertical-align: middle;
 				min-width: 1.5rem;
+
 				:global(svg) {
 					margin-top: -0.2rem;
 				}
 			}
 		}
+
 		.detail {
 			padding: $padding;
 		}
 	}
-	.faq.js {
+
+	.accordion.js {
 		.header {
 			cursor: pointer;
-			.title {
-				font-weight: 400;
-			}
+
 			.arrow {
 				will-change: transform;
 				transition: transform 0.8s;
@@ -79,12 +77,12 @@
 				min-width: 1.5rem;
 			}
 		}
+
 		&.open {
-			border-left: 2px solid $accent-light;
 			.header {
-				.title {
-					font-weight: 700;
-				}
+				background-color: $accent-light;
+				color: $light;
+
 				.arrow {
 					transform: rotate(180deg);
 				}

@@ -1,23 +1,29 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+	import { slide } from 'svelte/transition';
+	import tooltip from '$lib/ui/tooltip';
+
 	import IconEmail from '$lib/gfx/svg/icon-email.svelte';
 	import IconFacebook from '$lib/gfx/svg/icon-facebook.svelte';
 	import IconMessage from '$lib/gfx/svg/icon-message.svelte';
 	import IconShare from '$lib/gfx/svg/icon-share.svelte';
 	import IconTwitter from '$lib/gfx/svg/icon-twitter.svelte';
-	import { onMount } from 'svelte';
-	import { slide } from 'svelte/transition';
-	import tooltip from '$lib/ui/tooltip';
 
+	let native: ShareData = undefined;
+	let mounted = false;
 	let url: string = undefined;
+
 	let em: string = undefined;
 	let fb: string = undefined;
 	let tw: string = undefined;
 	let wa: string = undefined;
-	let native: ShareData = undefined;
-
-	let mounted = false;
 
 	onMount(() => {
+		refreshButtons();
+		mounted = true;
+	});
+
+	function refreshButtons() {
 		url = window.location.toString();
 		const title = document.title;
 		const textRaw = `${title} ${url}`;
@@ -28,9 +34,7 @@
 		fb = `https://www.facebook.com/sharer.php?u=${encodeURIComponent(url)}`;
 		tw = `https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(url)}`; // prettier-ignore
 		wa = `https://wa.me/?text=${text}`;
-
-		mounted = true;
-	});
+	}
 
 	function nativeShare() {
 		navigator.share(native);
@@ -61,10 +65,12 @@
 
 <style lang="scss">
 	@import '../styles/vars';
+
 	.share {
 		display: flex;
 		gap: $padding-sm;
 	}
+
 	a,
 	button {
 		text-decoration: none;
@@ -73,24 +79,23 @@
 		height: 100%;
 		margin-left: 0;
 		margin-right: 0;
+		padding: $padding-sm;
+
 		:global(svg) {
 			height: 20px;
 			width: 20px;
+			transform: none !important;
+		}
+
+		&:hover {
+			:global(svg *) {
+				stroke: #fff;
+			}
 		}
 	}
-	.native {
-		background-color: darken($grey, 20);
-	}
-	.em {
-		background-color: #1e90ff;
-	}
-	.fb {
-		background-color: #4267b2;
-	}
-	.tw {
-		background-color: #1da1f2;
-	}
-	.wa {
-		background-color: #25d366;
-	}
+
+	.em :global(svg *) { stroke: #1e90ff; }
+	.fb :global(svg *) { stroke: #4267b2; }
+	.tw :global(svg *) { stroke: #1da1f2; }
+	.wa :global(svg *) { stroke: #25d366; }
 </style>

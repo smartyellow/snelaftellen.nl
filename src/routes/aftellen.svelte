@@ -16,9 +16,7 @@
 	export let option: typeof countdownOptions[number] = undefined;
 
 	const now = new Date();
-
 	const title = option ? `Aftellen naar een ${option}` : 'Tel af naar datums en weken';
-
 	let description: string;
 	let optionDesignation: string;
 
@@ -62,56 +60,56 @@
 <h1>{title}</h1>
 
 <p>
-	Gebruik deze
-	<a href="/kalender" class="btn" sveltekit:prefetch>
-		<IconCalendar />
-		Jaarkalender
-	</a>, of gebruik {optionDesignation} hieronder. Ben je benieuwd hoe het werkt? Lees het
+	Gebruik {optionDesignation} hieronder. Ben je benieuwd hoe het werkt? Lees het
 	<a href="/over" sveltekit:prefetch>hier</a>!
 </p>
 
-{#if visible('datum') || visible('week')}
-	<div class="cols">
-		{#if visible('datum')}
-			<Widget>
-				<a sveltekit:prefetch href="/datum">
-					<img src={calendarDate} alt="" />
-					<h2>Tel af naar een datum</h2>
-				</a>
-				{#if selected('datum')}
-					<p>Tel af naar je favoriete datum!</p>
-					<DatepickerDate />
-					<p>
-						Als je alleen een maand en een jaar invult, wordt dag 1 van de maand automatisch
-						gekozen.
-					</p>
-					<p>Als je alleen een jaar invult, gaan we uit van 1 januari.</p>
-				{/if}
-			</Widget>
-		{/if}
+<p>
+	<span class="btn-desc">of gebruik de</span>
+	<a href="/kalender" class="btn" sveltekit:prefetch>
+		<IconCalendar />
+		Jaarkalender
+	</a>
+</p>
 
-		{#if visible('week')}
-			<Widget>
-				<a sveltekit:prefetch href="/week">
-					<img src={calendarWeek} alt="" />
-					<h2>Tel af naar een week</h2>
-				</a>
-				{#if selected('week')}
-					<p>Tel af naar een bepaald weeknummer van een jaar.</p>
-					<DatepickerWeek />
-					<p>
-						Stel dat je week 2 in 2022 invult, dan zal er worden afgeteld naar maandag 10 januari
-						2022.
-					</p>
-					<p>We gaan dus uit van het begin van de week.</p>
-				{/if}
-			</Widget>
-		{/if}
-	</div>
-{/if}
+<div class="grid-50">
+	{#if visible('datum')}
+		<Widget>
+			<a sveltekit:prefetch href="/datum">
+				<img src={calendarDate} alt="" />
+				<h2>Tel af naar een datum</h2>
+			</a>
+			{#if selected('datum')}
+				<p>Tel af naar je favoriete datum!</p>
+				<DatepickerDate />
+				<p>
+					Als je alleen een maand en een jaar invult, wordt dag 1 van de maand automatisch
+					gekozen.
+				</p>
+				<p>Als je alleen een jaar invult, gaan we uit van 1 januari.</p>
+			{/if}
+		</Widget>
+	{/if}
 
-{#if visible('seizoen')}
-	<div class="cols">
+	{#if visible('week')}
+		<Widget>
+			<a sveltekit:prefetch href="/week">
+				<img src={calendarWeek} alt="" />
+				<h2>Tel af naar een week</h2>
+			</a>
+			{#if selected('week')}
+				<p>Tel af naar een bepaald weeknummer van een jaar.</p>
+				<DatepickerWeek />
+				<p>
+					Stel dat je week 2 in 2022 invult, dan zal er worden afgeteld naar maandag 10 januari
+					2022.
+				</p>
+				<p>We gaan dus uit van het begin van de week.</p>
+			{/if}
+		</Widget>
+	{/if}
+
+	{#if visible('seizoen')}
 		<Widget>
 			<a sveltekit:prefetch href="/seizoen">
 				<img src={calendarSeason} alt="" />
@@ -127,8 +125,8 @@
 				</p>
 			{/if}
 		</Widget>
-	</div>
-{/if}
+	{/if}
+</div>
 
 <RelatedLinks>
 	<a href="/seizoenen">Seizoensindeling {now.getFullYear()}</a>
@@ -136,14 +134,16 @@
 </RelatedLinks>
 
 <style lang="scss">
-	.cols :global(.widget img) {
-		width: 80px;
-		height: 80px;
-		float: right;
-	}
-	@media (max-width: 500px) {
-		.cols {
-			flex-direction: column;
+	.grid-50 {
+		.widget img {
+			width: 80px;
+			height: 80px;
+			float: right;
+		}
+
+		h2 {
+			border: none;
+			padding: 0;
 		}
 	}
 </style>

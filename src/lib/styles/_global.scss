@@ -6,6 +6,8 @@ body {
 	padding: 0;
 	font-family: $font-base;
 	color: $dark;
+	line-height: 1.5;
+	font-size: 18px;
 }
 
 * {
@@ -15,4 +17,8 @@ body {
 
 svg {
 	vertical-align: middle;
+}
+
+.mt {
+	margin-top: $padding-sm;
 }

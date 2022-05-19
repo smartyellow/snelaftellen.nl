@@ -9,17 +9,19 @@
 <CalendarYearPicker {year} />
 
 <div class="cal-year">
-	{#each months as _, i}
-		<CalendarMonth {year} month={i} />
+	{#each months as _, month}
+		<CalendarMonth {year} {month} />
 	{/each}
 </div>
 
 <style lang="scss">
 	@import '../../styles/vars';
+
 	.cal-year {
 		display: flex;
 		flex-wrap: wrap;
 		gap: $padding;
+
 		> :global(*) {
 			flex: 1 0 20%;
 		}

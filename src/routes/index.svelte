@@ -43,7 +43,7 @@
 
 <h2>Probeer ook eens...</h2>
 
-<div class="cols">
+<div class="grid-50">
 	<WidgetIcon>
 		<IconCalendar slot="icon" />
 		<span slot="label">
@@ -59,9 +59,7 @@
 			met kleuren en plaatjes
 		</span>
 	</WidgetIcon>
-</div>
 
-<div class="cols">
 	<WidgetIcon>
 		<IconList slot="icon" />
 		<span slot="label">
@@ -77,9 +75,7 @@
 			op welke dag dan ook
 		</span>
 	</WidgetIcon>
-</div>
 
-<div class="cols">
 	<WidgetIcon>
 		<IconShare slot="icon" />
 		<span slot="label">

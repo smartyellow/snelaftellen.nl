@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Meta from '$lib/layout/meta.svelte';
-	import Faq from '$lib/ui/faq.svelte';
+	import Accordion from '$lib/ui/accordion.svelte';
 	import { titleDivider } from '$lib/constants';
 
 	import calculationImgSrcset from '$lib/gfx/about/calculation.webp?width=500;1000;1500&formats=avif;webp;png&srcset=true&img';
@@ -23,18 +23,16 @@
 </script>
 
 <Meta
-	title="Veelgestelde vragen {titleDivider} SnelAftellen.nl"
+	title="Veel gestelde vragen {titleDivider} SnelAftellen.nl"
 	description="Op SnelAftellen.nl tel je snel af naar een bepaalde datum. Maar hoe wordt het verschil dussen twee data berekend? Lees het hier."
 />
 
-<h1>Veelgestelde vragen over SnelAftellen.nl</h1>
+<h1>Veel gestelde vragen over SnelAftellen.nl</h1>
 
 <h2>Help!</h2>
 
-<Faq question="Is er een jaarkalender?" icon={IconCalendar}>
-	<p>
-		Jazeker, <a href="/kalender" sveltekit:prefetch>hier</a>.
-	</p>
+<Accordion title="Is er een jaarkalender?" icon={IconCalendar}>
+	<p>Jazeker, <a href="/kalender" sveltekit:prefetch>hier</a>.</p>
 
 	<p>
 		<a href="/kalender" sveltekit:prefetch
@@ -46,9 +44,9 @@
 			/></a
 		>
 	</p>
-</Faq>
+</Accordion>
 
-<Faq question="Hoe werkt het aan de binnenkant?" icon={IconSettings}>
+<Accordion title="Hoe werkt het aan de binnenkant?" icon={IconSettings}>
 	<p>
 		Op SnelAftellen.nl tel je snel af naar een bepaalde datum, zoals je waarschijnlijk wel wist (en
 		de naam doet vermoeden). Maar hoe wordt het verschil tussen twee data berekend? Lees het hier.
@@ -70,18 +68,18 @@
 			title="Het verschil tussen 3 januari en 1 januari is 3 min 1 is 2 dagen."
 		/>
 	</p>
-</Faq>
+</Accordion>
 
 <h2>Over ons</h2>
 
-<Faq question="Ik heb een vraag of opmerking. Waar kan ik die kwijt?" icon={IconMessage}>
+<Accordion title="Ik heb een vraag of opmerking. Waar kan ik die kwijt?" icon={IconMessage}>
 	<p>
 		Vragen en opmerkingen kun je sturen naar
 		<a href="mailto:mail@snelaftellen.nl">mail@snelaftellen.nl</a>. Dankjewel!
 	</p>
-</Faq>
+</Accordion>
 
-<Faq question="Wat is jullie privacybeleid?" icon={IconUserScan}>
+<Accordion title="Wat is jullie privacybeleid?" icon={IconUserScan}>
 	<p>
 		Heel simpel: we achtervolgen je niet met cookies,
 		<a href="https://donttrack.us/" target="_blank">zoals 75% van de websites wel doet</a>. Dat is
@@ -102,9 +100,9 @@
 			/></a
 		>
 	</p>
-</Faq>
+</Accordion>
 
-<Faq question="Vinden jullie het klimaat belangrijk?" icon={IconIndustry}>
+<Accordion title="Vinden jullie het klimaat belangrijk?" icon={IconIndustry}>
 	<p>
 		Op die vraag is maar één goed antwoord. Natuurlijk! Wij zijn
 		<a href="https://www.websitecarbon.com/website/snelaftellen-nl/" target="_blank"
@@ -128,7 +126,7 @@
 			/></a
 		>
 	</p>
-</Faq>
+</Accordion>
 
 <style lang="scss">
 	img {

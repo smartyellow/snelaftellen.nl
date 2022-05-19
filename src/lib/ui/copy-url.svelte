@@ -26,6 +26,7 @@
 
 <style lang="scss">
 	@import '../styles/vars';
+
 	ins {
 		-moz-user-select: all;
 		-webkit-user-select: all;
@@ -44,6 +45,7 @@
 			flex-direction: column;
 		}
 	}
+
 	a {
 		display: block;
 		flex-grow: 1;
@@ -51,15 +53,19 @@
 		overflow-wrap: anywhere;
 		white-space: pre-wrap !important;
 	}
+
 	button {
 		height: 100%;
 		margin: 0;
 		margin-right: auto;
+		padding: 0.5rem;
+
 		:global(svg) {
 			width: 30px;
 			height: 30px;
 			stroke: currentColor;
 		}
+
 		@media (max-width: 600px) {
 			margin-left: auto;
 		}

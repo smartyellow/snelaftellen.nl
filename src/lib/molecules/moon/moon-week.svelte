@@ -38,38 +38,51 @@
 
 <style lang="scss">
 	@import '../../styles/vars';
+
 	.week {
 		display: flex;
 		justify-content: space-between;
 		gap: $padding;
 		flex-wrap: wrap;
+
 		.day {
 			flex: 1;
 			text-align: center;
+
 			&:last-child {
 				margin-right: auto;
 			}
+
 			a {
 				color: $dark;
 				text-decoration: none;
+				display: block;
+				padding: $padding-sm 0;
+
 				&:hover {
+					background-color: $light;
+
 					.day {
 						text-decoration: underline;
 					}
 				}
 			}
+
 			p,
 			img {
 				margin: 0;
 				margin-bottom: $padding-sm;
 			}
+
 			img {
 				max-width: 3rem;
 			}
+
 			.day {
 				text-transform: uppercase;
 				font-weight: 700;
 			}
+
 			.date {
 				color: $grey;
 			}
