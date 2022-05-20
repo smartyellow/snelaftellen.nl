@@ -1,6 +1,15 @@
 <script lang="ts">
+	import { page } from '$app/stores';
+
 	import logoSrcset from '$lib/gfx/logo-text-white.webp?height=50;100&formats=avif;webp;png&srcset=true&img';
 	import logoFallback from '$lib/gfx/logo-text-white.webp?height=50&format=png&img';
+
+	const items = [
+		[ 'Aftellen', '/aftellen' ],
+		[ 'Kalender', '/kalender' ],
+		[ 'Vandaag', '/vandaag' ],
+		[ 'Omrekenen', '/omrekenen' ],
+	]
 </script>
 
 <header class="header">
@@ -13,10 +22,13 @@
 
 	<nav class="topnav">
 		<ul>
-			<li><a sveltekit:prefetch href="/aftellen">Aftellen</a></li>
-			<li><a sveltekit:prefetch href="/kalender">Jaarkalender</a></li>
-			<li><a sveltekit:prefetch href="/vandaag">Vandaag</a></li>
-			<li><a sveltekit:prefetch href="/over">Over</a></li>
+			{#each items as item}
+				<li class:active={$page.url.pathname.includes(item[1])}>
+					<a href={item[1]} sveltekit:prefetch>
+						{item[0]}
+					</a>
+				</li>
+			{/each}
 		</ul>
 	</nav>
 </header>
@@ -54,10 +66,22 @@
 			list-style: none;
 			padding: 0;
 			margin: 0;
+			position: relative;
+
+			&::after {
+				content: '';
+				width: 100%;
+				height: 1px;
+				background-color: #fff;
+				position: absolute;
+				display: inline;
+				top: 100%;
+			}
 
 			li {
 				display: inline-block;
 				color: $light;
+				position: relative;
 
 				a {
 					padding: $padding;
@@ -66,11 +90,27 @@
 					font-size: 1.2rem;
 				}
 
-				&:hover {
+				&:hover,
+				&.active {
 					a {
 						background-color: #fff;
 						text-decoration: none;
 						color: $accent-light;
+					}
+
+					&::before {
+						content: '';
+						height: 5px;
+						width: 100%;
+						top: 100%;
+						position: absolute;
+						background-color: #fff;
+					}
+				}
+
+				&.active {
+					&::before {
+						background-color: $accent-light;
 					}
 				}
 			}
