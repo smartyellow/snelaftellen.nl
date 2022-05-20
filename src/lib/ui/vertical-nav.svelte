@@ -13,6 +13,7 @@
 				width: 100%;
 				text-align: left;
 				padding: $padding-sm $padding-lg;
+				margin-top: -2px;
 			}
 		}
 	}

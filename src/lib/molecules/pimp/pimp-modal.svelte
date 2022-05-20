@@ -139,10 +139,10 @@
 			</div>
 
 			<div class="links">
-				<p>
+				<div class="grid-25">
 					<a href={url} class="btn" on:click={() => open = false}>Laat maar zien!</a>
-					<button on:click={shorten} disabled={!!shorturl}>Ik wil een korte url</button>
-				</p>
+					<button on:click={shorten} disabled={!!shorturl}>Korte url</button>
+				</div>
 				<hr />
 				<CopyUrl url={shorturl || url} />
 				<p>
