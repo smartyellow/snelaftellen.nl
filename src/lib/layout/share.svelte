@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import { slide } from 'svelte/transition';
+	import { navigating } from '$app/stores';
 	import tooltip from '$lib/ui/tooltip';
 
 	import IconEmail from '$lib/gfx/svg/icon-email.svelte';
@@ -22,6 +23,16 @@
 		refreshButtons();
 		mounted = true;
 	});
+
+	$: if ($navigating) {
+		new Promise<void>(resolve => {
+			const interval = setInterval(() => {
+				if ($navigating) return;
+				clearInterval(interval);
+				resolve();
+			}, 500);
+		}).finally(refreshButtons);
+	};
 
 	function refreshButtons() {
 		url = window.location.toString();
