@@ -9,7 +9,6 @@
 	import IconMoon from '$lib/gfx/svg/icon-moon.svelte';
 	import IconSettings from '$lib/gfx/svg/icon-settings.svelte';
 
-	import pasenImg from './_media/pasen.jpg?w=1000&jpg&img';
 	import IconShare from '$lib/gfx/svg/icon-share.svelte';
 
 	const rawStyles = `
@@ -31,13 +30,12 @@
 
 <h2>Het is bijna...</h2>
 
-<div class="cols">
+<div class="grid-50">
 	<WidgetDate
-		title="Pasen"
-		date={new Date(2022, 3, 17)}
-		image={pasenImg}
-		description="Christenen vieren op Pasen dat Jezus uit de dood is opgestaan. Maar, zorg ook dat je eieren in de tuin verstopt!"
-		info={`Afbeelding van <a href="https://unsplash.com/@ericheininger?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Eric Heininger</a> op <a href="https://unsplash.com/collections/9872699/easter?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>.`}
+		title="Hemelvaart"
+		date={new Date(2022, 4, 26)}
+		image="/img/events/hemelvaart.webp"
+		description="Jezus sterft en stijgt op naar de hemel. En het is een vrije dag!"
 	/>
 </div>
 
