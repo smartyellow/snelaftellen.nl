@@ -64,6 +64,7 @@
 			width: 30px;
 			height: 30px;
 			stroke: currentColor;
+			transform: none;
 		}
 
 		@media (max-width: 600px) {

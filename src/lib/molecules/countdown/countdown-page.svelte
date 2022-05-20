@@ -36,7 +36,7 @@
 </h1>
 
 <Countdown count={difference} date={countTo} />
-<PimpModal {...pimpOptions} />
+<PimpModal {...pimpOptions} bind:open={pimpModalOpen} />
 
 <div class="grid-50 mt">
 	{#if browser}
