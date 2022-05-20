@@ -18,6 +18,11 @@ module.exports = {
 		node: true
 	},
 	rules: {
-		'@typescript-eslint/no-explicit-any': 'off'
-	}
+		'comma-dangle': ['warning', 'always'],
+		'@typescript-eslint/no-explicit-any': 'off',
+		'@typescript-eslint/explicit-module-boundary-types': [
+			'warning',
+			{ allowTypedFunctionExpressions: true },
+		],
+	},
 };

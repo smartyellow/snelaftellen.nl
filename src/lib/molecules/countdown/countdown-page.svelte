@@ -6,7 +6,6 @@
 	import PimpModal from '../pimp/pimp-modal.svelte';
 	import { capitalize } from '$lib/helpers';
 	import { localeOptions, months } from '$lib/constants';
-	import RelatedLinks from '$lib/ui/related-links.svelte';
 
 	import IconMoon from '$lib/gfx/svg/icon-moon.svelte';
 	import IconDesign from '$lib/gfx/svg/icon-design.svelte';

@@ -16,7 +16,7 @@
 	}
 </script>
 
-<ins>
+<ins class="select">
 	<a href={url}>{url}</a>
 	<button on:click={copy} title="Naar klembord kopiëren" use:tooltip>
 		<span class="sr">Naar klembord kopiëren</span>
@@ -28,10 +28,6 @@
 	@import '../styles/vars';
 
 	ins {
-		-moz-user-select: all;
-		-webkit-user-select: all;
-		-ms-user-select: all;
-		user-select: all;
 		display: flex;
 		border: 2px solid #808080;
 		padding: 5px;
