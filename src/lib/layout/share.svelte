@@ -96,6 +96,7 @@
 			height: 20px;
 			width: 20px;
 			transform: none !important;
+			margin: auto;
 		}
 
 		&:hover {
