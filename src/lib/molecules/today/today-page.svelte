@@ -1,6 +1,5 @@
 <script>
 	import { daysOfWeek, months } from '$lib/constants';
-	import Widget from '$lib/ui/widget.svelte';
 	import calendarImage from '$lib/gfx/calendar.webp?format=png&width=200&img';
 	import Meta from '$lib/layout/meta.svelte';
 	import CalendarMonth from '../calendar/calendar-month.svelte';
@@ -17,7 +16,7 @@
 
 <h1>Vandaag de dag</h1>
 
-<Widget highlighted>
+<div class="card yellow">
 	<p class="event-date">
 		<span class="day">{daysOfWeek[date.getDay()]}</span>
 		<span class="date count" style={countStyle}>
@@ -26,10 +25,10 @@
 		<span class="month">{months[date.getMonth()]}</span>
 		<span class="year">{date.getFullYear()}</span>
 	</p>
-</Widget>
+</div>
 
 <div class="grid-50">
-	<Widget>
+	<div class="card">
 		<h2>
 			<a href="/kalender-{date.getFullYear()}" sveltekit:prefetch> Kalender </a>
 			{months[date.getMonth()]}
@@ -43,9 +42,9 @@
 				Bekijk de volledige kalender van {date.getFullYear()}
 			</a>
 		</p>
-	</Widget>
+	</div>
 
-	<Widget>
+	<div class="card">
 		<h2>
 			<a
 				href="/maanstand-{date.getDate()}-{months[date.getMonth()]}-{date.getFullYear()}"
@@ -67,7 +66,7 @@
 				Bekijk de maanstanden van de komende 7 dagen
 			</a>
 		</p>
-	</Widget>
+	</div>
 </div>
 
 <style lang="scss">

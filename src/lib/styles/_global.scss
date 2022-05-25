@@ -21,6 +21,8 @@ svg {
 
 .mt-sm { margin-top: $padding-sm; }
 .mt { margin-top: $padding; }
+.p { padding: $padding; }
+.p-0 { padding: $padding; }
 
 .select {
 	-webkit-user-select: all;
@@ -37,4 +39,29 @@ svg {
 
 .overflow {
 	overflow-x: scroll;
+}
+
+.card {
+	border: 1px solid #000;
+	border-bottom-width: 2px;
+	padding: $padding;
+
+	&.yellow {
+		background-color: $yellow;
+	}
+
+	h2 {
+		font-weight: 400;
+		padding-bottom: $padding-sm;
+		margin-bottom: $padding;
+		border-bottom: $border solid $grey;
+	}
+
+	:first-child {
+		margin-top: 0;
+	}
+
+	:last-child {
+		margin-bottom: 0;
+	}
 }

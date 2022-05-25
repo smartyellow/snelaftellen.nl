@@ -1,7 +1,6 @@
 <script lang="ts">
 	import type { countdownOptions } from '$lib/constants';
 	import Meta from '$lib/layout/meta.svelte';
-	import Widget from '$lib/ui/widget.svelte';
 	import RelatedLinks from '$lib/ui/related-links.svelte';
 	import IconCalendar from '$lib/gfx/svg/icon-calendar.svelte';
 
@@ -74,7 +73,7 @@
 
 <div class="grid-50">
 	{#if visible('datum')}
-		<Widget>
+		<div class="card">
 			<a sveltekit:prefetch href="/datum">
 				<img src={calendarDate} alt="" />
 				<h2>Tel af naar een datum</h2>
@@ -88,11 +87,11 @@
 				</p>
 				<p>Als je alleen een jaar invult, gaan we uit van 1 januari.</p>
 			{/if}
-		</Widget>
+		</div>
 	{/if}
 
 	{#if visible('week')}
-		<Widget>
+		<div class="card">
 			<a sveltekit:prefetch href="/week">
 				<img src={calendarWeek} alt="" />
 				<h2>Tel af naar een week</h2>
@@ -106,11 +105,11 @@
 				</p>
 				<p>We gaan dus uit van het begin van de week.</p>
 			{/if}
-		</Widget>
+		</div>
 	{/if}
 
 	{#if visible('seizoen')}
-		<Widget>
+		<div class="card">
 			<a sveltekit:prefetch href="/seizoen">
 				<img src={calendarSeason} alt="" />
 				<h2>Tel af naar een seizoen</h2>
@@ -124,7 +123,7 @@
 					>
 				</p>
 			{/if}
-		</Widget>
+		</div>
 	{/if}
 </div>
 
@@ -135,7 +134,7 @@
 
 <style lang="scss">
 	.grid-50 {
-		.widget img {
+		.card img {
 			width: 80px;
 			height: 80px;
 			float: right;

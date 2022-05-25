@@ -1,10 +1,8 @@
 <script lang="ts">
-	import Widget from './widget.svelte';
-
 	export let label: string = undefined;
 </script>
 
-<Widget>
+<div class="card">
 	<div class="wrapper">
 		{#if $$slots.icon}
 			<div class="slot icon">
@@ -24,7 +22,7 @@
 			</div>
 		{/if}
 	</div>
-</Widget>
+</div>
 
 <style lang="scss">
 	.wrapper {

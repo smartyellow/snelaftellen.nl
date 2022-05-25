@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { localeOptions } from '$lib/constants';
-	import Widget from '$lib/ui/widget.svelte';
 	import CountdownIcons from './countdown-icons.svelte';
 
 	import calendarImage from '$lib/gfx/calendar.webp?format=png&width=250&img';
@@ -12,7 +11,7 @@
 	const countStyle = `background-image: url('${calendarImage}');`;
 </script>
 
-<Widget highlighted>
+<div class="card yellow">
 	<div class="countdown">
 		<div class="countdown-content">
 			{#if count > 0}
@@ -28,7 +27,7 @@
 
 		<CountdownIcons d={date} />
 	</div>
-</Widget>
+</div>
 
 <style lang="scss">
 	@import '../../styles/vars';

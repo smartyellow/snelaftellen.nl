@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { browser } from "$app/env";
 	import Alert from "$lib/ui/alert.svelte";
-	import Widget from "$lib/ui/widget.svelte";
 	import { units } from "./helpers";
 
 	import IconMinus from "$lib/gfx/svg/icon-minus.svelte";
@@ -34,7 +33,7 @@
 <svelte:window on:keydown={change} />
 
 {#if browser}
-	<Widget>
+	<div class="card">
 		<div class="grid-33">
 			<div>
 				<label>
@@ -87,7 +86,7 @@
 				{output === 1 ? units[to].singular : units[to].name}
 			</span>
 		</div>
-	</Widget>
+	</div>
 {:else}
 	<Alert>
 		De omrekentool heeft JavaScript nodig om te werken.
