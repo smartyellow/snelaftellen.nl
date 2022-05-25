@@ -4,20 +4,34 @@
 	import Widget from "$lib/ui/widget.svelte";
 	import { units } from "./helpers";
 
+	import IconMinus from "$lib/gfx/svg/icon-minus.svelte";
+	import IconPlus from "$lib/gfx/svg/icon-plus.svelte";
+	import IconSwitch from "$lib/gfx/svg/icon-switch.svelte";
+
 	export let input = 1;
+	export let output = 60;
 	export let from = 'hours';
 	export let to = 'minutes';
-	export let output = 60;
+	export let decimals = 2;
 
 	function change() {
 		if (input && from && to) {
 			const minutes = units[from].toMins(input);
-			console.log(units[from].toMins, minutes);
-
 			output = units[to].fromMins(minutes);
 		}
 	}
+
+	function switchFromTo() {
+		const _from = from;
+		const _input = input;
+		from = to;
+		to = _from;
+		input = output;
+		output = _input;
+	}
 </script>
+
+<svelte:window on:keydown={change} />
 
 {#if browser}
 	<Widget>
@@ -50,10 +64,28 @@
 			</div>
 		</div>
 
+		<div class="grid-33 mt">
+			<button on:click={() => decimals--} disabled={decimals === 0}>
+				<IconMinus /> Minder decimalen
+			</button>
+			<button on:click={() => decimals++} disabled={decimals === 10}>
+				<IconPlus /> Meer decimalen
+			</button>
+			<button on:click={switchFromTo}>
+				<IconSwitch /> Eenheden omwisselen
+			</button>
+		</div>
+
 		<div class="output mt select center">
-			<span class="in">{input} {input === 1 ? units[from].singular : units[from].name}</span>
+			<span class="in">
+				{input}
+				{input === 1 ? units[from].singular : units[from].name}
+			</span>
 			<span class="eq">=</span>
-			<span class="out">{output} {output === 1 ? units[to].singular : units[to].name}</span>
+			<span class="out">
+				{output.toFixed(decimals)}
+				{output === 1 ? units[to].singular : units[to].name}
+			</span>
 		</div>
 	</Widget>
 {:else}

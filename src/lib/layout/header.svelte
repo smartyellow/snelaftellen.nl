@@ -68,16 +68,6 @@
 			margin: 0;
 			position: relative;
 
-			&::after {
-				content: '';
-				width: 100%;
-				height: 1px;
-				background-color: #fff;
-				position: absolute;
-				display: inline;
-				top: 100%;
-			}
-
 			li {
 				display: inline-block;
 				color: $light;

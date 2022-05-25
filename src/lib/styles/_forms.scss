@@ -38,7 +38,9 @@ button,
 	&:disabled,
 	&.disabled {
 		cursor: not-allowed;
-		background-color: $grey;
+		background-color: $grey-light;
+		border-color: $grey;
+		color: #000;
 	}
 
 	&.raised {
