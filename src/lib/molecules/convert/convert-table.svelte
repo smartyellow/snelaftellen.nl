@@ -40,6 +40,8 @@
 	@import '../../styles/vars';
 
 	table {
+		width: 100%;
+
 		th, td {
 			padding: 5px;
 		}
