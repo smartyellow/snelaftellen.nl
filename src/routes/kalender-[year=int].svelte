@@ -1,7 +1,7 @@
 <script context="module">
 	import { isInt } from '$lib/helpers';
 
-	/** @type {import('./kalender-[year]').Load} */
+	/** @type {import('./kalender-[year=int]').Load} */
 	export function load({ params }) {
 		const { year } = params;
 

@@ -2,7 +2,7 @@
 	import { getPimpOptions } from '$lib/molecules/pimp/helpers';
 	import { months } from '$lib/constants';
 
-	/** @type {import('./[day]-[month]-[year]').Load} */
+	/** @type {import('./[day=day]-[month=month]-[year=year]').Load} */
 	export async function load({ url, params }) {
 		const pimpOptions = getPimpOptions(url.searchParams);
 		/** @type {Date} */ let countTo;

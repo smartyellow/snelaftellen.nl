@@ -3,7 +3,7 @@
 	import { isInt } from '$lib/helpers';
 	import tooltip from '$lib/ui/tooltip';
 
-	/** @type {import('./maanstand-[day]-[month]-[year]').Load} */
+	/** @type {import('./maanstand-[day=day]-[month=month]-[year=int]').Load} */
 	export async function load({ params }) {
 		/** @type {Date} */ let countTo;
 

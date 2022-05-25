@@ -1,5 +1,5 @@
 <script context="module">
-	/** @type {import('./[season]').Load} */
+	/** @type {import('./[season=season]').Load} */
 	export async function load({ url, params }) {
 		const option = params.season;
 

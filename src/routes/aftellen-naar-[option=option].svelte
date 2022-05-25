@@ -1,7 +1,7 @@
 <script context="module">
 	import { countdownOptions } from '$lib/constants';
 
-	/** @type {import('./aftellen-naar-[option]').Load} */
+	/** @type {import('./aftellen-naar-[option=option]').Load} */
 	export function load(req) {
 		const { option } = req.params;
 		const redirectTo = `/${option}`;

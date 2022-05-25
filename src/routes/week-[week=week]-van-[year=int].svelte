@@ -1,7 +1,7 @@
 <script context="module">
 	import { isInt } from "$lib/helpers";
 
-	/** @type {import('./week-[week]-van-[year]').Load} */
+	/** @type {import('./week-[week=week]-van-[year=int]').Load} */
 	export async function load({ url, params }) {
 		const { week, year } = params;
 

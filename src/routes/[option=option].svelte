@@ -1,5 +1,5 @@
 <script context="module">
-	/** @type {import('./[option]').Load} */
+	/** @type {import('./[option=option]').Load} */
 	export function load({ params }) {
 		return {
 			props: { option: params.option },
