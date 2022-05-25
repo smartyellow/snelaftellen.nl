@@ -5,7 +5,6 @@
 
 	import IconMinus from "$lib/gfx/svg/icon-minus.svelte";
 	import IconPlus from "$lib/gfx/svg/icon-plus.svelte";
-	import IconSwitch from "$lib/gfx/svg/icon-switch.svelte";
 
 	export let input = 1;
 	export let output = 60;
@@ -19,59 +18,22 @@
 			output = units[to].fromMins(minutes);
 		}
 	}
-
-	function switchFromTo() {
-		const _from = from;
-		const _input = input;
-		from = to;
-		to = _from;
-		input = output;
-		output = _input;
-	}
 </script>
 
-<svelte:window on:keydown={change} />
-
 {#if browser}
-	<div class="card">
-		<div class="grid-33">
-			<div>
-				<label>
-					<div class="desc">Hoeveelheid</div>
-					<input type="number" bind:value={input} on:change={change} />
-				</label>
-			</div>
-			<div>
-				<label>
-					<div class="desc">Van</div>
-					<select bind:value={from} on:change={change}>
-						{#each Object.keys(units) as unit}
-							<option value={unit}>{units[unit].name}</option>
-						{/each}
-					</select>
-				</label>
-			</div>
-			<div>
-				<label>
-					<div class="desc">Naar</div>
-					<select bind:value={to} on:change={change}>
-						{#each Object.keys(units) as unit}
-							<option value={unit}>{units[unit].name}</option>
-						{/each}
-					</select>
-				</label>
-			</div>
-		</div>
+	<div>
+		<select bind:value={to} on:change={change}>
+			{#each Object.keys(units) as unit}
+				<option value={unit}>{units[unit].name}</option>
+			{/each}
+		</select>
 
-		<div class="grid-33 mt">
+		<div class="grid-50 mt">
 			<button on:click={() => decimals--} disabled={decimals === 0}>
 				<IconMinus /> Minder decimalen
 			</button>
 			<button on:click={() => decimals++} disabled={decimals === 10}>
 				<IconPlus /> Meer decimalen
-			</button>
-			<button on:click={switchFromTo}>
-				<IconSwitch /> Eenheden omwisselen
 			</button>
 		</div>
 
@@ -96,12 +58,7 @@
 <style lang="scss">
 	@import '../../styles/vars';
 
-	.desc {
-		font-size: 1.5rem;
-		margin-bottom: $padding-sm;
-	}
-
-	input, select {
+	select {
 		width: 100%;
 		font-size: 1.3rem;
 		padding: $padding !important;

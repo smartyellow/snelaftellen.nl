@@ -1,11 +1,15 @@
 <script lang="ts">
 	import { browser } from '$app/env';
-	import Meta from '../../layout/meta.svelte';
-	import Countdown from './countdown.svelte';
 	import type { PimpOptions } from '../pimp/helpers';
-	import PimpModal from '../pimp/pimp-modal.svelte';
 	import { capitalize } from '$lib/helpers';
 	import { localeOptions, months } from '$lib/constants';
+
+	import PimpModal from '../pimp/pimp-modal.svelte';
+	import Meta from '../../layout/meta.svelte';
+	import Countdown from './countdown.svelte';
+	import MoonToday from '../moon/moon-today.svelte';
+	import ConvertFixed from '../convert/convert-fixed.svelte';
+	import CalendarMonth from '../calendar/calendar-month.svelte';
 
 	import IconMoon from '$lib/gfx/svg/icon-moon.svelte';
 	import IconDesign from '$lib/gfx/svg/icon-design.svelte';
@@ -38,26 +42,52 @@
 <PimpModal {...pimpOptions} bind:open={pimpModalOpen} />
 
 <div class="grid-50 mt">
-	{#if browser}
-		<button on:click={() => pimpModalOpen = !pimpModalOpen}>
-			<IconDesign />
-			Pimp je kalender
-		</button>
-	{/if}
+	<div class="card">
+		<h2>Maanstand</h2>
+		<MoonToday d={countTo} />
+		<p>
+			<a
+				href="/maanstand-{countTo.getDate()}-{months[countTo.getMonth()]}-{countTo.getFullYear()}"
+			>Bekijk de maanstand voor de komende 7 dagen.</a>
+		</p>
+	</div>
 
-	<a href="/maanstand-{countTo.getDate()}-{months[countTo.getMonth()]}-{countTo.getFullYear()}" class="btn">
-		<IconMoon /> Maanstand
-	</a>
+	<div class="stretch-v buttons">
+		{#if browser}
+			<button on:click={() => pimpModalOpen = !pimpModalOpen}>
+				<IconDesign />
+				Pimp je kalender
+			</button>
+		{/if}
 
-	<a href="/seizoenen" class="btn">
-		<IconUmbrella />
-		Seizoenen
-	</a>
+		<a href="/kalender-{countTo.getFullYear()}" class="btn">
+			<IconCalendar />
+			Jaarkalender {countTo.getFullYear()}
+		</a>
+	</div>
 
-	<a href="/kalender-{countTo.getFullYear()}" class="btn">
-		<IconCalendar />
-		Jaarkalender {countTo.getFullYear()}
-	</a>
+	<div class="card">
+		<h2>{Math.abs(difference)} dagen omrekenen</h2>
+		<ConvertFixed
+			from="days"
+			input={Math.abs(difference)}
+			to="minutes"
+			output={Math.abs(difference) * 24 * 60}
+		/>
+		<p>
+			<a href="/omrekenen">Reken meer om.</a>
+		</p>
+	</div>
+
+	<div class="card">
+		<h2>Kalender {months[countTo.getMonth()]} {countTo.getFullYear()}</h2>
+		<CalendarMonth month={countTo.getMonth()} year={countTo.getFullYear()} />
+		<p>
+			<a href="/kalender-{countTo.getFullYear()}">
+				Bekijk de hele kalender voor {countTo.getFullYear()}.
+			</a>
+		</p>
+	</div>
 </div>
 
 <slot />
@@ -74,3 +104,11 @@
 	Fijn dat we je hebben kunnen helpen! Heb je naar aanleiding van je bezoek vragen, opmerkingen en/of
 	suggesties voor deze website? <a sveltekit:prefetch href="/contact">Neem contact op!</a>
 </p>
+
+<style lang="scss">
+	.buttons {
+		@media (max-width: 1200px) {
+			order: -1;
+		}
+	}
+</style>

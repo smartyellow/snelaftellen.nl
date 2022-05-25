@@ -65,3 +65,13 @@ svg {
 		margin-bottom: 0;
 	}
 }
+
+.stretch-v {
+	display: flex;
+	flex-direction: column;
+	gap: $padding-sm;
+
+	> * {
+		flex: 1 0;
+	}
+}
