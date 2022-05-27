@@ -1,8 +1,8 @@
 import { authenticate } from "$lib/api/auth";
+import { randomString } from "$lib/helpers";
 import type { Handle } from "@sveltejs/kit";
-import { config } from "dotenv";
 
-config();
+process.env.APIKEY_INTERNAL = randomString(10);
 
 export const handle: Handle = async ({ event, resolve }) => {
 	if (event.url.pathname.startsWith('/api')) {

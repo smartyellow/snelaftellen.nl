@@ -2,6 +2,10 @@ export function capitalize(string: string): string {
 	return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+export function random(min: number, max: number) {
+	return Math.random() * (max - min) + min;
+}
+
 export function isInt(input: string | number): boolean {
 	let value: string;
 	if (typeof input === 'number') value = ` ${input} `;
@@ -37,4 +41,15 @@ export function areObjectsEqual(a: unknown, b: unknown): boolean {
 	}
 
 	return true;
+}
+
+export function randomString(length: number): string {
+	const chars = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890';
+	let output = '';
+
+	Array(length).fill('').forEach(() => {
+		output += chars[random(0, chars.length - 1)];
+	});
+
+	return output;
 }
