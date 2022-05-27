@@ -15,11 +15,11 @@
 	import calendarImgSrcset from '$lib/gfx/about/calendar.png?width=500;1000;1500&formats=avif;webp;png&srcset=true&img';
 	import calendarImgFallback from '$lib/gfx/about/calendar.png?width=1000&format=png&img';
 
-	import IconCalendar from '$lib/gfx/svg/icon-calendar.svelte';
-	import IconSettings from '$lib/gfx/svg/icon-settings.svelte';
-	import IconMessage from '$lib/gfx/svg/icon-message.svelte';
-	import IconUserScan from '$lib/gfx/svg/icon-user-scan.svelte';
-	import IconIndustry from '$lib/gfx/svg/icon-industry.svelte';
+	import iconCalendar from '$lib/gfx/svg/icon-calendar.svg?raw';
+	import iconSettings from '$lib/gfx/svg/icon-settings.svg?raw';
+	import iconMessage from '$lib/gfx/svg/icon-message.svg?raw';
+	import iconUserScan from '$lib/gfx/svg/icon-user-scan.svg?raw';
+	import iconIndustry from '$lib/gfx/svg/icon-industry.svg?raw';
 </script>
 
 <Meta
@@ -31,7 +31,7 @@
 
 <h2>Help!</h2>
 
-<Accordion title="Is er een jaarkalender?" icon={IconCalendar}>
+<Accordion title="Is er een jaarkalender?" icon={iconCalendar}>
 	<p>Jazeker, <a href="/kalender" sveltekit:prefetch>hier</a>.</p>
 
 	<p>
@@ -46,7 +46,7 @@
 	</p>
 </Accordion>
 
-<Accordion title="Hoe werkt het aan de binnenkant?" icon={IconSettings}>
+<Accordion title="Hoe werkt het aan de binnenkant?" icon={iconSettings}>
 	<p>
 		Op SnelAftellen.nl tel je snel af naar een bepaalde datum, zoals je waarschijnlijk wel wist (en
 		de naam doet vermoeden). Maar hoe wordt het verschil tussen twee data berekend? Lees het hier.
@@ -72,14 +72,14 @@
 
 <h2>Over ons</h2>
 
-<Accordion title="Ik heb een vraag of opmerking. Waar kan ik die kwijt?" icon={IconMessage}>
+<Accordion title="Ik heb een vraag of opmerking. Waar kan ik die kwijt?" icon={iconMessage}>
 	<p>
 		Vragen en opmerkingen kun je sturen naar
 		<a href="mailto:mail@snelaftellen.nl">mail@snelaftellen.nl</a>. Dankjewel!
 	</p>
 </Accordion>
 
-<Accordion title="Wat is jullie privacybeleid?" icon={IconUserScan}>
+<Accordion title="Wat is jullie privacybeleid?" icon={iconUserScan}>
 	<p>
 		Heel simpel: we achtervolgen je niet met cookies,
 		<a href="https://donttrack.us/" target="_blank">zoals 75% van de websites wel doet</a>. Dat is
@@ -102,7 +102,7 @@
 	</p>
 </Accordion>
 
-<Accordion title="Vinden jullie het klimaat belangrijk?" icon={IconIndustry}>
+<Accordion title="Vinden jullie het klimaat belangrijk?" icon={iconIndustry}>
 	<p>
 		Op die vraag is maar één goed antwoord. Natuurlijk! Wij zijn
 		<a href="https://www.websitecarbon.com/website/snelaftellen-nl/" target="_blank"

@@ -1,12 +1,13 @@
 <script lang="ts">
 	import { daysOfWeek, months } from '$lib/constants';
-	import IconInfo from '$lib/gfx/svg/icon-info.svelte';
 	import Modal from './modal.svelte';
 	import tooltip from '$lib/ui/tooltip';
-	import calendarImage from '$lib/gfx/calendar.webp?format=png&width=80&img';
 	import { getCountdownUrl, type PimpOptions } from '$lib/molecules/pimp/helpers';
 	import WidgetImage from './widget-image.svelte';
 	import { hasDatePassed } from '$lib/dates';
+
+	import calendarImage from '$lib/gfx/calendar.webp?format=png&width=80&img';
+	import iconInfo from '$lib/gfx/svg/icon-info.svg?raw';
 
 	export let title: string;
 	export let date: Date;
@@ -33,7 +34,7 @@
 					title="Info"
 					use:tooltip
 				>
-					<IconInfo />
+					{@html iconInfo}
 				</span>
 			{/if}
 

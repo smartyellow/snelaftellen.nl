@@ -1,6 +1,6 @@
 <script lang="ts">
-	import IconArrowFastLeft from '$lib/gfx/svg/icon-arrow-fast-left.svelte';
-	import IconArrowFastRight from '$lib/gfx/svg/icon-arrow-fast-right.svelte';
+	import iconArrowFastLeft from '$lib/gfx/svg/icon-arrow-fast-left.svg?raw';
+	import iconArrowFastRight from '$lib/gfx/svg/icon-arrow-fast-right.svg?raw';
 
 	export let year = new Date().getFullYear();
 
@@ -12,7 +12,7 @@
 
 <div class="cal-year-picker">
 	<a class="year-prev" href="/kalender-{prevYear}" rel="external">
-		<IconArrowFastLeft />
+		{@html iconArrowFastLeft}
 		Kalender <span>{prevYear}</span>
 	</a>
 	<span class="year-selected">
@@ -25,7 +25,7 @@
 	{/if}
 	<a class="year-next" href="/kalender-{nextYear}" rel="external">
 		Kalender <span>{nextYear}</span>
-		<IconArrowFastRight />
+		{@html iconArrowFastRight}
 	</a>
 </div>
 

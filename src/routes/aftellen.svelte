@@ -2,12 +2,12 @@
 	import type { countdownOptions } from '$lib/constants';
 	import Meta from '$lib/layout/meta.svelte';
 	import RelatedLinks from '$lib/ui/related-links.svelte';
-	import IconCalendar from '$lib/gfx/svg/icon-calendar.svelte';
 
 	import DatepickerSeason from '$lib/molecules/seasons/datepicker-season.svelte';
 	import DatepickerDate from '$lib/molecules/countdown/datepicker-date.svelte';
 	import DatepickerWeek from '$lib/molecules/countdown/datepicker-week.svelte';
 
+	import iconCalendar from '$lib/gfx/svg/icon-calendar.svg?raw';
 	import calendarWeek from '$lib/gfx/countdown-types/week.webp?w=200&h=200&img';
 	import calendarDate from '$lib/gfx/countdown-types/date.webp?w=200&h=200&img';
 	import calendarSeason from '$lib/gfx/countdown-types/season.webp?w=200&h=200&img';
@@ -66,8 +66,7 @@
 <p>
 	<span class="btn-desc">of gebruik de</span>
 	<a href="/kalender" class="btn" sveltekit:prefetch>
-		<IconCalendar />
-		Jaarkalender
+		{@html iconCalendar} Jaarkalender
 	</a>
 </p>
 

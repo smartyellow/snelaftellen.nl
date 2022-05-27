@@ -3,9 +3,9 @@
 	import { browser } from "$app/env";
 	import { units } from "./helpers";
 
-	import IconMinus from "$lib/gfx/svg/icon-minus.svelte";
-	import IconPlus from "$lib/gfx/svg/icon-plus.svelte";
-	import IconSwitch from "$lib/gfx/svg/icon-switch.svelte";
+	import iconMinus from "$lib/gfx/svg/icon-minus.svg?raw";
+	import iconPlus from "$lib/gfx/svg/icon-plus.svg?raw";
+	import iconSwitch from "$lib/gfx/svg/icon-switch.svg?raw";
 
 	export let input = 1;
 	export let output = 60;
@@ -65,13 +65,13 @@
 
 		<div class="grid-33 mt">
 			<button on:click={() => decimals--} disabled={decimals === 0}>
-				<IconMinus /> Minder decimalen
+				{@html iconMinus} Minder decimalen
 			</button>
 			<button on:click={() => decimals++} disabled={decimals === 10}>
-				<IconPlus /> Meer decimalen
+				{@html iconPlus} Meer decimalen
 			</button>
 			<button on:click={switchFromTo}>
-				<IconSwitch /> Eenheden omwisselen
+				{@html iconSwitch} Eenheden omwisselen
 			</button>
 		</div>
 

@@ -6,8 +6,8 @@
 -->
 
 <script lang="ts">
-	import IconCopy from '$lib/gfx/svg/icon-copy.svelte';
 	import tooltip from '$lib/ui/tooltip';
+	import iconCopy from '$lib/gfx/svg/icon-copy.svg?raw';
 
 	export let url: string;
 
@@ -20,7 +20,7 @@
 	<a href={url}>{url}</a>
 	<button on:click={copy} title="Naar klembord kopiëren" use:tooltip>
 		<span class="sr">Naar klembord kopiëren</span>
-		<IconCopy />
+		{@html iconCopy}
 	</button>
 </ins>
 

@@ -3,7 +3,7 @@
 	import tooltip from '$lib/ui/tooltip';
 	import type { LunarPhase, LunarPhaseWithDate } from './helpers';
 
-	import IconInfo from '$lib/gfx/svg/icon-info.svelte';
+	import iconInfo from '$lib/gfx/svg/icon-info.svg?raw';
 
 	export let date: Date;
 	export let phase: LunarPhase | LunarPhaseWithDate;
@@ -32,7 +32,7 @@
 				target="_blank"
 				use:tooltip
 			>
-				<IconInfo />
+				{@html iconInfo}
 				<span class="sr">Info</span>
 			</a>
 		</p>

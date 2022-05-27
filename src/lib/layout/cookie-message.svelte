@@ -1,8 +1,9 @@
 <script lang="ts">
-	import IconCheck from '$lib/gfx/svg/icon-check.svelte';
 	import Cookies from 'js-cookie';
 	import { onMount } from 'svelte';
 	import { slide } from 'svelte/transition';
+
+	import iconCheck from '$lib/gfx/svg/icon-check.svg?raw';
 
 	export let show = false;
 
@@ -22,7 +23,7 @@
 	<div transition:slide>
 		Deze website serveert cookies.
 		<button on:click={accept}>
-			<IconCheck />
+			{@html iconCheck}
 			OK
 		</button>
 		<a target="_blank" href="https://www.consumentenbond.nl/internet-privacy/wat-zijn-cookies">

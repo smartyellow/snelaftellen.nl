@@ -1,10 +1,11 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import type { SvelteComponentDev } from 'svelte/internal';
 	import { slide } from 'svelte/transition';
-	import IconArrowFlatBottom from '$lib/gfx/svg/icon-arrow-flat-bottom.svelte';
+	import iconArrowFlatBottom from '$lib/gfx/svg/icon-arrow-flat-bottom.svg?raw';
 
 	export let title: string;
-	export let icon: any = undefined;
+	export let icon: typeof SvelteComponentDev | string = undefined;
 	export let open = false;
 
 	let hasJs = false;
@@ -15,14 +16,18 @@
 	<div class="header" role="button" on:click={() => open = !open}>
 		{#if icon}
 			<div class="icon">
-				<svelte:component this={icon} />
+				{#if typeof icon === 'string'}
+					{@html icon}
+				{:else}
+					<svelte:component this={icon} />
+				{/if}
 			</div>
 		{/if}
 
 		<p class="title">{title}</p>
 
 		{#if hasJs}
-			<div class="arrow"><IconArrowFlatBottom /></div>
+			<div class="arrow">{@html iconArrowFlatBottom}</div>
 		{/if}
 	</div>
 

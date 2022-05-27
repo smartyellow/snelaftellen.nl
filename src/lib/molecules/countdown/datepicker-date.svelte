@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { months } from '$lib/constants';
-	import IconArchery from '$lib/gfx/svg/icon-archery.svelte';
+	import iconArchery from '$lib/gfx/svg/icon-archery.svg?raw';
 
 	const now = new Date();
 
@@ -24,8 +24,7 @@
 <input type="number" bind:value={year} />
 
 <a role="button" href="/{day}-{months[month - 1]}-{year}" class="btn">
-	<IconArchery />
-	Aftellen
+	{@html iconArchery} Aftellen
 </a>
 
 <style lang="scss">

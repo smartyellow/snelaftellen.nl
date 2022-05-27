@@ -4,11 +4,11 @@
 	import { navigating } from '$app/stores';
 	import tooltip from '$lib/ui/tooltip';
 
-	import IconEmail from '$lib/gfx/svg/icon-email.svelte';
-	import IconFacebook from '$lib/gfx/svg/icon-facebook.svelte';
-	import IconMessage from '$lib/gfx/svg/icon-message.svelte';
-	import IconShare from '$lib/gfx/svg/icon-share.svelte';
-	import IconTwitter from '$lib/gfx/svg/icon-twitter.svelte';
+	import iconEmail from '$lib/gfx/svg/icon-email.svg?raw';
+	import iconFacebook from '$lib/gfx/svg/icon-facebook.svg?raw';
+	import iconMessage from '$lib/gfx/svg/icon-message.svg?raw';
+	import iconShare from '$lib/gfx/svg/icon-share.svg?raw';
+	import iconTwitter from '$lib/gfx/svg/icon-twitter.svg?raw';
 
 	let native: ShareData = undefined;
 	let mounted = false;
@@ -56,20 +56,20 @@
 	<div transition:slide class="share">
 		{#if native}
 			<button on:click={nativeShare} class="btn native" title="Deel" use:tooltip>
-				<IconShare />
+				{@html iconShare}
 			</button>
 		{/if}
 		<a href={em} class="btn em" title="Verzenden via e-mail" use:tooltip>
-			<IconEmail />
+			{@html iconEmail}
 		</a>
 		<a href={fb} class="btn fb" title="Delen op Facebook" use:tooltip>
-			<IconFacebook />
+			{@html iconFacebook}
 		</a>
 		<a href={tw} class="btn tw" title="Delen op Twitter" use:tooltip>
-			<IconTwitter />
+			{@html iconTwitter}
 		</a>
 		<a href={wa} class="btn wa" title="Delen via WhatsApp" use:tooltip>
-			<IconMessage />
+			{@html iconMessage}
 		</a>
 	</div>
 {/if}

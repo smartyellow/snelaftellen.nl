@@ -12,9 +12,9 @@
 	import ConvertFixed from '../convert/convert-fixed.svelte';
 	import CalendarMonth from '../calendar/calendar-month.svelte';
 
-	import IconDesign from '$lib/gfx/svg/icon-design.svelte';
-	import IconCalendar from '$lib/gfx/svg/icon-calendar.svelte';
-	import IconInfo from '$lib/gfx/svg/icon-info.svelte';
+	import iconDesign from '$lib/gfx/svg/icon-design.svg?raw';
+	import iconCalendar from '$lib/gfx/svg/icon-calendar.svg?raw';
+	import iconInfo from '$lib/gfx/svg/icon-info.svg?raw';
 
 	export let pimpOptions: PimpOptions;
 	export let countTo: Date;
@@ -56,18 +56,17 @@
 	<div class="stretch-v buttons">
 		{#if browser}
 			<button on:click={() => pimpModalOpen = !pimpModalOpen}>
-				<IconDesign />
-				Pimp je kalender
+				{@html iconDesign} Pimp je kalender
 			</button>
 		{/if}
 
 		<a href="/kalender-{countTo.getFullYear()}" class="btn">
-			<IconCalendar />
+			{@html iconCalendar}
 			Jaarkalender {countTo.getFullYear()}
 		</a>
 
 		<a href="/vandaag" class="btn">
-			<IconInfo />
+			{@html iconInfo}
 			Vandaag de dag
 		</a>
 	</div>

@@ -1,7 +1,7 @@
 <script lang="ts">
-	import IconArchery from '$lib/gfx/svg/icon-archery.svelte';
 	import { capitalize } from '$lib/helpers';
 	import { seasonNames } from './helpers';
+	import iconArchery from '$lib/gfx/svg/icon-archery.svg?raw';
 
 	export let season = 'zomer';
 </script>
@@ -13,8 +13,7 @@
 </select>
 
 <a role="button" href="/{season}" class="btn">
-	<IconArchery />
-	Aftellen
+	{@html iconArchery} Aftellen
 </a>
 
 <style lang="scss">

@@ -1,16 +1,16 @@
 <script lang="ts">
 	import { page } from '$app/stores';
-	import { browser, dev } from '$app/env';
+	import { dev } from '$app/env';
 	import CopyUrl from '../../ui/copy-url.svelte';
 	import { headerImages, pimpStore, themes} from './helpers';
 	import Modal from '$lib/ui/modal.svelte';
 	import VerticalNav from '$lib/ui/vertical-nav.svelte';
 	import SelectImg from '$lib/ui/select-img.svelte';
 
-	import IconSettings from '$lib/gfx/svg/icon-settings.svelte';
-	import IconColourPicker from '$lib/gfx/svg/icon-colour-picker.svelte';
-	import IconImage from '$lib/gfx/svg/icon-image.svelte';
-	import IconDesign from '$lib/gfx/svg/icon-design.svelte';
+	import iconSettings from '$lib/gfx/svg/icon-settings.svg?raw';
+	import iconColourPicker from '$lib/gfx/svg/icon-colour-picker.svg?raw';
+	import iconImage from '$lib/gfx/svg/icon-image.svg?raw';
+	import iconDesign from '$lib/gfx/svg/icon-design.svg?raw';
 
 	export let open = false;
 
@@ -58,28 +58,28 @@
 						class:active={pane === 'main'}
 						on:click={() => pane = 'main'}
 					>
-						<IconSettings /> Algemeen
+						{@html iconSettings} Algemeen
 					</button>
 
 					<button
 						class:active={pane === 'colours'}
 						on:click={() => pane = 'colours'}
 					>
-						<IconColourPicker /> Kleuren
+						{@html iconColourPicker} Kleuren
 					</button>
 
 					<button
 						class:active={pane === 'img'}
 						on:click={() => pane = 'img'}
 					>
-						<IconImage /> Afbeelding
+						{@html iconImage} Afbeelding
 					</button>
 
 					<button
 						class:active={pane === 'theme'}
 						on:click={() => pane = 'theme'}
 					>
-						<IconDesign /> Thema
+						{@html iconDesign} Thema
 					</button>
 				</VerticalNav>
 

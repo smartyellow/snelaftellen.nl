@@ -3,13 +3,12 @@
 	import WidgetDate from '$lib/ui/widget-date.svelte';
 	import WidgetIcon from '$lib/ui/widget-icon.svelte';
 
-	import IconCalendar from '$lib/gfx/svg/icon-calendar.svelte';
-	import IconDesign from '$lib/gfx/svg/icon-design.svelte';
-	import IconList from '$lib/gfx/svg/icon-list.svelte';
-	import IconMoon from '$lib/gfx/svg/icon-moon.svelte';
-	import IconSettings from '$lib/gfx/svg/icon-settings.svelte';
-
-	import IconShare from '$lib/gfx/svg/icon-share.svelte';
+	import iconCalendar from '$lib/gfx/svg/icon-calendar.svg?raw';
+	import iconDesign from '$lib/gfx/svg/icon-design.svg?raw';
+	import iconList from '$lib/gfx/svg/icon-list.svg?raw';
+	import iconMoon from '$lib/gfx/svg/icon-moon.svg?raw';
+	import iconSettings from '$lib/gfx/svg/icon-settings.svg?raw';
+	import iconShare from '$lib/gfx/svg/icon-share.svg?raw';
 
 	const rawStyles = `
 		<style>
@@ -43,7 +42,7 @@
 
 <div class="grid-50">
 	<WidgetIcon>
-		<IconCalendar slot="icon" />
+		<svelte:fragment slot="icon">{@html iconCalendar}</svelte:fragment>
 		<span slot="label">
 			<a href="/aftellen" sveltekit:prefetch>Tel af</a>
 			naar welke datum dan ook
@@ -51,7 +50,7 @@
 	</WidgetIcon>
 
 	<WidgetIcon>
-		<IconDesign slot="icon" />
+		<svelte:fragment slot="icon">{@html iconDesign}</svelte:fragment>
 		<span slot="label">
 			<a href="/aftellen" sveltekit:prefetch> Pimp je aftelkalender </a>
 			met kleuren en plaatjes
@@ -59,7 +58,7 @@
 	</WidgetIcon>
 
 	<WidgetIcon>
-		<IconList slot="icon" />
+		<svelte:fragment slot="icon">{@html iconList}</svelte:fragment>
 		<span slot="label">
 			<a href="/kalender" sveltekit:prefetch> Bekijk de jaarkalender </a>
 			van elk jaar dat je wil
@@ -67,7 +66,7 @@
 	</WidgetIcon>
 
 	<WidgetIcon>
-		<IconMoon slot="icon" />
+		<svelte:fragment slot="icon">{@html iconMoon}</svelte:fragment>
 		<span slot="label">
 			<a href="/aftellen" sveltekit:prefetch> Bekijk de maanstand </a>
 			op welke dag dan ook
@@ -75,7 +74,7 @@
 	</WidgetIcon>
 
 	<WidgetIcon>
-		<IconShare slot="icon" />
+		<svelte:fragment slot="icon">{@html iconShare}</svelte:fragment>
 		<span slot="label">
 			<a href="/aftellen" sveltekit:prefetch> Deel je kalenders </a>
 			met iedereen
@@ -83,7 +82,7 @@
 	</WidgetIcon>
 
 	<WidgetIcon>
-		<IconSettings slot="icon" />
+		<svelte:fragment slot="icon">{@html iconSettings}</svelte:fragment>
 		<span slot="label">
 			Lees hoe het
 			<a href="/over" sveltekit:prefetch> aan de binnenkant </a>

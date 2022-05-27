@@ -1,16 +1,16 @@
 <script lang="ts">
 	import { getCountdownUrl } from '../pimp/helpers';
-	import MoonToday from './moon-today.svelte';
-	import MoonWeek from './moon-week.svelte';
 	import { difference } from '$lib/dates';
 	import type { LunarPhaseWithDate } from './helpers';
+	import { months } from '$lib/constants';
 
+	import MoonToday from './moon-today.svelte';
+	import MoonWeek from './moon-week.svelte';
+	import CalendarMonth from '../calendar/calendar-month.svelte';
 	import Countdown from '../countdown/countdown.svelte';
 
-	import IconCalendar from '$lib/gfx/svg/icon-calendar.svelte';
-	import IconUmbrella from '$lib/gfx/svg/icon-umbrella.svelte';
-import { months } from '$lib/constants';
-import CalendarMonth from '../calendar/calendar-month.svelte';
+	import iconCalendar from '$lib/gfx/svg/icon-calendar.svg?raw';
+	import iconUmbrella from '$lib/gfx/svg/icon-umbrella.svg?raw';
 
 	export let date: Date;
 	export let phases: LunarPhaseWithDate[];
@@ -23,11 +23,11 @@ import CalendarMonth from '../calendar/calendar-month.svelte';
 
 <div class="grid-50 mt">
 	<a href={getCountdownUrl(date)} class="btn">
-		<IconCalendar /> Aftellen
+		{@html iconCalendar} Aftellen
 	</a>
 
 	<a href="/seizoenen" class="btn">
-		<IconUmbrella /> Seizoenen
+		{@html iconUmbrella} Seizoenen
 	</a>
 
 	<Countdown

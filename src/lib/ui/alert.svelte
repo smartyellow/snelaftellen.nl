@@ -1,9 +1,9 @@
 <script>
-	import IconInfo from "$lib/gfx/svg/icon-info.svelte";
+	import iconInfo from "$lib/gfx/svg/icon-info.svg?raw";
 </script>
 
 <div class="alert">
-	<IconInfo />
+	{@html iconInfo}
 	<div class="slot"><slot /></div>
 </div>
 

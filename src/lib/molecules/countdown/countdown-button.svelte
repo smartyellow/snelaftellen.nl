@@ -2,7 +2,8 @@
 	import Modal from '$lib/ui/modal.svelte';
 	import CountdownRoute from '../../../routes/aftellen.svelte';
 	import { beforeNavigate } from '$app/navigation';
-	import IconCalendar from '$lib/gfx/svg/icon-calendar.svelte';
+
+	import iconCalendar from '$lib/gfx/svg/icon-calendar.svg?raw';
 
 	let isOpen = false;
 	const open = () => isOpen = true;
@@ -12,8 +13,7 @@
 </script>
 
 <a sveltekit:prefetch href="/aftellen" class="btn raised" on:click|preventDefault={open}>
-	<IconCalendar />
-	Aftellen!
+	{@html iconCalendar} Aftellen!
 </a>
 
 <Modal bind:show={isOpen} {close} title="Aftellen!">
