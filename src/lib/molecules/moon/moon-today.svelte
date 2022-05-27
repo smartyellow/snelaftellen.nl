@@ -1,33 +1,34 @@
 <script lang="ts">
 	import { daysOfWeek } from '$lib/constants';
-	import IconInfo from '$lib/gfx/svg/icon-info.svelte';
-	import { Moon } from 'lunarphase-js';
-	import { moonPhases } from './helpers';
 	import tooltip from '$lib/ui/tooltip';
+	import type { LunarPhase, LunarPhaseWithDate } from './helpers';
 
-	export let d: Date;
+	import IconInfo from '$lib/gfx/svg/icon-info.svelte';
+
+	export let date: Date;
+	export let phase: LunarPhase | LunarPhaseWithDate;
 	export let showDate = true;
-
-	const phase = Moon.lunarPhase(d);
-	const alt = moonPhases[phase][0];
-	const src = moonPhases[phase][1];
-	const viceversa = moonPhases[phase][2];
 </script>
 
 <div class="today">
-	<img {src} {alt} title={alt} class:viceversa />
+	<img
+		src="/img/moon/{phase.id}.svg"
+		alt={phase.nl}
+		title={phase.nl}
+	/>
+
 	<div class="info">
 		{#if showDate}
 			<p class="day">
-				Vandaag ({daysOfWeek[d.getDay() - 1] || 'zondag'})
+				Vandaag ({daysOfWeek[date.getDay() - 1] || 'zondag'})
 			</p>
 		{/if}
 
 		<p class="title">
-			{alt}
+			{phase.nl}
 			<a
-				href={moonPhases[phase][3]}
-				title="Info over {alt.toLowerCase()}"
+				href={phase.url}
+				title="Info over {phase.nl.toLowerCase()}"
 				target="_blank"
 				use:tooltip
 			>
@@ -44,13 +45,14 @@
 	.today {
 		display: flex;
 		align-items: center;
+		gap: $padding;
 
 		p {
 			margin: 0;
 		}
 
 		img {
-			margin-right: $padding;
+			max-width: 100px;
 		}
 
 		.info {

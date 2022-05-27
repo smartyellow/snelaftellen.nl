@@ -42,7 +42,7 @@
 	}
 
 	async function shorten() {
-		const apiUrl = `/api/shorturl/${encodeURIComponent(buildUrl())}`;
+		const apiUrl = `/api-internal/shorturl/${encodeURIComponent(buildUrl())}`;
 		const res = await fetch(apiUrl);
 		const url = await res.text();
 		shorturl = url;

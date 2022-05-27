@@ -1,9 +1,12 @@
-<script>
+<script lang="ts">
 	import { daysOfWeek, months } from '$lib/constants';
 	import calendarImage from '$lib/gfx/calendar.webp?format=png&width=200&img';
 	import Meta from '$lib/layout/meta.svelte';
 	import CalendarMonth from '../calendar/calendar-month.svelte';
 	import MoonToday from '../moon/moon-today.svelte';
+	import type { LunarPhase } from '../moon/helpers';
+
+	export let lunarPhase: LunarPhase;
 
 	const date = new Date();
 	const countStyle = `background-image: url('${calendarImage}');`;
@@ -56,7 +59,7 @@
 			{months[date.getMonth()]}
 		</h2>
 
-		<MoonToday d={date} showDate={false} />
+		<MoonToday date={date} showDate={false} phase={lunarPhase} />
 
 		<p>
 			<a

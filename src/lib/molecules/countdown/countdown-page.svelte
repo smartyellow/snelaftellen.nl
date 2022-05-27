@@ -3,6 +3,7 @@
 	import type { PimpOptions } from '../pimp/helpers';
 	import { capitalize } from '$lib/helpers';
 	import { localeOptions, months } from '$lib/constants';
+	import type { LunarPhase } from '../moon/helpers';
 
 	import PimpModal from '../pimp/pimp-modal.svelte';
 	import Meta from '../../layout/meta.svelte';
@@ -11,15 +12,15 @@
 	import ConvertFixed from '../convert/convert-fixed.svelte';
 	import CalendarMonth from '../calendar/calendar-month.svelte';
 
-	import IconMoon from '$lib/gfx/svg/icon-moon.svelte';
 	import IconDesign from '$lib/gfx/svg/icon-design.svelte';
 	import IconCalendar from '$lib/gfx/svg/icon-calendar.svelte';
-	import IconUmbrella from '$lib/gfx/svg/icon-umbrella.svelte';
+	import IconInfo from '$lib/gfx/svg/icon-info.svelte';
 
 	export let pimpOptions: PimpOptions;
 	export let countTo: Date;
 	export let displayTitle = pimpOptions.title || countTo.toLocaleString('nl-NL', localeOptions);
 	export let pimpModalOpen = false;
+	export let lunarPhase: LunarPhase;
 
 	const today = new Date();
 	const difference = Math.ceil((countTo.getTime() - today.getTime()) / (1000 * 3600 * 24));
@@ -44,7 +45,7 @@
 <div class="grid-50 mt">
 	<div class="card">
 		<h2>Maanstand</h2>
-		<MoonToday d={countTo} />
+		<MoonToday date={countTo} phase={lunarPhase} />
 		<p>
 			<a
 				href="/maanstand-{countTo.getDate()}-{months[countTo.getMonth()]}-{countTo.getFullYear()}"
@@ -63,6 +64,11 @@
 		<a href="/kalender-{countTo.getFullYear()}" class="btn">
 			<IconCalendar />
 			Jaarkalender {countTo.getFullYear()}
+		</a>
+
+		<a href="/vandaag" class="btn">
+			<IconInfo />
+			Vandaag de dag
 		</a>
 	</div>
 

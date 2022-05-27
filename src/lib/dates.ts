@@ -1,3 +1,10 @@
+export function difference(to: Date, now = new Date()): number {
+	return Math.ceil(
+		(to.getTime() - now.getTime())
+		/ (1000 * 3600 * 24)
+	);
+}
+
 export function getDayNumber(date: Date): number {
 	const dayFromSunday = date.getDay();
 	let output = dayFromSunday - 1;
@@ -69,10 +76,22 @@ export function getMonday(d: Date): Date {
 	return new Date(d.setDate(diff));
 }
 
+export function isDate(input: any): boolean {
+	return input instanceof Date && !isNaN(input.getTime());
+}
+
 export function isDateValid(input: Date): boolean {
 	return input.getTime() === input.getTime();
 }
 
 export function areDatesEqual(a: Date, b: Date): boolean {
 	return a.getTime() - b.getTime() === 0;
+}
+
+export function julianDate(date: Date) {
+	// https://jasonsturges.medium.com/moons-lunar-phase-in-javascript-a5219acbfe6e
+
+	const time = date.getTime();
+	const tzoffset = date.getTimezoneOffset()
+	return (time / 86400000) - (tzoffset / 1440) + 2440587.5;
 }

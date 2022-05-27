@@ -1,13 +1,11 @@
 <script lang="ts">
 	import CountdownIconSeason from '../seasons/countdown-icon-season.svelte';
-	import CountdowmIconMoon from '../moon/countdown-icon-moon.svelte';
 
 	export let d: Date;
 </script>
 
 <div class="countdown-icons">
 	<CountdownIconSeason {d} />
-	<CountdowmIconMoon {d} />
 </div>
 
 <style lang="scss">

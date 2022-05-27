@@ -1,36 +1,27 @@
 <script lang="ts">
 	import { daysOfWeek, localeOptions, months } from '$lib/constants';
-	import { Moon } from 'lunarphase-js';
 	import { getCountdownUrl } from '../pimp/helpers';
 	import tooltip from '$lib/ui/tooltip';
-	import { moonPhases } from './helpers';
+	import type { LunarPhaseWithDate } from './helpers';
 
-	export let d: Date;
-
-	let dates: Array<Date> = [];
-	for (let i = 0; i < 7; i++) {
-		const date = new Date(d);
-		date.setDate(date.getDate() + i + 1);
-		dates.push(date);
-	}
+	export let phases: LunarPhaseWithDate[];
 </script>
 
 <div class="week">
-	{#each dates as date}
-		{@const phase = Moon.lunarPhase(date)}
+	{#each phases as phase}
 		<div class="day">
 			<a
-				href={getCountdownUrl(date)}
+				href={getCountdownUrl(phase.date)}
 				rel="external"
-				title="Aftellen naar {d.toLocaleString('nl-NL', localeOptions)}"
+				title="Aftellen naar {phase.date.toLocaleString('nl-NL', localeOptions)}"
 				use:tooltip
 			>
-				<img src={moonPhases[phase][1]} class:viceversa={moonPhases[phase][2]} alt="" />
-				<p class="day">{daysOfWeek[date.getDay() - 1] || 'zondag'}</p>
-				<p class="date" title="{date.getDate()} {months[date.getMonth()]} {date.getFullYear()}">
-					{date.getDate()}-{date.getMonth() + 1}
+				<img src="/img/moon/{phase.id}.svg" alt="" />
+				<p class="day">{daysOfWeek[phase.date.getDay() - 1] || 'zondag'}</p>
+				<p class="date" title="{phase.date.getDate()} {months[phase.date.getMonth()]} {phase.date.getFullYear()}">
+					{phase.date.getDate()}-{phase.date.getMonth() + 1}
 				</p>
-				<p class="phase">{moonPhases[phase][0]}</p>
+				<p class="phase">{phase.nl}</p>
 			</a>
 		</div>
 	{/each}
