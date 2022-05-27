@@ -3,6 +3,7 @@ import { randomString } from "$lib/helpers";
 import type { Handle } from "@sveltejs/kit";
 
 process.env.APIKEY_INTERNAL = randomString(10);
+console.log('Internal API key:', process.env.APIKEY_INTERNAL);
 
 export const handle: Handle = async ({ event, resolve }) => {
 	if (event.url.pathname.startsWith('/api')) {
