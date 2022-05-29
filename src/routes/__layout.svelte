@@ -4,7 +4,9 @@
 	/** @type {import('./__layout').Load} */
 	export function load({ url }) {
 		return {
-			props: { pimpOptions: pimpOptionsFromSearchParams(url.searchParams) },
+			props: {
+				pimpOptions: pimpOptionsFromSearchParams(url.searchParams)
+			},
 		};
 	}
 </script>
@@ -13,7 +15,7 @@
 	import '$lib/styles/app.scss';
 	import 'tippy.js/dist/tippy.css';
 
-	import CountdownOptions from '$lib/molecules/countdown/countdown-button.svelte';
+	import CountdownButton from '$lib/molecules/countdown/countdown-button.svelte';
 	import Doormat from '$lib/layout/doormat.svelte';
 	import Header from '$lib/layout/header.svelte';
 	import Share from '$lib/layout/share.svelte';
@@ -38,8 +40,8 @@
 			<slot />
 		</main>
 		<aside>
+			<CountdownButton />
 			<Share />
-			<CountdownOptions />
 		</aside>
 	</div>
 </div>
@@ -48,37 +50,36 @@
 
 <style lang="scss">
 	@import '../lib/styles/vars';
+
 	.page {
 		min-height: 100vh;
-	}
 
-	.wrapper {
-		display: flex;
-		flex-direction: row;
-		padding: $padding * 2;
-		justify-content: space-between;
-		gap: $padding * 2;
-	}
-
-	main {
-		flex: 3 0;
-
-		> :global(:first-child) {
-			margin-top: 0;
-		}
-	}
-
-	aside {
-		flex: 1 0;
-	}
-
-	aside > :global(* + *) {
-		margin-top: $padding-sm;
-	}
-
-	@media (max-width: 800px) {
 		.wrapper {
-			flex-direction: column;
+			display: grid;
+			grid-template-columns: 3fr 1fr;
+			padding: $padding * 2;
+			justify-content: space-between;
+			gap: $padding * 2;
+
+			@media (max-width: 1000px) {
+				grid-template-columns: 1fr;
+			}
+
+			main {
+				flex: 3 0;
+
+				> :global(:first-child) {
+					margin-top: 0;
+				}
+			}
+
+			aside {
+				flex: 1 0;
+
+				> :global(* + *) {
+					margin-top: $padding-sm;
+				}
+			}
 		}
 	}
 </style>

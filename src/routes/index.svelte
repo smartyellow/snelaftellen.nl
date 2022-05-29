@@ -12,7 +12,7 @@
 
 	const rawStyles = `
 		<style>
-			@media (max-width: 800px) {
+			@media (max-width: 1000px) {
 				.wrapper aside {
 					order: 1 !important;
 				}

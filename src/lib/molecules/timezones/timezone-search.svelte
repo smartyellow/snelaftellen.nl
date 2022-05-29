@@ -16,9 +16,9 @@
 </script>
 
 <div class="tzsearch">
-	<!-- svelte-ignore a11y-autofocus -->
 	<div class="search">
 		<div class="icon">{@html iconSearch}</div>
+		<!-- svelte-ignore a11y-autofocus -->
 		<input
 			bind:value={input}
 			on:keyup={filter}
@@ -86,6 +86,14 @@
 			overflow-y: scroll;
 			display: grid;
 			grid-template-columns: repeat(3, 1fr);
+
+			@media (max-width: 800px) {
+				grid-template-columns: repeat(2, 1fr);
+			}
+
+			@media (min-width: 1330px) {
+				grid-template-columns: repeat(4, 1fr);
+			}
 
 			.result {
 				padding: $padding * 0.5 $padding;
