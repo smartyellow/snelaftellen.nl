@@ -9,6 +9,7 @@
 		[ 'Kalender', '/kalender' ],
 		[ 'Vandaag', '/vandaag' ],
 		[ 'Omrekenen', '/omrekenen' ],
+		[ 'Tijdzones', '/tijdzones' ],
 	]
 </script>
 

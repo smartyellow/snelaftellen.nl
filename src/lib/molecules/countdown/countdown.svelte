@@ -1,9 +1,7 @@
 <script lang="ts">
 	import { localeOptions } from '$lib/constants';
 	import CountdownIcons from './countdown-icons.svelte';
-
-	import calendarImage from '$lib/gfx/calendar.webp?format=png&width=250&img';
-import { getCountdownUrl } from '../pimp/helpers';
+	import { getCountdownUrl } from '../pimp/helpers';
 
 	export let count: number;
 	export let date: Date;
@@ -11,7 +9,6 @@ import { getCountdownUrl } from '../pimp/helpers';
 	export let showCountdownLink = false;
 
 	const localeDate = date.toLocaleString('nl-NL', localeOptions);
-	const countStyle = `background-image: url('${calendarImage}');`;
 </script>
 
 <div class="card yellow">
@@ -23,11 +20,11 @@ import { getCountdownUrl } from '../pimp/helpers';
 			>
 				{#if count > 0}
 					<p>nog</p>
-					<p class="count" style={countStyle}>{count}</p>
+					<p class="count">{count}</p>
 					<p>{count === 1 ? 'dag' : 'dagen'} tot {localeDate}</p>
 				{:else}
 					<p>{localeDate} is</p>
-					<p class="count" style={countStyle}>{count * -1}</p>
+					<p class="count">{count * -1}</p>
 					<p>{count === -1 ? 'dag' : 'dagen'} geleden</p>
 				{/if}
 			</svelte:element>
@@ -76,6 +73,7 @@ import { getCountdownUrl } from '../pimp/helpers';
 				margin: 0;
 				padding-top: 60px;
 				vertical-align: middle;
+				background-image: url('/img/countdown/calendar.svg');
 				background-repeat: no-repeat;
 				background-size: contain;
 				background-position: center center;

@@ -33,6 +33,7 @@ button,
 	&:focus,
 	&:active {
 		border-bottom-color: $accent-light;
+		opacity: 1;
 	}
 
 	&:disabled,

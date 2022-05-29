@@ -53,3 +53,25 @@ export function randomString(length: number): string {
 
 	return output;
 }
+
+export function dedupe<T>(array: Array<T>): Array<T> {
+	const output = [];
+
+	for (const value of array) {
+		if (!output.includes(value)) output.push(value);
+	}
+
+	return output;
+}
+
+export function utcOffset(date: string): number {
+	const localTime = date.split(':');
+	const utcTime = new Date().toLocaleTimeString('nl-NL', {
+		timeZone: 'UTC',
+	}).split(':');
+
+	const localMins = Number(localTime[0]) * 60 + Number(localTime[1]);
+	const utcMins = Number(utcTime[0]) * 60 + Number(utcTime[1]);
+
+	return (utcMins - localMins) / 60;
+}

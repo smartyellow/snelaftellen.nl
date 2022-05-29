@@ -12,7 +12,6 @@ body {
 
 * {
 	box-sizing: border-box;
-	max-width: 100%;
 }
 
 svg {
@@ -21,8 +20,9 @@ svg {
 
 .mt-sm { margin-top: $padding-sm; }
 .mt { margin-top: $padding; }
+.mr { margin-right: $padding; }
 .p { padding: $padding; }
-.p-0 { padding: $padding; }
+.p-0 { padding: 0 !important; }
 
 .select {
 	-webkit-user-select: all;
@@ -50,13 +50,6 @@ svg {
 		background-color: $yellow;
 	}
 
-	h2 {
-		font-weight: 400;
-		padding-bottom: $padding-sm;
-		margin-bottom: $padding;
-		border-bottom: $border solid $grey;
-	}
-
 	:first-child {
 		margin-top: 0;
 	}
@@ -70,8 +63,10 @@ svg {
 	display: flex;
 	flex-direction: column;
 	gap: $padding-sm;
+	align-items: center;
 
 	> * {
 		flex: 1 0;
+		width: 100%;
 	}
 }

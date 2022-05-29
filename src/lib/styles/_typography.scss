@@ -8,25 +8,21 @@ h4 { font-size: 22px; }
 h5 { font-size: 20px; }
 h6 { font-size: 18px; }
 
-h1 {
-	font-family: 'Sora', $font-base;
-	font-weight: 400;
-	padding-bottom: $padding;
-	margin-bottom: $padding;
-	border-bottom: $border solid $grey-light;
-}
-
-h2,
-h3,
-h4,
-h5,
-h6 {
+h1, h2, h3, h4, h5, h6 {
 	margin-bottom: $padding-sm;
 	font-family: 'Sora', $font-base;
 
 	& + p {
 		margin-top: 0;
 	}
+}
+
+h1, h2 {
+	font-family: 'Sora', $font-base;
+	font-weight: 400;
+	padding-bottom: $padding-px;
+	margin-bottom: $padding;
+	border-bottom: $border solid $grey-light;
 }
 
 a {
@@ -38,7 +34,7 @@ a {
 	}
 
 	&:active {
-		color: $accent-dark;
+		opacity: 0.7;
 	}
 }
 
@@ -67,4 +63,28 @@ img.icon {
 small,
 .small {
 	font-size: 12px;
+}
+
+table.table {
+	border-collapse: collapse;
+	width: 100%;
+	text-align: left;
+	border: $border solid $grey;
+
+	th, td {
+		padding: 3px;
+	}
+
+	thead {
+		background-color: $light;
+		border-bottom: $border solid $grey;
+	}
+
+	tbody {
+		tr {
+			&:hover {
+				background-color: $light;
+			}
+		}
+	}
 }

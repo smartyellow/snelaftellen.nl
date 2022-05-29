@@ -64,7 +64,7 @@
 	main {
 		flex: 3 0;
 
-		:global(:first-child) {
+		> :global(:first-child) {
 			margin-top: 0;
 		}
 	}

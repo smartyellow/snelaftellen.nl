@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { daysOfWeek, months } from '$lib/constants';
-	import calendarImage from '$lib/gfx/calendar.webp?format=png&width=200&img';
 	import Meta from '$lib/layout/meta.svelte';
 	import CalendarMonth from '../calendar/calendar-month.svelte';
 	import MoonToday from '../moon/moon-today.svelte';
@@ -9,7 +8,6 @@
 	export let lunarPhase: LunarPhase;
 
 	const date = new Date();
-	const countStyle = `background-image: url('${calendarImage}');`;
 </script>
 
 <Meta
@@ -22,7 +20,7 @@
 <div class="card yellow">
 	<p class="event-date">
 		<span class="day">{daysOfWeek[date.getDay()]}</span>
-		<span class="date count" style={countStyle}>
+		<span class="date count">
 			{date.getDate()}
 		</span>
 		<span class="month">{months[date.getMonth()]}</span>
@@ -87,6 +85,7 @@
 			padding-top: 1.5rem;
 			vertical-align: middle;
 			text-align: center;
+			background-image: url('/img/countdown/calendar.svg');
 			background-repeat: no-repeat;
 			background-size: contain;
 			background-position: center center;

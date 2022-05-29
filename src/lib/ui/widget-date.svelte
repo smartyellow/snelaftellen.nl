@@ -6,7 +6,6 @@
 	import WidgetImage from './widget-image.svelte';
 	import { hasDatePassed } from '$lib/dates';
 
-	import calendarImage from '$lib/gfx/calendar.webp?format=png&width=80&img';
 	import iconInfo from '$lib/gfx/svg/icon-info.svg?raw';
 
 	export let title: string;
@@ -17,7 +16,6 @@
 	export let calendarPimpOptions: PimpOptions = undefined;
 	export let showAfterDate = true;
 
-	const countStyle = `background-image: url('${calendarImage}');`;
 	let infoOpened = false;
 
 	calendarPimpOptions = { title: `${title} ${date.getFullYear()}`, ...calendarPimpOptions };
@@ -42,7 +40,7 @@
 
 			<p class="event-date">
 				<span class="day">{daysOfWeek[date.getDay()]}</span>
-				<span class="date count" style={countStyle}>
+				<span class="date count">
 					{date.getDate()}
 				</span>
 				<span class="month">{months[date.getMonth()]}</span>
@@ -93,6 +91,7 @@
 				padding-top: 15px;
 				vertical-align: middle;
 				text-align: center;
+				background-image: url('/img/countdown/calendar.svg');
 				background-repeat: no-repeat;
 				background-size: contain;
 				background-position: center center;
