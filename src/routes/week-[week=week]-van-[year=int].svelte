@@ -1,5 +1,6 @@
 <script context="module">
 	import { isInt } from "$lib/helpers";
+	import { pimpOptionsFromSearchParams } from "$lib/molecules/pimp/helpers";
 
 	/** @type {import('./week-[week=week]-van-[year=int]').Load} */
 	export async function load({ url, params }) {
@@ -11,7 +12,7 @@
 			};
 
 		// Thanks to https://stackoverflow.com/a/8803300
-		const pimpOptions = getPimpOptions(url.searchParams);
+		const pimpOptions = pimpOptionsFromSearchParams(url.searchParams);
 		const beginningOfYear = new Date('Jan 01, ' + year + ' 01:00:00');
 		const weekStart = beginningOfYear.getTime() + 604800000 * (parseInt(week) - 1) + 172800000;
 		const countTo = new Date(weekStart);
@@ -29,7 +30,7 @@
 
 <script lang="ts">
 	import CountdownPage from "$lib/molecules/countdown/countdown-page.svelte";
-	import { getPimpOptions, type PimpOptions } from "$lib/molecules/pimp/helpers";
+	import type { PimpOptions } from "$lib/molecules/pimp/helpers";
 
 	export let countTo: Date;
 	export let pimpOptions: PimpOptions;

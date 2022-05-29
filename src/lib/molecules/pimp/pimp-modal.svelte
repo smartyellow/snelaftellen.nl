@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { dev } from '$app/env';
+	import { localeOptions } from '$lib/constants';
 	import CopyUrl from '../../ui/copy-url.svelte';
-	import { headerImages, pimpStore, themes} from './helpers';
+	import { headerImages, pimpStore, themes } from './helpers';
 	import Modal from '$lib/ui/modal.svelte';
 	import VerticalNav from '$lib/ui/vertical-nav.svelte';
 	import SelectImg from '$lib/ui/select-img.svelte';
@@ -15,11 +16,11 @@
 	export let open = false;
 
 	export let title = '';
-	export let bg = '#ffffff';
-	export let fg = '#000000';
+	export let bg = '#fff';
+	export let fg = '#000';
 	export let yl = '#f8f5c3';
 	export let img = 'no';
-	export let theme = 'xp';
+	export let theme = 'no';
 
 	$: pimpObject = { title, bg, fg, yl, img };
 	const protocol = dev ? 'http://' : 'https://';
@@ -177,6 +178,15 @@
 		> div {
 			padding: $padding;
 			flex-grow: 1;
+		}
+
+		@media (max-width: 700px) {
+			flex-direction: column;
+
+			:global(nav) {
+				border-right: none;
+				border-bottom: $border solid $grey-light;
+			}
 		}
 	}
 

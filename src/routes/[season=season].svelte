@@ -1,4 +1,6 @@
 <script context="module">
+	import { pimpOptionsFromSearchParams } from "$lib/molecules/pimp/helpers";
+
 	/** @type {import('./[season=season]').Load} */
 	export async function load({ url, params }) {
 		const option = params.season;
@@ -16,7 +18,7 @@
 			};
 
 		const countTo = season[3];
-		const pimpOptions = getPimpOptions(url.searchParams);
+		const pimpOptions = pimpOptionsFromSearchParams(url.searchParams);
 
 		return {
 			props: {
@@ -30,7 +32,7 @@
 
 <script lang="ts">
 	import CountdownPage from "$lib/molecules/countdown/countdown-page.svelte";
-	import { getPimpOptions, type PimpOptions } from "$lib/molecules/pimp/helpers";
+	import type { PimpOptions } from "$lib/molecules/pimp/helpers";
 	import { seasons, type Season } from "$lib/molecules/seasons/helpers";
 
 	export let countTo: Date;

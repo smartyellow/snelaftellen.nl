@@ -1,10 +1,10 @@
 <script context="module">
-	import { defaultPimpOptions, getPimpOptions, pimpStore } from '$lib/molecules/pimp/helpers';
+	import { defaultPimpOptions, pimpOptionsFromSearchParams, pimpStore } from '$lib/molecules/pimp/helpers';
 
 	/** @type {import('./__layout').Load} */
 	export function load({ url }) {
 		return {
-			props: { pimpOptions: getPimpOptions(url.searchParams) },
+			props: { pimpOptions: pimpOptionsFromSearchParams(url.searchParams) },
 		};
 	}
 </script>

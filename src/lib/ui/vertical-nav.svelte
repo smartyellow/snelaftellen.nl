@@ -4,8 +4,10 @@
 
 <style lang="scss">
 	@import '../styles/vars';
+
 	nav {
 		padding: $padding;
+
 		:global {
 			a,
 			button {

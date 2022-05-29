@@ -41,19 +41,19 @@ export interface PimpOptions {
 }
 
 export const defaultPimpOptions: PimpOptions = {
-	bg: '#ffffff',
-	fg: '#000000',
+	bg: '#fff',
+	fg: '#000',
 	yl: '#f8f5c3',
 	img: 'no',
 	title: '',
 	theme: 'no'
 };
 
-export function getPimpOptions(usp: URLSearchParams): PimpOptions {
-	const result: PimpOptions = {};
-	Object.keys(defaultPimpOptions).forEach(key => {
-		if (usp.get(key) != '') result[key] = usp.get(key);
-	});
+export function pimpOptionsFromSearchParams(usp: URLSearchParams): PimpOptions {
+	const result: PimpOptions = { ...defaultPimpOptions };
+	for (const key of Object.keys(defaultPimpOptions)) {
+		if (usp.get(key)) result[key] = usp.get(key);
+	}
 	return result;
 }
 

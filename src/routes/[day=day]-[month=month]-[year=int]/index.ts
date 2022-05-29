@@ -4,7 +4,7 @@ import { lunarPhase } from '$lib/molecules/moon/helpers';
 
 /** @type {import('./index').RequestHandler} */
 export async function get({ url, params }) {
-	/** @type {Date} */ let countTo;
+	let countTo: Date;
 
 	if (params.day) {
 		countTo = new Date(

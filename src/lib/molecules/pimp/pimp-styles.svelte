@@ -23,7 +23,6 @@
 			\u003C/style\u003E
 		`;
 	}
-
 </script>
 
 {@html rawStyles}
