@@ -3,6 +3,7 @@ import adapter from '@sveltejs/adapter-cloudflare';
 import { mdsvex } from 'mdsvex';
 import { imagetools } from 'vite-imagetools';
 import autoprefixer from 'autoprefixer';
+import replace from '@rollup/plugin-replace';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -11,10 +12,10 @@ const config = {
 	preprocess: [
 		preprocess({
 			postcss: {
-				plugins: [autoprefixer()]
+				plugins: [ autoprefixer() ]
 			}
 		}),
-		mdsvex({ extensions: ['.md'] }),
+		mdsvex({ extensions: [ '.md' ] }),
 	],
 
 	compilerOptions: {
@@ -26,14 +27,34 @@ const config = {
 		appDir: 'gen',
 		adapter: adapter(),
 		vite: {
-			plugins: [imagetools()],
+			plugins: [ imagetools() ],
 			server: {
 				fs: {
-					allow: [process.cwd()]
-				}
-			}
-		}
-	}
+					allow: [ process.cwd() ],
+				},
+			},
+			build: {
+				rollupOptions: {
+					plugins: [
+						replace({
+							'process.env.APIKEY_INTERNAL': () => {
+								const chars = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890';
+								let output = '';
+
+								Array(20).fill('').forEach(() => {
+									output += chars[Math.round(
+										Math.random() * (chars.length - 1)
+									)];
+								});
+
+								return `'${output}'`;
+							},
+						}),
+					],
+				},
+			},
+		},
+	},
 };
 
 export default config;
