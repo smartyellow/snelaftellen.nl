@@ -7,7 +7,7 @@
 	export let pimpOptions: PimpOptions;
 	export let lunarPhase: LunarPhase;
 
-	countTo = new Date(countTo);
+	$: countTo = new Date(countTo);
 </script>
 
 <CountdownPage {pimpOptions} {countTo} {lunarPhase} />

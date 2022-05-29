@@ -30,10 +30,9 @@
 <SkipLink />
 <Header />
 <PimpStyles options={pimpOptions} />
+<PimpTopImage img={img || pimpOptions.img} />
 
 <div class="page {theme ? `theme-${theme}` : ''}">
-	<PimpTopImage img={img || pimpOptions.img} />
-
 	<div class="wrapper">
 		<main id="content">
 			<slot />

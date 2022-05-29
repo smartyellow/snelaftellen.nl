@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 	import { dev } from '$app/env';
-	import { localeOptions } from '$lib/constants';
 	import CopyUrl from '../../ui/copy-url.svelte';
 	import { headerImages, pimpStore, themes } from './helpers';
 	import Modal from '$lib/ui/modal.svelte';

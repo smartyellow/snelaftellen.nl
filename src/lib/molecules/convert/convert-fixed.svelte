@@ -38,13 +38,10 @@
 		</div>
 
 		<div class="output mt select center">
-			<span class="in">
-				{input}
-				{input === 1 ? units[from].singular : units[from].name}
-			</span>
-			<span class="eq">=</span>
 			<span class="out">
-				{output.toFixed(decimals)}
+				{output.toLocaleString('nl-NL', {
+					maximumFractionDigits: decimals,
+				})}
 				{output === 1 ? units[to].singular : units[to].name}
 			</span>
 		</div>
@@ -70,10 +67,5 @@
 		font-size: 1.5rem;
 		border-radius: $radius;
 		padding: $padding;
-
-		.eq {
-			opacity: 0.4;
-			margin: 0 1rem;
-		}
 	}
 </style>

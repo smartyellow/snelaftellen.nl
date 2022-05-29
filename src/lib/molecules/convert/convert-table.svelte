@@ -26,7 +26,7 @@
 							{:else}
 								{units[unit2].toMins(
 									units[unit1].fromMins(1)
-								).toFixed(2)}
+								).toLocaleString('nl-NL')}
 							{/if}
 						</td>
 					{/each}

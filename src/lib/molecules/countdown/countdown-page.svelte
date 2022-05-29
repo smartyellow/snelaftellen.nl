@@ -74,10 +74,10 @@
 	<div class="card">
 		<h2>{Math.abs(difference)} dagen omrekenen</h2>
 		<ConvertFixed
-			from="days"
-			input={Math.abs(difference)}
+			from="milliseconds"
+			input={Math.abs(today.getTime() - countTo.getTime())}
 			to="minutes"
-			output={Math.abs(difference) * 24 * 60}
+			output={Math.abs(today.getTime() - countTo.getTime()) / 60_000}
 		/>
 		<p>
 			<a href="/omrekenen">Reken meer om.</a>

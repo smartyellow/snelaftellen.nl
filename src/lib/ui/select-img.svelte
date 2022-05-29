@@ -1,9 +1,9 @@
 <script lang="ts">
-	type GetImageFunction = (id?: string, title?: string) => string;
+	type ImageGetter = (id?: string, title?: string) => string;
 
 	export let name: string;
 	export let value: string;
-	export let getImage: GetImageFunction = () => undefined;
+	export let getImage: ImageGetter = () => undefined;
 	export let imagePosition = 'center center';
 	export let options: {
 		id: string;

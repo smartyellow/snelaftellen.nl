@@ -82,7 +82,10 @@
 			</span>
 			<span class="eq">=</span>
 			<span class="out">
-				{output.toFixed(decimals)}
+				{output.toLocaleString('nl-NL', {
+					maximumFractionDigits: decimals,
+					minimumFractionDigits: decimals,
+				})}
 				{output === 1 ? units[to].singular : units[to].name}
 			</span>
 		</div>
