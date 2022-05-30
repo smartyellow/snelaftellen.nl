@@ -3,17 +3,17 @@
 	import Accordion from '$lib/ui/accordion.svelte';
 	import { titleDivider } from '$lib/constants';
 
-	import calculationImgSrcset from '$lib/gfx/about/calculation.webp?width=500;1000;1500&formats=avif;webp;png&srcset=true&img';
-	import calculationImgFallback from '$lib/gfx/about/calculation.webp?width=1000&format=png&img';
+	//import calculationImgSrcset from '$lib/gfx/about/calculation.webp?width=500;1000;1500&formats=avif;webp;png&srcset=true&img';
+	//import calculationImgFallback from '$lib/gfx/about/calculation.webp?width=1000&format=png&img';
 
-	import lurkingImgSrcset from '$lib/gfx/about/lurking.png?width=500;1000;1500&formats=avif;webp;png&srcset=true&img';
-	import lurkingImgFallback from '$lib/gfx/about/lurking.png?width=1000&format=png&img';
+	//import lurkingImgSrcset from '$lib/gfx/about/lurking.png?width=500;1000;1500&formats=avif;webp;png&srcset=true&img';
+	//import lurkingImgFallback from '$lib/gfx/about/lurking.png?width=1000&format=png&img';
 
-	import greenImgSrcset from '$lib/gfx/about/green.png?width=500;1000;1500&formats=avif;webp;png&srcset=true&img';
-	import greenImgFallback from '$lib/gfx/about/green.png?width=1000&format=png&img';
+	//import greenImgSrcset from '$lib/gfx/about/green.png?width=500;1000;1500&formats=avif;webp;png&srcset=true&img';
+	//import greenImgFallback from '$lib/gfx/about/green.png?width=1000&format=png&img';
 
-	import calendarImgSrcset from '$lib/gfx/about/calendar.png?width=500;1000;1500&formats=avif;webp;png&srcset=true&img';
-	import calendarImgFallback from '$lib/gfx/about/calendar.png?width=1000&format=png&img';
+	//import calendarImgSrcset from '$lib/gfx/about/calendar.png?width=500;1000;1500&formats=avif;webp;png&srcset=true&img';
+	//import calendarImgFallback from '$lib/gfx/about/calendar.png?width=1000&format=png&img';
 
 	import iconCalendar from '$lib/gfx/svg/icon-calendar.svg?raw';
 	import iconSettings from '$lib/gfx/svg/icon-settings.svg?raw';
@@ -37,8 +37,7 @@
 	<p>
 		<a href="/kalender" sveltekit:prefetch
 			><img
-				srcset={calendarImgSrcset}
-				src={calendarImgFallback}
+				src="/img/about/calendar.png"
 				alt="Handige jaarkalender voor elk jaar."
 				title="Handige jaarkalender voor elk jaar."
 			/></a
@@ -62,8 +61,7 @@
 
 	<p>
 		<img
-			srcset={calculationImgSrcset}
-			src={calculationImgFallback}
+			src="/img/about/calculation.webp"
 			alt="Het verschil tussen 3 januari en 1 januari is 3 min 1 is 2 dagen."
 			title="Het verschil tussen 3 januari en 1 januari is 3 min 1 is 2 dagen."
 		/>
@@ -93,8 +91,7 @@
 	<p>
 		<a href="https://donttrack.us/" target="_blank"
 			><img
-				srcset={lurkingImgSrcset}
-				src={lurkingImgFallback}
+				src="/img/about/lurking.png"
 				alt="Google kijkt met je mee op 75% van de websites."
 				title="Google kijkt met je mee op 75% van de websites."
 			/></a
@@ -119,10 +116,9 @@
 	<p>
 		<a href="https://www.websitecarbon.com/website/snelaftellen-nl/" target="_blank"
 			><img
-				srcset={greenImgSrcset}
-				src={greenImgFallback}
-				alt="Google kijkt met je mee op 75% van de websites."
-				title="Google kijkt met je mee op 75% van de websites."
+				src="/img/about/green.png"
+				alt="Wij zijn 100% klimaatneutraal."
+				title="Wij zijn 100% klimaatneutraal."
 			/></a
 		>
 	</p>

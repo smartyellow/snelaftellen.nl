@@ -1,9 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 
-	import logoSrcset from '$lib/gfx/logo-text-white.webp?height=50;100&formats=avif;webp;png&srcset=true&img';
-	import logoFallback from '$lib/gfx/logo-text-white.webp?height=50&format=png&img';
-
 	const items = [
 		[ 'Aftellen', '/aftellen' ],
 		[ 'Kalender', '/kalender' ],
@@ -16,7 +13,7 @@
 <header class="header">
 	<div class="brand">
 		<a href="/">
-			<img srcset={logoSrcset} src={logoFallback} alt="SnelAftellen.nl" />
+			<img src="/img/global/logo-text-white.webp" alt="SnelAftellen.nl" />
 			<span class="sr">SnelAftellen.nl</span>
 		</a>
 	</div>

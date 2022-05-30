@@ -1,8 +1,3 @@
-import autumnIcon from '$lib/gfx/seasons/autumn.webp?h=100&w=100&img';
-import springIcon from '$lib/gfx/seasons/spring.webp?h=100&w=100&img';
-import summerIcon from '$lib/gfx/seasons/summer.webp?h=100&w=100&img';
-import winterIcon from '$lib/gfx/seasons/winter.webp?h=100&w=100&img';
-
 export type Season = [
 	/* 0 */ name: string,
 	/* 1 */ img: string,
@@ -18,28 +13,28 @@ export const seasons: {
 } = {
 	spring: [
 		'lente',
-		springIcon,
+		'/img/seasons/spring.webp',
 		'https://nl.wikipedia.org/wiki/Lente',
 		new Date(y, 2),
 		new Date(y, 4, 31)
 	],
 	summer: [
 		'zomer',
-		summerIcon,
+		'/img/seasons/summer.webp',
 		'https://nl.wikipedia.org/wiki/Zomer',
 		new Date(y, 5),
 		new Date(y, 7, 31)
 	],
 	autumn: [
 		'herfst',
-		autumnIcon,
+		'/img/seasons/autumn.webp',
 		'https://nl.wikipedia.org/wiki/Herfst',
 		new Date(y, 8),
 		new Date(y, 10, 30)
 	],
 	winter: [
 		'winter',
-		winterIcon,
+		'/img/seasons/winter.webp',
 		'https://nl.wikipedia.org/wiki/Winter',
 		new Date(y, 11),
 		new Date(y, 1, 28)

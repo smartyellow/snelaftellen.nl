@@ -8,9 +8,6 @@
 	import DatepickerWeek from '$lib/molecules/countdown/datepicker-week.svelte';
 
 	import iconCalendar from '$lib/gfx/svg/icon-calendar.svg?raw';
-	import calendarWeek from '$lib/gfx/countdown-types/week.webp?w=200&h=200&img';
-	import calendarDate from '$lib/gfx/countdown-types/date.webp?w=200&h=200&img';
-	import calendarSeason from '$lib/gfx/countdown-types/season.webp?w=200&h=200&img';
 
 	export let option: typeof countdownOptions[number] = undefined;
 
@@ -74,7 +71,7 @@
 	{#if visible('datum')}
 		<div class="card">
 			<a sveltekit:prefetch href="/datum">
-				<img src={calendarDate} alt="" />
+				<img src="/img/countdown/types/date.webp" alt="" />
 				<h2>Tel af naar een datum</h2>
 			</a>
 			{#if selected('datum')}
@@ -92,7 +89,7 @@
 	{#if visible('week')}
 		<div class="card">
 			<a sveltekit:prefetch href="/week">
-				<img src={calendarWeek} alt="" />
+				<img src="/img/countdown/types/week.webp" alt="" />
 				<h2>Tel af naar een week</h2>
 			</a>
 			{#if selected('week')}
@@ -110,7 +107,7 @@
 	{#if visible('seizoen')}
 		<div class="card">
 			<a sveltekit:prefetch href="/seizoen">
-				<img src={calendarSeason} alt="" />
+				<img src="/img/countdown/types/season.webp" alt="" />
 				<h2>Tel af naar een seizoen</h2>
 			</a>
 			{#if selected('seizoen')}
