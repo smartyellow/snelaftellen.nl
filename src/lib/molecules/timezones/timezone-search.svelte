@@ -85,14 +85,18 @@
 			max-height: 200px;
 			overflow-y: scroll;
 			display: grid;
-			grid-template-columns: repeat(3, 1fr);
+			grid-template-columns: repeat(4, 1fr);
+
+			@media (max-width: 1330px) {
+				grid-template-columns: repeat(3, 1fr);
+			}
 
 			@media (max-width: 800px) {
 				grid-template-columns: repeat(2, 1fr);
 			}
 
-			@media (min-width: 1330px) {
-				grid-template-columns: repeat(4, 1fr);
+			@media (max-width: 500px) {
+				grid-template-columns: 1fr;
 			}
 
 			.result {
