@@ -22,7 +22,7 @@
 		<ul>
 			{#each items as item}
 				<li class:active={$page.url.pathname.includes(item[1])}>
-					<a href={item[1]} sveltekit:prefetch>
+					<a href={item[1]}>
 						{item[0]}
 					</a>
 				</li>

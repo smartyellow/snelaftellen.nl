@@ -15,6 +15,7 @@
 	import '$lib/styles/app.scss';
 	import 'tippy.js/dist/tippy.css';
 
+	import { navigating } from '$app/stores';
 	import CountdownButton from '$lib/molecules/countdown/countdown-button.svelte';
 	import Doormat from '$lib/layout/doormat.svelte';
 	import Header from '$lib/layout/header.svelte';
@@ -22,6 +23,7 @@
 	import PimpTopImage from '$lib/molecules/pimp/pimp-top-image.svelte';
 	import SkipLink from '$lib/layout/skip-link.svelte';
 	import PimpStyles from '$lib/molecules/pimp/pimp-styles.svelte';
+	import LoadingBar from '$lib/layout/loading-bar.svelte';
 
 	export let pimpOptions = defaultPimpOptions;
 
@@ -30,6 +32,7 @@
 </script>
 
 <SkipLink />
+<LoadingBar loading={!!$navigating} />
 <Header />
 <PimpStyles options={pimpOptions} />
 <PimpTopImage img={img || pimpOptions.img} />
