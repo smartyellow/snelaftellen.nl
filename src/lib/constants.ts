@@ -2,7 +2,7 @@ export const localeOptions: Intl.DateTimeFormatOptions = {
 	weekday: 'long',
 	year: 'numeric',
 	month: 'long',
-	day: 'numeric'
+	day: 'numeric',
 };
 
 export const months = [
@@ -17,7 +17,22 @@ export const months = [
 	'september',
 	'oktober',
 	'november',
-	'december'
+	'december',
+];
+
+export const monthsEn = [
+	'January',
+	'February',
+	'March',
+	'April',
+	'May',
+	'June',
+	'July',
+	'August',
+	'September',
+	'October',
+	'November',
+	'December',
 ];
 
 export const daysOfWeek = [
@@ -27,9 +42,9 @@ export const daysOfWeek = [
 	'donderdag',
 	'vrijdag',
 	'zaterdag',
-	'zondag'
+	'zondag',
 ];
 
-export const countdownOptions = ['datum', 'week', 'seizoen'];
+export const countdownOptions = [ 'datum', 'week', 'seizoen' ];
 
 export const titleDivider = '|';

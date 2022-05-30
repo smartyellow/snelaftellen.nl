@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { getCountdownUrl } from '../pimp/helpers';
 	import { difference } from '$lib/dates';
-	import type { LunarPhaseWithDate } from './helpers';
 	import { months } from '$lib/constants';
+	import type { LunarPhaseWithDate } from './helpers';
+	import type { YearCalendar } from '../calendar/helpers';
 
 	import MoonToday from './moon-today.svelte';
 	import MoonWeek from './moon-week.svelte';
@@ -14,6 +15,7 @@
 
 	export let date: Date;
 	export let phases: LunarPhaseWithDate[];
+	export let calendar: YearCalendar;
 </script>
 
 <div class="moon">
@@ -40,12 +42,13 @@
 	<div class="card">
 		<h2>Kalender {months[date.getMonth()]} {date.getFullYear()}</h2>
 		<CalendarMonth
+			{calendar}
 			month={date.getMonth()}
 			year={date.getFullYear()}
 			showYear={true}
 		/>
 		<p>
-			<a href="/kalender-{date.getFullYear()}" sveltekit:prefetch>
+			<a href="/kalender/{date.getFullYear()}" sveltekit:prefetch>
 				Bekijk de volledige kalender van {date.getFullYear()}.
 			</a>
 		</p>

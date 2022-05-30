@@ -1,6 +1,7 @@
 import { pimpOptionsFromSearchParams } from '$lib/molecules/pimp/helpers';
 import { months } from '$lib/constants';
 import { lunarPhase } from '$lib/molecules/moon/helpers';
+import { yearCalendar } from '$lib/molecules/calendar/server';
 
 /** @type {import('./index').RequestHandler} */
 export async function get({ url, params }) {
@@ -23,14 +24,11 @@ export async function get({ url, params }) {
 	} else return { status: 400 };
 
 	return {
-		body: {
+		body: JSON.parse(JSON.stringify({
 			countTo,
-			pimpOptions: JSON.parse(JSON.stringify(
-				pimpOptionsFromSearchParams(url.searchParams)
-			)),
-			lunarPhase: JSON.parse(JSON.stringify(
-				lunarPhase(countTo)
-			)),
-		},
+			pimpOptions: pimpOptionsFromSearchParams(url.searchParams),
+			lunarPhase: lunarPhase(countTo),
+			calendar: yearCalendar(countTo.getFullYear()),
+		})),
 	};
 }

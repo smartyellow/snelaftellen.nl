@@ -1,5 +1,6 @@
 import { months } from '$lib/constants';
 import { isInt } from '$lib/helpers';
+import { yearCalendar } from '$lib/molecules/calendar/server';
 import { lunarPhase } from '$lib/molecules/moon/helpers';
 
 /** @type {import('./index').RequestHandler} */
@@ -41,6 +42,10 @@ export async function get({ params }) {
 	});
 
 	return {
-		body: { date, phases },
+		body: {
+			date,
+			phases,
+			calendar: yearCalendar(date.getFullYear()),
+		},
 	};
 }

@@ -4,6 +4,7 @@
 	import { capitalize } from '$lib/helpers';
 	import { localeOptions, months } from '$lib/constants';
 	import type { LunarPhase } from '../moon/helpers';
+	import type { YearCalendar } from '../calendar/helpers';
 
 	import PimpModal from '../pimp/pimp-modal.svelte';
 	import Meta from '../../layout/meta.svelte';
@@ -21,6 +22,7 @@
 	export let displayTitle = pimpOptions.title || countTo.toLocaleString('nl-NL', localeOptions);
 	export let pimpModalOpen = false;
 	export let lunarPhase: LunarPhase;
+	export let calendar: YearCalendar;
 
 	const today = new Date();
 	const difference = Math.ceil((countTo.getTime() - today.getTime()) / (1000 * 3600 * 24));
@@ -60,7 +62,7 @@
 			</button>
 		{/if}
 
-		<a href="/kalender-{countTo.getFullYear()}" class="btn">
+		<a href="/kalender/{countTo.getFullYear()}" class="btn">
 			{@html iconCalendar}
 			Jaarkalender {countTo.getFullYear()}
 		</a>
@@ -86,9 +88,13 @@
 
 	<div class="card">
 		<h2>Kalender {months[countTo.getMonth()]} {countTo.getFullYear()}</h2>
-		<CalendarMonth month={countTo.getMonth()} year={countTo.getFullYear()} />
+		<CalendarMonth
+			month={countTo.getMonth()}
+			year={countTo.getFullYear()}
+			{calendar}
+		/>
 		<p>
-			<a href="/kalender-{countTo.getFullYear()}">
+			<a href="/kalender/{countTo.getFullYear()}">
 				Bekijk de hele kalender voor {countTo.getFullYear()}.
 			</a>
 		</p>

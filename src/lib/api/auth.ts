@@ -1,7 +1,8 @@
 import type { RequestHandlerOutput } from "@sveltejs/kit";
 
 export async function authenticate(apiKey: string): Promise<RequestHandlerOutput | void> {
-	if (apiKey !== 'process.env.APIKEY_INTERNAL') {
+	if (!process.env.APIKEY_INTERNAL) return;
+	if (apiKey !== process.env.APIKEY_INTERNAL) {
 		return {
 			status: 401,
 			body: {

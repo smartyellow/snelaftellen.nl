@@ -1,3 +1,4 @@
+import { yearCalendar } from "$lib/molecules/calendar/server";
 import { lunarPhase } from "$lib/molecules/moon/helpers";
 import { pimpOptionsFromSearchParams } from "$lib/molecules/pimp/helpers";
 import { seasons } from "$lib/molecules/seasons/helpers";
@@ -19,14 +20,13 @@ export async function get({ url, params }) {
 		};
 
 	const countTo = season[3];
-	const pimpOptions = pimpOptionsFromSearchParams(url.searchParams);
 
 	return {
 		body: JSON.parse(JSON.stringify({
 			countTo,
-			pimpOptions,
-			season,
+			pimpOptions: pimpOptionsFromSearchParams(url.searchParams),
 			lunarPhase: lunarPhase(countTo),
+			calendar: yearCalendar(countTo.getFullYear()),
 		})),
 	};
 }

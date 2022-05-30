@@ -4,8 +4,10 @@
 	import CalendarMonth from '../calendar/calendar-month.svelte';
 	import MoonToday from '../moon/moon-today.svelte';
 	import type { LunarPhase } from '../moon/helpers';
+	import type { YearCalendar } from '../calendar/helpers';
 
 	export let lunarPhase: LunarPhase;
+	export let calendar: YearCalendar;
 
 	const date = new Date();
 </script>
@@ -31,15 +33,20 @@
 <div class="grid-50">
 	<div class="card">
 		<h2>
-			<a href="/kalender-{date.getFullYear()}" sveltekit:prefetch> Kalender </a>
+			<a href="/kalender" sveltekit:prefetch>Kalender</a>
 			{months[date.getMonth()]}
 			{date.getFullYear()}
 		</h2>
 
-		<CalendarMonth month={date.getMonth()} year={date.getFullYear()} showYear />
+		<CalendarMonth
+			{calendar}
+			month={date.getMonth()}
+			year={date.getFullYear()}
+			showYear
+		/>
 
 		<p>
-			<a href="/kalender-{date.getFullYear()}" sveltekit:prefetch>
+			<a href="/kalender" sveltekit:prefetch>
 				Bekijk de volledige kalender van {date.getFullYear()}
 			</a>
 		</p>

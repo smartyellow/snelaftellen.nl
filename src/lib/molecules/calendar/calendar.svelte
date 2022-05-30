@@ -2,15 +2,17 @@
 	import { months } from '$lib/constants';
 	import CalendarMonth from './calendar-month.svelte';
 	import CalendarYearPicker from './calendar-year-picker.svelte';
+	import type { YearCalendar } from './helpers';
 
 	export let year = new Date().getFullYear();
+	export let calendar: YearCalendar;
 </script>
 
 <CalendarYearPicker {year} />
 
 <div class="cal-year">
 	{#each months as _, month}
-		<CalendarMonth {year} {month} />
+		<CalendarMonth {year} {month} {calendar} />
 	{/each}
 </div>
 

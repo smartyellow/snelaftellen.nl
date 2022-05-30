@@ -1,5 +1,6 @@
 <script lang="ts">
 	import CountdownPage from "$lib/molecules/countdown/countdown-page.svelte";
+	import type { YearCalendar } from "$lib/molecules/calendar/helpers";
 	import type { LunarPhase } from "$lib/molecules/moon/helpers";
 	import type { PimpOptions } from "$lib/molecules/pimp/helpers";
 
@@ -8,6 +9,7 @@
 	export let lunarPhase: LunarPhase;
 	export let week: number;
 	export let year: number;
+	export let calendar: YearCalendar;
 
 	$: countTo = new Date(countTo);
 </script>
@@ -16,5 +18,6 @@
 	{pimpOptions}
 	{countTo}
 	{lunarPhase}
+	{calendar}
 	displayTitle={`het begin van week ${week} in ${year}`}
 />

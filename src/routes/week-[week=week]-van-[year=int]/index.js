@@ -1,4 +1,5 @@
 import { isInt } from "$lib/helpers";
+import { yearCalendar } from "$lib/molecules/calendar/server";
 import { lunarPhase } from "$lib/molecules/moon/helpers";
 import { pimpOptionsFromSearchParams } from "$lib/molecules/pimp/helpers";
 
@@ -12,7 +13,6 @@ export async function get({ url, params }) {
 		};
 
 	// Thanks to https://stackoverflow.com/a/8803300
-	const pimpOptions = pimpOptionsFromSearchParams(url.searchParams);
 	const beginningOfYear = new Date('Jan 01, ' + year + ' 01:00:00');
 	const weekStart = beginningOfYear.getTime() + 604800000 * (parseInt(week) - 1) + 172800000;
 	const countTo = new Date(weekStart);
@@ -22,8 +22,9 @@ export async function get({ url, params }) {
 			week,
 			year,
 			countTo,
-			pimpOptions,
+			pimpOptions: pimpOptionsFromSearchParams(url.searchParams),
 			lunarPhase: lunarPhase(countTo),
+			calendar: yearCalendar(countTo.getFullYear()),
 		})),
 	};
 }

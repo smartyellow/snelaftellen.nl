@@ -11,7 +11,7 @@
 </script>
 
 <div class="cal-year-picker">
-	<a class="year-prev" href="/kalender-{prevYear}" rel="external">
+	<a class="year-prev" href="/kalender/{prevYear}" rel="external">
 		{@html iconArrowFastLeft}
 		Kalender <span>{prevYear}</span>
 	</a>
@@ -23,7 +23,7 @@
 			Ga naar <span>{currentYear}</span>
 		</a>
 	{/if}
-	<a class="year-next" href="/kalender-{nextYear}" rel="external">
+	<a class="year-next" href="/kalender/{nextYear}" rel="external">
 		Kalender <span>{nextYear}</span>
 		{@html iconArrowFastRight}
 	</a>
@@ -31,49 +31,64 @@
 
 <style lang="scss">
 	@import '../../styles/vars';
+
 	.cal-year-picker {
 		display: flex;
 		padding-bottom: $padding;
 		gap: $padding-sm;
 		justify-content: space-between;
+
 		a {
 			text-decoration: none;
 		}
+
 		:global(svg) {
 			vertical-align: middle;
 		}
+
 		.year-prev {
 			order: 1;
 		}
+
 		.year-next {
 			order: 4;
 		}
+
 		.year-selected {
 			order: 2;
 		}
+
 		.year-current {
 			order: 3;
 		}
+
 		> * > span {
 			font-weight: 600;
 		}
+
 		@media (max-width: 600px) {
 			flex-wrap: wrap;
+
 			> * {
 				flex: 1 0 40%;
 			}
+
 			.year-prev {
 				order: 1;
 			}
+
 			.year-next {
 				order: 2;
 			}
+
 			.year-selected {
 				order: 3;
 			}
+
 			.year-current {
 				order: 4;
 			}
+
 		}
 	}
 </style>

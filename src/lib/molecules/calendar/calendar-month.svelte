@@ -1,46 +1,20 @@
 <script lang="ts">
-	import { daysOfWeek, months } from '$lib/constants';
-	import { areDatesEqual, getDayNumber, getWeekNumber, numberOfDaysInMonth } from '$lib/dates';
-	import { areArraysEqual } from '$lib/helpers';
+	import { daysOfWeek, months, monthsEn } from '$lib/constants';
+	import { areDatesEqual } from '$lib/dates';
 	import { getCountdownUrl } from '../pimp/helpers';
 	import CalendarDay from './calendar-day.svelte';
+	import type { MonthMatrix, YearCalendar } from './helpers';
 
 	export let year = new Date().getFullYear();
 	export let month = new Date().getMonth();
 	export let showYear = false;
+	export let calendar: YearCalendar;
 
-	const startDate = new Date(year, month, 1);
-	const startOffset = getDayNumber(startDate);
-	const weekNumOffset = getWeekNumber(startDate); // === 52 ? 0 : getWeekNumber(startDate)
-	const matrix = getMonthMatrix();
 	const today = new Date();
+	const monthCalendar: MonthMatrix = calendar.filter(m =>
+		m[0] === monthsEn[month].toLowerCase().slice(0, 3)
+	)[0][1];
 	today.setHours(0, 0, 0, 0);
-
-	function getMonthMatrix() {
-		let out: Array<Array<number | 'noop'>> = [];
-		let currentDate = 1;
-		let numberOfDays = numberOfDaysInMonth(month + 1, year);
-
-		// each week of this month
-		[...Array(6)].map((_, iWeek) => {
-			let outWeek = [];
-
-			// each day of this week
-			[...Array(7)].map((_, iDay) => {
-				if ((iWeek === 0 && iDay < startOffset) || currentDate > numberOfDays) {
-					outWeek.push('noop');
-				} else {
-					outWeek.push(currentDate);
-					currentDate++;
-				}
-			});
-
-			if (areArraysEqual(outWeek, Array(7).fill('noop'))) out.push([]);
-			else out.push(outWeek);
-		});
-
-		return out;
-	}
 </script>
 
 <div class="cal-month">
@@ -57,22 +31,19 @@
 		</thead>
 
 		<tbody>
-			{#each matrix as weekDates, iWeek}
-				{@const week = iWeek + weekNumOffset > 52 ? iWeek : iWeek + weekNumOffset}
-				{@const weeknum = week === 0 ? 52 : week}
-
+			{#each monthCalendar as week}
 				<tr>
 					<th class="week">
-						{#if weekDates.length}
-							<CalendarDay label={weeknum} href="/week-{weeknum}-van-{year}" />
+						{#if week[1].length}
+							<CalendarDay label={week[0]} href="/week-{week[0]}-van-{year}" />
 						{:else}
 							&nbsp;
 						{/if}
 					</th>
 
-					{#each weekDates as day}
+					{#each week[1] as day}
 						<td>
-							{#if day !== 'noop'}
+							{#if day !== null}
 								<CalendarDay
 									label={day}
 									href={areDatesEqual(today, new Date(year, month, day))
@@ -80,6 +51,8 @@
 										: getCountdownUrl(new Date(year, month, day))}
 									today={areDatesEqual(today, new Date(year, month, day))}
 								/>
+							{:else}
+								&nbsp;
 							{/if}
 						</td>
 					{/each}

@@ -5,9 +5,11 @@
 	import { getCountdownUrl } from '$lib/molecules/pimp/helpers';
 	import tooltip from '$lib/ui/tooltip';
 	import type { LunarPhaseWithDate } from '$lib/molecules/moon/helpers';
+	import type { YearCalendar } from '$lib/molecules/calendar/helpers';
 
 	export let date: Date;
 	export let phases: LunarPhaseWithDate[];
+	export let calendar: YearCalendar;
 
 	date = new Date(date);
 	phases = phases.map(p => {
@@ -29,4 +31,4 @@
 	</a>
 </h1>
 
-<MoonPage {date} {phases} />
+<MoonPage {date} {phases} {calendar} />
