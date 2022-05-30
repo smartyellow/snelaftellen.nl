@@ -2,9 +2,9 @@ import { isInt } from "$lib/helpers";
 import { yearCalendar } from "$lib/molecules/calendar/server";
 import { lunarPhase } from "$lib/molecules/moon/helpers";
 import { pimpOptionsFromSearchParams } from "$lib/molecules/pimp/helpers";
+import type { RequestHandler } from './__types/index';
 
-/** @type {import('./index').RequestHandler} */
-export async function get({ url, params }) {
+export const get: RequestHandler = async ({ url, params }) => {
 	const { week, year } = params;
 
 	if (!(isInt(week) || isInt(year)))

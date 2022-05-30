@@ -1,7 +1,7 @@
 import { yearCalendar } from '$lib/molecules/calendar/server';
+import type { RequestHandler } from './__types/[year=int]';
 
-/** @type {import('./[year=int]').RequestHandler} */
-export function get({ params }) {
+export const get: RequestHandler = async ({ params }) => {
 	return {
 		body: yearCalendar(Number(params.year)),
 	};

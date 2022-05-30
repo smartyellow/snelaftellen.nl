@@ -1,7 +1,7 @@
 import { lunarAge, lunarAgePercentage, lunarPhase } from '$lib/molecules/moon/helpers';
+import type { RequestHandler } from './__types/phase';
 
-/** @type {import('./phase').RequestHandler} */
-export function get({ url }) {
+export const get: RequestHandler = async ({ url }) => {
 	const d = Number(url.searchParams.get('d')) || NaN;
 	const m = Number(url.searchParams.get('m')) || NaN;
 	const y = Number(url.searchParams.get('y')) || NaN;
@@ -17,7 +17,7 @@ export function get({ url }) {
 
 	const results = [];
 
-	new Array(size).fill().forEach((_, i) => {
+	new Array(size).fill('').forEach((_, i) => {
 		const date = new Date(y, m - 1, d + i + 1);
 		const percentage = lunarAgePercentage(date);
 		const age = lunarAge(percentage);

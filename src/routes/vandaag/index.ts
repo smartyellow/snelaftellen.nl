@@ -1,8 +1,8 @@
 import { yearCalendar } from '$lib/molecules/calendar/server';
 import { lunarPhase } from '$lib/molecules/moon/helpers'
+import type { RequestHandler } from './__types/index';
 
-/** @type {import('./index').RequestHandler} */
-export async function get() {
+export const get: RequestHandler = async () => {
 	const today = new Date();
 
 	return {

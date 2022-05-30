@@ -1,14 +1,13 @@
 import { yearCalendar } from "$lib/molecules/calendar/server";
 import { lunarPhase } from "$lib/molecules/moon/helpers";
 import { pimpOptionsFromSearchParams } from "$lib/molecules/pimp/helpers";
-import { seasons } from "$lib/molecules/seasons/helpers";
+import { seasons, type Season } from "$lib/molecules/seasons/helpers";
+import type { RequestHandler } from './__types/index';
 
-/** @type {import('./index').RequestHandler} */
-export async function get({ url, params }) {
+export const get: RequestHandler = async ({ url, params }) => {
 	const option = params.season;
+	let season: Season;
 
-	/** @type {import('$lib/molecules/seasons/helpers').Season} */
-	let season;
 	Object.entries(seasons).forEach((s) => {
 		if (s[1][0] === option) season = s[1];
 	});

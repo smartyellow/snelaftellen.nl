@@ -18,11 +18,6 @@ const config = {
 		mdsvex({ extensions: [ '.md' ] }),
 	],
 
-	compilerOptions: {
-		// eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-		cssHash: ({ css, hash }) => '_' + hash(css),
-	},
-
 	kit: {
 		appDir: 'gen',
 		adapter: adapter(),

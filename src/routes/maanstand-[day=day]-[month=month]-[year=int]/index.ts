@@ -2,10 +2,10 @@ import { months } from '$lib/constants';
 import { isInt } from '$lib/helpers';
 import { yearCalendar } from '$lib/molecules/calendar/server';
 import { lunarPhase } from '$lib/molecules/moon/helpers';
+import type { RequestHandler } from './__types/index';
 
-/** @type {import('./index').RequestHandler} */
-export async function get({ params }) {
-	/** @type {Date} */ let date;
+export const get: RequestHandler = async ({ params }) => {
+	let date: Date;
 
 	if (!(isInt(params.year) || isInt(params.month) || isInt(params.day)))
 	return { status: 404 };
@@ -28,7 +28,7 @@ export async function get({ params }) {
 
 	let phases = [];
 
-	new Array(7).fill().forEach((_, i) => {
+	new Array(7).fill('').forEach((_, i) => {
 		const d = new Date(
 			date.getFullYear(),
 			date.getMonth(),

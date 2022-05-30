@@ -2,10 +2,10 @@ import { pimpOptionsFromSearchParams } from '$lib/molecules/pimp/helpers';
 import { months } from '$lib/constants';
 import { lunarPhase } from '$lib/molecules/moon/helpers';
 import { yearCalendar } from '$lib/molecules/calendar/server';
+import type { RequestHandler } from './__types/index';
 
-/** @type {import('./index').RequestHandler} */
-export async function get({ url, params }) {
-	/** @type {Date} */ let countTo;
+export const get: RequestHandler = async ({ url, params }) => {
+	let countTo: Date;
 
 	if (params.day) {
 		countTo = new Date(
