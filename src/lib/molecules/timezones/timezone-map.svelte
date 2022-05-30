@@ -22,9 +22,12 @@
 				], {
 					icon: icon(L),
 				}).addTo(map).bindPopup(`
-					<a href="/tijdzones/${tz.place.toLowerCase()}">
+					<a href="/tijdzones/${tz.place.toLowerCase()}"><strong>
 						${tz.place}, ${translateContinentName(tz.continent)}
-					</a>
+					</strong></a> <br /><br />
+					Huidige tijd: ${new Date().toLocaleTimeString('nl-NL', {
+						timeZone: tz.id,
+					})}
 				`);
 			}
 		}
