@@ -9,17 +9,13 @@
 		id: string;
 		title: string;
 		img?: string;
-		_img?: string;
 	}[];
-
-	options = options.map(opt => {
-		opt._img = opt.img || getImage(opt.id, opt.title) || undefined;
-		return opt;
-	});
 </script>
 
 <div class="imgselect">
 	{#each options as opt}
+		{@const img = opt.img || getImage(opt.id, opt.title) || undefined}
+
 		<div class="opt" on:click={() => value = opt.id}>
 			<div class="label">
 				<input
@@ -27,15 +23,15 @@
 					{name}
 					id={opt.id}
 					value={opt.id}
-					bind:group={value}
+					group={name}
 					on:change
 				/>
 				<label for={opt.id}>{opt.title}</label>
 			</div>
 			<div
 				class="img"
-				class:noimg={!opt._img}
-				style:background-image="url('{opt._img}')"
+				class:noimg={!img}
+				style:background-image="url('{img}')"
 				style:background-position={imagePosition}
 			/>
 		</div>

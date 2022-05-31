@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { assets } from '$app/paths';
 	import type { HeaderImageId } from './helpers';
 
 	export let img: HeaderImageId = 'no';
@@ -8,7 +7,7 @@
 {#if img && img !== 'no' && img != 'null'}
 	<div
 		class="topimage"
-		style:background-image="url('{assets}/img/top/{img}.webp')"
+		style:background-image="url('/img/countdown/pimp/top/{img}.webp')"
 	/>
 {/if}
 

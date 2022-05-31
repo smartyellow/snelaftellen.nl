@@ -117,7 +117,7 @@
 								bind:value={img}
 								options={headerImages}
 								name="img"
-								getImage={id => `/img/top/${id}.webp`}
+								getImage={id => `/img/countdown/pimp/top/${id}.webp`}
 							/>
 						</div>
 					</div>
@@ -131,7 +131,7 @@
 								bind:value={theme}
 								options={themes}
 								name="theme"
-								getImage={id => `/img/themes/${id}.webp`}
+								getImage={id => `/img/countdown/pimp/themes/${id}.webp`}
 							/>
 						</div>
 					</div>
