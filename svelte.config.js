@@ -1,5 +1,5 @@
 import preprocess from 'svelte-preprocess';
-import adapter from '@sveltejs/adapter-cloudflare';
+import adapter from '@sveltejs/adapter-node';
 import { mdsvex } from 'mdsvex';
 import { imagetools } from 'vite-imagetools';
 import autoprefixer from 'autoprefixer';
