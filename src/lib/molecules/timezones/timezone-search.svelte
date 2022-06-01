@@ -1,9 +1,10 @@
 <script lang="ts">
-	import { translateContinentName, type TimezoneWithCoords } from "./helpers";
+	import { dateByOffset, timezoneOffset, type Country, type Timezone } from "./helpers";
 	import iconSearch from '$lib/gfx/svg/icon-search.svg?raw';
 
-	export let timezones: TimezoneWithCoords[];
+	export let timezones: Timezone[];
 	export let filteredTimezones = timezones;
+	export let countriesObject: Record<string, Country>;
 	export let input = '';
 
 	function filter() {
@@ -30,20 +31,22 @@
 
 	<div class="results">
 		{#each filteredTimezones as timezone}
+			{@const offset = timezoneOffset(timezone)}
 			<div class="result">
-				<a href="/tijdzones/{encodeURIComponent(timezone.place.toLowerCase())}">
+				<a href="/tijdzones/{timezone._id.toLowerCase()}">
 					<div class="time">
-						{new Date().toLocaleTimeString('nl-NL', {
-							timeZone: timezone.id,
+						{dateByOffset(offset).toLocaleTimeString('nl-NL', {
 							timeStyle: 'short',
 						})}
 					</div>
 
 					<div class="name">
 						<span class="place">{timezone.place}</span>
-						<span class="continent">
-							{translateContinentName(timezone.continent)}
-						</span>
+						{#if timezone.countries?.length}
+							<span class="continent">
+								{countriesObject[timezone.countries[0]].name}
+							</span>
+						{/if}
 					</div>
 				</a>
 			</div>
@@ -120,6 +123,7 @@
 					display: flex;
 					align-items: center;
 					gap: $padding;
+					height: 100%;
 
 					.name {
 						.continent {

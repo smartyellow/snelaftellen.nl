@@ -85,6 +85,26 @@ table.table {
 			&:hover {
 				background-color: $light;
 			}
+
+			th {
+				background-color: $light;
+				border-right: $border solid $grey;
+			}
 		}
 	}
+}
+
+dl {
+	dt {
+		font-weight: 700;
+	}
+
+	dd {
+		margin-bottom: $padding;
+		margin-left: 0;
+	}
+}
+
+.cols-2 {
+	column-count: 2;
 }

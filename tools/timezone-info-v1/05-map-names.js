@@ -8,7 +8,7 @@ import { mkdir, readFile, writeFile } from 'fs/promises';
 		await readFile('out/offset.json')
 	);
 
-	for (const id of Object.keys(locations)) {
+	for (const loc of locations) {
 		const nameArray = id.replace(/_/g, ' ').split('/');
 		locations[id].continent = nameArray.slice(0, -1).join('/');
 		locations[id].place = nameArray[nameArray.length - 1];

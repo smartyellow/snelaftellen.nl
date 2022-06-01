@@ -1,4 +1,4 @@
-import { timezones } from '$lib/molecules/timezones/helpers';
+import { timezones } from '$lib/molecules/timezones/server';
 import type { RequestHandler } from './__types/[continent=continent]';
 
 export const get: RequestHandler = async ({ params }) => {

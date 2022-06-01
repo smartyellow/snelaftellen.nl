@@ -1,31 +1,26 @@
-import { dedupe } from "$lib/helpers";
-import data from './data.json';
+import { nlTimezone } from "./data";
 
 export interface Timezone {
-	id?: string;
+	_id?: string;
 	continent: string;
 	place: string;
-	utcOffset: number;
-}
 
-export interface Coords {
+	abbrs: string[];
+	untils: (number | null)[];
+	offsets: number[];
+
+	population: number;
+	countries: string[];
+
 	lat: number;
 	lng: number;
 }
 
-export type TimezoneWithCoords = Timezone & Coords;
-
-// @ts-ignore
-export const timezones: Record<string, TimezoneWithCoords> = data;
-export const timezoneIds = Object.keys(data);
-
-export const continents: string[] = dedupe(
-	timezoneIds.map(tzId => timezones[tzId].continent)
-);
-
-export const continentsLowercase: string[] = continents.map(
-	c => c.toLowerCase()
-);
+export interface Country {
+	_id?: string;
+	name: string;
+	zones: string[];
+}
 
 export const continentsNl = {
 	Europe: 'Europa',
@@ -47,10 +42,57 @@ export function translateContinentName(name: string): string {
 	return name;
 }
 
-export const places: string[] = timezoneIds.map(
-	tzId => timezones[tzId].place
-);
+function calcUntilIndex(
+	tz: Timezone,
+	utc = new Date(),
+	isNlTime = false
+): number {
+	if (!isNlTime) {
+		utc.setMinutes(
+			utc.getMinutes()
+			+ timezoneOffset(nlTimezone, new Date(), true)
+		);
+	}
 
-export const placesLowercase: string[] = places.map(
-	c => c.toLowerCase()
-);
+	const now = utc.getTime()
+	let untilIndex = tz.untils.length - 1;
+
+	loop: for (const [ i, until ] of tz.untils.entries()) {
+		if (until >= now) {
+			untilIndex = i;
+			break loop;
+		}
+	}
+
+	return untilIndex;
+}
+
+export function timezoneOffset(
+	tz: Timezone,
+	utc = new Date(),
+	isNlTime = false
+): number {
+	const untilIndex = calcUntilIndex(tz, utc, isNlTime);
+	return tz.offsets[untilIndex];
+}
+
+export function timezoneAbbreviation(
+	tz: Timezone,
+	utc = new Date(),
+	isNlTime = false
+): string {
+	const untilIndex = calcUntilIndex(tz, utc, isNlTime);
+	return tz.abbrs[untilIndex];
+}
+
+export function dateByOffset(minutes: number): Date {
+	const date = new Date()
+	date.setMinutes(date.getMinutes() + minutes - 120);
+	return date;
+}
+
+export function formatUTCOffset(offset: number, prefix = true): string {
+	return (prefix ? 'UTC' : '')
+		+ (offset < 0 ? '–' : '+')
+		+ Math.abs(offset);
+}

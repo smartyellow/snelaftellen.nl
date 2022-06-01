@@ -64,14 +64,22 @@ export function dedupe<T>(array: Array<T>): Array<T> {
 	return output;
 }
 
-export function utcOffset(date: string): number {
-	const localTime = date.split(':');
-	const utcTime = new Date().toLocaleTimeString('nl-NL', {
-		timeZone: 'UTC',
-	}).split(':');
-
-	const localMins = Number(localTime[0]) * 60 + Number(localTime[1]);
-	const utcMins = Number(utcTime[0]) * 60 + Number(utcTime[1]);
-
-	return (utcMins - localMins) / 60;
+export function arrayToObject<T>(
+	array: Array<T>,
+	idKey: string
+): Record<string, T> {
+	const out = {};
+	for (const value of array) {
+		if (typeof value !== 'object') throw 'Values must be objects';
+		out[value[idKey]] = value;
+	}
+	return out;
 }
+
+// TODO: lat lng formatter
+//export function formatLatLng(location: number): string {
+//	const array = location.toString().split('.');
+//	const one = array[0];
+//	const two = array[1].slice(0, 2)
+//	return `${one}°${two}'`
+//}

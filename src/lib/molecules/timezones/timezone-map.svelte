@@ -2,9 +2,9 @@
 	import Map from "$lib/ui/map.svelte";
 	import { icon } from "$lib/ui/map";
 	import { onMount } from "svelte";
-	import { translateContinentName, type TimezoneWithCoords } from "./helpers";
+	import { dateByOffset, timezoneOffset, translateContinentName, type Timezone } from "./helpers";
 
-	export let timezones: TimezoneWithCoords[];
+	export let timezones: Timezone[];
 	export let height: string = '300px';
 	export let center: [ number, number ] = [ 50, 0 ];
 	export let zoom = 1;
@@ -16,6 +16,11 @@
 
 		for (const tz of timezones) {
 			if (tz.lat && tz.lng) {
+				const offset = timezoneOffset(tz);
+				const time = dateByOffset(offset).toLocaleString('nl-NL', {
+					dateStyle: 'full',
+					timeStyle: 'short',
+				});
 				L.marker([
 					tz.lat,
 					tz.lng,
@@ -25,9 +30,8 @@
 					<a href="/tijdzones/${tz.place.toLowerCase()}"><strong>
 						${tz.place}, ${translateContinentName(tz.continent)}
 					</strong></a> <br /><br />
-					Huidige tijd: ${new Date().toLocaleTimeString('nl-NL', {
-						timeZone: tz.id,
-					})}
+					Huidige tijd: ${time} <br />
+					UTC-verschil: ${offset < 0 ? '–' : '+'}${Math.abs(offset / 60)}
 				`);
 			}
 		}

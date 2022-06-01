@@ -20,7 +20,7 @@ select,
 textarea {
 	&:focus {
 		outline: none;
-		box-shadow: 0 0 0 3px #55c713;
+		box-shadow: 0 0 0 3px $accent-light;
 
 		// Windows high-contrast, see https://stackoverflow.com/a/52616313
 		outline-color: transparent;
