@@ -51,6 +51,7 @@
 		<div class="card">
 			<label>
 				{@html iconKey} Wachtwoord
+				<span class="muted">Verandert alleen als je hieronder een nieuwe invult</span>
 				<input type="password" name="password" />
 			</label>
 		</div>
