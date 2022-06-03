@@ -60,6 +60,18 @@ img.icon {
 	color: $grey;
 }
 
+.desc,
+.btn-desc {
+	color: $grey-dark;
+	text-transform: uppercase;
+	display: block;
+	margin-bottom: $padding-px;
+
+	svg:first-child {
+		margin-right: $padding-sm;
+	}
+}
+
 small,
 .small {
 	font-size: 12px;

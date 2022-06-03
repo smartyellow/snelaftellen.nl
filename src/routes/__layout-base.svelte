@@ -1,7 +1,7 @@
 <script context="module">
 	import { defaultPimpOptions, pimpOptionsFromSearchParams, pimpStore } from '$lib/molecules/pimp/helpers';
 
-	/** @type {import('./__layout').Load} */
+	/** @type {import('./__layout@base').Load} */
 	export function load({ url }) {
 		return {
 			props: {
@@ -16,10 +16,9 @@
 	import 'tippy.js/dist/tippy.css';
 
 	import { navigating } from '$app/stores';
-	import CountdownButton from '$lib/molecules/countdown/countdown-button.svelte';
+	import { loading } from '$lib/helpers';
 	import Doormat from '$lib/layout/doormat.svelte';
 	import Header from '$lib/layout/header.svelte';
-	import Share from '$lib/layout/share.svelte';
 	import PimpTopImage from '$lib/molecules/pimp/pimp-top-image.svelte';
 	import SkipLink from '$lib/layout/skip-link.svelte';
 	import PimpStyles from '$lib/molecules/pimp/pimp-styles.svelte';
@@ -32,20 +31,14 @@
 </script>
 
 <SkipLink />
-<LoadingBar loading={!!$navigating} />
+<LoadingBar loading={!!$navigating || $loading} />
 <Header />
 <PimpStyles options={pimpOptions} />
 <PimpTopImage img={img || pimpOptions.img} />
 
-<div class="page {theme ? `theme-${theme}` : ''}">
+<div class="page theme-{theme}">
 	<div class="wrapper">
-		<main id="content">
-			<slot />
-		</main>
-		<aside>
-			<CountdownButton />
-			<Share />
-		</aside>
+		<slot />
 	</div>
 </div>
 
@@ -57,30 +50,36 @@
 	.page {
 		min-height: 100vh;
 
-		.wrapper {
-			display: grid;
-			grid-template-columns: 3fr 1fr;
+		> .wrapper {
+			display: flex;
 			padding: $padding * 2;
 			justify-content: space-between;
 			gap: $padding * 2;
 
 			@media (max-width: 1000px) {
-				grid-template-columns: 1fr;
+				flex-direction: column;
 			}
 
-			main {
-				flex: 3 0;
+			:global {
+				> main {
+					width: 100%;
+					flex: 3 0;
 
-				> :global(:first-child) {
-					margin-top: 0;
+					> :first-child {
+						margin-top: 0;
+					}
 				}
-			}
 
-			aside {
-				flex: 1 0;
+				> aside {
+					flex: 1 0;
 
-				> :global(* + *) {
-					margin-top: $padding-sm;
+					@media (max-width: 1000px) {
+						max-width: 100%;
+					}
+
+					> * + * {
+						margin-top: $padding-sm;
+					}
 				}
 			}
 		}

@@ -20,7 +20,10 @@ svg {
 
 .mt-sm { margin-top: $padding-sm; }
 .mt { margin-top: $padding; }
+.mt-0 { margin-top: 0 !important; }
 .mr { margin-right: $padding; }
+.mb { margin-bottom: $padding; }
+.my-lg { margin: $padding-lg 0; }
 .p { padding: $padding; }
 .p-0 { padding: 0 !important; }
 
@@ -48,6 +51,17 @@ svg {
 
 	&.yellow {
 		background-color: $yellow;
+	}
+
+	.statistic {
+		font-size: 3rem;
+		line-height: 1;
+		margin-top: 1rem;
+		margin-bottom: 1rem;
+
+		&.sm {
+			font-size: 2rem;
+		}
 	}
 
 	:first-child {

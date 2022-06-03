@@ -1,11 +1,15 @@
-<nav>
+<script lang="ts">
+	export let cls = '';
+</script>
+
+<nav class="verticalnav {cls}">
 	<slot />
 </nav>
 
 <style lang="scss">
 	@import '../styles/vars';
 
-	nav {
+	.verticalnav {
 		padding: $padding;
 
 		:global {
@@ -16,6 +20,13 @@
 				text-align: left;
 				padding: $padding-sm $padding-lg;
 				margin-top: -2px;
+				color: #000;
+				text-decoration: none;
+
+				&.active,
+				&:hover {
+					color: $light;
+				}
 			}
 		}
 	}

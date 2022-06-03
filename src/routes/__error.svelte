@@ -1,15 +1,24 @@
-<h1>Oeps... daar ging iets mis!</h1>
+<script lang="ts">
+	import LayoutBase from './__layout-base.svelte';
+	import Layout from './__layout@base.svelte';
+</script>
 
-<div>
-	<img src="/img/layout/404.webp" alt="" />
-</div>
+<LayoutBase>
+	<Layout>
+		<h1>Oeps... daar ging iets mis!</h1>
 
-<hr />
+		<div>
+			<img src="/img/global/404.webp" alt="" />
+		</div>
 
-<p>
-	We konden die pagina niet vinden. Wilde je toevallig aftellen? Dat kan met de
-	<em>"Aftellen!"</em>-knop hiernaast!
-</p>
+		<hr />
+
+		<p>
+			We konden die pagina niet vinden. Wilde je toevallig aftellen? Dat kan met de
+			<em>"Aftellen!"</em>-knop hiernaast!
+		</p>
+	</Layout>
+</LayoutBase>
 
 <style lang="scss">
 	@import '../lib/styles/vars';

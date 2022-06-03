@@ -25,7 +25,9 @@
 		gap: $padding-sm;
 
 		@media (max-width: 1200px) {
-			grid-template-columns: 1fr;
+			&:not(.mobile) {
+				grid-template-columns: 1fr;
+			}
 		}
 	}
 }

@@ -1,3 +1,7 @@
+import { writable } from "svelte/store";
+
+export const loading = writable(false);
+
 export function capitalize(string: string): string {
 	return string.charAt(0).toUpperCase() + string.slice(1);
 }

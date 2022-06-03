@@ -20,35 +20,45 @@
 
 <style lang="scss">
 	@import '../styles/vars';
+
 	footer {
 		background-color: $accent-dark;
 		padding: $padding;
 		text-align: center;
 		color: #ffffff;
+		margin-top: $padding;
+
 		> * {
 			margin-bottom: 10px;
 			display: block;
 		}
+
 		> :last-child {
 			margin-bottom: 0;
 		}
+
 		ul {
 			list-style-type: none;
 			margin: 0;
 			padding: 0;
+
 			li {
 				display: inline;
+
 				&:not(:last-child)::after {
 					content: ' | ';
 				}
 			}
 		}
+
 		a {
 			color: #ffffff;
+
 			&:hover {
 				text-decoration: none;
 			}
 		}
+
 		ins {
 			text-decoration: none;
 			font-size: 0.8rem;
