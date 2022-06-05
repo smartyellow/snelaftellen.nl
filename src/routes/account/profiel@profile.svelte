@@ -3,9 +3,9 @@
 	import iconUser from '$lib/gfx/svg/icon-user.svg?raw';
 
 	import iconCalendar from '$lib/gfx/svg/icon-calendar.svg?raw';
-	import iconList from '$lib/gfx/svg/icon-list.svg?raw';
 
 	export let user: User;
+	export let countdownCount: number;
 </script>
 
 <div class="user-welcome">
@@ -20,17 +20,9 @@
 	<div class="card">
 		<p class="desc">
 			{@html iconCalendar}
-			<a href="/account/kalenders">Kalenders</a>
+			<a href="/account/kalenders">Aftelkalenders</a>
 		</p>
-		<p class="statistic">8</p>
-	</div>
-
-	<div class="card">
-		<p class="desc">
-			{@html iconList}
-			<a href="/account/kalenders">Verzamelingen</a>
-		</p>
-		<p class="statistic">5</p>
+		<p class="statistic">{countdownCount}</p>
 	</div>
 </div>
 

@@ -35,7 +35,6 @@ export const get: RequestHandler = async ({ request }) => {
 	return {
 		status: 200,
 		body: JSON.parse(JSON.stringify({
-			user,
 			countdowns: userCountdowns,
 		})),
 	};

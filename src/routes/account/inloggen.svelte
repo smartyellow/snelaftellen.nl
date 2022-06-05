@@ -73,6 +73,13 @@
 	<div class="card">
 		<h2>Ik heb nog geen account</h2>
 		<p>Schrijf je in voor allerlei handige functies!</p>
+		<ul>
+			<li>Sla je gepimpte kalenders op in je account;</li>
+			<li>Maak lijstjes;</li>
+			<li>Bekijk je aftelkalenders op één plek;</li>
+			<li>...en meer!</li>
+		</ul>
+		<p>Binnenkort kan je je inschrijven. Bedankt voor je interesse!</p>
 	</div>
 </div>
 
@@ -84,5 +91,12 @@
 			display: block;
 			margin: $padding;
 		}
+	}
+
+	input[name="captcha"] {
+		width: 100px;
+		font-family: monospace;
+		font-size: 1.2rem;
+		text-align: center;
 	}
 </style>

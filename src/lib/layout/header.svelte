@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { page } from '$app/stores';
+	import iconUser from '$lib/gfx/svg/icon-user.svg?raw';
 
 	const items = [
 		[ 'Aftellen', '/aftellen' ],
@@ -21,12 +22,16 @@
 	<nav class="topnav">
 		<ul>
 			{#each items as item}
-				<li class:active={$page.url.pathname.includes(item[1])}>
+				<li class:active={$page.url.pathname.startsWith(item[1])}>
 					<a href={item[1]}>
 						{item[0]}
 					</a>
 				</li>
 			{/each}
+
+			<li class="account">
+				<a href="/account">{@html iconUser}</a>
+			</li>
 		</ul>
 	</nav>
 </header>
@@ -65,6 +70,8 @@
 			padding: 0;
 			margin: 0;
 			position: relative;
+			display: flex;
+			align-items: stretch;
 
 			li {
 				display: inline-block;
@@ -76,6 +83,7 @@
 					color: inherit;
 					display: block;
 					font-size: 1.2rem;
+					height: 100%;
 				}
 
 				&:hover,
@@ -99,6 +107,19 @@
 				&.active {
 					&::before {
 						background-color: $accent-light;
+					}
+				}
+
+				&.account {
+					margin-left: auto;
+
+					a {
+						padding: 0 $padding;
+						display: flex;
+
+						:global(svg) {
+							margin: auto;
+						}
 					}
 				}
 			}
