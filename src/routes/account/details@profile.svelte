@@ -26,6 +26,8 @@
 	}
 </script>
 
+<h3>Je gegevens bijwerken</h3>
+
 {#if success}
 	<Alert cls="mb">
 		Je gegevens zijn opgeslagen.
