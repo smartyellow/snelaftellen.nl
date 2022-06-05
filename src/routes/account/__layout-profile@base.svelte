@@ -17,17 +17,21 @@
 	<h2>Je account</h2>
 
 	<div class="account">
-		<VerticalNav cls="p-0">
-			{#each items as item}
-				<a
-					href={item.href}
-					class="btn"
-					class:active={$page.url.pathname.startsWith(item.href)}
-				>
-					{@html item.icon} {item.name}
-				</a>
-			{/each}
-		</VerticalNav>
+		<div>
+			<VerticalNav cls="p-0 mb">
+				{#each items as item}
+					<a
+						href={item.href}
+						class="btn"
+						class:active={$page.url.pathname.startsWith(item.href)}
+					>
+						{@html item.icon} {item.name}
+					</a>
+				{/each}
+			</VerticalNav>
+
+			<a href="/account/uitloggen">Uitloggen</a>
+		</div>
 
 		<div class="slot content">
 			<slot />
