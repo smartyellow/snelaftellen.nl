@@ -60,7 +60,7 @@ export async function login(
 
 	await users.updateOne(
 		{ _id: user._id },
-		{ $set: { lastVisit: new Date() } }
+		{ $set: { lastLogin: new Date() } }
 	);
 
 	const session: Session = {

@@ -3,7 +3,7 @@ export interface User {
 	name: string;
 	email: string;
 	hashedPassword: string;
-	lastVisit?: Date;
+	lastLogin?: Date;
 }
 
 export type LoginError = 'CSRF_ATTEMPT' | 'MISSING_DETAILS' | 'INVALID_CAPTCHA' | 'NOT_FOUND' | 'PASSWORD_MISMATCH';
