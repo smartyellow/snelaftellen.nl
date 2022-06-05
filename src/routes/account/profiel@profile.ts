@@ -31,6 +31,8 @@ export const get: RequestHandler = async ({ request }) => {
 		user: user._id,
 	});
 
+	delete user.hashedPassword;
+
 	return {
 		status: 200,
 		body: {
