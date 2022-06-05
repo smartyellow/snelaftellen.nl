@@ -3,7 +3,7 @@
 	import { capitalize } from '$lib/helpers';
 	import tooltip from '$lib/ui/tooltip';
 	import { seasons } from './helpers';
-	import { getCountdownUrl } from '../pimp/helpers';
+	import { getCountdownUrl } from '../countdown/pimp/helpers';
 
 	import iconInfo from '$lib/gfx/svg/icon-info.svg?raw';
 

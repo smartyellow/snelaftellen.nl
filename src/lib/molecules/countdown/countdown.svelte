@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { localeOptions } from '$lib/constants';
 	import CountdownIcons from './countdown-icons.svelte';
-	import { getCountdownUrl } from '../pimp/helpers';
+	import { getCountdownUrl } from './pimp/helpers';
 
 	export let count: number;
 	export let date: Date;

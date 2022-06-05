@@ -36,21 +36,14 @@ export const csrf = {
 	async get(token: string | CsrfToken): Promise<
 		(CsrfToken & { expired: boolean; }) | null
 	> {
-		if (!token) {
-			return null;
-		}
-
-		if (typeof token === 'object') {
-			token = token._id;
-		}
+		if (!token) return null;
+		if (typeof token === 'object') token = token._id;
 
 		const result = await csrfTokens.findOne({
 			_id: token,
 		});
 
-		if (!result) {
-			return null;
-		}
+		if (!result) return null;
 
 		return {
 			...result,

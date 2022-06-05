@@ -1,5 +1,7 @@
 import { writable } from "svelte/store";
 
+export type Visibility = 'public' | 'invisible' | 'private';
+
 export const loading = writable(false);
 
 export function capitalize(string: string): string {
@@ -47,8 +49,9 @@ export function areObjectsEqual(a: unknown, b: unknown): boolean {
 	return true;
 }
 
-export function randomString(length: number): string {
-	const chars = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890';
+export function randomString(length: number, lowercase = false): string {
+	let chars = 'qwertyuiopasdfghjklzxcvbnm1234567890';
+	if (!lowercase) chars += 'QWERTYUIOPASDFGHJKLZXCVBNM';
 	let output = '';
 
 	Array(length).fill('').forEach(() => {

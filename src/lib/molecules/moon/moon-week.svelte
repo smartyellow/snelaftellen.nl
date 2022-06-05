@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { daysOfWeek, localeOptions, months } from '$lib/constants';
-	import { getCountdownUrl } from '../pimp/helpers';
+	import { getCountdownUrl } from '../countdown/pimp/helpers';
 	import tooltip from '$lib/ui/tooltip';
 	import type { LunarPhaseWithDate } from './helpers';
 

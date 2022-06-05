@@ -2,9 +2,9 @@
 	import { daysOfWeek, months } from '$lib/constants';
 	import Modal from './modal.svelte';
 	import tooltip from '$lib/ui/tooltip';
-	import { getCountdownUrl, type PimpOptions } from '$lib/molecules/pimp/helpers';
+	import { getCountdownUrl, type PimpOptions } from '$lib/molecules/countdown/pimp/helpers';
 	import WidgetImage from './widget-image.svelte';
-	import { hasDatePassed } from '$lib/dates';
+	import { convertDayNumberFromSundayToMonday, hasDatePassed } from '$lib/dates';
 
 	import iconInfo from '$lib/gfx/svg/icon-info.svg?raw';
 
@@ -17,8 +17,6 @@
 	export let showAfterDate = true;
 
 	let infoOpened = false;
-
-	calendarPimpOptions = { title: `${title} ${date.getFullYear()}`, ...calendarPimpOptions };
 </script>
 
 {#if !hasDatePassed(date) || showAfterDate}
@@ -39,7 +37,7 @@
 			<p class="event-title">{title}</p>
 
 			<p class="event-date">
-				<span class="day">{daysOfWeek[date.getDay()]}</span>
+				<span class="day">{daysOfWeek[convertDayNumberFromSundayToMonday(date.getDay())]}</span>
 				<span class="date count">
 					{date.getDate()}
 				</span>
@@ -55,9 +53,13 @@
 		</div>
 
 		<div class="bottom" slot="bottom">
-			<a href={getCountdownUrl(date, calendarPimpOptions)} class="btn raised">
-				Nu aftellen
-			</a>
+			{#if $$slots.bottom}
+				<slot name="bottom" />
+			{:else}
+				<a href={getCountdownUrl(date, calendarPimpOptions)} class="btn raised">
+					Nu aftellen
+				</a>
+			{/if}
 		</div>
 	</WidgetImage>
 

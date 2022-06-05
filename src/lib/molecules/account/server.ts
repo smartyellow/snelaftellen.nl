@@ -1,5 +1,6 @@
 import type { Session } from "$lib/csrf";
 import { db } from "$lib/mongodb";
+import { parseCookieString } from "$lib/server";
 import { compare, hash } from 'bcrypt';
 import type { User } from "./helpers";
 
@@ -7,9 +8,29 @@ const users = db.collection<User>('users');
 const sessions = db.collection<Session>('sessions');
 
 export async function getUser(id: string): Promise<User> {
-	return await users.findOne({ _id: id });
+	const user = await users.findOne({ _id: id });
+	delete user.hashedPassword;
+	return user;
 }
 
+export async function getUserByRequest(request: Request): Promise<User | null> {
+	const cookies = parseCookieString(request.headers.get('cookie'));
+	const sessionId = cookies.session;
+	if (!sessionId) return null;
+
+	const session = await sessions.findOne({
+		_id: sessionId,
+	});
+	if (!session) return null;
+
+	const user = await users.findOne({
+		_id: session.user,
+	});
+	if (!user) return null;
+
+	delete user.hashedPassword;
+	return user;
+}
 
 export async function login(
 	username: string,

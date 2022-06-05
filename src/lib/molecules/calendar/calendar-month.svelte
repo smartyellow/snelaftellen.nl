@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { daysOfWeek, months, monthsEn } from '$lib/constants';
 	import { areDatesEqual } from '$lib/dates';
-	import { getCountdownUrl } from '../pimp/helpers';
+	import { getCountdownUrl } from '../countdown/pimp/helpers';
 	import CalendarDay from './calendar-day.svelte';
 	import type { MonthMatrix, YearCalendar } from './helpers';
 

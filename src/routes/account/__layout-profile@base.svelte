@@ -51,6 +51,10 @@
 			.content {
 				border-left: $border solid $grey-light;
 				padding-left: $padding;
+
+				:global(:first-child) {
+					margin-top: 0;
+				}
 			}
 		}
 	}

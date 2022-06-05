@@ -22,7 +22,7 @@
 	.grid-#{$name} {
 		display: grid;
 		grid-template-columns: repeat($cols, 1fr);
-		gap: $padding-sm;
+		gap: $padding;
 
 		@media (max-width: 1200px) {
 			&:not(.mobile) {

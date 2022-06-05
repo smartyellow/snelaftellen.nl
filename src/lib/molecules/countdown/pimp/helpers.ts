@@ -36,7 +36,6 @@ export interface PimpOptions {
 	fg?: string;
 	yl?: string;
 	img?: HeaderImageId;
-	title?: string;
 	theme?: ThemeId;
 }
 
@@ -45,7 +44,6 @@ export const defaultPimpOptions: PimpOptions = {
 	fg: '#000',
 	yl: '#f8f5c3',
 	img: 'no',
-	title: '',
 	theme: 'no'
 };
 
@@ -73,7 +71,7 @@ export function getCountdownUrl(date: Date, pimpOptions = defaultPimpOptions): s
 		const p = { ...defaultPimpOptions, ...pimpOptions };
 		output += `?bg=${encodeURIComponent(p.bg)}&fg=${encodeURIComponent(
 			p.fg
-		)}&yl=${encodeURIComponent(p.yl)}&title=${encodeURIComponent(p.title)}&img=${encodeURIComponent(
+		)}&yl=${encodeURIComponent(p.yl)}&img=${encodeURIComponent(
 			p.img
 		)}&theme=${encodeURIComponent(p.theme)}`;
 	}

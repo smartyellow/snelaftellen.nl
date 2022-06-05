@@ -2,7 +2,7 @@
 	import MoonPage from '$lib/molecules/moon/moon-page.svelte';
 	import Meta from '$lib/layout/meta.svelte';
 	import { localeOptions, titleDivider } from '$lib/constants';
-	import { getCountdownUrl } from '$lib/molecules/pimp/helpers';
+	import { getCountdownUrl } from '$lib/molecules/countdown/pimp/helpers';
 	import tooltip from '$lib/ui/tooltip';
 	import type { LunarPhaseWithDate } from '$lib/molecules/moon/helpers';
 	import type { YearCalendar } from '$lib/molecules/calendar/helpers';

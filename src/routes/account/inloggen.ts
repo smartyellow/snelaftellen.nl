@@ -97,6 +97,7 @@ export const post: RequestHandler = async ({ clientAddress, request }) => {
 	}
 
 	const acceptsJSON = request.headers.get('accept') === 'application/json';
+	const expires = new Date(Date.now() + (1000 * 60 * 60 * 24 * 4)).toUTCString();
 
 	return {
 		status: acceptsJSON ? 200 : 308,
@@ -105,7 +106,7 @@ export const post: RequestHandler = async ({ clientAddress, request }) => {
 			...result,
 		})),
 		headers: {
-			'set-cookie': `session=${result.session._id}`,
+			'set-cookie': `session=${result.session._id}; Path=/; Expires=${expires}`,
 			location: acceptsJSON ? '/account/profiel' : null,
 		},
 	};

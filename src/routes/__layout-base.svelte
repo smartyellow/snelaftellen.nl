@@ -1,5 +1,5 @@
 <script context="module">
-	import { defaultPimpOptions, pimpOptionsFromSearchParams, pimpStore } from '$lib/molecules/pimp/helpers';
+	import { defaultPimpOptions, pimpOptionsFromSearchParams, pimpStore } from '$lib/molecules/countdown/pimp/helpers';
 
 	/** @type {import('./__layout@base').Load} */
 	export function load({ url }) {
@@ -19,9 +19,9 @@
 	import { loading } from '$lib/helpers';
 	import Doormat from '$lib/layout/doormat.svelte';
 	import Header from '$lib/layout/header.svelte';
-	import PimpTopImage from '$lib/molecules/pimp/pimp-top-image.svelte';
+	import PimpTopImage from '$lib/molecules/countdown/pimp/pimp-top-image.svelte';
 	import SkipLink from '$lib/layout/skip-link.svelte';
-	import PimpStyles from '$lib/molecules/pimp/pimp-styles.svelte';
+	import PimpStyles from '$lib/molecules/countdown/pimp/pimp-styles.svelte';
 	import LoadingBar from '$lib/layout/loading-bar.svelte';
 
 	export let pimpOptions = defaultPimpOptions;

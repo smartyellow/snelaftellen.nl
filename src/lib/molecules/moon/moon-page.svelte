@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { getCountdownUrl } from '../pimp/helpers';
+	import { getCountdownUrl } from '../countdown/pimp/helpers';
 	import { difference } from '$lib/dates';
 	import { months } from '$lib/constants';
 	import type { LunarPhaseWithDate } from './helpers';

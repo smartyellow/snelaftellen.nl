@@ -10,7 +10,7 @@
 </script>
 
 {#if show}
-	<div class="modal outer" on:click|self={close} transition:fade>
+	<div class="modal outer" on:mousedown|self={close} transition:fade>
 		<div class="inner" transition:fly={{ y: 100 }}>
 			<div class="header">
 				{#if title}

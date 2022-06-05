@@ -71,8 +71,6 @@ export const post: RequestHandler = async ({ clientAddress, request }) => {
 	});
 
 	const newUser = { name, _id: user._id, email, password };
-	console.log(newUser);
-
 	await update(newUser);
 	delete newUser.password;
 

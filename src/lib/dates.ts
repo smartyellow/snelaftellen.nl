@@ -1,3 +1,5 @@
+import { daysOfWeek } from "./constants";
+
 export function difference(to: Date, now = new Date()): number {
 	return Math.ceil(
 		(to.getTime() - now.getTime())
@@ -18,6 +20,20 @@ export function convertDayNumberFromMondayToSunday(day: number): number {
 	if (output === 7) output = 0;
 	if (output < 0 || output > 6) return NaN;
 	return output;
+}
+
+export function convertDayNumberFromSundayToMonday(day: number): number {
+	const map = {
+		1: 0,
+		2: 1,
+		3: 2,
+		4: 3,
+		5: 4,
+		6: 5,
+		0: 6,
+	};
+
+	return typeof map[day] !== 'undefined' ? map[day] : NaN;
 }
 
 export function getWeekNumber(date: Date): number {
