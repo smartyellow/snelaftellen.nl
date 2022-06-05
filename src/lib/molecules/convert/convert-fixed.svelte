@@ -1,10 +1,10 @@
 <script lang="ts">
-	import Alert from "$lib/ui/alert.svelte";
-	import { browser } from "$app/env";
-	import { units } from "./helpers";
+	import Alert from '$lib/ui/alert.svelte';
+	import { browser } from '$app/env';
+	import { units } from './helpers';
 
-	import iconMinus from "$lib/gfx/svg/icon-minus.svg?raw";
-	import iconPlus from "$lib/gfx/svg/icon-plus.svg?raw";
+	import iconMinus from '$lib/gfx/svg/icon-minus.svg?raw';
+	import iconPlus from '$lib/gfx/svg/icon-plus.svg?raw';
 
 	export let input = 1;
 	export let output = 60;

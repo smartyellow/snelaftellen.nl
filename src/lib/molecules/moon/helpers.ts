@@ -8,7 +8,7 @@
 //	| 'Last Quarter'
 //	| 'Waning Crescent';
 
-import { julianDate } from "$lib/dates";
+import { julianDate } from '$lib/dates';
 
 export const LUNAR_MONTH = 29.530588853;
 
@@ -100,15 +100,15 @@ export function lunarPhase(input: Date | number): LunarPhase {
 	else throw 'Input is neither a date nor a number.';
 
 	function getName(): string {
-		if (age < 1.84566) return "New";
-		else if (age < 5.53699) return "Waxing Crescent";
-		else if (age < 9.22831) return "First Quarter";
-		else if (age < 12.91963) return "Waxing Gibbous";
-		else if (age < 16.61096) return "Full";
-		else if (age < 20.30228) return "Waning Gibbous";
-		else if (age < 23.99361) return "Last Quarter";
-		else if (age < 27.68493) return "Waning Crescent";
-		else return "New";
+		if (age < 1.84566) return 'New';
+		else if (age < 5.53699) return 'Waxing Crescent';
+		else if (age < 9.22831) return 'First Quarter';
+		else if (age < 12.91963) return 'Waxing Gibbous';
+		else if (age < 16.61096) return 'Full';
+		else if (age < 20.30228) return 'Waning Gibbous';
+		else if (age < 23.99361) return 'Last Quarter';
+		else if (age < 27.68493) return 'Waning Crescent';
+		else return 'New';
 	}
 
 	const name = getName();

@@ -1,6 +1,6 @@
 <script lang="ts">
-	import { onMount } from "svelte";
-	import { localeOptions } from "$lib/constants";
+	import { onMount } from 'svelte';
+	import { localeOptions } from '$lib/constants';
 	import {
 		dateByOffset,
 		formatUTCOffset,
@@ -9,11 +9,11 @@
 		translateContinentName,
 		type Country,
 		type Timezone
-	} from "./helpers";
-	import { nlTimezone } from "./data";
-	import { icon } from "$lib/ui/map";
-	import Map from "$lib/ui/map.svelte";
-	import Alert from "$lib/ui/alert.svelte";
+	} from './helpers';
+	import { nlTimezone } from './data';
+	import { icon } from '$lib/ui/map';
+	import Map from '$lib/ui/map.svelte';
+	import Alert from '$lib/ui/alert.svelte';
 
 	export let timezone: Timezone;
 	export let countries: Country[];

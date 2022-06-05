@@ -1,6 +1,6 @@
-import { arrayToObject, dedupe } from "$lib/helpers";
-import { db } from "$lib/mongodb";
-import type { Country, Timezone } from "./helpers";
+import { arrayToObject, dedupe } from '$lib/helpers';
+import { db } from '$lib/mongodb';
+import type { Country, Timezone } from './helpers';
 
 let updated = new Date();
 export let timezones: Timezone[];

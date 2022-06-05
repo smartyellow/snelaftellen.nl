@@ -1,5 +1,5 @@
-import type { Visibility } from "$lib/helpers";
-import type { PimpOptions } from "./pimp/helpers";
+import type { Visibility } from '$lib/helpers';
+import type { PimpOptions } from './pimp/helpers';
 
 export interface Countdown {
 	_id?: string;

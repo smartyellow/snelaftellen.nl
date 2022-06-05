@@ -1,5 +1,5 @@
 <script>
-	import iconInfo from "$lib/gfx/svg/icon-info.svg?raw";
+	import iconInfo from '$lib/gfx/svg/icon-info.svg?raw';
 
 	export let cls = '';
 </script>

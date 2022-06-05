@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Alert from "$lib/ui/alert.svelte";
-	import type { Country, Timezone } from "./helpers";
-	import TimezoneMap from "./timezone-map.svelte";
-	import TimezoneSearch from "./timezone-search.svelte";
+	import Alert from '$lib/ui/alert.svelte';
+	import type { Country, Timezone } from './helpers';
+	import TimezoneMap from './timezone-map.svelte';
+	import TimezoneSearch from './timezone-search.svelte';
 
 	export let timezones: Timezone[];
 	export let countriesObject: Record<string, Country>;

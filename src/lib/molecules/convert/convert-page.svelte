@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Convert from "./convert.svelte";
-	import ConvertTable from "./convert-table.svelte";
-	import Meta from "$lib/layout/meta.svelte";
+	import Convert from './convert.svelte';
+	import ConvertTable from './convert-table.svelte';
+	import Meta from '$lib/layout/meta.svelte';
 </script>
 
 <h1>Omrekenen</h1>

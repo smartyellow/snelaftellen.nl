@@ -1,8 +1,8 @@
-import type { Session } from "$lib/csrf";
-import { db } from "$lib/mongodb";
-import { parseCookieString } from "$lib/server";
+import type { Session } from '$lib/csrf';
+import { db } from '$lib/mongodb';
+import { parseCookieString } from '$lib/server';
 import { compare, hash } from 'bcrypt';
-import type { User } from "./helpers";
+import type { User } from './helpers';
 
 const users = db.collection<User>('users');
 const sessions = db.collection<Session>('sessions');

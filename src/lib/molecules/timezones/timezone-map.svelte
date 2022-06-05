@@ -1,8 +1,8 @@
 <script lang="ts">
-	import Map from "$lib/ui/map.svelte";
-	import { icon } from "$lib/ui/map";
-	import { onMount } from "svelte";
-	import { dateByOffset, timezoneOffset, translateContinentName, type Timezone } from "./helpers";
+	import Map from '$lib/ui/map.svelte';
+	import { icon } from '$lib/ui/map';
+	import { onMount } from 'svelte';
+	import { dateByOffset, timezoneOffset, translateContinentName, type Timezone } from './helpers';
 
 	export let timezones: Timezone[];
 	export let height: string = '300px';

@@ -1,4 +1,4 @@
-import type { RequestHandlerOutput } from "@sveltejs/kit";
+import type { RequestHandlerOutput } from '@sveltejs/kit';
 
 export async function authenticate(apiKey: string): Promise<RequestHandlerOutput | void> {
 	if (!process.env.APIKEY_INTERNAL) return;

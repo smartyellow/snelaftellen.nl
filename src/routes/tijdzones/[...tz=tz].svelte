@@ -1,8 +1,8 @@
 <script lang="ts">
-	import { titleDivider } from "$lib/constants";
-	import type { Country, Timezone } from "$lib/molecules/timezones/helpers";
-	import Meta from "$lib/layout/meta.svelte";
-	import TimezonePage from "$lib/molecules/timezones/timezone-page.svelte";
+	import { titleDivider } from '$lib/constants';
+	import type { Country, Timezone } from '$lib/molecules/timezones/helpers';
+	import Meta from '$lib/layout/meta.svelte';
+	import TimezonePage from '$lib/molecules/timezones/timezone-page.svelte';
 
 	export let timezone: Timezone;
 	export let countries: Country[];

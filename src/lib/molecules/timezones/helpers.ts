@@ -1,4 +1,4 @@
-import { nlTimezone } from "./data";
+import { nlTimezone } from './data';
 
 export interface Timezone {
 	_id?: string;

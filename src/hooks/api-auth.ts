@@ -1,5 +1,5 @@
-import { authenticate } from "$lib/api/auth";
-import type { Handle } from "@sveltejs/kit";
+import { authenticate } from '$lib/api/auth';
+import type { Handle } from '@sveltejs/kit';
 
 export const apiAuth: Handle = async ({ event, resolve }) => {
 	if (

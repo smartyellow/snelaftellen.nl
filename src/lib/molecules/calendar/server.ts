@@ -1,7 +1,7 @@
-import { monthsEn } from "$lib/constants";
-import { getDayNumber, getWeekNumber, numberOfDaysInMonth } from "$lib/dates";
-import { areArraysEqual } from "$lib/helpers";
-import type { MonthMatrix, YearCalendar } from "./helpers";
+import { monthsEn } from '$lib/constants';
+import { getDayNumber, getWeekNumber, numberOfDaysInMonth } from '$lib/dates';
+import { areArraysEqual } from '$lib/helpers';
+import type { MonthMatrix, YearCalendar } from './helpers';
 
 function monthMatrix(
 	monthNum: number,

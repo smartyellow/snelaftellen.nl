@@ -1,5 +1,5 @@
 <script>
-	import { units } from "./helpers";
+	import { units } from './helpers';
 
 	const unitList = Object.keys(units);
 </script>

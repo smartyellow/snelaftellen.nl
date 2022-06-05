@@ -1,4 +1,4 @@
-import { loading } from "$lib/helpers";
+import { loading } from '$lib/helpers';
 
 export type XhrFormCallback = ({
 	response: Response,

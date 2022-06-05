@@ -1,6 +1,6 @@
 <script lang="ts">
-	import WidgetDate from "$lib/ui/widget-date.svelte";
-	import type { Countdown } from "$lib/molecules/countdown/helpers";
+	import WidgetDate from '$lib/ui/widget-date.svelte';
+	import type { Countdown } from '$lib/molecules/countdown/helpers';
 
 	export let countdowns: Countdown[] = [];
 

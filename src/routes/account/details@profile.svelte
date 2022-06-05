@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { User } from "$lib/molecules/account/helpers";
-	import xhrForm, { type XhrFormCallback } from "$lib/ui/xhrform";
-	import Alert from "$lib/ui/alert.svelte";
+	import type { User } from '$lib/molecules/account/helpers';
+	import xhrForm, { type XhrFormCallback } from '$lib/ui/xhrform';
+	import Alert from '$lib/ui/alert.svelte';
 
 	import iconUser from '$lib/gfx/svg/icon-user.svg?raw';
 	import iconEmail from '$lib/gfx/svg/icon-email.svg?raw';

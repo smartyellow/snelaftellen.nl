@@ -1,9 +1,9 @@
 <script lang="ts">
-	import CountdownPage from "$lib/molecules/countdown/countdown-page.svelte";
-	import type { YearCalendar } from "$lib/molecules/calendar/helpers";
-	import type { LunarPhase } from "$lib/molecules/moon/helpers";
-	import type { User } from "$lib/molecules/account/helpers";
-	import type { Countdown } from "$lib/molecules/countdown/helpers";
+	import CountdownPage from '$lib/molecules/countdown/countdown-page.svelte';
+	import type { YearCalendar } from '$lib/molecules/calendar/helpers';
+	import type { LunarPhase } from '$lib/molecules/moon/helpers';
+	import type { User } from '$lib/molecules/account/helpers';
+	import type { Countdown } from '$lib/molecules/countdown/helpers';
 
 	export let countdown: Countdown;
 	export let lunarPhase: LunarPhase;

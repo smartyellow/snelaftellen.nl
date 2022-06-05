@@ -1,4 +1,4 @@
-import { db } from "./mongodb";
+import { db } from './mongodb';
 
 export interface CsrfToken {
 	_id: string;

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Visibility } from "$lib/helpers";
+	import type { Visibility } from '$lib/helpers';
 
 	import iconEye from '$lib/gfx/svg/icon-eye.svg?raw';
 	import iconEyeClose from '$lib/gfx/svg/icon-eye-close.svg?raw';

@@ -1,4 +1,4 @@
-import { MongoClient } from "mongodb";
+import { MongoClient } from 'mongodb';
 import { writeFile } from 'fs/promises';
 
 (async () => {

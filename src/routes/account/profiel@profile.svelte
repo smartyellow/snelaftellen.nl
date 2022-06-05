@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { User } from "$lib/molecules/account/helpers";
+	import type { User } from '$lib/molecules/account/helpers';
 	import iconUser from '$lib/gfx/svg/icon-user.svg?raw';
 
 	import iconCalendar from '$lib/gfx/svg/icon-calendar.svg?raw';

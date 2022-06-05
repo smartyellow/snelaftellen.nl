@@ -1,5 +1,3 @@
-import { daysOfWeek } from "./constants";
-
 export function difference(to: Date, now = new Date()): number {
 	return Math.ceil(
 		(to.getTime() - now.getTime())
