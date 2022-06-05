@@ -29,7 +29,10 @@
 				</li>
 			{/each}
 
-			<li class="account">
+			<li
+				class="account"
+				class:active={$page.url.pathname.startsWith('/account')}
+			>
 				<a href="/account">{@html iconUser}</a>
 			</li>
 		</ul>
