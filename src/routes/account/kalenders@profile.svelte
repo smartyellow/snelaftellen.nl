@@ -1,6 +1,5 @@
 <script lang="ts">
 	import WidgetDate from "$lib/ui/widget-date.svelte";
-	import type { User } from "$lib/molecules/account/helpers";
 	import type { Countdown } from "$lib/molecules/countdown/helpers";
 
 	export let countdowns: Countdown[] = [];
@@ -28,7 +27,3 @@
 		</WidgetDate>
 	{/each}
 </div>
-
-<style lang="scss">
-	@import '../../lib/styles/vars';
-</style>

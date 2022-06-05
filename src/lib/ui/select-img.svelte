@@ -59,6 +59,10 @@
 			.label {
 				padding: $padding-sm;
 				background-color: $light;
+
+				label {
+					display: inline;
+				}
 			}
 
 			.img {
