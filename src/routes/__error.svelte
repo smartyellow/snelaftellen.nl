@@ -1,10 +1,9 @@
 <script lang="ts">
 	import LayoutBase from './__layout-base.svelte';
-	import Layout from './__layout@base.svelte';
 </script>
 
 <LayoutBase>
-	<Layout>
+	<main>
 		<h1>Oeps... daar ging iets mis!</h1>
 
 		<div>
@@ -17,7 +16,7 @@
 			We konden die pagina niet vinden. Wilde je toevallig aftellen? Dat kan met de
 			<em>"Aftellen!"</em>-knop hiernaast!
 		</p>
-	</Layout>
+	</main>
 </LayoutBase>
 
 <style lang="scss">

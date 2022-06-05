@@ -7,7 +7,7 @@ body {
 	font-family: $font-base;
 	color: $dark;
 	line-height: 1.5;
-	font-size: 14px;
+	font-size: 15px;
 }
 
 * {
@@ -51,6 +51,7 @@ svg {
 
 	&.yellow {
 		background-color: $yellow;
+		background-color: var(--yellow);
 	}
 
 	.statistic {

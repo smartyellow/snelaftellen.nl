@@ -72,6 +72,10 @@ export const put: RequestHandler = async ({ request }) => {
 	if (!countdown) return err;
 	countdown.countTo = new Date(countdown.countTo);
 
+	if (countdown.user !== session.user) return {
+		status: 402,
+	};
+
 	const countdownWithoutId = JSON.parse(JSON.stringify(data.countdown));
 	delete countdownWithoutId._id;
 	delete countdownWithoutId.user;

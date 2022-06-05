@@ -60,9 +60,18 @@
 
 			<hr />
 			<label>
-				Vul alle letters in: (hooflettergevoelig)
+				<div>Vul alle letters in: (hooflettergevoelig)</div>
 				{@html captcha}
-				<input type="text" name="captcha" required />
+				<input
+					type="text"
+					name="captcha"
+					required
+					placeholder="A1b2"
+					spellcheck="false"
+					autocomplete="off"
+					minlength="4"
+					maxlength="4"
+				/>
 			</label>
 
 			<input type="hidden" name="csrf" value={csrf} />
@@ -86,17 +95,12 @@
 <style lang="scss">
 	@import '../../lib/styles/vars';
 
-	label {
-		:global(svg) {
-			display: block;
-			margin: $padding;
-		}
-	}
-
 	input[name="captcha"] {
 		width: 100px;
 		font-family: monospace;
 		font-size: 1.2rem;
 		text-align: center;
+		display: inline;
+		vertical-align: middle;
 	}
 </style>

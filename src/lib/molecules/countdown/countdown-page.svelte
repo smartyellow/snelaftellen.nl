@@ -61,13 +61,13 @@
 <SaveModal {user} bind:open={saveModalOpen} {countdown} {csrf} />
 
 <div class="grid-33 mt">
-	{#if browser}
+	{#if browser && (!countdown?._id || (countdown.user === user?._id))}
 		<button on:click={() => pimpModalOpen = true}>
 			{@html iconDesign} Pimp je kalender
 		</button>
 
 		<button on:click={() => saveModalOpen = true}>
-			{#if countdown._id}
+			{#if countdown?._id}
 				{@html iconPencil} Kalender wijzigen
 			{:else}
 				{@html iconFloppy} NIEUW! Kalender opslaan

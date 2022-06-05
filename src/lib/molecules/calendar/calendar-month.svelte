@@ -75,6 +75,7 @@
 			border-collapse: collapse;
 			border-spacing: 0;
 			width: 100%;
+			background-color: #fff;
 
 			caption {
 				font-weight: 700;

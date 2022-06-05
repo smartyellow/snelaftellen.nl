@@ -20,7 +20,7 @@ export const get: RequestHandler = async ({
 		!countdown
 		|| (
 			(countdown.visibility === 'private')
-			&& (user._id !== countdown.user)
+			&& (user?._id !== countdown.user)
 		)
 	) {
 		return {

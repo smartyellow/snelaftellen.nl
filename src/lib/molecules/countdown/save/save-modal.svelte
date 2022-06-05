@@ -71,8 +71,7 @@
 			aanmaken.
 		</p>
 		<p>
-			<a href="/account/registreren" class="btn raised">Account maken</a>
-			<a href="/account/inloggen" class="btn">Inloggen</a>
+			<a href="/account/inloggen" class="btn raised">Inloggen</a>
 		</p>
 	{/if}
 </Modal>
