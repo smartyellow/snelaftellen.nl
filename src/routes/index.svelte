@@ -31,10 +31,25 @@
 
 <div class="grid-50">
 	<WidgetDate
-		title="Hemelvaart"
-		date={new Date(2022, 4, 26)}
-		image="/img/events/hemelvaart.webp"
-		description="Jezus sterft en stijgt op naar de hemel. En het is een vrije dag!"
+		title="Zomervakantie Noord"
+		date={new Date(2022, 5, 16)}
+		image="/img/events/zomervakantie-1.webp"
+		description="Lekker lang op vakantie!"
+		calendarPimpOptions={{ img: 'vacation' }}
+	/>
+	<WidgetDate
+		title="Zomervakantie Midden"
+		date={new Date(2022, 5, 9)}
+		image="/img/events/zomervakantie-2.webp"
+		description="Of gewoon thuisblijven."
+		calendarPimpOptions={{ img: 'vacation' }}
+	/>
+	<WidgetDate
+		title="Zomervakantie Zuid"
+		date={new Date(2022, 5, 23)}
+		image="/img/events/zomervakantie-3.webp"
+		description="Geniet van je vakantie"
+		calendarPimpOptions={{ img: 'vacation' }}
 	/>
 </div>
 
