@@ -1,7 +1,7 @@
 <script lang="ts">
-	import type { Country, Timezone } from '$lib/molecules/timezones/helpers';
+	import type { Country, Timezone } from '$lib/molecules/time/timezones/helpers';
 	import Meta from '$lib/layout/meta.svelte';
-	import TimezonePageIndex from '$lib/molecules/timezones/timezone-page-index.svelte';
+	import TimezonePageIndex from '$lib/molecules/time/timezones/timezone-page-index.svelte';
 
 	export let timezones: Timezone[];
 	export let countriesObject: Record<string, Country>

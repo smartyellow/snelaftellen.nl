@@ -1,5 +1,5 @@
-import { timezoneOffset } from '$lib/molecules/timezones/helpers';
-import { countries, timezones } from '$lib/molecules/timezones/server';
+import { timezoneOffset } from '$lib/molecules/time/timezones/helpers';
+import { countries, timezones } from '$lib/molecules/time/timezones/server';
 import type { RequestHandler } from './__types/[...tz=tz]';
 
 export const get: RequestHandler = async ({ params }) => {

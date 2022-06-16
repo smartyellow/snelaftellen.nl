@@ -1,4 +1,4 @@
-import { continentsLowercase } from '$lib/molecules/timezones/data';
+import { continentsLowercase } from '$lib/molecules/time/timezones/data';
 import type { ParamMatcher } from '@sveltejs/kit';
 
 export const match: ParamMatcher = p =>

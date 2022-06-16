@@ -1,4 +1,4 @@
-import { countriesObject, timezones } from '$lib/molecules/timezones/server';
+import { countriesObject, timezones } from '$lib/molecules/time/timezones/server';
 import type { RequestHandler } from './__types/index';
 
 export const get: RequestHandler = async () => {

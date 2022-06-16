@@ -179,7 +179,7 @@
 {/if}
 
 <style lang="scss">
-	@import '../../styles/vars';
+	@import '../../../styles/vars';
 
 	.card.time {
 		display: flex;
