@@ -37,8 +37,6 @@
 </div>
 
 <style lang="scss">
-	@import '../../styles/vars';
-
 	p {
 		margin: 0;
 	}

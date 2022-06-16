@@ -45,8 +45,6 @@
 <Doormat />
 
 <style lang="scss">
-	@import '../lib/styles/vars';
-
 	.page {
 		min-height: 100vh;
 

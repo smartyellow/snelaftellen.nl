@@ -7,8 +7,6 @@
 <a class="cal-day" class:today {href}>{label}</a>
 
 <style lang="scss">
-	@import '../../styles/vars';
-
 	.cal-day {
 		padding: 2px;
 		border: 2px solid transparent;

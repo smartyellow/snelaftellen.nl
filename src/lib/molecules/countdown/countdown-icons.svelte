@@ -9,11 +9,11 @@
 </div>
 
 <style lang="scss">
-	@import '../../styles/vars';
 	.countdown-icons {
 		height: 50px;
 		flex-grow: 0;
 		flex-shrink: 1;
+
 		@media (max-width: 500px) {
 			display: none;
 		}

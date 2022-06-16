@@ -37,8 +37,6 @@
 </div>
 
 <style lang="scss">
-	@import '../../styles/vars';
-
 	table {
 		width: 100%;
 

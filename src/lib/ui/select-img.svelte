@@ -39,8 +39,6 @@
 </div>
 
 <style lang="scss">
-	@import '../styles/vars';
-
 	.imgselect {
 		display: grid;
 		gap: $padding-sm;

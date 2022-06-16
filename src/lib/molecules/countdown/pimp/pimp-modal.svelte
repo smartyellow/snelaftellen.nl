@@ -181,8 +181,6 @@
 </div>
 
 <style lang="scss">
-	@import '../../../styles/vars';
-
 	.pimp-modal {
 		:global(.modal .slot) {
 			padding: 0 !important;

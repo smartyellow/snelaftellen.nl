@@ -71,8 +71,6 @@
 {/if}
 
 <style lang="scss">
-	@import '../styles/vars';
-
 	.top {
 		.info {
 			float: right;

@@ -179,8 +179,6 @@
 {/if}
 
 <style lang="scss">
-	@import '../../../styles/vars';
-
 	.card.time {
 		display: flex;
 		flex-direction: column;

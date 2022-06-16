@@ -25,8 +25,6 @@
 </ins>
 
 <style lang="scss">
-	@import '../styles/vars';
-
 	ins {
 		display: flex;
 		border: 2px solid #808080;
@@ -37,6 +35,7 @@
 		font-family: Arial, sans-serif;
 		align-items: center;
 		gap: $padding-sm;
+
 		@media (max-width: 600px) {
 			flex-direction: column;
 		}

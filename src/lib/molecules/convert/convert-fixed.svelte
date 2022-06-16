@@ -53,8 +53,6 @@
 {/if}
 
 <style lang="scss">
-	@import '../../styles/vars';
-
 	select {
 		width: 100%;
 		font-size: 1.3rem;

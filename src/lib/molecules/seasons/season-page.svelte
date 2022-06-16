@@ -42,24 +42,27 @@
 </div>
 
 <style lang="scss">
-	@import '../../styles/vars';
 	.seasonpage {
 		.season {
 			display: flex;
 			gap: $padding * 2;
 			align-items: center;
 			margin-bottom: $padding;
+
 			p {
 				margin: 0;
 			}
+
 			img {
 				max-width: 5rem;
 				height: auto;
 			}
+
 			.name {
 				font-family: 'Sora', $font-base;
 				font-weight: 700;
 				width: 6rem;
+
 				:global(svg) {
 					vertical-align: middle;
 				}

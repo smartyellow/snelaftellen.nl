@@ -21,8 +21,6 @@
 </Modal>
 
 <style lang="scss">
-	@import '../../styles/vars';
-
 	$_size: 1.8rem;
 
 	a {

@@ -97,8 +97,6 @@
 {/if}
 
 <style lang="scss">
-	@import '../../styles/vars';
-
 	.desc {
 		font-size: 1.5rem;
 		margin-bottom: $padding-sm;

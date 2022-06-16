@@ -3,7 +3,6 @@
 <a href="/aftellen" class="skip-link" sveltekit:prefetch> Aftellen </a>
 
 <style lang="scss">
-	@import '../styles/vars';
 	.skip-link {
 		background: $accent-light;
 		color: $light;
@@ -14,6 +13,7 @@
 		transform: translateY(-100%);
 		font-size: 1.5rem;
 		transition: transform 0.3s ease-in-out;
+
 		&:focus {
 			transform: translateY(0%);
 		}

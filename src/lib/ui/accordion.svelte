@@ -37,8 +37,6 @@
 </div>
 
 <style lang="scss">
-	@import '../styles/vars';
-
 	.accordion {
 		margin-bottom: $padding;
 		border: 1px solid #000;

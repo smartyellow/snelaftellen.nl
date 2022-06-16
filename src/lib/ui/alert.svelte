@@ -10,8 +10,6 @@
 </div>
 
 <style lang="scss">
-	@import '../styles/vars';
-
 	.alert {
 		display: flex;
 		gap: $padding;

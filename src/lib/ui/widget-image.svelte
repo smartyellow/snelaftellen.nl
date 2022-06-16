@@ -20,7 +20,6 @@
 </div>
 
 <style lang="scss">
-	@import '../styles/vars';
 	div.wrapper {
 		padding: $padding;
 		border-radius: $radius;
@@ -32,21 +31,26 @@
 		background-repeat: no-repeat;
 		box-shadow: $shadow;
 		min-height: 10rem;
+
 		&.overlay {
 			box-shadow: $shadow $dark, inset 0 0 0 2000px rgba(0, 0, 0, 0.4);
 			color: $light;
 		}
+
 		.slot {
 			&.top {
 				margin-bottom: auto;
 			}
+
 			&.bottom {
 				margin-top: auto;
 			}
 		}
+
 		:global(:first-child) {
 			margin-top: 0;
 		}
+
 		:global(:last-child) {
 			margin-bottom: 0;
 		}

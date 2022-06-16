@@ -7,8 +7,6 @@
 </nav>
 
 <style lang="scss">
-	@import '../styles/vars';
-
 	.verticalnav {
 		padding: $padding;
 

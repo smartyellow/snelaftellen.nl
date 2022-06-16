@@ -28,8 +28,6 @@
 {/if}
 
 <style lang="scss">
-	@import '../styles/vars';
-
 	.outer {
 		position: fixed;
 		display: flex;

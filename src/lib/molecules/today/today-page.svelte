@@ -78,8 +78,6 @@
 </div>
 
 <style lang="scss">
-	@import '../../styles/vars';
-
 	.event-date {
 		text-align: center;
 		font-size: 2.5rem;

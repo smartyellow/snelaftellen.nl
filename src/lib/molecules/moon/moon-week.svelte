@@ -28,8 +28,6 @@
 </div>
 
 <style lang="scss">
-	@import '../../styles/vars';
-
 	.week {
 		display: flex;
 		justify-content: space-between;

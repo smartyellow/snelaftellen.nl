@@ -93,8 +93,6 @@
 </div>
 
 <style lang="scss">
-	@import '../../lib/styles/vars';
-
 	input[name="captcha"] {
 		width: 100px;
 		font-family: monospace;

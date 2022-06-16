@@ -56,8 +56,6 @@
 </div>
 
 <style lang="scss">
-	@import '../../styles/vars';
-
 	.moon {
 		:global(div:not(:last-child)) {
 			margin-bottom: $padding;

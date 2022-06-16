@@ -20,8 +20,6 @@
 </LayoutBase>
 
 <style lang="scss">
-	@import '../lib/styles/vars';
-
 	div {
 		text-align: center;
 		background-color: $yellow;

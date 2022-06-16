@@ -40,8 +40,6 @@
 </main>
 
 <style lang="scss">
-	@import '../../lib/styles/vars';
-
 	.account {
 		display: grid;
 		gap: $padding;

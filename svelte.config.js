@@ -12,8 +12,11 @@ const config = {
 	preprocess: [
 		preprocess({
 			postcss: {
-				plugins: [ autoprefixer() ]
-			}
+				plugins: [ autoprefixer() ],
+			},
+			scss: {
+				prependData: `@import 'src/lib/styles/vars.scss';`,
+			},
 		}),
 		mdsvex({ extensions: [ '.md' ] }),
 	],

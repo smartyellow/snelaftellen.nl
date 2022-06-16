@@ -27,8 +27,6 @@
 </div>
 
 <style lang="scss">
-	@import '../../lib/styles/vars';
-
 	.user-welcome {
 		display: flex;
 		gap: $padding;

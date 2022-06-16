@@ -40,8 +40,6 @@
 </header>
 
 <style lang="scss">
-	@import '../styles/vars';
-
 	.brand {
 		padding: 1.4rem $padding;
 		margin: 0;

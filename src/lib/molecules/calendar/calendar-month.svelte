@@ -63,8 +63,6 @@
 </div>
 
 <style lang="scss">
-	@import '../../styles/vars';
-
 	.cal-month {
 		border: 1px solid #000;
 		border-bottom-width: 2px;

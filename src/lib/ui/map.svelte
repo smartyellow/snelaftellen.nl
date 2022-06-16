@@ -30,8 +30,6 @@
 ></div>
 
 <style lang="scss">
-	@import '../styles/vars';
-
 	.map {
 		:global {
 			.leaflet-popup-content-wrapper,

@@ -40,8 +40,6 @@
 </div>
 
 <style lang="scss">
-	@import '../../styles/vars';
-
 	.today {
 		display: flex;
 		align-items: center;
