@@ -14,6 +14,7 @@
 	import { icon } from '$lib/ui/map';
 	import Map from '$lib/ui/map.svelte';
 	import Alert from '$lib/ui/alert.svelte';
+	import ClockAnalogue from '../clock/clock-analogue.svelte';
 
 	export let timezone: Timezone;
 	export let countries: Country[];
@@ -53,7 +54,7 @@
 <div class="grid-50">
 	<div class="card time">
 		<h2>Huidige tijd</h2>
-		<div>
+		<div class="clock">
 			<div>
 				<div class="date">
 					<a href="/vandaag">
@@ -65,6 +66,8 @@
 				})}</div>
 			</div>
 		</div>
+
+		<ClockAnalogue {date} />
 	</div>
 
 	{#if mapAvailable}
@@ -90,26 +93,6 @@
 	<dt>Huidige tijdzone</dt>
 	<dd>{formatUTCOffset(offset)}, {abbreviation}</dd>
 </dl>
-<!--<table class="table">
-	<tbody>
-		<tr>
-			<th>ID</th>
-			<td>{timezone._id}</td>
-		</tr>
-		<tr>
-			<th>Plaats</th>
-			<td>{timezone.place}</td>
-		</tr>
-		<tr>
-			<th>Continent</th>
-			<td>{translateContinentName(timezone.continent)}</td>
-		</tr>
-		<tr>
-			<th>UTC-verschil</th>
-			<td>{offset}</td>
-		</tr>
-	</tbody>
-</table>-->
 
 <h2>UTC-verschil</h2>
 <p>

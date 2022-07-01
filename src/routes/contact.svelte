@@ -18,5 +18,5 @@
 
 <p>
 	PS. Ben je benieuwd hoe SnelAftellen.nl van binnen werkt? Kijk even op de
-	<a href="/over" sveltekit:prefetch>Over-pagina</a>!
+	<a href="/over">Over-pagina</a>!
 </p>

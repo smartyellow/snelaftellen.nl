@@ -48,7 +48,7 @@
 			showYear={true}
 		/>
 		<p>
-			<a href="/kalender/{date.getFullYear()}" sveltekit:prefetch>
+			<a href="/kalender/{date.getFullYear()}">
 				Bekijk de volledige kalender van {date.getFullYear()}.
 			</a>
 		</p>

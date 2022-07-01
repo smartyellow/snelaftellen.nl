@@ -2,7 +2,7 @@
 	import { titleDivider } from '$lib/constants';
 	import type { Country, Timezone } from '$lib/molecules/time/timezones/helpers';
 	import Meta from '$lib/layout/meta.svelte';
-	import TimezonePage from '$lib/molecules/time/timezone-page.svelte';
+	import TimezonePage from '$lib/molecules/time/timezones/timezone-page.svelte';
 
 	export let timezone: Timezone;
 	export let countries: Country[];
