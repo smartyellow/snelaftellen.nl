@@ -32,21 +32,21 @@
 <div class="grid-50">
 	<WidgetDate
 		title="Zomervakantie Noord"
-		date={new Date(2022, 5, 16)}
+		date={new Date(2022, 6, 16)}
 		image="/img/events/zomervakantie-1.webp"
 		description="Lekker lang op vakantie!"
 		calendarPimpOptions={{ img: 'vacation' }}
 	/>
 	<WidgetDate
 		title="Zomervakantie Midden"
-		date={new Date(2022, 5, 9)}
+		date={new Date(2022, 6, 9)}
 		image="/img/events/zomervakantie-2.webp"
 		description="Of gewoon thuisblijven."
 		calendarPimpOptions={{ img: 'vacation' }}
 	/>
 	<WidgetDate
 		title="Zomervakantie Zuid"
-		date={new Date(2022, 5, 23)}
+		date={new Date(2022, 6, 23)}
 		image="/img/events/zomervakantie-3.webp"
 		description="Geniet van je vakantie"
 		calendarPimpOptions={{ img: 'vacation' }}
