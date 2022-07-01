@@ -59,7 +59,7 @@
 	<WidgetIcon>
 		<svelte:fragment slot="icon">{@html iconCalendar}</svelte:fragment>
 		<span slot="label">
-			<a href="/aftellen" sveltekit:prefetch>Tel af</a>
+			<a href="/aftellen">Tel af</a>
 			naar welke datum dan ook
 		</span>
 	</WidgetIcon>
@@ -67,7 +67,7 @@
 	<WidgetIcon>
 		<svelte:fragment slot="icon">{@html iconDesign}</svelte:fragment>
 		<span slot="label">
-			<a href="/aftellen" sveltekit:prefetch> Pimp je aftelkalender </a>
+			<a href="/aftellen"> Pimp je aftelkalender </a>
 			met kleuren en plaatjes
 		</span>
 	</WidgetIcon>
@@ -75,7 +75,7 @@
 	<WidgetIcon>
 		<svelte:fragment slot="icon">{@html iconList}</svelte:fragment>
 		<span slot="label">
-			<a href="/kalender" sveltekit:prefetch> Bekijk de jaarkalender </a>
+			<a href="/kalender"> Bekijk de jaarkalender </a>
 			van elk jaar dat je wil
 		</span>
 	</WidgetIcon>
@@ -83,7 +83,7 @@
 	<WidgetIcon>
 		<svelte:fragment slot="icon">{@html iconMoon}</svelte:fragment>
 		<span slot="label">
-			<a href="/aftellen" sveltekit:prefetch> Bekijk de maanstand </a>
+			<a href="/aftellen"> Bekijk de maanstand </a>
 			op welke dag dan ook
 		</span>
 	</WidgetIcon>
@@ -91,7 +91,7 @@
 	<WidgetIcon>
 		<svelte:fragment slot="icon">{@html iconShare}</svelte:fragment>
 		<span slot="label">
-			<a href="/aftellen" sveltekit:prefetch> Deel je kalenders </a>
+			<a href="/aftellen"> Deel je kalenders </a>
 			met iedereen
 		</span>
 	</WidgetIcon>
@@ -100,7 +100,7 @@
 		<svelte:fragment slot="icon">{@html iconSettings}</svelte:fragment>
 		<span slot="label">
 			Lees hoe het
-			<a href="/over" sveltekit:prefetch> aan de binnenkant </a>
+			<a href="/over"> aan de binnenkant </a>
 			werkt
 		</span>
 	</WidgetIcon>
@@ -110,5 +110,5 @@
 
 <p>
 	Heb je vragen, opmerkingen en/of suggesties voor deze website?
-	<a sveltekit:prefetch href="/contact">Neem contact op!</a>
+	<a href="/contact">Neem contact op!</a>
 </p>

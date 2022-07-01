@@ -32,10 +32,10 @@
 <h2>Help!</h2>
 
 <Accordion title="Is er een jaarkalender?" icon={iconCalendar}>
-	<p>Jazeker, <a href="/kalender" sveltekit:prefetch>hier</a>.</p>
+	<p>Jazeker, <a href="/kalender">hier</a>.</p>
 
 	<p>
-		<a href="/kalender" sveltekit:prefetch
+		<a href="/kalender"
 			><img
 				src="/img/about/calendar.png"
 				alt="Handige jaarkalender voor elk jaar."

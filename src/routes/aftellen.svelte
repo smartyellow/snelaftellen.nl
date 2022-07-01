@@ -57,12 +57,12 @@
 
 <p>
 	Gebruik {optionDesignation} hieronder. Ben je benieuwd hoe het werkt? Lees het
-	<a href="/over" sveltekit:prefetch>hier</a>!
+	<a href="/over">hier</a>!
 </p>
 
 <p>
 	<span class="btn-desc">of gebruik de</span>
-	<a href="/kalender" class="btn" sveltekit:prefetch>
+	<a href="/kalender" class="btn">
 		{@html iconCalendar} Jaarkalender
 	</a>
 </p>
@@ -70,7 +70,7 @@
 <div class="grid-50">
 	{#if visible('datum')}
 		<div class="card">
-			<a sveltekit:prefetch href="/datum">
+			<a href="/datum">
 				<img src="/img/countdown/types/date.webp" alt="" />
 				<h2>Tel af naar een datum</h2>
 			</a>
@@ -88,7 +88,7 @@
 
 	{#if visible('week')}
 		<div class="card">
-			<a sveltekit:prefetch href="/week">
+			<a href="/week">
 				<img src="/img/countdown/types/week.webp" alt="" />
 				<h2>Tel af naar een week</h2>
 			</a>
@@ -106,7 +106,7 @@
 
 	{#if visible('seizoen')}
 		<div class="card">
-			<a sveltekit:prefetch href="/seizoen">
+			<a href="/seizoen">
 				<img src="/img/countdown/types/season.webp" alt="" />
 				<h2>Tel af naar een seizoen</h2>
 			</a>

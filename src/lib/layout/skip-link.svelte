@@ -1,6 +1,6 @@
 <a href="#content" class="skip-link"> Overslaan naar de inhoud </a>
 
-<a href="/aftellen" class="skip-link" sveltekit:prefetch> Aftellen </a>
+<a href="/aftellen" class="skip-link"> Aftellen </a>
 
 <style lang="scss">
 	@import '../styles/vars';

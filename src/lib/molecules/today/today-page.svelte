@@ -33,7 +33,7 @@
 <div class="grid-50">
 	<div class="card">
 		<h2>
-			<a href="/kalender" sveltekit:prefetch>Kalender</a>
+			<a href="/kalender">Kalender</a>
 			{months[date.getMonth()]}
 			{date.getFullYear()}
 		</h2>
@@ -46,7 +46,7 @@
 		/>
 
 		<p>
-			<a href="/kalender" sveltekit:prefetch>
+			<a href="/kalender">
 				Bekijk de volledige kalender van {date.getFullYear()}
 			</a>
 		</p>

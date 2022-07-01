@@ -12,7 +12,7 @@
 	beforeNavigate(close);
 </script>
 
-<a sveltekit:prefetch href="/aftellen" class="btn raised" on:click|preventDefault={open}>
+<a href="/aftellen" class="btn raised" on:click|preventDefault={open}>
 	{@html iconCalendar} Aftellen!
 </a>
 
