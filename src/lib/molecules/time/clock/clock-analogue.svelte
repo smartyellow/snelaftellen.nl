@@ -1,28 +1,33 @@
 <script lang="ts">
-	import { onMount } from "svelte";
-	import { writable } from "svelte/store";
-	import type { TimeStore } from "./helpers";
+	import { onMount } from 'svelte';
+	import type { TimeStore } from './helpers';
 
 	export let offset = 120; // minutes
 
-	const s = writable<TimeStore>({
+	let s: TimeStore = {
 		epoch: 0,
 		hr: 0,
 		min: 0,
 		sec: 0,
-	});
+	};
+	let deg: Partial<TimeStore> = {
+		hr: 0,
+		min: 0,
+		sec: 0,
+	};
 
 	function refresh() {
-		$s.epoch = new Date().getTime() + offset * 60_000;
-		$s.hr = $s.epoch / 60_000;
-		$s.min = $s.hr / 60;
-		$s.sec = $s.min / 60;
-		$s = $s;
-	}
+		s.epoch = new Date().getTime() + offset * 60_000;
+		s.hr = s.epoch / 60_000;
+		s.min = s.hr / 60;
+		s.sec = s.min / 60;
+		s = s;
 
-	const calcHrDeg = (s: TimeStore) => (s.hr * 30 + s.min / 2) % 90;
-	const calcMinDeg = (s: TimeStore) => (s.min * 6 + s.sec / 10) % 90;
-	const calcSecDeg = (s: TimeStore) => (s.sec * 6) % 90;
+		deg.hr = ((s.hr / 12) * 360) + ((s.min / 60) * 30) + 90;
+		deg.min = ((s.min / 60) * 360) + ((s.sec / 60) * 6) + 90;
+		deg.sec = ((s.sec / 60) * 360) + 90;
+		deg = deg;
+	}
 
 	refresh();
 	onMount(() => {
@@ -44,9 +49,9 @@
 
 	<div class="middle"></div>
 
-	<div class="hand-hr" style:transform="rotate({calcHrDeg($s) - 90}deg)"></div>
-	<div class="hand-min" style:transform="rotate({calcMinDeg($s) - 90}deg)"></div>
-	<div class="hand-sec" style:transform="rotate({calcSecDeg($s) - 90}deg)"></div>
+	<div class="hand-hr" style:transform="rotate({deg.hr}deg)"></div>
+	<div class="hand-min" style:transform="rotate({deg.min}deg)"></div>
+	<div class="hand-sec" style:transform="rotate({deg.sec}deg)"></div>
 </div>
 
 <style lang="scss">
