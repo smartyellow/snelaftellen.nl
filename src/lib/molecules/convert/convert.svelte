@@ -120,4 +120,9 @@
 			margin: 0 1rem;
 		}
 	}
+
+	@media (max-width: 1200px) {
+		.desc { margin-bottom: 0; }
+		input, select { margin-top: 0; }
+	}
 </style>
