@@ -27,7 +27,7 @@
 				], {
 					icon: icon(L),
 				}).addTo(map).bindPopup(`
-					<a href="/tijdzones/${tz.place.toLowerCase()}"><strong>
+					<a href="/tijdzones/${tz._id.toLowerCase()}"><strong>
 						${tz.place}, ${translateContinentName(tz.continent)}
 					</strong></a> <br /><br />
 					Huidige tijd: ${time} <br />
