@@ -93,7 +93,7 @@
 	</div>
 
 	<div class="card">
-		<h2>{Math.abs(difference)} dagen omrekenen</h2>
+		<h2>Exacte periode omrekenen</h2>
 		<ConvertFixed
 			from="milliseconds"
 			input={Math.abs(today.getTime() - countdown.countTo.getTime())}
