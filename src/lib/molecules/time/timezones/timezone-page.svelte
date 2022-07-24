@@ -14,7 +14,7 @@
 	import { icon } from '$lib/ui/map';
 	import Map from '$lib/ui/map.svelte';
 	import Alert from '$lib/ui/alert.svelte';
-	import ClockAnalogue from '../clock/clock-analogue.svelte';
+	//import ClockAnalogue from '../clock/clock-analogue.svelte';
 
 	export let timezone: Timezone;
 	export let countries: Country[];
@@ -67,7 +67,7 @@
 			</div>
 		</div>
 
-		<ClockAnalogue {date} />
+		<!--<ClockAnalogue {date} />-->
 	</div>
 
 	{#if mapAvailable}
